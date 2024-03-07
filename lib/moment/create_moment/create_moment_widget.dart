@@ -880,6 +880,8 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                               .set(createMomentsRecordData(
                                             title: _model.textController1.text,
                                             notes: _model.textController2.text,
+                                            imgUrl: _model.imgFile,
+                                            audioUrl: _model.audioFile,
                                           ));
 
                                           context.goNamed(

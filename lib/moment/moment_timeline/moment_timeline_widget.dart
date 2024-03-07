@@ -220,7 +220,18 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                               size: 24.0,
                                             ),
                                             onPressed: () async {
-                                              context.pushNamed('createMoment');
+                                              context.pushNamed(
+                                                'createMoment',
+                                                queryParameters: {
+                                                  'memories': serializeParam(
+                                                    widget.memories,
+                                                    ParamType.Document,
+                                                  ),
+                                                }.withoutNulls,
+                                                extra: <String, dynamic>{
+                                                  'memories': widget.memories,
+                                                },
+                                              );
                                             },
                                           ),
                                         ),
