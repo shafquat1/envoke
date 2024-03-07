@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/widgets/nfc_scan_tag/nfc_scan_tag_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'splash_screen_model.dart';
 export 'splash_screen_model.dart';
@@ -52,7 +53,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              SizedBox(
+              Container(
                 width: MediaQuery.sizeOf(context).width * 1.0,
                 height: MediaQuery.sizeOf(context).height * 1.0,
                 child: Stack(
@@ -67,7 +68,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.12, 0.92),
+                      alignment: AlignmentDirectional(0.12, 0.92),
                       child: FFButtonWidget(
                         onPressed: () async {
                           await showModalBottomSheet(
@@ -84,10 +85,10 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                     : FocusScope.of(context).unfocus(),
                                 child: Padding(
                                   padding: MediaQuery.viewInsetsOf(context),
-                                  child: SizedBox(
+                                  child: Container(
                                     height:
                                         MediaQuery.sizeOf(context).height * 0.5,
-                                    child: const NfcScanTagWidget(),
+                                    child: NfcScanTagWidget(),
                                   ),
                                 ),
                               );
@@ -98,11 +99,11 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 0.85,
                           height: 55.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: const Color(0xFF212121),
+                          color: Color(0xFF212121),
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Inter',
@@ -111,40 +112,11 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                     fontWeight: FontWeight.bold,
                                   ),
                           elevation: 3.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Colors.transparent,
                             width: 1.0,
                           ),
                           borderRadius: BorderRadius.circular(12.0),
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: const AlignmentDirectional(0.0, 1.0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          context.pushNamed('LoginPage');
-                        },
-                        text: 'Button',
-                        options: FFButtonOptions(
-                          height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Istanbul type',
-                                    color: Colors.white,
-                                    useGoogleFonts: false,
-                                  ),
-                          elevation: 3.0,
-                          borderSide: const BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
                     ),
