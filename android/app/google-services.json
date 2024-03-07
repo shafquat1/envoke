@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "406660215478",
+    "project_id": "envoke-7dtyz3",
+    "storage_bucket": "envoke-7dtyz3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406660215478:android:9e9a0133dbc1161cfe2c17",
+        "android_client_info": {
+          "package_name": "com.mycompany.envoke"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgA8tYNE_SvIflHFmmuIM83HQ6gtqibAs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
