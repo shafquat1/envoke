@@ -3,10 +3,8 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'signup_page_model.dart';
 export 'signup_page_model.dart';
 
@@ -49,8 +47,6 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -64,7 +60,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Container(
+              SizedBox(
                 height: MediaQuery.sizeOf(context).height * 1.0,
                 child: Stack(
                   children: [
@@ -84,7 +80,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                           child: Container(
                             width: double.infinity,
                             height: double.infinity,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Colors.black,
                             ),
                           ),
@@ -92,9 +88,9 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                       ],
                     ),
                     Align(
-                      alignment: AlignmentDirectional(-0.06, -0.7),
+                      alignment: const AlignmentDirectional(-0.06, -0.7),
                       child: Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(8.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.asset(
@@ -107,18 +103,17 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 1.0),
+                      alignment: const AlignmentDirectional(0.0, 1.0),
                       child: Padding(
-                        padding: EdgeInsets.all(14.0),
+                        padding: const EdgeInsets.all(14.0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.9,
-                          height: 575.0,
                           decoration: BoxDecoration(
-                            color: Color(0xFF1C1C1C),
+                            color: const Color(0xFF1C1C1C),
                             borderRadius: BorderRadius.circular(20.0),
                           ),
                           child: Padding(
-                            padding: EdgeInsets.all(22.0),
+                            padding: const EdgeInsets.all(22.0),
                             child: SingleChildScrollView(
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -142,13 +137,13 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
-                                          color: Color(0xFF828282),
+                                          color: const Color(0xFF828282),
                                           fontSize: 20.0,
                                           fontWeight: FontWeight.w500,
                                         ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 20.0, 0.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.textController1,
@@ -161,12 +156,12 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Inter',
-                                              color: Color(0xFF5A5A5A),
+                                              color: const Color(0xFF5A5A5A),
                                               fontSize: 16.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                         enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Color(0xFF2F2F2F),
                                             width: 2.0,
                                           ),
@@ -174,7 +169,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                               BorderRadius.circular(10.0),
                                         ),
                                         focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Color(0xFF2F2F2F),
                                             width: 2.0,
                                           ),
@@ -200,8 +195,8 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                               BorderRadius.circular(10.0),
                                         ),
                                         filled: true,
-                                        fillColor: Color(0xFF2F2F2F),
-                                        prefixIcon: Icon(
+                                        fillColor: const Color(0xFF2F2F2F),
+                                        prefixIcon: const Icon(
                                           Icons.person_outline_sharp,
                                           color: Color(0xFF5A5A5A),
                                         ),
@@ -231,12 +226,12 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Inter',
-                                            color: Color(0xFF5A5A5A),
+                                            color: const Color(0xFF5A5A5A),
                                             fontSize: 16.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFF2F2F2F),
                                           width: 2.0,
                                         ),
@@ -244,7 +239,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                             BorderRadius.circular(10.0),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFF2F2F2F),
                                           width: 2.0,
                                         ),
@@ -270,8 +265,8 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                             BorderRadius.circular(10.0),
                                       ),
                                       filled: true,
-                                      fillColor: Color(0xFF2F2F2F),
-                                      prefixIcon: Icon(
+                                      fillColor: const Color(0xFF2F2F2F),
+                                      prefixIcon: const Icon(
                                         Icons.person_outline_sharp,
                                         color: Color(0xFF5A5A5A),
                                       ),
@@ -300,12 +295,12 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Inter',
-                                            color: Color(0xFF5A5A5A),
+                                            color: const Color(0xFF5A5A5A),
                                             fontSize: 16.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFF2F2F2F),
                                           width: 2.0,
                                         ),
@@ -313,7 +308,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                             BorderRadius.circular(10.0),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFF2F2F2F),
                                           width: 2.0,
                                         ),
@@ -339,8 +334,8 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                             BorderRadius.circular(10.0),
                                       ),
                                       filled: true,
-                                      fillColor: Color(0xFF2F2F2F),
-                                      prefixIcon: Icon(
+                                      fillColor: const Color(0xFF2F2F2F),
+                                      prefixIcon: const Icon(
                                         Icons.person_outline_sharp,
                                         color: Color(0xFF5A5A5A),
                                       ),
@@ -370,12 +365,12 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Inter',
-                                            color: Color(0xFF5A5A5A),
+                                            color: const Color(0xFF5A5A5A),
                                             fontSize: 16.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFF2F2F2F),
                                           width: 2.0,
                                         ),
@@ -383,7 +378,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                             BorderRadius.circular(10.0),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFF2F2F2F),
                                           width: 2.0,
                                         ),
@@ -409,8 +404,8 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                             BorderRadius.circular(10.0),
                                       ),
                                       filled: true,
-                                      fillColor: Color(0xFF2F2F2F),
-                                      prefixIcon: Icon(
+                                      fillColor: const Color(0xFF2F2F2F),
+                                      prefixIcon: const Icon(
                                         Icons.lock_outlined,
                                         color: Color(0xFF5A5A5A),
                                       ),
@@ -425,7 +420,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                           _model.passwordVisibility
                                               ? Icons.visibility_outlined
                                               : Icons.visibility_off_outlined,
-                                          color: Color(0xFF5A5A5A),
+                                          color: const Color(0xFF5A5A5A),
                                           size: 22,
                                         ),
                                       ),
@@ -461,7 +456,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                             ),
                                           ),
                                           unselectedWidgetColor:
-                                              Color(0xFF828282),
+                                              const Color(0xFF828282),
                                         ),
                                         child: Checkbox(
                                           value: _model.checkboxValue1 ??=
@@ -470,14 +465,14 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                             setState(() => _model
                                                 .checkboxValue1 = newValue!);
                                           },
-                                          activeColor: Color(0xFF828282),
+                                          activeColor: const Color(0xFF828282),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
                                         ),
                                       ),
                                       RichText(
-                                        textScaleFactor: MediaQuery.of(context)
-                                            .textScaleFactor,
+                                        textScaler:
+                                            MediaQuery.of(context).textScaler,
                                         text: TextSpan(
                                           children: [
                                             TextSpan(
@@ -487,7 +482,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Inter',
-                                                    color: Color(0xFF828282),
+                                                    color: const Color(0xFF828282),
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                             ),
@@ -532,7 +527,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Inter',
-                                                color: Color(0xFF828282),
+                                                color: const Color(0xFF828282),
                                                 fontWeight: FontWeight.w500,
                                               ),
                                         ),
@@ -556,7 +551,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                             ),
                                           ),
                                           unselectedWidgetColor:
-                                              Color(0xFF828282),
+                                              const Color(0xFF828282),
                                         ),
                                         child: Checkbox(
                                           value: _model.checkboxValue2 ??=
@@ -565,7 +560,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                             setState(() => _model
                                                 .checkboxValue2 = newValue!);
                                           },
-                                          activeColor: Color(0xFF828282),
+                                          activeColor: const Color(0xFF828282),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
                                         ),
@@ -576,16 +571,16 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Inter',
-                                              color: Color(0xFF828282),
+                                              color: const Color(0xFF828282),
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
                                     ],
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.12, 0.92),
+                                    alignment: const AlignmentDirectional(0.12, 0.92),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 10.0, 0.0, 0.0),
                                       child: FFButtonWidget(
                                         onPressed: !_model.checkboxValue1!
@@ -627,10 +622,11 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                           .textController1.text,
                                                       lastName: _model
                                                           .textController2.text,
+                                                      nfcId:
+                                                          FFAppState().nfcTag,
                                                     ));
 
-                                                context.goNamedAuth(
-                                                    'MemoriesTimeline',
+                                                context.goNamedAuth('LoginPage',
                                                     context.mounted);
                                               },
                                         text: 'Signup',
@@ -640,10 +636,10 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                   0.85,
                                           height: 55.0,
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   24.0, 0.0, 24.0, 0.0),
                                           iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: Colors.black,
                                           textStyle:
@@ -656,7 +652,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                           elevation: 3.0,
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Colors.transparent,
                                             width: 1.0,
                                           ),
@@ -666,46 +662,10 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                       ),
                                     ),
                                   ),
-                                ].divide(SizedBox(height: 10.0)),
+                                ].divide(const SizedBox(height: 10.0)),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: AlignmentDirectional(-0.95, -0.95),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          context.safePop();
-                        },
-                        text: '',
-                        icon: Icon(
-                          Icons.chevron_left,
-                          color: Colors.black,
-                          size: 15.0,
-                        ),
-                        options: FFButtonOptions(
-                          width: 40.0,
-                          height: 40.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              5.0, 0.0, 0.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Istanbul type',
-                                    color: Colors.white,
-                                    useGoogleFonts: false,
-                                  ),
-                          elevation: 3.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
                     ),

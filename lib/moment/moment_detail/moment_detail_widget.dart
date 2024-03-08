@@ -2,11 +2,8 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_audio_player.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'moment_detail_model.dart';
 export 'moment_detail_model.dart';
 
@@ -44,8 +41,6 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -56,7 +51,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
         body: SafeArea(
           top: true,
           child: Stack(
-            alignment: AlignmentDirectional(0.0, -1.0),
+            alignment: const AlignmentDirectional(0.0, -1.0),
             children: [
               Opacity(
                 opacity: 0.8,
@@ -76,19 +71,19 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(10.0, 0.0),
+                    alignment: const AlignmentDirectional(10.0, 0.0),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(-1.0, -1.0),
+                            alignment: const AlignmentDirectional(-1.0, -1.0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   15.0, 0.0, 0.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -105,7 +100,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                     width: 30.0,
                                     height: 15.0,
                                     fit: BoxFit.cover,
-                                    alignment: Alignment(-1.0, -1.0),
+                                    alignment: const Alignment(-1.0, -1.0),
                                   ),
                                 ),
                               ),
@@ -129,9 +124,9 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                       ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 5.0, 0.0, 0.0),
                                     child: Text(
                                       dateTimeFormat('d MMMM y',
@@ -157,10 +152,10 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 50.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 50.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -168,7 +163,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   20.0, 0.0, 0.0, 10.0),
                               child: Text(
                                 widget.moments!.title,
@@ -185,7 +180,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   20.0, 0.0, 0.0, 10.0),
                               child: Text(
                                 widget.moments!.notes,
@@ -202,7 +197,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                             if (widget.moments?.audioUrl != null &&
                                 widget.moments?.audioUrl != '')
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 20.0, 20.0, 0.0),
                                 child: Container(
                                   height: 100.0,
@@ -215,9 +210,9 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                     ),
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           10.0, 5.0, 10.0, 5.0),
                                       child: FlutterFlowAudioPlayer(
                                         audio: Audio.network(
