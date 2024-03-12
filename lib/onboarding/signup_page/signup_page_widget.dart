@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'signup_page_model.dart';
 export 'signup_page_model.dart';
 
@@ -47,6 +48,8 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -624,6 +627,15 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                           .textController2.text,
                                                       nfcId:
                                                           FFAppState().nfcTag,
+                                                    ));
+
+                                                await NfcDataRecord.collection
+                                                    .doc()
+                                                    .set(
+                                                        createNfcDataRecordData(
+                                                      nfcId:
+                                                          FFAppState().nfcTag,
+                                                      userId: currentUserUid,
                                                     ));
 
                                                 context.goNamedAuth('LoginPage',

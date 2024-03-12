@@ -1,7 +1,8 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/custom_code/actions/index.dart' as actions;
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
@@ -32,14 +33,33 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (FFAppState().nfcTag == '') {
-        await actions.nfcScan();
-        if (FFAppState().nfcTag != '') {
-          context.goNamed('SignupPage');
+        setState(() {
+          FFAppState().nfcTag = 'AB12345';
+        });
+        _model.output2 = await queryNfcDataRecordOnce(
+          queryBuilder: (nfcDataRecord) => nfcDataRecord.where(
+            'nfcId',
+            isEqualTo: 'AB12345',
+          ),
+          singleRecord: true,
+        ).then((s) => s.firstOrNull);
+        if (_model.output2?.nfcId != null && _model.output2?.nfcId != '') {
+          if (FFAppState().nfcTag != '') {
+            context.goNamed('LoginPage');
+          } else {
+            return;
+          }
+
+          return;
         } else {
+          if (FFAppState().nfcTag != '') {
+            context.goNamed('SignupPage');
+          } else {
+            return;
+          }
+
           return;
         }
-
-        return;
       } else {
         return;
       }
@@ -92,7 +112,7 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
                 alignment: const AlignmentDirectional(-0.07, 0.83),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    context.safePop();
+                    context.pushNamed('SignupPage');
                   },
                   text: 'Cancel',
                   options: FFButtonOptions(
@@ -115,6 +135,16 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
                     ),
                     borderRadius: BorderRadius.circular(10.0),
                   ),
+                ),
+              ),
+              Align(
+                alignment: const AlignmentDirectional(0.0, -1.0),
+                child: Text(
+                  valueOrDefault<String>(
+                    _model.output2?.nfcId,
+                    'Hello world',
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
               ),
             ],
