@@ -2,6 +2,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -33,6 +34,7 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (FFAppState().nfcTag == '') {
+        await actions.nfcScan();
         setState(() {
           FFAppState().nfcTag = 'AB12345';
         });
@@ -135,16 +137,6 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
                     ),
                     borderRadius: BorderRadius.circular(10.0),
                   ),
-                ),
-              ),
-              Align(
-                alignment: const AlignmentDirectional(0.0, -1.0),
-                child: Text(
-                  valueOrDefault<String>(
-                    _model.output2?.nfcId,
-                    'Hello world',
-                  ),
-                  style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
               ),
             ],
