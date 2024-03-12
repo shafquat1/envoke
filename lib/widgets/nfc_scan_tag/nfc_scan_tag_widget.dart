@@ -112,7 +112,7 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
                 alignment: const AlignmentDirectional(-0.07, 0.83),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    context.pushNamed('SignupPage');
+                    context.safePop();
                   },
                   text: 'Cancel',
                   options: FFButtonOptions(
