@@ -35,13 +35,10 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (FFAppState().nfcTag == '') {
         await actions.nfcScan();
-        setState(() {
-          FFAppState().nfcTag = 'AB12345';
-        });
         _model.output2 = await queryNfcDataRecordOnce(
           queryBuilder: (nfcDataRecord) => nfcDataRecord.where(
             'nfcId',
-            isEqualTo: 'AB12345',
+            isEqualTo: FFAppState().nfcTag,
           ),
           singleRecord: true,
         ).then((s) => s.firstOrNull);
