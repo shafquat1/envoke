@@ -638,7 +638,8 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                       userId: currentUserUid,
                                                     ));
 
-                                                context.goNamedAuth('LoginPage',
+                                                context.goNamedAuth(
+                                                    'MemoriesTimeline',
                                                     context.mounted);
                                               },
                                         text: 'Signup',

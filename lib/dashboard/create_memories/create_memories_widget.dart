@@ -391,7 +391,6 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                     child: Image.network(
                                                       _model.uploadedFileUrl,
                                                       width: double.infinity,
-                                                      height: 100.0,
                                                       fit: BoxFit.contain,
                                                     ),
                                                   ),
