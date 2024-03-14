@@ -44,6 +44,20 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
         ).then((s) => s.firstOrNull);
         if (_model.output2?.nfcId != null && _model.output2?.nfcId != '') {
           if (FFAppState().nfcTag != '') {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  'Jwellery Already Registered With Another User. Please LogIn.',
+                  style: TextStyle(
+                    fontFamily: 'Istanbul type',
+                    color: FlutterFlowTheme.of(context).primaryText,
+                  ),
+                ),
+                duration: const Duration(milliseconds: 2000),
+                backgroundColor: FlutterFlowTheme.of(context).secondary,
+              ),
+            );
+
             context.goNamed('LoginPage');
           } else {
             return;
