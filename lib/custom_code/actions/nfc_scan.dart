@@ -21,12 +21,8 @@ Future<void> nfcScan() async {
   try {
     // Poll for the NFC tag
     NFCTag tag = await FlutterNfcKit.poll();
-
-    if (tag.ndefAvailable == false) {
-      updateNfcTagInAppState(appState, tag);
-    } else {
-      readNfcData(appState, tag);
-    }
+    updateNfcTagInAppState(appState, tag);
+    readNfcData(appState, tag);
   } catch (e) {
     print('Error scanning NFC tag: $e');
   }
@@ -46,13 +42,15 @@ Future<void> updateNfcTagInAppState(FFAppState appState, NFCTag? tag) async {
 }
 
 Future<void> readNfcData(FFAppState appState, NFCTag? tag) async {
-  for (var record in await FlutterNfcKit.readNDEFRecords(cached: false)) {
-    var nfcUserId = record.toString();
-    print(record.toString());
-    if (nfcUserId.isNotEmpty) {
-      appState.update(() {
-        appState.nfcUserId = nfcUserId;
-      });
+  if (tag?.ndefAvailable == true) {
+    for (var record in await FlutterNfcKit.readNDEFRecords(cached: false)) {
+      var nfcUserId = record.toString();
+      print(record.toString());
+      if (nfcUserId.isNotEmpty) {
+        appState.update(() {
+          appState.nfcUserId = nfcUserId;
+        });
+      }
     }
   }
 }
