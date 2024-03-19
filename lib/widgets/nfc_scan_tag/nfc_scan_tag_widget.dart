@@ -43,6 +43,8 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
           } else {
             context.goNamed('LoginPage');
           }
+
+          return;
         } else {
           _model.output2 = await queryNfcDataRecordOnce(
             queryBuilder: (nfcDataRecord) => nfcDataRecord.where(
