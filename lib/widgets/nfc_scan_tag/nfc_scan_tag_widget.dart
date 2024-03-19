@@ -162,10 +162,6 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
                   ),
                 ),
               ),
-              Text(
-                FFAppState().nfcUserId,
-                style: FlutterFlowTheme.of(context).bodyMedium,
-              ),
             ],
           ),
         ),
