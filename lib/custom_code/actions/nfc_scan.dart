@@ -21,13 +21,18 @@ Future<void> nfcScan() async {
   try {
     // Poll for the NFC tag
     NFCTag tag = await FlutterNfcKit.poll();
-    updateNfcTagInAppState(appState, tag);
+
+    if (tag.ndefAvailable!) {
+      readNfcData(appState, tag);
+    } else {
+      updateNfcTagInAppState(appState, tag);
+    }
   } catch (e) {
     print('Error scanning NFC tag: $e');
   }
 }
 
-void updateNfcTagInAppState(FFAppState appState, NFCTag? tag) {
+Future<void> updateNfcTagInAppState(FFAppState appState, NFCTag? tag) async {
   if (tag == null) {
     print('No NFC tag scanned.');
     return;
@@ -38,6 +43,18 @@ void updateNfcTagInAppState(FFAppState appState, NFCTag? tag) {
   appState.update(() {
     appState.nfcTag = currentTagId;
   });
+}
+
+Future<void> readNfcData(FFAppState appState, NFCTag? tag) async {
+  for (var record in await FlutterNfcKit.readNDEFRecords(cached: false)) {
+    var nfcUserId = record.toString();
+    print(record.toString());
+    if (nfcUserId.isNotEmpty) {
+      appState.update(() {
+        appState.nfcUserId = nfcUserId;
+      });
+    }
+  }
 }
 // Set your action name, define your arguments and return parameter,
 // and then add the boilerplate code using the green button on the right!

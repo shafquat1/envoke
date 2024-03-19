@@ -25,4 +25,10 @@ class FFAppState extends ChangeNotifier {
   set nfcTag(String value) {
     _nfcTag = value;
   }
+
+  String _nfcUserId = '';
+  String get nfcUserId => _nfcUserId;
+  set nfcUserId(String value) {
+    _nfcUserId = value;
+  }
 }
