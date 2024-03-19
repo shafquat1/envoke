@@ -22,10 +22,10 @@ Future<void> nfcScan() async {
     // Poll for the NFC tag
     NFCTag tag = await FlutterNfcKit.poll();
 
-    if (tag.ndefAvailable == true) {
-      readNfcData(appState, tag);
-    } else {
+    if (tag.ndefAvailable == false) {
       updateNfcTagInAppState(appState, tag);
+    } else {
+      readNfcData(appState, tag);
     }
   } catch (e) {
     print('Error scanning NFC tag: $e');
