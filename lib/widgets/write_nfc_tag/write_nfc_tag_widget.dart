@@ -34,6 +34,8 @@ class _WriteNfcTagWidgetState extends State<WriteNfcTagWidget> {
       await actions.writeNfcTag(
         currentUserUid,
       );
+
+      context.goNamed('MemoriesTimeline');
     });
   }
 

@@ -73,14 +73,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) => appStateNotifier.loggedIn
-          ? const MemoriesTimelineWidget()
+          ? const SplashScreenWidget()
           : const SplashScreenWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? const MemoriesTimelineWidget()
+              ? const SplashScreenWidget()
               : const SplashScreenWidget(),
         ),
         FFRoute(

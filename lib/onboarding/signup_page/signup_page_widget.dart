@@ -692,10 +692,6 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                     },
                                                   ).then((value) =>
                                                       safeSetState(() {}));
-
-                                                  context.goNamedAuth(
-                                                      'MemoriesTimeline',
-                                                      context.mounted);
                                                 },
                                           text: 'Signup',
                                           options: FFButtonOptions(
