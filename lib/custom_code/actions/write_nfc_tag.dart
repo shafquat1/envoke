@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 
 Future<void> writeNfcTag(String userId) async {
+  var appState = FFAppState();
+
   NfcManager.instance.startSession(onDiscovered: (NfcTag badge) async {
     var ndef = Ndef.from(badge);
 
@@ -25,7 +27,9 @@ Future<void> writeNfcTag(String userId) async {
             .stopSession(errorMessage: "Error while writing to badge");
       }
     }
-
+    appState.update(() {
+      appState.writeTag = true;
+    });
     NfcManager.instance.stopSession();
   });
 }

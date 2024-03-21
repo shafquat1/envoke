@@ -31,4 +31,10 @@ class FFAppState extends ChangeNotifier {
   set nfcUserId(String value) {
     _nfcUserId = value;
   }
+
+  bool _writeTag = false;
+  bool get writeTag => _writeTag;
+  set writeTag(bool value) {
+    _writeTag = value;
+  }
 }
