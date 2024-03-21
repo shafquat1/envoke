@@ -29,19 +29,3 @@ Future<void> writeNfcTag(String userId) async {
     NfcManager.instance.stopSession();
   });
 }
-// Future<void> writeNfcTag(String? userId) async {
-//   NFCAvailability availability;
-
-//   availability = await FlutterNfcKit.nfcAvailability;
-
-//   try {
-//     // Poll for the NFC tag
-//     NFCTag tag = await FlutterNfcKit.poll();
-
-//     if (tag.ndefWritable!) {
-//       await FlutterNfcKit.writeNDEFRecords([new ndef.TextRecord(text: userId)]);
-//     }
-//   } catch (e) {
-//     print('Error scanning NFC tag: $e');
-//   }
-// }

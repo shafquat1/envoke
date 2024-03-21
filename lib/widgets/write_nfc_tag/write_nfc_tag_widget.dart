@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -9,7 +8,12 @@ import 'write_nfc_tag_model.dart';
 export 'write_nfc_tag_model.dart';
 
 class WriteNfcTagWidget extends StatefulWidget {
-  const WriteNfcTagWidget({super.key});
+  const WriteNfcTagWidget({
+    super.key,
+    required this.userID,
+  });
+
+  final String? userID;
 
   @override
   State<WriteNfcTagWidget> createState() => _WriteNfcTagWidgetState();
@@ -32,10 +36,8 @@ class _WriteNfcTagWidgetState extends State<WriteNfcTagWidget> {
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await actions.writeNfcTag(
-        currentUserUid,
+        widget.userID!,
       );
-
-      context.goNamed('MemoriesTimeline');
     });
   }
 

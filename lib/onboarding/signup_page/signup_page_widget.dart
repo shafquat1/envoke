@@ -685,7 +685,10 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                                     .height *
                                                                 0.5,
                                                             child:
-                                                                const WriteNfcTagWidget(),
+                                                                WriteNfcTagWidget(
+                                                              userID:
+                                                                  currentUserUid,
+                                                            ),
                                                           ),
                                                         ),
                                                       );
