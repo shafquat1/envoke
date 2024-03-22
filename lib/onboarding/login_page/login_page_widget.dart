@@ -463,7 +463,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   }
 
                                                   context.goNamedAuth(
-                                                      'SplashScreen',
+                                                      'MemoriesTimeline',
                                                       context.mounted);
                                                 },
                                           text: 'Login',
