@@ -1,4 +1,3 @@
-import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -38,8 +37,14 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
       if (FFAppState().nfcTag == '') {
         await actions.nfcScan();
         if (FFAppState().nfcUserId != '') {
-          if (loggedIn) {
-            context.goNamed('MemoriesTimeline');
+          if (FFAppState().nfcUserId == currentUserUid) {
+            if (loggedIn) {
+              context.goNamed('MemoriesTimeline');
+            } else {
+              return;
+            }
+
+            return;
           } else {
             context.goNamed('LoginPage');
           }

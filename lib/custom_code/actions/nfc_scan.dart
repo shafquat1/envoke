@@ -44,8 +44,11 @@ Future<void> updateNfcTagInAppState(FFAppState appState, NFCTag? tag) async {
 Future<void> readNfcData(FFAppState appState, NFCTag? tag) async {
   if (tag?.ndefAvailable == true) {
     for (var record in await FlutterNfcKit.readNDEFRecords(cached: false)) {
-      var nfcUserId = record.toString();
-      print(record.toString());
+      var payload = record.toString().replaceAll(
+          'TextRecord: id=(empty) typeNameFormat=TypeNameFormat.nfcWellKnown type=T encoding=UTF-8 language=en text=',
+          '');
+      var nfcUserId = payload;
+      print(nfcUserId);
       if (nfcUserId.isNotEmpty) {
         appState.update(() {
           appState.nfcUserId = nfcUserId;

@@ -13,23 +13,26 @@ import 'package:nfc_manager/nfc_manager.dart';
 Future<void> writeNfcTag(String userId) async {
   var appState = FFAppState();
 
-  NfcManager.instance.startSession(onDiscovered: (NfcTag badge) async {
-    var ndef = Ndef.from(badge);
-
-    if (ndef != null && ndef.isWritable) {
-      NdefRecord ndefRecord = NdefRecord.createText(userId);
-      NdefMessage message = NdefMessage([ndefRecord]);
-
-      try {
-        await ndef.write(message);
-      } catch (e) {
-        NfcManager.instance
-            .stopSession(errorMessage: "Error while writing to badge");
-      }
+  NfcManager.instance.startSession(onDiscovered: (NfcTag tag) async {
+    var ndef = Ndef.from(tag);
+    if (ndef == null || !ndef.isWritable) {
+      NfcManager.instance.stopSession(errorMessage: 'NO NFC');
+      return;
     }
-    appState.update(() {
-      appState.writeTag = true;
-    });
-    NfcManager.instance.stopSession();
+
+    NdefMessage message = NdefMessage([
+      NdefRecord.createText(userId),
+    ]);
+
+    try {
+      await ndef.write(message);
+      NfcManager.instance.stopSession();
+      appState.update(() {
+        appState.writeTag = true;
+      });
+    } catch (e) {
+      NfcManager.instance.stopSession(errorMessage: 'No NFC');
+      return;
+    }
   });
 }
