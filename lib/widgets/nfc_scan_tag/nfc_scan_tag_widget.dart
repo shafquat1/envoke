@@ -35,6 +35,30 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await actions.nfcScan();
+      if ((FFAppState().nfcUserId != '') &&
+          (FFAppState().nfcUserId == currentUserUid)) {
+        if (loggedIn) {
+          context.pushNamed('MemoriesTimeline');
+        } else {
+          context.pushNamed('LoginPage');
+        }
+
+        return;
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Please close the app',
+              style: TextStyle(
+                color: FlutterFlowTheme.of(context).primaryText,
+              ),
+            ),
+            duration: const Duration(milliseconds: 4000),
+            backgroundColor: FlutterFlowTheme.of(context).secondary,
+          ),
+        );
+      }
+
       if (FFAppState().nfcUserId != '') {
         if (FFAppState().nfcUserId == currentUserUid) {
           if (loggedIn) {
