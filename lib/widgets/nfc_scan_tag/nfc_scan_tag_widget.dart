@@ -1,8 +1,11 @@
 import '/auth/base_auth_user_provider.dart';
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
@@ -42,18 +45,44 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
 
         return;
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              'Please close the app',
-              style: TextStyle(
-                color: FlutterFlowTheme.of(context).primaryText,
-              ),
-            ),
-            duration: const Duration(milliseconds: 4000),
-            backgroundColor: FlutterFlowTheme.of(context).secondary,
+        _model.output2 = await queryNfcDataRecordOnce(
+          queryBuilder: (nfcDataRecord) => nfcDataRecord.where(
+            'nfcId',
+            isEqualTo: FFAppState().nfcTag,
           ),
-        );
+          singleRecord: true,
+        ).then((s) => s.firstOrNull);
+        if (_model.output2?.nfcId != null && _model.output2?.nfcId != '') {
+          if (FFAppState().nfcTag != '') {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  'Jwellery Already Registered With Another User. Please LogIn.',
+                  style: TextStyle(
+                    fontFamily: 'Istanbul type',
+                    color: FlutterFlowTheme.of(context).primaryText,
+                  ),
+                ),
+                duration: const Duration(milliseconds: 2000),
+                backgroundColor: FlutterFlowTheme.of(context).secondary,
+              ),
+            );
+
+            context.goNamed('LoginPage');
+          } else {
+            return;
+          }
+
+          return;
+        } else {
+          if (FFAppState().nfcTag != '') {
+            context.goNamed('SignupPage');
+          } else {
+            return;
+          }
+
+          return;
+        }
       }
     });
   }
