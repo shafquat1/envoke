@@ -655,6 +655,10 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                             FFAppState().nfcTag,
                                                         userId: currentUserUid,
                                                       ));
+                                                  setState(() {
+                                                    FFAppState().userGuid =
+                                                        currentUserUid;
+                                                  });
                                                   await showModalBottomSheet(
                                                     isScrollControlled: true,
                                                     backgroundColor:
