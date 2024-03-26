@@ -41,6 +41,9 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
         }
 
         return;
+      } else {
+        context.pop();
+        await actions.nfcScan();
       }
     });
   }
