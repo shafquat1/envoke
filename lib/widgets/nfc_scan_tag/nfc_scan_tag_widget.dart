@@ -1,8 +1,11 @@
 import '/auth/base_auth_user_provider.dart';
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
@@ -37,7 +40,43 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
         if (loggedIn) {
           context.pushNamed('MemoriesTimeline');
         } else {
-          context.pushNamed('LoginPage');
+          _model.output = await queryNfcDataRecordOnce(
+            queryBuilder: (nfcDataRecord) => nfcDataRecord.where(
+              'nfcId',
+              isEqualTo: FFAppState().nfcTag,
+            ),
+            singleRecord: true,
+          ).then((s) => s.firstOrNull);
+          if (_model.output?.nfcId != null && _model.output?.nfcId != '') {
+            if (FFAppState().nfcTag != '') {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    'The jwelery is already registered.',
+                    style: TextStyle(
+                      color: FlutterFlowTheme.of(context).primaryText,
+                    ),
+                  ),
+                  duration: const Duration(milliseconds: 4000),
+                  backgroundColor: FlutterFlowTheme.of(context).secondary,
+                ),
+              );
+
+              context.goNamed('LoginPage');
+            } else {
+              return;
+            }
+
+            return;
+          } else {
+            if (FFAppState().nfcTag != '') {
+              context.goNamed('SignupPage');
+            } else {
+              return;
+            }
+
+            return;
+          }
         }
 
         return;
