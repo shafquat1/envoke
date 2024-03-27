@@ -471,6 +471,32 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
+                    FFButtonWidget(
+                      onPressed: () async {
+                        context.pushNamed('sharedAlbum');
+                      },
+                      text: 'Admin',
+                      options: FFButtonOptions(
+                        height: 40.0,
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
+                        iconPadding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).primary,
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Istanbul type',
+                                  color: Colors.white,
+                                  useGoogleFonts: false,
+                                ),
+                        elevation: 3.0,
+                        borderSide: const BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                    ),
                   ],
                 ),
               ),

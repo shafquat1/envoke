@@ -140,6 +140,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             moments: params.getParam('moments', ParamType.Document),
             memories: params.getParam('memories', ParamType.Document),
           ),
+        ),
+        FFRoute(
+          name: 'sharedAlbum',
+          path: '/sharedAlbum',
+          builder: (context, params) => const SharedAlbumWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

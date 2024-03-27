@@ -484,68 +484,71 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                     .info,
                                           ),
                                         ),
-                                        RichText(
-                                          textScaler:
-                                              MediaQuery.of(context).textScaler,
-                                          text: TextSpan(
-                                            children: [
-                                              TextSpan(
-                                                text: 'Accept ',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color:
-                                                              const Color(0xFF828282),
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                              ),
-                                              TextSpan(
-                                                text: 'Terms & Conditions \n',
-                                                style: GoogleFonts.getFont(
-                                                  'Inter',
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 14.0,
-                                                  decoration:
-                                                      TextDecoration.underline,
+                                        Flexible(
+                                          child: RichText(
+                                            textScaler: MediaQuery.of(context)
+                                                .textScaler,
+                                            text: TextSpan(
+                                              children: [
+                                                TextSpan(
+                                                  text: 'Accept ',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            const Color(0xFF828282),
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
                                                 ),
-                                              ),
-                                              TextSpan(
-                                                text: 'and ',
-                                                style: GoogleFonts.getFont(
-                                                  'Inter',
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 14.0,
+                                                TextSpan(
+                                                  text: 'Terms & Conditions \n',
+                                                  style: GoogleFonts.getFont(
+                                                    'Inter',
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.0,
+                                                    decoration: TextDecoration
+                                                        .underline,
+                                                  ),
                                                 ),
-                                              ),
-                                              TextSpan(
-                                                text: 'Data Protection ',
-                                                style: GoogleFonts.getFont(
-                                                  'Inter',
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 14.0,
-                                                  decoration:
-                                                      TextDecoration.underline,
+                                                TextSpan(
+                                                  text: 'and ',
+                                                  style: GoogleFonts.getFont(
+                                                    'Inter',
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.0,
+                                                  ),
                                                 ),
-                                              ),
-                                              TextSpan(
-                                                text: '(Mandatory Field)',
-                                                style: GoogleFonts.getFont(
-                                                  'Inter',
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 14.0,
+                                                TextSpan(
+                                                  text: 'Data Protection ',
+                                                  style: GoogleFonts.getFont(
+                                                    'Inter',
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.0,
+                                                    decoration: TextDecoration
+                                                        .underline,
+                                                  ),
                                                 ),
-                                              )
-                                            ],
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Inter',
-                                                  color: const Color(0xFF828282),
-                                                  fontWeight: FontWeight.w500,
-                                                ),
+                                                TextSpan(
+                                                  text: '(Mandatory Field)',
+                                                  style: GoogleFonts.getFont(
+                                                    'Inter',
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14.0,
+                                                  ),
+                                                )
+                                              ],
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Inter',
+                                                    color: const Color(0xFF828282),
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                            ),
                                           ),
                                         ),
                                       ],

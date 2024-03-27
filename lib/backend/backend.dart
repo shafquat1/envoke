@@ -9,6 +9,7 @@ import 'schema/users_record.dart';
 import 'schema/memories_record.dart';
 import 'schema/moments_record.dart';
 import 'schema/nfc_data_record.dart';
+import 'schema/shared_user_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -20,6 +21,7 @@ export 'schema/users_record.dart';
 export 'schema/memories_record.dart';
 export 'schema/moments_record.dart';
 export 'schema/nfc_data_record.dart';
+export 'schema/shared_user_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -167,6 +169,43 @@ Future<List<NfcDataRecord>> queryNfcDataRecordOnce({
     queryCollectionOnce(
       NfcDataRecord.collection,
       NfcDataRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query SharedUserRecords (as a Stream and as a Future).
+Future<int> querySharedUserRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      SharedUserRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<SharedUserRecord>> querySharedUserRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      SharedUserRecord.collection,
+      SharedUserRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<SharedUserRecord>> querySharedUserRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      SharedUserRecord.collection,
+      SharedUserRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

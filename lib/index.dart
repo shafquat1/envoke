@@ -13,3 +13,4 @@ export '/moment/moment_timeline/moment_timeline_widget.dart'
     show MomentTimelineWidget;
 export '/moment/moment_detail/moment_detail_widget.dart'
     show MomentDetailWidget;
+export '/admin/shared_album/shared_album_widget.dart' show SharedAlbumWidget;
