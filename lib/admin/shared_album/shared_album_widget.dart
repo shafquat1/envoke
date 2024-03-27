@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -98,7 +97,13 @@ class _SharedAlbumWidgetState extends State<SharedAlbumWidget> {
                     );
                     if (_model.output?.email != null &&
                         _model.output?.email != '') {
-                      await authManager.sendEmailVerification();
+                      await SharedUserRecord.collection
+                          .doc()
+                          .set(createSharedUserRecordData(
+                            isShared: true,
+                            sharedEmail: _model.output?.email,
+                            sharedUid: _model.output?.uid,
+                          ));
                       if (shouldSetState) setState(() {});
                       return;
                     } else {

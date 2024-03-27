@@ -25,9 +25,15 @@ class SharedUserRecord extends FirestoreRecord {
   String get sharedEmail => _sharedEmail ?? '';
   bool hasSharedEmail() => _sharedEmail != null;
 
+  // "sharedUid" field.
+  String? _sharedUid;
+  String get sharedUid => _sharedUid ?? '';
+  bool hasSharedUid() => _sharedUid != null;
+
   void _initializeFields() {
     _isShared = snapshotData['isShared'] as bool?;
     _sharedEmail = snapshotData['sharedEmail'] as String?;
+    _sharedUid = snapshotData['sharedUid'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -67,11 +73,13 @@ class SharedUserRecord extends FirestoreRecord {
 Map<String, dynamic> createSharedUserRecordData({
   bool? isShared,
   String? sharedEmail,
+  String? sharedUid,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'isShared': isShared,
       'sharedEmail': sharedEmail,
+      'sharedUid': sharedUid,
     }.withoutNulls,
   );
 
@@ -83,12 +91,14 @@ class SharedUserRecordDocumentEquality implements Equality<SharedUserRecord> {
 
   @override
   bool equals(SharedUserRecord? e1, SharedUserRecord? e2) {
-    return e1?.isShared == e2?.isShared && e1?.sharedEmail == e2?.sharedEmail;
+    return e1?.isShared == e2?.isShared &&
+        e1?.sharedEmail == e2?.sharedEmail &&
+        e1?.sharedUid == e2?.sharedUid;
   }
 
   @override
   int hash(SharedUserRecord? e) =>
-      const ListEquality().hash([e?.isShared, e?.sharedEmail]);
+      const ListEquality().hash([e?.isShared, e?.sharedEmail, e?.sharedUid]);
 
   @override
   bool isValidKey(Object? o) => o is SharedUserRecord;
