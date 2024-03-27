@@ -13,6 +13,8 @@ class SharedAlbumModel extends FlutterFlowModel<SharedAlbumWidget> {
   String? Function(BuildContext, String?)? textControllerValidator;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   UsersRecord? output;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  SharedUserRecord? output2;
 
   /// Initialization and disposal methods.
 

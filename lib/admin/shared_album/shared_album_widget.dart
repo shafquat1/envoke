@@ -148,6 +148,70 @@ class _SharedAlbumWidgetState extends State<SharedAlbumWidget> {
                   ),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 200.0, 0.0, 0.0),
+                child: FFButtonWidget(
+                  onPressed: () async {
+                    var shouldSetState = false;
+                    _model.output2 = await querySharedUserRecordOnce(
+                      queryBuilder: (sharedUserRecord) =>
+                          sharedUserRecord.where(
+                        'sharedEmail',
+                        isEqualTo: _model.textController.text,
+                      ),
+                      singleRecord: true,
+                    ).then((s) => s.firstOrNull);
+                    shouldSetState = true;
+                    if (_model.output2?.sharedEmail != null &&
+                        _model.output2?.sharedEmail != '') {
+                      await _model.output2!.reference
+                          .update(createSharedUserRecordData(
+                        isShared: false,
+                      ));
+                      if (shouldSetState) setState(() {});
+                      return;
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            'User not sharing with this person',
+                            style: TextStyle(
+                              color: FlutterFlowTheme.of(context).primaryText,
+                            ),
+                          ),
+                          duration: const Duration(milliseconds: 4000),
+                          backgroundColor:
+                              FlutterFlowTheme.of(context).secondary,
+                        ),
+                      );
+                      if (shouldSetState) setState(() {});
+                      return;
+                    }
+
+                    if (shouldSetState) setState(() {});
+                  },
+                  text: 'Unlink Invite',
+                  options: FFButtonOptions(
+                    height: 40.0,
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                    iconPadding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: FlutterFlowTheme.of(context).primary,
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                          fontFamily: 'Istanbul type',
+                          color: Colors.white,
+                          useGoogleFonts: false,
+                        ),
+                    elevation: 3.0,
+                    borderSide: const BorderSide(
+                      color: Colors.transparent,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
