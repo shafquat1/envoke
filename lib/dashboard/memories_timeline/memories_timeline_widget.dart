@@ -190,8 +190,10 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                         ),
                         Builder(
                           builder: (context) {
-                            if (memoriesTimelineSharedUserRecord?.isShared ??
-                                false) {
+                            if (valueOrDefault<bool>(
+                              memoriesTimelineSharedUserRecord?.isShared,
+                              false,
+                            )) {
                               return Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [

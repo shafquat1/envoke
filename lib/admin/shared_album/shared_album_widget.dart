@@ -164,10 +164,7 @@ class _SharedAlbumWidgetState extends State<SharedAlbumWidget> {
                     shouldSetState = true;
                     if (_model.output2?.sharedEmail != null &&
                         _model.output2?.sharedEmail != '') {
-                      await _model.output2!.reference
-                          .update(createSharedUserRecordData(
-                        isShared: false,
-                      ));
+                      await _model.output2!.reference.delete();
                       if (shouldSetState) setState(() {});
                       return;
                     } else {
