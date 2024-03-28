@@ -58,10 +58,6 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
         }
         List<SharedUserRecord> memoriesTimelineSharedUserRecordList =
             snapshot.data!;
-        // Return an empty Container when the item does not exist.
-        if (snapshot.data!.isEmpty) {
-          return Container();
-        }
         final memoriesTimelineSharedUserRecord =
             memoriesTimelineSharedUserRecordList.isNotEmpty
                 ? memoriesTimelineSharedUserRecordList.first
