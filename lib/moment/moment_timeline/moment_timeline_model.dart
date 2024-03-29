@@ -12,8 +12,6 @@ class MomentTimelineModel extends FlutterFlowModel<MomentTimelineWidget> {
 
   int carouselCurrentIndex = 0;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -21,8 +19,4 @@ class MomentTimelineModel extends FlutterFlowModel<MomentTimelineWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

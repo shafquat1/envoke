@@ -127,6 +127,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               fontSize: 30.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
                                             ),
                                       ),
@@ -144,6 +145,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               fontFamily: 'Inter',
                                               color: const Color(0xFF5A5A5A),
                                               fontSize: 16.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                         enabledBorder: OutlineInputBorder(
@@ -194,9 +196,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                       textAlign: TextAlign.start,
+                                      minLines: null,
                                       validator: _model
                                           .emailTextControllerValidator
                                           .asValidator(context),
@@ -214,6 +218,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               fontFamily: 'Inter',
                                               color: const Color(0xFF5A5A5A),
                                               fontSize: 16.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                         enabledBorder: OutlineInputBorder(
@@ -279,9 +284,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                       textAlign: TextAlign.start,
+                                      minLines: null,
                                       validator: _model
                                           .passwordTextControllerValidator
                                           .asValidator(context),
@@ -333,6 +340,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                         fontFamily: 'Inter',
                                                         color:
                                                             const Color(0xFF828282),
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -380,6 +388,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   .override(
                                                     fontFamily: 'Inter',
                                                     color: const Color(0xFF828282),
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                             ),
@@ -426,6 +435,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               .override(
                                                 fontFamily: 'Inter',
                                                 color: const Color(0xFF828282),
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                         ),
@@ -489,6 +499,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                       fontFamily: 'Inter',
                                                       color: Colors.white,
                                                       fontSize: 18.0,
+                                                      letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.bold,
                                                     ),

@@ -69,6 +69,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                               fontSize: 45.0,
+                              letterSpacing: 0.0,
                               fontWeight: FontWeight.w300,
                               useGoogleFonts: false,
                             ),
@@ -85,6 +86,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             fontSize: 48.0,
+                            letterSpacing: 0.0,
                             fontWeight: FontWeight.w300,
                             useGoogleFonts: false,
                           ),
@@ -139,6 +141,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               fontSize: 31.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w300,
                                               useGoogleFonts: false,
                                             ),
@@ -188,6 +191,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                           context)
                                                       .secondaryBackground,
                                                   fontSize: 32.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
                                                   useGoogleFonts: false,
                                                 ),
@@ -239,11 +243,11 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 fontSize: 32.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
                                                 useGoogleFonts: false,
                                               ),
                                           maxLines: null,
-                                          minLines: 1,
                                           validator: _model
                                               .textControllerValidator
                                               .asValidator(context),
@@ -261,6 +265,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                         ),
@@ -452,6 +457,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .primaryText,
+                                                      letterSpacing: 0.0,
                                                     ),
                                             borderSide: const BorderSide(
                                               color: Colors.transparent,

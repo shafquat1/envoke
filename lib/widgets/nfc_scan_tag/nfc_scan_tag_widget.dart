@@ -147,6 +147,7 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Inter',
                           color: Colors.black,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
                         ),
                     elevation: 3.0,

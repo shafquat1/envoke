@@ -64,8 +64,6 @@ class SignupPageModel extends FlutterFlowModel<SignupPageWidget> {
   // State field(s) for Checkbox widget.
   bool? checkboxValue2;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     textController1Validator = _textController1Validator;
@@ -90,8 +88,4 @@ class SignupPageModel extends FlutterFlowModel<SignupPageWidget> {
     textFieldFocusNode4?.dispose();
     passwordTextController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -120,6 +120,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
                                         fontSize: 22.0,
+                                        letterSpacing: 0.0,
                                         useGoogleFonts: false,
                                       ),
                                 ),
@@ -139,6 +140,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                             useGoogleFonts: false,
                                           ),
                                     ),
@@ -174,6 +176,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
                                       fontSize: 36.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
                                       useGoogleFonts: false,
                                     ),
@@ -191,6 +194,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
                                       fontSize: 16.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),
@@ -230,6 +234,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
+                                              letterSpacing: 0.0,
                                             ),
                                         playbackDurationTextStyle:
                                             FlutterFlowTheme.of(context)
@@ -239,6 +244,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
+                                                  letterSpacing: 0.0,
                                                   useGoogleFonts: false,
                                                 ),
                                         fillColor: Colors.black,

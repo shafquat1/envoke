@@ -1,9 +1,9 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'shared_album_widget.dart' show SharedAlbumWidget;
+import 'profile_detail_widget.dart' show ProfileDetailWidget;
 import 'package:flutter/material.dart';
 
-class SharedAlbumModel extends FlutterFlowModel<SharedAlbumWidget> {
+class ProfileDetailModel extends FlutterFlowModel<ProfileDetailWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -16,8 +16,6 @@ class SharedAlbumModel extends FlutterFlowModel<SharedAlbumWidget> {
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   SharedUserRecord? output2;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -27,8 +25,4 @@ class SharedAlbumModel extends FlutterFlowModel<SharedAlbumWidget> {
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

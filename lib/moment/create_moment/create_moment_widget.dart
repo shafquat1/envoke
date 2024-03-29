@@ -7,11 +7,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/permissions_util.dart';
-import 'package:cross_file/cross_file.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:record/record.dart';
 import 'create_moment_model.dart';
 export 'create_moment_model.dart';
@@ -84,6 +82,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                   fontFamily: 'Inter',
                   color: Colors.white,
                   fontSize: 18.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: const [],
@@ -132,6 +131,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
                                               fontSize: 22.0,
+                                              letterSpacing: 0.0,
                                               useGoogleFonts: false,
                                             ),
                                         hintText: 'Add Title',
@@ -143,6 +143,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
                                               fontSize: 32.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w300,
                                               useGoogleFonts: false,
                                             ),
@@ -158,9 +159,11 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                             fontSize: 32.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
                                             useGoogleFonts: false,
                                           ),
+                                      minLines: null,
                                       cursorColor: FlutterFlowTheme.of(context)
                                           .primaryText,
                                       validator: _model.textController1Validator
@@ -195,6 +198,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBackground,
                                                 fontSize: 18.0,
+                                                letterSpacing: 0.0,
                                                 useGoogleFonts: false,
                                               ),
                                           counterStyle: FlutterFlowTheme.of(
@@ -206,6 +210,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 fontSize: 14.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                           enabledBorder: InputBorder.none,
@@ -221,11 +226,11 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               fontSize: 14.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                         textAlign: TextAlign.start,
                                         maxLines: 25,
-                                        minLines: 1,
                                         maxLength: 500,
                                         maxLengthEnforcement:
                                             MaxLengthEnforcement.enforced,
@@ -278,6 +283,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryBackground,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -374,6 +380,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryBackground,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -442,6 +449,8 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                               'Inter',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondaryBackground,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                 playbackDurationTextStyle:
                                                                     FlutterFlowTheme.of(
@@ -452,6 +461,8 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                               'Istanbul type',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondaryBackground,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           useGoogleFonts:
                                                                               false,
                                                                         ),
@@ -702,18 +713,17 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                       onPressed: () async {
                                         var shouldSetState = false;
                                         if (_model.isRecording == true) {
-                                          _model.myRecording = await _model
-                                              .audioRecorder
-                                              ?.stop();
-                                          if (_model.myRecording != null) {
-                                            _model.recordedFileBytes =
-                                                FFUploadedFile(
-                                              name: 'recordedFileBytes.mp3',
-                                              bytes: await XFile(
-                                                      _model.myRecording!)
-                                                  .readAsBytes(),
-                                            );
-                                          }
+                                          await stopAudioRecording(
+                                            audioRecorder: _model.audioRecorder,
+                                            audioName: 'recordedFileBytes.mp3',
+                                            onRecordingComplete:
+                                                (audioFilePath, audioBytes) {
+                                              _model.myRecording =
+                                                  audioFilePath;
+                                              _model.recordedFileBytes =
+                                                  audioBytes;
+                                            },
+                                          );
 
                                           shouldSetState = true;
                                           setState(() {
@@ -830,34 +840,12 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                     microphonePermission);
                                               }
 
-                                              _model.audioRecorder ??=
-                                                  AudioRecorder();
-                                              if (await _model.audioRecorder!
-                                                  .hasPermission()) {
-                                                final String path;
-                                                final AudioEncoder encoder;
-                                                if (kIsWeb) {
-                                                  path = '';
-                                                  encoder = AudioEncoder.opus;
-                                                } else {
-                                                  final dir =
-                                                      await getApplicationDocumentsDirectory();
-                                                  path =
-                                                      '${dir.path}/audio_${DateTime.now().millisecondsSinceEpoch}.m4a';
-                                                  encoder = AudioEncoder.aacLc;
-                                                }
-                                                await _model.audioRecorder!
-                                                    .start(
-                                                  RecordConfig(
-                                                      encoder: encoder),
-                                                  path: path,
-                                                );
-                                              } else {
-                                                showSnackbar(
-                                                  context,
-                                                  'You have not provided permission to record audio.',
-                                                );
-                                              }
+                                              await startAudioRecording(
+                                                context,
+                                                audioRecorder:
+                                                    _model.audioRecorder ??=
+                                                        AudioRecorder(),
+                                              );
                                             },
                                     ),
                                   Flexible(
@@ -915,6 +903,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
                                                 fontSize: 20.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                           elevation: 3.0,
@@ -934,6 +923,32 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                         ),
                       ),
                     ],
+                  ),
+                ),
+                Align(
+                  alignment: const AlignmentDirectional(-1.0, -1.0),
+                  child: Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.safePop();
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(0.0),
+                        child: SvgPicture.asset(
+                          'assets/images/Vector.svg',
+                          width: 30.0,
+                          height: 15.0,
+                          fit: BoxFit.cover,
+                          alignment: const Alignment(-1.0, -1.0),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ],

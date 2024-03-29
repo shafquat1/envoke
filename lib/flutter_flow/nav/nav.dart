@@ -115,7 +115,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             'memories': getDoc(['memories'], MemoriesRecord.fromSnapshot),
           },
           builder: (context, params) => CreateMomentWidget(
-            memories: params.getParam('memories', ParamType.Document),
+            memories: params.getParam(
+              'memories',
+              ParamType.Document,
+            ),
           ),
         ),
         FFRoute(
@@ -125,7 +128,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             'memories': getDoc(['memories'], MemoriesRecord.fromSnapshot),
           },
           builder: (context, params) => MomentTimelineWidget(
-            memories: params.getParam('memories', ParamType.Document),
+            memories: params.getParam(
+              'memories',
+              ParamType.Document,
+            ),
           ),
         ),
         FFRoute(
@@ -137,14 +143,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             'memories': getDoc(['memories'], MemoriesRecord.fromSnapshot),
           },
           builder: (context, params) => MomentDetailWidget(
-            moments: params.getParam('moments', ParamType.Document),
-            memories: params.getParam('memories', ParamType.Document),
+            moments: params.getParam(
+              'moments',
+              ParamType.Document,
+            ),
+            memories: params.getParam(
+              'memories',
+              ParamType.Document,
+            ),
           ),
         ),
         FFRoute(
-          name: 'sharedAlbum',
-          path: '/sharedAlbum',
-          builder: (context, params) => const SharedAlbumWidget(),
+          name: 'profileDetail',
+          path: '/profileDetail',
+          builder: (context, params) => const ProfileDetailWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -278,8 +290,12 @@ class FFParameters {
       return param;
     }
     // Return serialized value.
-    return deserializeParam<T>(param, type, isList,
-        collectionNamePath: collectionNamePath);
+    return deserializeParam<T>(
+      param,
+      type,
+      isList,
+      collectionNamePath: collectionNamePath,
+    );
   }
 }
 

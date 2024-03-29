@@ -155,6 +155,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                   .of(context)
                                                               .primaryBackground,
                                                           fontSize: 28.0,
+                                                          letterSpacing: 0.0,
                                                           useGoogleFonts: false,
                                                         ),
                                               ),
@@ -183,6 +184,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                   .of(context)
                                                               .primaryBackground,
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           useGoogleFonts: false,
                                                         ),
                                               ),
@@ -368,6 +370,8 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                                 FlutterFlowTheme.of(context).primaryBackground,
                                                                             fontSize:
                                                                                 36.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.w300,
                                                                             useGoogleFonts:
@@ -447,6 +451,8 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                           .primaryBackground,
                                                                       fontSize:
                                                                           14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w500,
@@ -483,6 +489,8 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                               FlutterFlowTheme.of(context).primaryBackground,
                                                                           fontSize:
                                                                               38.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.w300,
                                                                           useGoogleFonts:
@@ -530,6 +538,8 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .secondaryBackground,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       useGoogleFonts:
                                                                           false,
                                                                     ),

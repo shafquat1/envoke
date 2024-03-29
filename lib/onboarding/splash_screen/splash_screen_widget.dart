@@ -1,3 +1,5 @@
+import '/auth/base_auth_user_provider.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -108,6 +110,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                     fontFamily: 'Inter',
                                     color: Colors.white,
                                     fontSize: 18.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                           elevation: 3.0,
@@ -126,6 +129,62 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                         child: Image.asset(
                           'assets/images/Group_2.png',
                           fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    if (loggedIn)
+                      Align(
+                        alignment: const AlignmentDirectional(1.0, -1.0),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 20.0, 20.0, 0.0),
+                          child: FlutterFlowIconButton(
+                            borderColor: const Color(0xFF212121),
+                            borderRadius: 16.0,
+                            borderWidth: 1.0,
+                            buttonSize: 40.0,
+                            fillColor: const Color(0xFF212121),
+                            icon: Icon(
+                              Icons.settings_sharp,
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              size: 24.0,
+                            ),
+                            onPressed: () async {
+                              context.pushNamed('profileDetail');
+                            },
+                          ),
+                        ),
+                      ),
+                    Align(
+                      alignment: const AlignmentDirectional(-0.04, 0.56),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          context.goNamed('LoginPage');
+                        },
+                        text: 'NFC Scan',
+                        options: FFButtonOptions(
+                          width: MediaQuery.sizeOf(context).width * 0.85,
+                          height: 55.0,
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              24.0, 0.0, 24.0, 0.0),
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: const Color(0xFF212121),
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Inter',
+                                    color: Colors.white,
+                                    fontSize: 18.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                          elevation: 3.0,
+                          borderSide: const BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(12.0),
                         ),
                       ),
                     ),

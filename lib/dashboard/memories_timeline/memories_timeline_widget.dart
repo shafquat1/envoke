@@ -115,6 +115,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 fontSize: 45.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
                                                 useGoogleFonts: false,
                                               ),
@@ -134,6 +135,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               fontSize: 48.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w300,
                                               useGoogleFonts: false,
                                             ),
@@ -170,6 +172,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                         .override(
                                           fontFamily: 'Istanbul type',
                                           color: Colors.white,
+                                          letterSpacing: 0.0,
                                           useGoogleFonts: false,
                                         ),
                                     borderSide: const BorderSide(
@@ -353,7 +356,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                           columnMemoriesRecord
                                                                               .imgUrl,
                                                                           width:
-                                                                              300.0,
+                                                                              350.0,
                                                                           height:
                                                                               200.0,
                                                                           fit: BoxFit
@@ -361,54 +364,91 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                    Align(
-                                                                      alignment:
-                                                                          const AlignmentDirectional(
-                                                                              -1.0,
-                                                                              0.0),
+                                                                    Padding(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          30.0,
+                                                                          0.0,
+                                                                          30.0,
+                                                                          0.0),
                                                                       child:
-                                                                          Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            60.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            10.0),
-                                                                        child:
+                                                                          Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.spaceBetween,
+                                                                        children: [
+                                                                          Align(
+                                                                            alignment:
+                                                                                const AlignmentDirectional(-1.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                                                                              child: Column(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                mainAxisAlignment: MainAxisAlignment.end,
+                                                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                children: [
+                                                                                  Align(
+                                                                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                    child: Text(
+                                                                                      '${columnCount.toString()} items',
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Inter',
+                                                                                            color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                            letterSpacing: 0.0,
+                                                                                            fontWeight: FontWeight.w500,
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                  Align(
+                                                                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                    child: Text(
+                                                                                      columnMemoriesRecord.memoryTitle,
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Istanbul type',
+                                                                                            color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                            fontSize: 28.0,
+                                                                                            letterSpacing: 0.0,
+                                                                                            fontWeight: FontWeight.w300,
+                                                                                            useGoogleFonts: false,
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ].divide(const SizedBox(height: 5.0)),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                          if (memoriesTimelineSharedUserRecord?.isShared ??
+                                                                              true)
                                                                             Column(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          mainAxisAlignment:
-                                                                              MainAxisAlignment.end,
-                                                                          crossAxisAlignment:
-                                                                              CrossAxisAlignment.center,
-                                                                          children:
-                                                                              [
-                                                                            Align(
-                                                                              alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                              child: Text(
-                                                                                '${columnCount.toString()} items',
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Inter',
-                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                      fontWeight: FontWeight.w500,
-                                                                                    ),
-                                                                              ),
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                                                              children: [
+                                                                                Text(
+                                                                                  'Shared',
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'JasmineUPC',
+                                                                                        color: FlutterFlowTheme.of(context).info,
+                                                                                        fontSize: 18.0,
+                                                                                        letterSpacing: 0.0,
+                                                                                        fontWeight: FontWeight.w300,
+                                                                                        useGoogleFonts: false,
+                                                                                      ),
+                                                                                ),
+                                                                                Text(
+                                                                                  memoriesTimelineSharedUserRecord!.sharedUserName,
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'JasmineUPC',
+                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                        fontSize: 24.0,
+                                                                                        letterSpacing: 0.0,
+                                                                                        fontWeight: FontWeight.w300,
+                                                                                        useGoogleFonts: false,
+                                                                                      ),
+                                                                                ),
+                                                                              ],
                                                                             ),
-                                                                            Align(
-                                                                              alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                              child: Text(
-                                                                                columnMemoriesRecord.memoryTitle,
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Istanbul type',
-                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                      fontSize: 28.0,
-                                                                                      fontWeight: FontWeight.w300,
-                                                                                      useGoogleFonts: false,
-                                                                                    ),
-                                                                              ),
-                                                                            ),
-                                                                          ].divide(const SizedBox(height: 5.0)),
-                                                                        ),
+                                                                        ],
                                                                       ),
                                                                     ),
                                                                   ],
@@ -484,6 +524,8 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                 FlutterFlowTheme.of(context).secondaryBackground,
                                                                             fontSize:
                                                                                 20.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.w300,
                                                                             useGoogleFonts:
@@ -522,6 +564,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               fontSize: 28.0,
+                                              letterSpacing: 0.0,
                                               useGoogleFonts: false,
                                             ),
                                       ),
@@ -726,6 +769,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Inter',
                                                                                       color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                      letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.w500,
                                                                                     ),
                                                                               ),
@@ -738,6 +782,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                       fontFamily: 'Istanbul type',
                                                                                       color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                       fontSize: 28.0,
+                                                                                      letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.w300,
                                                                                       useGoogleFonts: false,
                                                                                     ),
@@ -820,6 +865,8 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                 FlutterFlowTheme.of(context).secondaryBackground,
                                                                             fontSize:
                                                                                 20.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.w300,
                                                                             useGoogleFonts:
@@ -1026,6 +1073,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                             .override(
                                                                               fontFamily: 'Inter',
                                                                               color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w500,
                                                                             ),
                                                                       ),
@@ -1045,6 +1093,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                               fontFamily: 'Istanbul type',
                                                                               color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                               fontSize: 28.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w300,
                                                                               useGoogleFonts: false,
                                                                             ),
@@ -1125,6 +1174,8 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                         .secondaryBackground,
                                                                     fontSize:
                                                                         20.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w300,
@@ -1152,39 +1203,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                         ),
                         FFButtonWidget(
                           onPressed: () async {
-                            GoRouter.of(context).prepareAuthEvent();
-                            await authManager.signOut();
-                            GoRouter.of(context).clearRedirectLocation();
-
-                            context.goNamedAuth(
-                                'SplashScreen', context.mounted);
-                          },
-                          text: 'Logout',
-                          options: FFButtonOptions(
-                            height: 40.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Istanbul type',
-                                  color: Colors.white,
-                                  useGoogleFonts: false,
-                                ),
-                            elevation: 3.0,
-                            borderSide: const BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                        ),
-                        FFButtonWidget(
-                          onPressed: () async {
-                            context.pushNamed('sharedAlbum');
+                            context.pushNamed('profileDetail');
                           },
                           text: 'Admin',
                           options: FFButtonOptions(
@@ -1199,6 +1218,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                 .override(
                                   fontFamily: 'Istanbul type',
                                   color: Colors.white,
+                                  letterSpacing: 0.0,
                                   useGoogleFonts: false,
                                 ),
                             elevation: 3.0,

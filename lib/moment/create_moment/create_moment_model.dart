@@ -59,8 +59,6 @@ class CreateMomentModel extends FlutterFlowModel<CreateMomentWidget> {
 
   AudioRecorder? audioRecorder;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     textController1Validator = _textController1Validator;
@@ -76,8 +74,4 @@ class CreateMomentModel extends FlutterFlowModel<CreateMomentWidget> {
     textFieldFocusNode2?.dispose();
     textController2?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }
