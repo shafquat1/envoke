@@ -143,7 +143,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                           const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: AuthUserStreamWidget(
                         builder: (context) => Text(
-                          currentUserDisplayName,
+                          valueOrDefault(currentUserDocument?.firstName, ''),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'JasmineUPC',
