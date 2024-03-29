@@ -156,38 +156,6 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                           ),
                         ),
                       ),
-                    Align(
-                      alignment: const AlignmentDirectional(-0.04, 0.56),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          context.goNamed('LoginPage');
-                        },
-                        text: 'NFC Scan',
-                        options: FFButtonOptions(
-                          width: MediaQuery.sizeOf(context).width * 0.85,
-                          height: 55.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: const Color(0xFF212121),
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Inter',
-                                    color: Colors.white,
-                                    fontSize: 18.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                          elevation: 3.0,
-                          borderSide: const BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
-                          ),
-                          borderRadius: BorderRadius.circular(12.0),
-                        ),
-                      ),
-                    ),
                   ],
                 ),
               ),
