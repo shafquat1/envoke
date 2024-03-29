@@ -285,7 +285,10 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                         ],
                       ),
                     ),
-                    if (profileDetailSharedUserRecord?.isShared ?? true)
+                    if (valueOrDefault<bool>(
+                      profileDetailSharedUserRecord?.isShared,
+                      false,
+                    ))
                       Align(
                         alignment: const AlignmentDirectional(-1.0, 0.0),
                         child: Column(
