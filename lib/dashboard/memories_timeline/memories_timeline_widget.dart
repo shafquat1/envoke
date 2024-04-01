@@ -683,76 +683,79 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                         mainAxisAlignment:
                                                                             MainAxisAlignment.spaceBetween,
                                                                         children: [
-                                                                          Align(
-                                                                            alignment:
-                                                                                const AlignmentDirectional(-1.0, 0.0),
+                                                                          Flexible(
                                                                             child:
-                                                                                Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                                                                              child: Column(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                mainAxisAlignment: MainAxisAlignment.end,
-                                                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                children: [
-                                                                                  Align(
-                                                                                    alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                    child: Text(
-                                                                                      '${columnCount.toString()} items',
-                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Inter',
-                                                                                            color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                            letterSpacing: 0.0,
-                                                                                            fontWeight: FontWeight.w500,
-                                                                                          ),
+                                                                                Align(
+                                                                              alignment: const AlignmentDirectional(0.0, 0.0),
+                                                                              child: Padding(
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                                                                                child: Column(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  mainAxisAlignment: MainAxisAlignment.end,
+                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                  children: [
+                                                                                    Align(
+                                                                                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                      child: Text(
+                                                                                        '${columnCount.toString()} items',
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'Inter',
+                                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                              letterSpacing: 0.0,
+                                                                                              fontWeight: FontWeight.w500,
+                                                                                            ),
+                                                                                      ),
                                                                                     ),
-                                                                                  ),
-                                                                                  Align(
-                                                                                    alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                    child: Text(
-                                                                                      columnMemoriesRecord.memoryTitle,
-                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Istanbul type',
-                                                                                            color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                            fontSize: 28.0,
-                                                                                            letterSpacing: 0.0,
-                                                                                            fontWeight: FontWeight.w300,
-                                                                                            useGoogleFonts: false,
-                                                                                          ),
+                                                                                    Align(
+                                                                                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                      child: Text(
+                                                                                        columnMemoriesRecord.memoryTitle,
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'Istanbul type',
+                                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                              fontSize: 28.0,
+                                                                                              letterSpacing: 0.0,
+                                                                                              fontWeight: FontWeight.w300,
+                                                                                              useGoogleFonts: false,
+                                                                                            ),
+                                                                                      ),
                                                                                     ),
-                                                                                  ),
-                                                                                ].divide(const SizedBox(height: 5.0)),
+                                                                                  ].divide(const SizedBox(height: 5.0)),
+                                                                                ),
                                                                               ),
                                                                             ),
                                                                           ),
                                                                           if (memoriesTimelineSharedUserRecord?.isShared ??
                                                                               true)
-                                                                            Column(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                                                              children: [
-                                                                                Text(
-                                                                                  'Shared',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'JasmineUPC',
-                                                                                        color: FlutterFlowTheme.of(context).info,
-                                                                                        fontSize: 18.0,
-                                                                                        letterSpacing: 0.0,
-                                                                                        fontWeight: FontWeight.w300,
-                                                                                        useGoogleFonts: false,
-                                                                                      ),
-                                                                                ),
-                                                                                Text(
-                                                                                  memoriesTimelineSharedUserRecord!.sharedUserName,
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'JasmineUPC',
-                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                        fontSize: 24.0,
-                                                                                        letterSpacing: 0.0,
-                                                                                        fontWeight: FontWeight.w300,
-                                                                                        useGoogleFonts: false,
-                                                                                      ),
-                                                                                ),
-                                                                              ],
+                                                                            Flexible(
+                                                                              child: Column(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                children: [
+                                                                                  Text(
+                                                                                    'Shared',
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: 'JasmineUPC',
+                                                                                          color: FlutterFlowTheme.of(context).info,
+                                                                                          fontSize: 18.0,
+                                                                                          letterSpacing: 0.0,
+                                                                                          fontWeight: FontWeight.w300,
+                                                                                          useGoogleFonts: false,
+                                                                                        ),
+                                                                                  ),
+                                                                                  Text(
+                                                                                    memoriesTimelineSharedUserRecord!.sharedUserName,
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: 'JasmineUPC',
+                                                                                          color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                          fontSize: 24.0,
+                                                                                          letterSpacing: 0.0,
+                                                                                          fontWeight: FontWeight.w300,
+                                                                                          useGoogleFonts: false,
+                                                                                        ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
                                                                             ),
                                                                         ],
                                                                       ),
