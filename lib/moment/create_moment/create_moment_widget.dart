@@ -9,7 +9,6 @@ import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/permissions_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:record/record.dart';
 import 'create_moment_model.dart';
 export 'create_moment_model.dart';
@@ -926,32 +925,6 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                         ),
                       ),
                     ],
-                  ),
-                ),
-                Align(
-                  alignment: const AlignmentDirectional(-1.0, -1.0),
-                  child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        context.safePop();
-                      },
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(0.0),
-                        child: SvgPicture.asset(
-                          'assets/images/Vector.svg',
-                          width: 30.0,
-                          height: 15.0,
-                          fit: BoxFit.cover,
-                          alignment: const Alignment(-1.0, -1.0),
-                        ),
-                      ),
-                    ),
                   ),
                 ),
               ],
