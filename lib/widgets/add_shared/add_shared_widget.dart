@@ -203,6 +203,7 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                       sharedUid: _model.output?.uid,
                                       sharedUserName: _model.output?.firstName,
                                     ));
+                                Navigator.pop(context);
                                 if (shouldSetState) setState(() {});
                                 return;
                               } else {
