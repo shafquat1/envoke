@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/widgets/remove_shared/remove_shared_widget.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'profile_detail_model.dart';
@@ -27,9 +26,6 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ProfileDetailModel());
-
-    _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
   }
 
   @override
@@ -386,6 +382,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                         child: FFButtonWidget(
                                           onPressed: () async {
                                             await showDialog(
+                                              barrierDismissible: false,
                                               context: context,
                                               builder: (dialogContext) {
                                                 return Dialog(
@@ -515,210 +512,6 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                         ],
                       ),
                     ),
-                    if (responsiveVisibility(
-                      context: context,
-                      phone: false,
-                    ))
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(8.0, 20.0, 8.0, 0.0),
-                        child: TextFormField(
-                          controller: _model.textController,
-                          focusNode: _model.textFieldFocusNode,
-                          autofocus: true,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            labelText: 'Enter Email',
-                            labelStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Istanbul type',
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: false,
-                                ),
-                            hintStyle: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  fontFamily: 'Istanbul type',
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: false,
-                                ),
-                            enabledBorder: InputBorder.none,
-                            focusedBorder: InputBorder.none,
-                            errorBorder: InputBorder.none,
-                            focusedErrorBorder: InputBorder.none,
-                          ),
-                          style:
-                              FlutterFlowTheme.of(context).titleMedium.override(
-                                    fontFamily: 'Istanbul type',
-                                    letterSpacing: 0.0,
-                                    useGoogleFonts: false,
-                                  ),
-                          minLines: null,
-                          validator: _model.textControllerValidator
-                              .asValidator(context),
-                        ),
-                      ),
-                    if (responsiveVisibility(
-                      context: context,
-                      phone: false,
-                    ))
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            var shouldSetState = false;
-                            _model.output = await queryUsersRecordOnce(
-                              queryBuilder: (usersRecord) => usersRecord.where(
-                                'email',
-                                isEqualTo: _model.textController.text,
-                              ),
-                              singleRecord: true,
-                            ).then((s) => s.firstOrNull);
-                            shouldSetState = true;
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  '${_model.output?.email}Exists',
-                                  style: TextStyle(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                  ),
-                                ),
-                                duration: const Duration(milliseconds: 4000),
-                                backgroundColor:
-                                    FlutterFlowTheme.of(context).secondary,
-                              ),
-                            );
-                            if (_model.output?.email != null &&
-                                _model.output?.email != '') {
-                              await SharedUserRecord.collection
-                                  .doc()
-                                  .set(createSharedUserRecordData(
-                                    isShared: true,
-                                    sharedEmail: _model.output?.email,
-                                    sharedUid: _model.output?.uid,
-                                    sharedUserName: _model.output?.firstName,
-                                  ));
-                              if (shouldSetState) setState(() {});
-                              return;
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    'User not registered',
-                                    style: TextStyle(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                    ),
-                                  ),
-                                  duration: const Duration(milliseconds: 4000),
-                                  backgroundColor:
-                                      FlutterFlowTheme.of(context).secondary,
-                                ),
-                              );
-                              if (shouldSetState) setState(() {});
-                              return;
-                            }
-
-                            if (shouldSetState) setState(() {});
-                          },
-                          text: 'Send Invite',
-                          options: FFButtonOptions(
-                            height: 40.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Istanbul type',
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: false,
-                                ),
-                            elevation: 3.0,
-                            borderSide: const BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                        ),
-                      ),
-                    if (responsiveVisibility(
-                      context: context,
-                      phone: false,
-                    ))
-                      Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            0.0, 100.0, 0.0, 100.0),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            var shouldSetState = false;
-                            _model.output2 = await querySharedUserRecordOnce(
-                              queryBuilder: (sharedUserRecord) =>
-                                  sharedUserRecord.where(
-                                'sharedEmail',
-                                isEqualTo: _model.textController.text,
-                              ),
-                              singleRecord: true,
-                            ).then((s) => s.firstOrNull);
-                            shouldSetState = true;
-                            if (_model.output2?.sharedEmail != null &&
-                                _model.output2?.sharedEmail != '') {
-                              await _model.output2!.reference.delete();
-                              if (shouldSetState) setState(() {});
-                              return;
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    'User not sharing with this person',
-                                    style: TextStyle(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                    ),
-                                  ),
-                                  duration: const Duration(milliseconds: 4000),
-                                  backgroundColor:
-                                      FlutterFlowTheme.of(context).secondary,
-                                ),
-                              );
-                              if (shouldSetState) setState(() {});
-                              return;
-                            }
-
-                            if (shouldSetState) setState(() {});
-                          },
-                          text: 'Unlink Invite',
-                          options: FFButtonOptions(
-                            height: 40.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Istanbul type',
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: false,
-                                ),
-                            elevation: 3.0,
-                            borderSide: const BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                        ),
-                      ),
                     Flexible(
                       child: Align(
                         alignment: const AlignmentDirectional(0.0, 0.0),
