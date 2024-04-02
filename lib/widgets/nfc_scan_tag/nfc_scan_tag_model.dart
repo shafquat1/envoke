@@ -1,5 +1,6 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/widgets/nfc_scan_tag/nfc_scan_tag_widget.dart';
 import 'nfc_scan_tag_widget.dart' show NfcScanTagWidget;
 import 'package:flutter/material.dart';
 

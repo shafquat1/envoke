@@ -52,7 +52,7 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text(
-                    'The jwelery is already registered.',
+                    'The jewelry is already registered. Please login.',
                     style: TextStyle(
                       color: FlutterFlowTheme.of(context).primaryText,
                     ),
@@ -82,7 +82,24 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
         return;
       } else {
         context.pop();
-        await actions.nfcScan();
+        await showModalBottomSheet(
+          isScrollControlled: true,
+          backgroundColor: Colors.transparent,
+          isDismissible: false,
+          enableDrag: false,
+          context: context,
+          builder: (context) {
+            return Padding(
+              padding: MediaQuery.viewInsetsOf(context),
+              child: SizedBox(
+                height: MediaQuery.sizeOf(context).height * 0.5,
+                child: const NfcScanTagWidget(),
+              ),
+            );
+          },
+        ).then((value) => safeSetState(() {}));
+
+        return;
       }
     });
   }
