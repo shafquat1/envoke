@@ -401,14 +401,18 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                     ),
                                                   if (_model.uploadedFileUrl !=
                                                           '')
-                                                    ClipRRect(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                      child: Image.network(
-                                                        _model.uploadedFileUrl,
-                                                        width: double.infinity,
-                                                        fit: BoxFit.contain,
+                                                    Flexible(
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        child: Image.network(
+                                                          _model
+                                                              .uploadedFileUrl,
+                                                          width:
+                                                              double.infinity,
+                                                          fit: BoxFit.contain,
+                                                        ),
                                                       ),
                                                     ),
                                                 ],

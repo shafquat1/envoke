@@ -303,7 +303,10 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                   ),
                                                   image:
                                                       CachedNetworkImageProvider(
-                                                    momentListItem.imgUrl,
+                                                    valueOrDefault<String>(
+                                                      momentListItem.imgUrl,
+                                                      'https://firebasestorage.googleapis.com/v0/b/envoke-7dtyz3.appspot.com/o/Group%202.png?alt=media&token=929a4fd5-b181-40a8-9534-3251c3f3e0e6',
+                                                    ),
                                                   ),
                                                   width: 315.0,
                                                   height:
