@@ -148,7 +148,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                             ),
                             if (!valueOrDefault<bool>(
                               memoriesTimelineSharedUserRecord?.isShared,
-                              true,
+                              false,
                             ))
                               Align(
                                 alignment: const AlignmentDirectional(1.0, -1.0),
