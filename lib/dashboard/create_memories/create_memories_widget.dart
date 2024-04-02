@@ -54,108 +54,52 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
             autovalidateMode: AutovalidateMode.disabled,
             child: Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(10.0, 40.0, 10.0, 0.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-                    child: AuthUserStreamWidget(
-                      builder: (context) => Text(
-                        'Hi, ${valueOrDefault(currentUserDocument?.firstName, '')}',
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                      child: AuthUserStreamWidget(
+                        builder: (context) => Text(
+                          'Hi, ${valueOrDefault(currentUserDocument?.firstName, '')}',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Istanbul type',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    fontSize: 45.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w300,
+                                    useGoogleFonts: false,
+                                  ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                      child: Text(
+                        'Good morning',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Istanbul type',
+                              fontFamily: 'JasmineUPC',
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              fontSize: 45.0,
+                              fontSize: 48.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w300,
                               useGoogleFonts: false,
                             ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-                    child: Text(
-                      'Good morning',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'JasmineUPC',
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            fontSize: 48.0,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.w300,
-                            useGoogleFonts: false,
-                          ),
-                    ),
-                  ),
-                  Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
-                    child: Builder(
-                      builder: (context) {
-                        if (_model.addNew == false) {
-                          return Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 80.0, 0.0, 0.0),
-                            child: Container(
-                              width: MediaQuery.sizeOf(context).width * 0.9,
-                              height: 389.0,
-                              decoration: BoxDecoration(
-                                color: const Color(0xFF1C1C1C),
-                                borderRadius: BorderRadius.circular(24.0),
-                              ),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  setState(() {
-                                    _model.addNew = true;
-                                  });
-                                },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Icon(
-                                      Icons.add,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      size: 60.0,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 10.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Create\nMemories',
-                                        textAlign: TextAlign.center,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Istanbul type',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              fontSize: 31.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w300,
-                                              useGoogleFonts: false,
-                                            ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          );
-                        } else {
-                          return Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
+                    Align(
+                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      child: Builder(
+                        builder: (context) {
+                          if (_model.addNew == false) {
+                            return Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 80.0, 0.0, 0.0),
                               child: Container(
@@ -165,26 +109,141 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                   color: const Color(0xFF1C1C1C),
                                   borderRadius: BorderRadius.circular(24.0),
                                 ),
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 30.0, 0.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    setState(() {
+                                      _model.addNew = true;
+                                    });
+                                  },
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
+                                      Icon(
+                                        Icons.add,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        size: 60.0,
+                                      ),
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 10.0, 0.0),
-                                        child: TextFormField(
-                                          controller: _model.textController,
-                                          focusNode: _model.textFieldFocusNode,
-                                          autofocus: true,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            hintText: 'Add a title',
-                                            hintStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .labelMedium
+                                            0.0, 10.0, 0.0, 0.0),
+                                        child: Text(
+                                          'Create\nMemories',
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Istanbul type',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                fontSize: 31.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w300,
+                                                useGoogleFonts: false,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            );
+                          } else {
+                            return Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 80.0, 0.0, 0.0),
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 0.9,
+                                  height: 389.0,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xFF1C1C1C),
+                                    borderRadius: BorderRadius.circular(24.0),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 30.0, 0.0, 0.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 10.0, 0.0),
+                                          child: TextFormField(
+                                            controller: _model.textController,
+                                            focusNode:
+                                                _model.textFieldFocusNode,
+                                            autofocus: true,
+                                            obscureText: false,
+                                            decoration: InputDecoration(
+                                              hintText: 'Add a title',
+                                              hintStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .labelMedium
+                                                  .override(
+                                                    fontFamily: 'Istanbul type',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    fontSize: 32.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w300,
+                                                    useGoogleFonts: false,
+                                                  ),
+                                              enabledBorder:
+                                                  UnderlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              focusedBorder:
+                                                  UnderlineInputBorder(
+                                                borderSide: const BorderSide(
+                                                  color: Color(0xFF393939),
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              errorBorder: UnderlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              focusedErrorBorder:
+                                                  UnderlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
                                                 .override(
                                                   fontFamily: 'Istanbul type',
                                                   color: FlutterFlowTheme.of(
@@ -195,293 +254,248 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                   fontWeight: FontWeight.w300,
                                                   useGoogleFonts: false,
                                                 ),
-                                            enabledBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                width: 1.0,
+                                            maxLines: null,
+                                            validator: _model
+                                                .textControllerValidator
+                                                .asValidator(context),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 40.0, 0.0, 0.0),
+                                          child: Text(
+                                            'Upload Cover Page',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              final selectedMedia =
+                                                  await selectMediaWithSourceBottomSheet(
+                                                context: context,
+                                                allowPhoto: true,
+                                                includeBlurHash: true,
+                                              );
+                                              if (selectedMedia != null &&
+                                                  selectedMedia.every((m) =>
+                                                      validateFileFormat(
+                                                          m.storagePath,
+                                                          context))) {
+                                                setState(() => _model
+                                                    .isDataUploading = true);
+                                                var selectedUploadedFiles =
+                                                    <FFUploadedFile>[];
+
+                                                var downloadUrls = <String>[];
+                                                try {
+                                                  showUploadMessage(
+                                                    context,
+                                                    'Uploading file...',
+                                                    showLoading: true,
+                                                  );
+                                                  selectedUploadedFiles =
+                                                      selectedMedia
+                                                          .map((m) =>
+                                                              FFUploadedFile(
+                                                                name: m
+                                                                    .storagePath
+                                                                    .split('/')
+                                                                    .last,
+                                                                bytes: m.bytes,
+                                                                height: m
+                                                                    .dimensions
+                                                                    ?.height,
+                                                                width: m
+                                                                    .dimensions
+                                                                    ?.width,
+                                                                blurHash:
+                                                                    m.blurHash,
+                                                              ))
+                                                          .toList();
+
+                                                  downloadUrls =
+                                                      (await Future.wait(
+                                                    selectedMedia.map(
+                                                      (m) async =>
+                                                          await uploadData(
+                                                              m.storagePath,
+                                                              m.bytes),
+                                                    ),
+                                                  ))
+                                                          .where(
+                                                              (u) => u != null)
+                                                          .map((u) => u!)
+                                                          .toList();
+                                                } finally {
+                                                  ScaffoldMessenger.of(context)
+                                                      .hideCurrentSnackBar();
+                                                  _model.isDataUploading =
+                                                      false;
+                                                }
+                                                if (selectedUploadedFiles
+                                                            .length ==
+                                                        selectedMedia.length &&
+                                                    downloadUrls.length ==
+                                                        selectedMedia.length) {
+                                                  setState(() {
+                                                    _model.uploadedLocalFile =
+                                                        selectedUploadedFiles
+                                                            .first;
+                                                    _model.uploadedFileUrl =
+                                                        downloadUrls.first;
+                                                  });
+                                                  showUploadMessage(
+                                                      context, 'Success!');
+                                                } else {
+                                                  setState(() {});
+                                                  showUploadMessage(context,
+                                                      'Failed to upload data');
+                                                  return;
+                                                }
+                                              }
+                                            },
+                                            child: Container(
+                                              width: 100.0,
+                                              height: 100.0,
+                                              decoration: BoxDecoration(
+                                                color: const Color(0xFF242424),
+                                                borderRadius:
+                                                    BorderRadius.circular(16.0),
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            focusedBorder: UnderlineInputBorder(
-                                              borderSide: const BorderSide(
-                                                color: Color(0xFF393939),
-                                                width: 1.0,
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  if (_model.uploadedFileUrl ==
+                                                          '')
+                                                    Align(
+                                                      alignment:
+                                                          const AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: FaIcon(
+                                                        FontAwesomeIcons.image,
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        size: 50.0,
+                                                      ),
+                                                    ),
+                                                  if (_model.uploadedFileUrl !=
+                                                          '')
+                                                    ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                      child: Image.network(
+                                                        _model.uploadedFileUrl,
+                                                        width: double.infinity,
+                                                        fit: BoxFit.contain,
+                                                      ),
+                                                    ),
+                                                ],
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            errorBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            focusedErrorBorder:
-                                                UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
                                             ),
                                           ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Istanbul type',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                fontSize: 32.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w300,
-                                                useGoogleFonts: false,
-                                              ),
-                                          maxLines: null,
-                                          validator: _model
-                                              .textControllerValidator
-                                              .asValidator(context),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 40.0, 0.0, 0.0),
-                                        child: Text(
-                                          'Upload Cover Page',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 10.0, 0.0, 0.0),
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            final selectedMedia =
-                                                await selectMediaWithSourceBottomSheet(
-                                              context: context,
-                                              allowPhoto: true,
-                                              includeBlurHash: true,
-                                            );
-                                            if (selectedMedia != null &&
-                                                selectedMedia.every((m) =>
-                                                    validateFileFormat(
-                                                        m.storagePath,
-                                                        context))) {
-                                              setState(() => _model
-                                                  .isDataUploading = true);
-                                              var selectedUploadedFiles =
-                                                  <FFUploadedFile>[];
-
-                                              var downloadUrls = <String>[];
-                                              try {
-                                                showUploadMessage(
-                                                  context,
-                                                  'Uploading file...',
-                                                  showLoading: true,
-                                                );
-                                                selectedUploadedFiles =
-                                                    selectedMedia
-                                                        .map((m) =>
-                                                            FFUploadedFile(
-                                                              name: m
-                                                                  .storagePath
-                                                                  .split('/')
-                                                                  .last,
-                                                              bytes: m.bytes,
-                                                              height: m
-                                                                  .dimensions
-                                                                  ?.height,
-                                                              width: m
-                                                                  .dimensions
-                                                                  ?.width,
-                                                              blurHash:
-                                                                  m.blurHash,
-                                                            ))
-                                                        .toList();
-
-                                                downloadUrls =
-                                                    (await Future.wait(
-                                                  selectedMedia.map(
-                                                    (m) async =>
-                                                        await uploadData(
-                                                            m.storagePath,
-                                                            m.bytes),
-                                                  ),
-                                                ))
-                                                        .where((u) => u != null)
-                                                        .map((u) => u!)
-                                                        .toList();
-                                              } finally {
-                                                ScaffoldMessenger.of(context)
-                                                    .hideCurrentSnackBar();
-                                                _model.isDataUploading = false;
-                                              }
-                                              if (selectedUploadedFiles
-                                                          .length ==
-                                                      selectedMedia.length &&
-                                                  downloadUrls.length ==
-                                                      selectedMedia.length) {
-                                                setState(() {
-                                                  _model.uploadedLocalFile =
-                                                      selectedUploadedFiles
-                                                          .first;
-                                                  _model.uploadedFileUrl =
-                                                      downloadUrls.first;
-                                                });
-                                                showUploadMessage(
-                                                    context, 'Success!');
-                                              } else {
-                                                setState(() {});
-                                                showUploadMessage(context,
-                                                    'Failed to upload data');
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 50.0, 0.0, 0.0),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              if (_model.formKey.currentState ==
+                                                      null ||
+                                                  !_model.formKey.currentState!
+                                                      .validate()) {
                                                 return;
                                               }
-                                            }
-                                          },
-                                          child: Container(
-                                            width: 100.0,
-                                            height: 100.0,
-                                            decoration: BoxDecoration(
-                                              color: const Color(0xFF242424),
+                                              if ((_model.uploadedLocalFile
+                                                              .bytes ??
+                                                          [])
+                                                      .isEmpty) {
+                                                return;
+                                              }
+
+                                              await MemoriesRecord.collection
+                                                  .doc()
+                                                  .set(createMemoriesRecordData(
+                                                    createdTime:
+                                                        getCurrentTimestamp,
+                                                    imgUrl:
+                                                        _model.uploadedFileUrl,
+                                                    userId: currentUserUid,
+                                                    memoryTitle: _model
+                                                        .textController.text,
+                                                  ));
+
+                                              context
+                                                  .goNamed('MemoriesTimeline');
+                                            },
+                                            text: 'Save',
+                                            options: FFButtonOptions(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  0.4,
+                                              height: 50.0,
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      24.0, 0.0, 24.0, 0.0),
+                                              iconPadding: const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              borderSide: const BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1.0,
+                                              ),
                                               borderRadius:
-                                                  BorderRadius.circular(16.0),
-                                            ),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                if (_model.uploadedFileUrl ==
-                                                        '')
-                                                  Align(
-                                                    alignment:
-                                                        const AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                    child: FaIcon(
-                                                      FontAwesomeIcons.image,
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      size: 50.0,
-                                                    ),
-                                                  ),
-                                                if (_model.uploadedFileUrl !=
-                                                        '')
-                                                  ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                    child: Image.network(
-                                                      _model.uploadedFileUrl,
-                                                      width: double.infinity,
-                                                      fit: BoxFit.contain,
-                                                    ),
-                                                  ),
-                                              ],
+                                                  BorderRadius.circular(22.0),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 50.0, 0.0, 0.0),
-                                        child: FFButtonWidget(
-                                          onPressed: () async {
-                                            if (_model.formKey.currentState ==
-                                                    null ||
-                                                !_model.formKey.currentState!
-                                                    .validate()) {
-                                              return;
-                                            }
-                                            if ((_model.uploadedLocalFile
-                                                            .bytes ??
-                                                        [])
-                                                    .isEmpty) {
-                                              return;
-                                            }
-
-                                            await MemoriesRecord.collection
-                                                .doc()
-                                                .set(createMemoriesRecordData(
-                                                  createdTime:
-                                                      getCurrentTimestamp,
-                                                  imgUrl:
-                                                      _model.uploadedFileUrl,
-                                                  userId: currentUserUid,
-                                                  memoryTitle: _model
-                                                      .textController.text,
-                                                ));
-
-                                            context.goNamed('MemoriesTimeline');
-                                          },
-                                          text: 'Save',
-                                          options: FFButtonOptions(
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                0.4,
-                                            height: 50.0,
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    24.0, 0.0, 24.0, 0.0),
-                                            iconPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .override(
-                                                      fontFamily: 'Inter',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryText,
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                            borderSide: const BorderSide(
-                                              color: Colors.transparent,
-                                              width: 1.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(22.0),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          );
-                        }
-                      },
+                            );
+                          }
+                        },
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
