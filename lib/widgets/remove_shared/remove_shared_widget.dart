@@ -3,6 +3,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'remove_shared_model.dart';
 export 'remove_shared_model.dart';
 
@@ -44,11 +46,11 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: const Color(0xFF242424),
+        color: Color(0xFF242424),
         borderRadius: BorderRadius.circular(32.0),
       ),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 20.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 20.0, 0.0),
         child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.max,
@@ -60,10 +62,10 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                 children: [
                   Flexible(
                     child: Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                         child: Text(
                           'Do you want to Remove?',
                           style:
@@ -83,14 +85,14 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                       child: Container(
                         width: 100.0,
                         height: 100.0,
@@ -100,7 +102,7 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                           shape: BoxShape.circle,
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(14.0),
+                          padding: EdgeInsets.all(14.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(50.0),
                             child: Image.network(
@@ -115,7 +117,7 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                 child: Text(
                   widget.shared!.sharedUserName,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -129,7 +131,7 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 10.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 10.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -143,10 +145,10 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                         width: 150.0,
                         height: 50.0,
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: const Color(0xFF2F2F2F),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: Color(0xFF2F2F2F),
                         textStyle:
                             FlutterFlowTheme.of(context).labelMedium.override(
                                   fontFamily: 'Inter',
@@ -157,7 +159,7 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                                   fontWeight: FontWeight.bold,
                                 ),
                         elevation: 2.0,
-                        borderSide: const BorderSide(
+                        borderSide: BorderSide(
                           color: Colors.transparent,
                           width: 1.0,
                         ),
@@ -174,9 +176,9 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                         width: 150.0,
                         height: 50.0,
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: Colors.black,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
@@ -187,7 +189,7 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                                   fontWeight: FontWeight.bold,
                                 ),
                         elevation: 2.0,
-                        borderSide: const BorderSide(
+                        borderSide: BorderSide(
                           color: Colors.transparent,
                           width: 1.0,
                         ),

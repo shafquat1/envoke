@@ -2,8 +2,10 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'login_page_model.dart';
 export 'login_page_model.dart';
 
@@ -54,7 +56,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                SizedBox(
+                Container(
                   height: MediaQuery.sizeOf(context).height * 1.0,
                   child: Stack(
                     children: [
@@ -74,7 +76,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             child: Container(
                               width: double.infinity,
                               height: double.infinity,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 color: Colors.black,
                               ),
                             ),
@@ -82,9 +84,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         ],
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(-0.06, -0.7),
+                        alignment: AlignmentDirectional(-0.06, -0.7),
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
@@ -97,17 +99,17 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 1.0),
+                        alignment: AlignmentDirectional(0.0, 1.0),
                         child: Padding(
-                          padding: const EdgeInsets.all(14.0),
+                          padding: EdgeInsets.all(14.0),
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 0.9,
                             decoration: BoxDecoration(
-                              color: const Color(0xFF1C1C1C),
+                              color: Color(0xFF1C1C1C),
                               borderRadius: BorderRadius.circular(22.0),
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.all(22.0),
+                              padding: EdgeInsets.all(22.0),
                               child: SingleChildScrollView(
                                 primary: false,
                                 child: Column(
@@ -115,7 +117,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 10.0),
                                       child: Text(
                                         'Login',
@@ -143,13 +145,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Inter',
-                                              color: const Color(0xFF5A5A5A),
+                                              color: Color(0xFF5A5A5A),
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                         enabledBorder: OutlineInputBorder(
-                                          borderSide: const BorderSide(
+                                          borderSide: BorderSide(
                                             color: Color(0xFF2F2F2F),
                                             width: 2.0,
                                           ),
@@ -157,7 +159,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               BorderRadius.circular(10.0),
                                         ),
                                         focusedBorder: OutlineInputBorder(
-                                          borderSide: const BorderSide(
+                                          borderSide: BorderSide(
                                             color: Color(0xFF2F2F2F),
                                             width: 2.0,
                                           ),
@@ -183,8 +185,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               BorderRadius.circular(10.0),
                                         ),
                                         filled: true,
-                                        fillColor: const Color(0xFF2F2F2F),
-                                        prefixIcon: const Icon(
+                                        fillColor: Color(0xFF2F2F2F),
+                                        prefixIcon: Icon(
                                           Icons.person_outline_sharp,
                                           color: Color(0xFF5A5A5A),
                                         ),
@@ -216,13 +218,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Inter',
-                                              color: const Color(0xFF5A5A5A),
+                                              color: Color(0xFF5A5A5A),
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                         enabledBorder: OutlineInputBorder(
-                                          borderSide: const BorderSide(
+                                          borderSide: BorderSide(
                                             color: Color(0xFF2F2F2F),
                                             width: 2.0,
                                           ),
@@ -230,7 +232,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               BorderRadius.circular(10.0),
                                         ),
                                         focusedBorder: OutlineInputBorder(
-                                          borderSide: const BorderSide(
+                                          borderSide: BorderSide(
                                             color: Color(0xFF2F2F2F),
                                             width: 2.0,
                                           ),
@@ -256,8 +258,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               BorderRadius.circular(10.0),
                                         ),
                                         filled: true,
-                                        fillColor: const Color(0xFF2F2F2F),
-                                        prefixIcon: const Icon(
+                                        fillColor: Color(0xFF2F2F2F),
+                                        prefixIcon: Icon(
                                           Icons.lock_outlined,
                                           color: Color(0xFF5A5A5A),
                                         ),
@@ -272,7 +274,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             _model.passwordVisibility
                                                 ? Icons.visibility_outlined
                                                 : Icons.visibility_off_outlined,
-                                            color: const Color(0xFF5A5A5A),
+                                            color: Color(0xFF5A5A5A),
                                             size: 22,
                                           ),
                                         ),
@@ -310,7 +312,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               ),
                                             ),
                                             unselectedWidgetColor:
-                                                const Color(0xFF828282),
+                                                Color(0xFF828282),
                                           ),
                                           child: Checkbox(
                                             value: _model.checkboxValue1 ??=
@@ -319,7 +321,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               setState(() => _model
                                                   .checkboxValue1 = newValue!);
                                             },
-                                            activeColor: const Color(0xFF828282),
+                                            activeColor: Color(0xFF828282),
                                             checkColor:
                                                 FlutterFlowTheme.of(context)
                                                     .info,
@@ -339,7 +341,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                       .override(
                                                         fontFamily: 'Inter',
                                                         color:
-                                                            const Color(0xFF828282),
+                                                            Color(0xFF828282),
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -387,7 +389,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Inter',
-                                                    color: const Color(0xFF828282),
+                                                    color: Color(0xFF828282),
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -413,7 +415,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               ),
                                             ),
                                             unselectedWidgetColor:
-                                                const Color(0xFF828282),
+                                                Color(0xFF828282),
                                           ),
                                           child: Checkbox(
                                             value: _model.checkboxValue2 ??=
@@ -422,7 +424,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               setState(() => _model
                                                   .checkboxValue2 = newValue!);
                                             },
-                                            activeColor: const Color(0xFF828282),
+                                            activeColor: Color(0xFF828282),
                                             checkColor:
                                                 FlutterFlowTheme.of(context)
                                                     .info,
@@ -434,7 +436,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Inter',
-                                                color: const Color(0xFF828282),
+                                                color: Color(0xFF828282),
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
@@ -443,9 +445,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(0.12, 0.92),
+                                          AlignmentDirectional(0.12, 0.92),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 10.0, 0.0, 0.0),
                                         child: FFButtonWidget(
                                           onPressed: !_model.checkboxValue1!
@@ -486,10 +488,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                 0.85,
                                             height: 55.0,
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 0.0, 24.0, 0.0),
                                             iconPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: Colors.black,
                                             textStyle:
@@ -504,7 +506,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                           FontWeight.bold,
                                                     ),
                                             elevation: 3.0,
-                                            borderSide: const BorderSide(
+                                            borderSide: BorderSide(
                                               color: Colors.transparent,
                                               width: 1.0,
                                             ),
@@ -514,7 +516,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         ),
                                       ),
                                     ),
-                                  ].divide(const SizedBox(height: 10.0)),
+                                  ].divide(SizedBox(height: 10.0)),
                                 ),
                               ),
                             ),

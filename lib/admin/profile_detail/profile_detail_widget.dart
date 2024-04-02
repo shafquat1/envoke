@@ -5,8 +5,10 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/widgets/remove_shared/remove_shared_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'profile_detail_model.dart';
 export 'profile_detail_model.dart';
@@ -86,7 +88,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                 borderRadius: 30.0,
                 borderWidth: 1.0,
                 buttonSize: 60.0,
-                icon: const Icon(
+                icon: Icon(
                   Icons.keyboard_backspace,
                   color: Colors.white,
                   size: 30.0,
@@ -104,7 +106,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                       letterSpacing: 0.0,
                     ),
               ),
-              actions: const [],
+              actions: [],
               centerTitle: true,
               elevation: 2.0,
             ),
@@ -117,7 +119,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
                       child: Container(
                         width: 145.0,
                         height: 145.0,
@@ -127,7 +129,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                           shape: BoxShape.circle,
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(25.0),
+                          padding: EdgeInsets.all(25.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(50.0),
                             child: Image.network(
@@ -140,7 +142,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: AuthUserStreamWidget(
                         builder: (context) => Text(
                           valueOrDefault(currentUserDocument?.firstName, ''),
@@ -158,13 +160,13 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                      alignment: AlignmentDirectional(-1.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 33.0, 30.0, 0.0, 10.0),
                             child: Text(
                               'Account',
@@ -180,16 +182,16 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 0.0),
                             child: Container(
                               width: double.infinity,
                               decoration: BoxDecoration(
-                                color: const Color(0xFF171717),
+                                color: Color(0xFF171717),
                                 borderRadius: BorderRadius.circular(32.0),
                               ),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     38.0, 0.0, 38.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -197,9 +199,9 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                   children: [
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 23.0, 0.0, 0.0),
                                         child: Text(
                                           'Email ID',
@@ -207,7 +209,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'JasmineUPC',
-                                                color: const Color(0xFF848484),
+                                                color: Color(0xFF848484),
                                                 fontSize: 24.0,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts: false,
@@ -216,7 +218,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 27.0),
                                       child: Text(
                                         currentUserEmail,
@@ -234,15 +236,15 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                             ),
                                       ),
                                     ),
-                                    const Divider(
+                                    Divider(
                                       thickness: 1.0,
                                       color: Color(0xFF333333),
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 23.0, 0.0, 0.0),
                                         child: Text(
                                           'Password',
@@ -250,7 +252,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'JasmineUPC',
-                                                color: const Color(0xFF848484),
+                                                color: Color(0xFF848484),
                                                 fontSize: 24.0,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts: false,
@@ -259,7 +261,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 27.0),
                                       child: Text(
                                         '00000000000',
@@ -290,13 +292,13 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                       false,
                     ))
                       Align(
-                        alignment: const AlignmentDirectional(-1.0, 0.0),
+                        alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   33.0, 30.0, 0.0, 10.0),
                               child: Text(
                                 'Shared Album',
@@ -312,12 +314,12 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: Container(
                                 width: double.infinity,
                                 decoration: BoxDecoration(
-                                  color: const Color(0xFF171717),
+                                  color: Color(0xFF171717),
                                   borderRadius: BorderRadius.circular(32.0),
                                 ),
                                 child: Row(
@@ -326,7 +328,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           17.0, 5.0, 0.0, 5.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -335,9 +337,9 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
+                                                AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 23.0, 0.0, 0.0),
                                               child: Text(
@@ -347,7 +349,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                     .bodyMedium
                                                     .override(
                                                       fontFamily: 'JasmineUPC',
-                                                      color: const Color(0xFF848484),
+                                                      color: Color(0xFF848484),
                                                       fontSize: 24.0,
                                                       letterSpacing: 0.0,
                                                       useGoogleFonts: false,
@@ -357,7 +359,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 27.0),
                                             child: Text(
                                               profileDetailSharedUserRecord!
@@ -381,7 +383,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                     ),
                                     Builder(
                                       builder: (context) => Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 17.0, 0.0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
@@ -394,7 +396,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                   backgroundColor:
                                                       Colors.transparent,
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                               0.0, 0.0)
                                                           .resolve(
                                                               Directionality.of(
@@ -410,7 +412,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                             .unfocus(),
                                                     child: RemoveSharedWidget(
                                                       shared:
-                                                          profileDetailSharedUserRecord,
+                                                          profileDetailSharedUserRecord!,
                                                     ),
                                                   ),
                                                 );
@@ -421,12 +423,12 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                           options: FFButtonOptions(
                                             height: 40.0,
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 0.0, 24.0, 0.0),
                                             iconPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
-                                            color: const Color(0xFF242424),
+                                            color: Color(0xFF242424),
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .titleSmall
@@ -438,7 +440,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                           FontWeight.normal,
                                                     ),
                                             elevation: 3.0,
-                                            borderSide: const BorderSide(
+                                            borderSide: BorderSide(
                                               color: Colors.transparent,
                                               width: 1.0,
                                             ),
@@ -456,13 +458,13 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                         ),
                       ),
                     Align(
-                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                      alignment: AlignmentDirectional(-1.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 33.0, 30.0, 0.0, 10.0),
                             child: Text(
                               'Jewellery',
@@ -478,16 +480,16 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 0.0),
                             child: Container(
                               width: double.infinity,
                               decoration: BoxDecoration(
-                                color: const Color(0xFF171717),
+                                color: Color(0xFF171717),
                                 borderRadius: BorderRadius.circular(32.0),
                               ),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     38.0, 30.0, 38.0, 30.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -521,7 +523,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                     ))
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(8.0, 20.0, 8.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(8.0, 20.0, 8.0, 0.0),
                         child: TextFormField(
                           controller: _model.textController,
                           focusNode: _model.textFieldFocusNode,
@@ -565,10 +567,10 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                     ))
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            var shouldSetState = false;
+                            var _shouldSetState = false;
                             _model.output = await queryUsersRecordOnce(
                               queryBuilder: (usersRecord) => usersRecord.where(
                                 'email',
@@ -576,7 +578,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                               ),
                               singleRecord: true,
                             ).then((s) => s.firstOrNull);
-                            shouldSetState = true;
+                            _shouldSetState = true;
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text(
@@ -586,7 +588,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                         .primaryText,
                                   ),
                                 ),
-                                duration: const Duration(milliseconds: 4000),
+                                duration: Duration(milliseconds: 4000),
                                 backgroundColor:
                                     FlutterFlowTheme.of(context).secondary,
                               ),
@@ -601,7 +603,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                     sharedUid: _model.output?.uid,
                                     sharedUserName: _model.output?.firstName,
                                   ));
-                              if (shouldSetState) setState(() {});
+                              if (_shouldSetState) setState(() {});
                               return;
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
@@ -613,23 +615,23 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                           .primaryText,
                                     ),
                                   ),
-                                  duration: const Duration(milliseconds: 4000),
+                                  duration: Duration(milliseconds: 4000),
                                   backgroundColor:
                                       FlutterFlowTheme.of(context).secondary,
                                 ),
                               );
-                              if (shouldSetState) setState(() {});
+                              if (_shouldSetState) setState(() {});
                               return;
                             }
 
-                            if (shouldSetState) setState(() {});
+                            if (_shouldSetState) setState(() {});
                           },
                           text: 'Send Invite',
                           options: FFButtonOptions(
                             height: 40.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
@@ -641,7 +643,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                   useGoogleFonts: false,
                                 ),
                             elevation: 3.0,
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),
@@ -654,11 +656,11 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                       phone: false,
                     ))
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 100.0, 0.0, 100.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            var shouldSetState = false;
+                            var _shouldSetState = false;
                             _model.output2 = await querySharedUserRecordOnce(
                               queryBuilder: (sharedUserRecord) =>
                                   sharedUserRecord.where(
@@ -667,11 +669,11 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                               ),
                               singleRecord: true,
                             ).then((s) => s.firstOrNull);
-                            shouldSetState = true;
+                            _shouldSetState = true;
                             if (_model.output2?.sharedEmail != null &&
                                 _model.output2?.sharedEmail != '') {
                               await _model.output2!.reference.delete();
-                              if (shouldSetState) setState(() {});
+                              if (_shouldSetState) setState(() {});
                               return;
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
@@ -683,23 +685,23 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                           .primaryText,
                                     ),
                                   ),
-                                  duration: const Duration(milliseconds: 4000),
+                                  duration: Duration(milliseconds: 4000),
                                   backgroundColor:
                                       FlutterFlowTheme.of(context).secondary,
                                 ),
                               );
-                              if (shouldSetState) setState(() {});
+                              if (_shouldSetState) setState(() {});
                               return;
                             }
 
-                            if (shouldSetState) setState(() {});
+                            if (_shouldSetState) setState(() {});
                           },
                           text: 'Unlink Invite',
                           options: FFButtonOptions(
                             height: 40.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
@@ -711,7 +713,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                   useGoogleFonts: false,
                                 ),
                             elevation: 3.0,
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),
@@ -721,9 +723,9 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                       ),
                     Flexible(
                       child: Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               75.0, 180.0, 75.0, 40.0),
                           child: FFButtonWidget(
                             onPressed: () async {
@@ -735,7 +737,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                   'SplashScreen', context.mounted);
                             },
                             text: 'Logout',
-                            icon: const Icon(
+                            icon: Icon(
                               Icons.power_settings_new_outlined,
                               color: Color(0xFF060606),
                               size: 25.0,
@@ -743,9 +745,9 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 65.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   20.0, 20.0, 20.0, 20.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
@@ -753,13 +755,13 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                   .titleSmall
                                   .override(
                                     fontFamily: 'Inter',
-                                    color: const Color(0xFF060606),
+                                    color: Color(0xFF060606),
                                     fontSize: 20.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                               elevation: 3.0,
-                              borderSide: const BorderSide(
+                              borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),
