@@ -193,34 +193,59 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                               memoriesTimelineSharedUserRecord?.isShared,
                               false,
                             )) {
-                              return Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 10.0, 0.0),
-                                    child: ListView(
-                                      padding: EdgeInsets.zero,
-                                      primary: false,
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.vertical,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 50.0, 0.0, 0.0),
-                                          child: StreamBuilder<
-                                              List<MemoriesRecord>>(
-                                            stream: queryMemoriesRecord(
-                                              queryBuilder: (memoriesRecord) =>
-                                                  memoriesRecord
-                                                      .where(
-                                                        'user_id',
-                                                        isEqualTo:
-                                                            currentUserUid,
-                                                      )
-                                                      .orderBy('created_time',
-                                                          descending: true),
+                              return Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 50.0, 0.0, 0.0),
+                                child: StreamBuilder<List<MemoriesRecord>>(
+                                  stream: queryMemoriesRecord(
+                                    queryBuilder: (memoriesRecord) =>
+                                        memoriesRecord
+                                            .where(
+                                              'user_id',
+                                              isEqualTo:
+                                                  memoriesTimelineSharedUserRecord
+                                                      ?.sharedUid,
+                                            )
+                                            .orderBy('created_time',
+                                                descending: true),
+                                  ),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                    List<MemoriesRecord>
+                                        columnMemoriesRecordList =
+                                        snapshot.data!;
+                                    return SingleChildScrollView(
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: List.generate(
+                                            columnMemoriesRecordList.length,
+                                            (columnIndex) {
+                                          final columnMemoriesRecord =
+                                              columnMemoriesRecordList[
+                                                  columnIndex];
+                                          return FutureBuilder<int>(
+                                            future: queryMomentsRecordCount(
+                                              parent: columnMemoriesRecord
+                                                  .reference,
                                             ),
                                             builder: (context, snapshot) {
                                               // Customize what your widget looks like when it's loading.
@@ -242,238 +267,95 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                   ),
                                                 );
                                               }
-                                              List<MemoriesRecord>
-                                                  columnMemoriesRecordList =
-                                                  snapshot.data!;
-                                              return SingleChildScrollView(
+                                              int columnCount = snapshot.data!;
+                                              return InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  context.pushNamed(
+                                                      'createMoment');
+                                                },
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: List.generate(
-                                                      columnMemoriesRecordList
-                                                          .length,
-                                                      (columnIndex) {
-                                                    final columnMemoriesRecord =
-                                                        columnMemoriesRecordList[
-                                                            columnIndex];
-                                                    return FutureBuilder<int>(
-                                                      future:
-                                                          queryMomentsRecordCount(
-                                                        parent:
-                                                            columnMemoriesRecord
-                                                                .reference,
-                                                      ),
-                                                      builder:
-                                                          (context, snapshot) {
-                                                        // Customize what your widget looks like when it's loading.
-                                                        if (!snapshot.hasData) {
-                                                          return Center(
-                                                            child: SizedBox(
-                                                              width: 50.0,
-                                                              height: 50.0,
-                                                              child:
-                                                                  CircularProgressIndicator(
-                                                                valueColor:
-                                                                    AlwaysStoppedAnimation<
-                                                                        Color>(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
+                                                  children: [
+                                                    Align(
+                                                      alignment:
+                                                          const AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: SizedBox(
+                                                        width: double.infinity,
+                                                        child: Stack(
+                                                          alignment:
+                                                              const AlignmentDirectional(
+                                                                  0.0, 1.0),
+                                                          children: [
+                                                            InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                context
+                                                                    .pushNamed(
+                                                                  'momentTimeline',
+                                                                  queryParameters:
+                                                                      {
+                                                                    'memories':
+                                                                        serializeParam(
+                                                                      columnMemoriesRecord,
+                                                                      ParamType
+                                                                          .Document,
+                                                                    ),
+                                                                  }.withoutNulls,
+                                                                  extra: <String,
+                                                                      dynamic>{
+                                                                    'memories':
+                                                                        columnMemoriesRecord,
+                                                                  },
+                                                                );
+                                                              },
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            24.0),
+                                                                child: Image
+                                                                    .network(
+                                                                  columnMemoriesRecord
+                                                                      .imgUrl,
+                                                                  width: 350.0,
+                                                                  height: 200.0,
+                                                                  fit: BoxFit
+                                                                      .cover,
                                                                 ),
                                                               ),
                                                             ),
-                                                          );
-                                                        }
-                                                        int columnCount =
-                                                            snapshot.data!;
-                                                        return InkWell(
-                                                          splashColor: Colors
-                                                              .transparent,
-                                                          focusColor: Colors
-                                                              .transparent,
-                                                          hoverColor: Colors
-                                                              .transparent,
-                                                          highlightColor: Colors
-                                                              .transparent,
-                                                          onTap: () async {
-                                                            context.pushNamed(
-                                                                'createMoment');
-                                                          },
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Align(
-                                                                alignment:
-                                                                    const AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
-                                                                child:
-                                                                    SizedBox(
-                                                                  width: double
-                                                                      .infinity,
-                                                                  child: Stack(
-                                                                    alignment:
-                                                                        const AlignmentDirectional(
-                                                                            0.0,
-                                                                            1.0),
-                                                                    children: [
-                                                                      InkWell(
-                                                                        splashColor:
-                                                                            Colors.transparent,
-                                                                        focusColor:
-                                                                            Colors.transparent,
-                                                                        hoverColor:
-                                                                            Colors.transparent,
-                                                                        highlightColor:
-                                                                            Colors.transparent,
-                                                                        onTap:
-                                                                            () async {
-                                                                          context
-                                                                              .pushNamed(
-                                                                            'momentTimeline',
-                                                                            queryParameters:
-                                                                                {
-                                                                              'memories': serializeParam(
-                                                                                columnMemoriesRecord,
-                                                                                ParamType.Document,
-                                                                              ),
-                                                                            }.withoutNulls,
-                                                                            extra: <String,
-                                                                                dynamic>{
-                                                                              'memories': columnMemoriesRecord,
-                                                                            },
-                                                                          );
-                                                                        },
-                                                                        child:
-                                                                            ClipRRect(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(24.0),
-                                                                          child:
-                                                                              Image.network(
-                                                                            columnMemoriesRecord.imgUrl,
-                                                                            width:
-                                                                                350.0,
-                                                                            height:
-                                                                                200.0,
-                                                                            fit:
-                                                                                BoxFit.cover,
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            30.0,
-                                                                            0.0,
-                                                                            30.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Row(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          mainAxisAlignment:
-                                                                              MainAxisAlignment.spaceBetween,
-                                                                          children: [
-                                                                            Align(
-                                                                              alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                              child: Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                                                                                child: Column(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.end,
-                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                  children: [
-                                                                                    Align(
-                                                                                      alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                      child: Text(
-                                                                                        '${columnCount.toString()} items',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Inter',
-                                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                              letterSpacing: 0.0,
-                                                                                              fontWeight: FontWeight.w500,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ),
-                                                                                    Align(
-                                                                                      alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                      child: Text(
-                                                                                        columnMemoriesRecord.memoryTitle,
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Istanbul type',
-                                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                              fontSize: 28.0,
-                                                                                              letterSpacing: 0.0,
-                                                                                              fontWeight: FontWeight.w300,
-                                                                                              useGoogleFonts: false,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ].divide(const SizedBox(height: 5.0)),
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              Stack(
-                                                                alignment:
-                                                                    const AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          30.0,
+                                                                          0.0,
+                                                                          30.0,
+                                                                          0.0),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
                                                                 children: [
-                                                                  Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .center,
-                                                                    children: [
-                                                                      SizedBox(
-                                                                        height:
-                                                                            100.0,
-                                                                        child:
-                                                                            VerticalDivider(
-                                                                          thickness:
-                                                                              1.0,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).accent4,
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                  Container(
-                                                                    width: MediaQuery.sizeOf(context)
-                                                                            .width *
-                                                                        0.6,
-                                                                    height:
-                                                                        40.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: Colors
-                                                                          .black,
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              16.0),
-                                                                      border:
-                                                                          Border
-                                                                              .all(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondaryBackground,
-                                                                        width:
-                                                                            1.0,
-                                                                      ),
-                                                                    ),
+                                                                  Flexible(
                                                                     child:
                                                                         Align(
                                                                       alignment:
@@ -481,384 +363,184 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                               0.0,
                                                                               0.0),
                                                                       child:
-                                                                          Text(
-                                                                        dateTimeFormat(
-                                                                            'd MMMM y',
-                                                                            columnMemoriesRecord.createdTime!),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Istanbul type',
-                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                              fontSize: 20.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.w300,
-                                                                              useGoogleFonts: false,
+                                                                          Padding(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            10.0),
+                                                                        child:
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.end,
+                                                                          crossAxisAlignment:
+                                                                              CrossAxisAlignment.start,
+                                                                          children:
+                                                                              [
+                                                                            Align(
+                                                                              alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                              child: Text(
+                                                                                '${columnCount.toString()} items',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Inter',
+                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                      letterSpacing: 0.0,
+                                                                                      fontWeight: FontWeight.w500,
+                                                                                    ),
+                                                                              ),
                                                                             ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        );
-                                                      },
-                                                    );
-                                                  }),
-                                                ),
-                                              );
-                                            },
-                                          ),
-                                        ),
-                                        StreamBuilder<List<MemoriesRecord>>(
-                                          stream: queryMemoriesRecord(
-                                            queryBuilder: (memoriesRecord) =>
-                                                memoriesRecord
-                                                    .where(
-                                                      'user_id',
-                                                      isEqualTo:
-                                                          memoriesTimelineSharedUserRecord
-                                                              ?.sharedUid,
-                                                    )
-                                                    .orderBy('created_time',
-                                                        descending: true),
-                                          ),
-                                          builder: (context, snapshot) {
-                                            // Customize what your widget looks like when it's loading.
-                                            if (!snapshot.hasData) {
-                                              return Center(
-                                                child: SizedBox(
-                                                  width: 50.0,
-                                                  height: 50.0,
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                    valueColor:
-                                                        AlwaysStoppedAnimation<
-                                                            Color>(
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary,
-                                                    ),
-                                                  ),
-                                                ),
-                                              );
-                                            }
-                                            List<MemoriesRecord>
-                                                columnMemoriesRecordList =
-                                                snapshot.data!;
-                                            return SingleChildScrollView(
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                children: List.generate(
-                                                    columnMemoriesRecordList
-                                                        .length, (columnIndex) {
-                                                  final columnMemoriesRecord =
-                                                      columnMemoriesRecordList[
-                                                          columnIndex];
-                                                  return FutureBuilder<int>(
-                                                    future:
-                                                        queryMomentsRecordCount(
-                                                      parent:
-                                                          columnMemoriesRecord
-                                                              .reference,
-                                                    ),
-                                                    builder:
-                                                        (context, snapshot) {
-                                                      // Customize what your widget looks like when it's loading.
-                                                      if (!snapshot.hasData) {
-                                                        return Center(
-                                                          child: SizedBox(
-                                                            width: 50.0,
-                                                            height: 50.0,
-                                                            child:
-                                                                CircularProgressIndicator(
-                                                              valueColor:
-                                                                  AlwaysStoppedAnimation<
-                                                                      Color>(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        );
-                                                      }
-                                                      int columnCount =
-                                                          snapshot.data!;
-                                                      return InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          context.pushNamed(
-                                                              'createMoment');
-                                                        },
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Align(
-                                                              alignment:
-                                                                  const AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              child: SizedBox(
-                                                                width: double
-                                                                    .infinity,
-                                                                child: Stack(
-                                                                  alignment:
-                                                                      const AlignmentDirectional(
-                                                                          0.0,
-                                                                          1.0),
-                                                                  children: [
-                                                                    InkWell(
-                                                                      splashColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      focusColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      hoverColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      highlightColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      onTap:
-                                                                          () async {
-                                                                        context
-                                                                            .pushNamed(
-                                                                          'momentTimeline',
-                                                                          queryParameters:
-                                                                              {
-                                                                            'memories':
-                                                                                serializeParam(
-                                                                              columnMemoriesRecord,
-                                                                              ParamType.Document,
+                                                                            Align(
+                                                                              alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                              child: Text(
+                                                                                columnMemoriesRecord.memoryTitle,
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Istanbul type',
+                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                      fontSize: 28.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                      fontWeight: FontWeight.w300,
+                                                                                      useGoogleFonts: false,
+                                                                                    ),
+                                                                              ),
                                                                             ),
-                                                                          }.withoutNulls,
-                                                                          extra: <String,
-                                                                              dynamic>{
-                                                                            'memories':
-                                                                                columnMemoriesRecord,
-                                                                          },
-                                                                        );
-                                                                      },
-                                                                      child:
-                                                                          ClipRRect(
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(24.0),
-                                                                        child: Image
-                                                                            .network(
-                                                                          columnMemoriesRecord
-                                                                              .imgUrl,
-                                                                          width:
-                                                                              350.0,
-                                                                          height:
-                                                                              200.0,
-                                                                          fit: BoxFit
-                                                                              .cover,
+                                                                          ].divide(const SizedBox(height: 5.0)),
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                    Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          30.0,
-                                                                          0.0,
-                                                                          30.0,
-                                                                          0.0),
+                                                                  ),
+                                                                  if (memoriesTimelineSharedUserRecord
+                                                                          ?.isShared ??
+                                                                      true)
+                                                                    Flexible(
                                                                       child:
-                                                                          Row(
+                                                                          Column(
                                                                         mainAxisSize:
                                                                             MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.spaceBetween,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.start,
                                                                         children: [
-                                                                          Flexible(
-                                                                            child:
-                                                                                Align(
-                                                                              alignment: const AlignmentDirectional(0.0, 0.0),
-                                                                              child: Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                                                                                child: Column(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.end,
-                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                  children: [
-                                                                                    Align(
-                                                                                      alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                      child: Text(
-                                                                                        '${columnCount.toString()} items',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Inter',
-                                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                              letterSpacing: 0.0,
-                                                                                              fontWeight: FontWeight.w500,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ),
-                                                                                    Align(
-                                                                                      alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                      child: Text(
-                                                                                        columnMemoriesRecord.memoryTitle,
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Istanbul type',
-                                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                              fontSize: 28.0,
-                                                                                              letterSpacing: 0.0,
-                                                                                              fontWeight: FontWeight.w300,
-                                                                                              useGoogleFonts: false,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ].divide(const SizedBox(height: 5.0)),
+                                                                          Text(
+                                                                            'Shared',
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'JasmineUPC',
+                                                                                  color: FlutterFlowTheme.of(context).info,
+                                                                                  fontSize: 18.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                  fontWeight: FontWeight.w300,
+                                                                                  useGoogleFonts: false,
                                                                                 ),
-                                                                              ),
-                                                                            ),
                                                                           ),
-                                                                          if (memoriesTimelineSharedUserRecord?.isShared ??
-                                                                              true)
-                                                                            Flexible(
-                                                                              child: Column(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                children: [
-                                                                                  Text(
-                                                                                    'Shared',
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'JasmineUPC',
-                                                                                          color: FlutterFlowTheme.of(context).info,
-                                                                                          fontSize: 18.0,
-                                                                                          letterSpacing: 0.0,
-                                                                                          fontWeight: FontWeight.w300,
-                                                                                          useGoogleFonts: false,
-                                                                                        ),
-                                                                                  ),
-                                                                                  Text(
-                                                                                    memoriesTimelineSharedUserRecord!.sharedUserName,
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'JasmineUPC',
-                                                                                          color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                          fontSize: 24.0,
-                                                                                          letterSpacing: 0.0,
-                                                                                          fontWeight: FontWeight.w300,
-                                                                                          useGoogleFonts: false,
-                                                                                        ),
-                                                                                  ),
-                                                                                ],
-                                                                              ),
-                                                                            ),
+                                                                          Text(
+                                                                            memoriesTimelineSharedUserRecord!.sharedUserName,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'JasmineUPC',
+                                                                                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                  fontSize: 24.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                  fontWeight: FontWeight.w300,
+                                                                                  useGoogleFonts: false,
+                                                                                ),
+                                                                          ),
                                                                         ],
                                                                       ),
                                                                     ),
-                                                                  ],
-                                                                ),
+                                                                ],
                                                               ),
-                                                            ),
-                                                            Stack(
-                                                              alignment:
-                                                                  const AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              children: [
-                                                                Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .center,
-                                                                  children: [
-                                                                    SizedBox(
-                                                                      height:
-                                                                          100.0,
-                                                                      child:
-                                                                          VerticalDivider(
-                                                                        thickness:
-                                                                            1.0,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .accent4,
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                Container(
-                                                                  width: MediaQuery.sizeOf(
-                                                                              context)
-                                                                          .width *
-                                                                      0.6,
-                                                                  height: 40.0,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            16.0),
-                                                                    border:
-                                                                        Border
-                                                                            .all(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondaryBackground,
-                                                                      width:
-                                                                          1.0,
-                                                                    ),
-                                                                  ),
-                                                                  child: Align(
-                                                                    alignment:
-                                                                        const AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      dateTimeFormat(
-                                                                          'd MMMM y',
-                                                                          columnMemoriesRecord
-                                                                              .createdTime!),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Istanbul type',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondaryBackground,
-                                                                            fontSize:
-                                                                                20.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w300,
-                                                                            useGoogleFonts:
-                                                                                false,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
                                                             ),
                                                           ],
                                                         ),
-                                                      );
-                                                    },
-                                                  );
-                                                }),
-                                              ),
-                                            );
-                                          },
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
+                                                      ),
+                                                    ),
+                                                    Stack(
+                                                      alignment:
+                                                          const AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      children: [
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            SizedBox(
+                                                              height: 100.0,
+                                                              child:
+                                                                  VerticalDivider(
+                                                                thickness: 1.0,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .accent4,
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Container(
+                                                          width:
+                                                              MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .width *
+                                                                  0.6,
+                                                          height: 40.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.black,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        16.0),
+                                                            border: Border.all(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                              width: 1.0,
+                                                            ),
+                                                          ),
+                                                          child: Align(
+                                                            alignment:
+                                                                const AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Text(
+                                                              dateTimeFormat(
+                                                                  'd MMMM y',
+                                                                  columnMemoriesRecord
+                                                                      .createdTime!),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Istanbul type',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                    fontSize:
+                                                                        20.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w300,
+                                                                    useGoogleFonts:
+                                                                        false,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                        }),
+                                      ),
+                                    );
+                                  },
+                                ),
                               );
                             } else {
                               return Padding(
@@ -998,79 +680,86 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                     .network(
                                                                   columnMemoriesRecord
                                                                       .imgUrl,
-                                                                  width: 300.0,
+                                                                  width: 350.0,
                                                                   height: 200.0,
                                                                   fit: BoxFit
                                                                       .cover,
                                                                 ),
                                                               ),
                                                             ),
-                                                            Align(
-                                                              alignment:
-                                                                  const AlignmentDirectional(
-                                                                      -1.0,
-                                                                      0.0),
-                                                              child: Padding(
-                                                                padding: const EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        60.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        10.0),
-                                                                child: Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .end,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .center,
-                                                                  children: [
-                                                                    Align(
-                                                                      alignment:
-                                                                          const AlignmentDirectional(
-                                                                              -1.0,
-                                                                              0.0),
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          30.0,
+                                                                          0.0,
+                                                                          30.0,
+                                                                          0.0),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Align(
+                                                                    alignment:
+                                                                        const AlignmentDirectional(
+                                                                            -1.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          10.0),
                                                                       child:
-                                                                          Text(
-                                                                        '${columnCount.toString()} items',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Inter',
-                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.w500,
+                                                                          Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.end,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.start,
+                                                                        children:
+                                                                            [
+                                                                          Align(
+                                                                            alignment:
+                                                                                const AlignmentDirectional(-1.0, 0.0),
+                                                                            child:
+                                                                                Text(
+                                                                              '${columnCount.toString()} items',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Inter',
+                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                    letterSpacing: 0.0,
+                                                                                    fontWeight: FontWeight.w500,
+                                                                                  ),
                                                                             ),
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                const AlignmentDirectional(-1.0, 0.0),
+                                                                            child:
+                                                                                Text(
+                                                                              columnMemoriesRecord.memoryTitle,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Istanbul type',
+                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                    fontSize: 28.0,
+                                                                                    letterSpacing: 0.0,
+                                                                                    fontWeight: FontWeight.w300,
+                                                                                    useGoogleFonts: false,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                        ].divide(const SizedBox(height: 5.0)),
                                                                       ),
                                                                     ),
-                                                                    Align(
-                                                                      alignment:
-                                                                          const AlignmentDirectional(
-                                                                              -1.0,
-                                                                              0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        columnMemoriesRecord
-                                                                            .memoryTitle,
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Istanbul type',
-                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                              fontSize: 28.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.w300,
-                                                                              useGoogleFonts: false,
-                                                                            ),
-                                                                      ),
-                                                                    ),
-                                                                  ].divide(const SizedBox(
-                                                                      height:
-                                                                          5.0)),
-                                                                ),
+                                                                  ),
+                                                                ],
                                                               ),
                                                             ),
                                                           ],
