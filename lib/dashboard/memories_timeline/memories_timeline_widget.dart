@@ -146,7 +146,10 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                 ],
                               ),
                             ),
-                            if (!memoriesTimelineSharedUserRecord!.isShared)
+                            if (!valueOrDefault<bool>(
+                              memoriesTimelineSharedUserRecord?.isShared,
+                              true,
+                            ))
                               Align(
                                 alignment: const AlignmentDirectional(1.0, -1.0),
                                 child: Builder(
@@ -216,7 +219,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                     builder: (context) {
                                       if (valueOrDefault<bool>(
                                         memoriesTimelineSharedUserRecord
-                                            .isShared,
+                                            ?.isShared,
                                         false,
                                       )) {
                                         return Padding(
@@ -232,7 +235,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                         'user_id',
                                                         isEqualTo:
                                                             memoriesTimelineSharedUserRecord
-                                                                .sharedUid,
+                                                                ?.sharedUid,
                                                       )
                                                       .orderBy('created_time',
                                                           descending: true),
@@ -447,7 +450,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                               ),
                                                                             ),
                                                                           ),
-                                                                          if (memoriesTimelineSharedUserRecord.isShared ??
+                                                                          if (memoriesTimelineSharedUserRecord?.isShared ??
                                                                               true)
                                                                             Flexible(
                                                                               child: Column(
@@ -466,7 +469,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                         ),
                                                                                   ),
                                                                                   Text(
-                                                                                    memoriesTimelineSharedUserRecord.sharedUserName,
+                                                                                    memoriesTimelineSharedUserRecord!.sharedUserName,
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'JasmineUPC',
                                                                                           color: FlutterFlowTheme.of(context).secondaryBackground,
