@@ -5,8 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/widgets/nfc_scan_tag/nfc_scan_tag_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'splash_screen_model.dart';
 export 'splash_screen_model.dart';
 
@@ -53,7 +51,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Container(
+              SizedBox(
                 width: MediaQuery.sizeOf(context).width * 1.0,
                 height: MediaQuery.sizeOf(context).height * 1.0,
                 child: Stack(
@@ -71,7 +69,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.12, 0.92),
+                      alignment: const AlignmentDirectional(0.12, 0.92),
                       child: FFButtonWidget(
                         onPressed: () async {
                           await showModalBottomSheet(
@@ -88,10 +86,10 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                     : FocusScope.of(context).unfocus(),
                                 child: Padding(
                                   padding: MediaQuery.viewInsetsOf(context),
-                                  child: Container(
+                                  child: SizedBox(
                                     height:
                                         MediaQuery.sizeOf(context).height * 0.5,
-                                    child: NfcScanTagWidget(),
+                                    child: const NfcScanTagWidget(),
                                   ),
                                 ),
                               );
@@ -102,11 +100,11 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 0.85,
                           height: 55.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: Color(0xFF212121),
+                          color: const Color(0xFF212121),
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Inter',
@@ -116,7 +114,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                     fontWeight: FontWeight.bold,
                                   ),
                           elevation: 3.0,
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Colors.transparent,
                             width: 1.0,
                           ),
@@ -125,7 +123,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(-0.04, -0.05),
+                      alignment: const AlignmentDirectional(-0.04, -0.05),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.asset(
@@ -136,16 +134,16 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                     ),
                     if (loggedIn)
                       Align(
-                        alignment: AlignmentDirectional(1.0, -1.0),
+                        alignment: const AlignmentDirectional(1.0, -1.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 20.0, 20.0, 0.0),
                           child: FlutterFlowIconButton(
-                            borderColor: Color(0xFF212121),
+                            borderColor: const Color(0xFF212121),
                             borderRadius: 16.0,
                             borderWidth: 1.0,
                             buttonSize: 40.0,
-                            fillColor: Color(0xFF212121),
+                            fillColor: const Color(0xFF212121),
                             icon: Icon(
                               Icons.settings_sharp,
                               color: FlutterFlowTheme.of(context)

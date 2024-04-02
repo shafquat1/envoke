@@ -1,20 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
-import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/lat_lng.dart';
-import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -79,40 +73,40 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) => appStateNotifier.loggedIn
-          ? SplashScreenWidget()
-          : SplashScreenWidget(),
+          ? const SplashScreenWidget()
+          : const SplashScreenWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? SplashScreenWidget()
-              : SplashScreenWidget(),
+              ? const SplashScreenWidget()
+              : const SplashScreenWidget(),
         ),
         FFRoute(
           name: 'SplashScreen',
           path: '/splashScreen',
-          builder: (context, params) => SplashScreenWidget(),
+          builder: (context, params) => const SplashScreenWidget(),
         ),
         FFRoute(
           name: 'SignupPage',
           path: '/signupPage',
-          builder: (context, params) => SignupPageWidget(),
+          builder: (context, params) => const SignupPageWidget(),
         ),
         FFRoute(
           name: 'LoginPage',
           path: '/loginPage',
-          builder: (context, params) => LoginPageWidget(),
+          builder: (context, params) => const LoginPageWidget(),
         ),
         FFRoute(
           name: 'CreateMemories',
           path: '/createMemories',
-          builder: (context, params) => CreateMemoriesWidget(),
+          builder: (context, params) => const CreateMemoriesWidget(),
         ),
         FFRoute(
           name: 'MemoriesTimeline',
           path: '/memoriesTimeline',
-          builder: (context, params) => MemoriesTimelineWidget(),
+          builder: (context, params) => const MemoriesTimelineWidget(),
         ),
         FFRoute(
           name: 'createMoment',
@@ -162,7 +156,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'profileDetail',
           path: '/profileDetail',
-          builder: (context, params) => ProfileDetailWidget(),
+          builder: (context, params) => const ProfileDetailWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -401,7 +395,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {
