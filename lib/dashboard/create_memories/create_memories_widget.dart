@@ -283,6 +283,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                 await selectMediaWithSourceBottomSheet(
                                               context: context,
                                               allowPhoto: true,
+                                              includeBlurHash: true,
                                             );
                                             if (selectedMedia != null &&
                                                 selectedMedia.every((m) =>
@@ -415,8 +416,10 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                     .validate()) {
                                               return;
                                             }
-                                            if (_model
-                                                    .uploadedFileUrl.isEmpty) {
+                                            if ((_model.uploadedLocalFile
+                                                            .bytes ??
+                                                        [])
+                                                    .isEmpty) {
                                               return;
                                             }
 

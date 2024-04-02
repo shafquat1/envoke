@@ -5,7 +5,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:octo_image/octo_image.dart';
 import 'moment_timeline_model.dart';
 export 'moment_timeline_model.dart';
 
@@ -289,13 +291,20 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                               ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(16.0),
-                                                child: CachedNetworkImage(
-                                                  fadeInDuration: const Duration(
-                                                      milliseconds: 300),
-                                                  fadeOutDuration: const Duration(
-                                                      milliseconds: 300),
-                                                  imageUrl:
-                                                      momentListItem.imgUrl,
+                                                child: OctoImage(
+                                                  placeholderBuilder: (_) =>
+                                                      SizedBox.expand(
+                                                    child: Image(
+                                                      image: BlurHashImage(
+                                                          momentListItem
+                                                              .imgBlurHash),
+                                                      fit: BoxFit.cover,
+                                                    ),
+                                                  ),
+                                                  image:
+                                                      CachedNetworkImageProvider(
+                                                    momentListItem.imgUrl,
+                                                  ),
                                                   width: 315.0,
                                                   height:
                                                       MediaQuery.sizeOf(context)

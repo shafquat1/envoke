@@ -611,6 +611,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                 await selectMediaWithSourceBottomSheet(
                                               context: context,
                                               allowPhoto: true,
+                                              includeBlurHash: true,
                                             );
                                             if (selectedMedia != null &&
                                                 selectedMedia.every((m) =>
@@ -867,6 +868,8 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                             notes: _model.textController2.text,
                                             imgUrl: _model.imgFile,
                                             audioUrl: _model.audioFile,
+                                            imgBlurHash: _model
+                                                .uploadedLocalFile1.blurHash,
                                           ));
 
                                           context.goNamed(

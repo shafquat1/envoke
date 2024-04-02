@@ -3,7 +3,9 @@ import '/flutter_flow/flutter_flow_audio_player.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:octo_image/octo_image.dart';
 import 'moment_detail_model.dart';
 export 'moment_detail_model.dart';
 
@@ -57,8 +59,16 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                 opacity: 0.8,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(0.0),
-                  child: Image.network(
-                    widget.moments!.imgUrl,
+                  child: OctoImage(
+                    placeholderBuilder: (_) => SizedBox.expand(
+                      child: Image(
+                        image: BlurHashImage(widget.moments!.imgBlurHash),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    image: NetworkImage(
+                      widget.moments!.imgUrl,
+                    ),
                     width: double.infinity,
                     height: MediaQuery.sizeOf(context).height * 0.65,
                     fit: BoxFit.cover,

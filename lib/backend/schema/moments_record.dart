@@ -35,6 +35,11 @@ class MomentsRecord extends FirestoreRecord {
   String get notes => _notes ?? '';
   bool hasNotes() => _notes != null;
 
+  // "img_blur_hash" field.
+  String? _imgBlurHash;
+  String get imgBlurHash => _imgBlurHash ?? '';
+  bool hasImgBlurHash() => _imgBlurHash != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -42,6 +47,7 @@ class MomentsRecord extends FirestoreRecord {
     _audioUrl = snapshotData['audio_url'] as String?;
     _title = snapshotData['title'] as String?;
     _notes = snapshotData['notes'] as String?;
+    _imgBlurHash = snapshotData['img_blur_hash'] as String?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -88,6 +94,7 @@ Map<String, dynamic> createMomentsRecordData({
   String? audioUrl,
   String? title,
   String? notes,
+  String? imgBlurHash,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -95,6 +102,7 @@ Map<String, dynamic> createMomentsRecordData({
       'audio_url': audioUrl,
       'title': title,
       'notes': notes,
+      'img_blur_hash': imgBlurHash,
     }.withoutNulls,
   );
 
@@ -109,12 +117,13 @@ class MomentsRecordDocumentEquality implements Equality<MomentsRecord> {
     return e1?.imgUrl == e2?.imgUrl &&
         e1?.audioUrl == e2?.audioUrl &&
         e1?.title == e2?.title &&
-        e1?.notes == e2?.notes;
+        e1?.notes == e2?.notes &&
+        e1?.imgBlurHash == e2?.imgBlurHash;
   }
 
   @override
-  int hash(MomentsRecord? e) =>
-      const ListEquality().hash([e?.imgUrl, e?.audioUrl, e?.title, e?.notes]);
+  int hash(MomentsRecord? e) => const ListEquality()
+      .hash([e?.imgUrl, e?.audioUrl, e?.title, e?.notes, e?.imgBlurHash]);
 
   @override
   bool isValidKey(Object? o) => o is MomentsRecord;
