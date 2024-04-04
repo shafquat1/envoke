@@ -39,7 +39,7 @@ class _WriteNfcTagWidgetState extends State<WriteNfcTagWidget> {
       await actions.writeNfcTag(
         widget.userID!,
       );
-      if (FFAppState().writeTag) {
+      if (FFAppState().writeTag == true) {
         Navigator.pop(context);
 
         context.goNamed('MemoriesTimeline');
