@@ -41,8 +41,22 @@ class _WriteNfcTagWidgetState extends State<WriteNfcTagWidget> {
       );
       if (FFAppState().writeTag) {
         Navigator.pop(context);
+
+        context.goNamed('MemoriesTimeline');
       } else {
-        return;
+        Navigator.pop(context);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Writing NFC tag failed. Please try again.',
+              style: TextStyle(
+                color: FlutterFlowTheme.of(context).primaryText,
+              ),
+            ),
+            duration: const Duration(milliseconds: 4000),
+            backgroundColor: FlutterFlowTheme.of(context).secondary,
+          ),
+        );
       }
     });
   }
