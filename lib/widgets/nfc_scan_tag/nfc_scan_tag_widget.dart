@@ -82,23 +82,6 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
         return;
       } else {
         context.pop();
-        await showModalBottomSheet(
-          isScrollControlled: true,
-          backgroundColor: Colors.transparent,
-          isDismissible: false,
-          enableDrag: false,
-          context: context,
-          builder: (context) {
-            return Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: SizedBox(
-                height: MediaQuery.sizeOf(context).height * 0.5,
-                child: const NfcScanTagWidget(),
-              ),
-            );
-          },
-        ).then((value) => safeSetState(() {}));
-
         return;
       }
     });
