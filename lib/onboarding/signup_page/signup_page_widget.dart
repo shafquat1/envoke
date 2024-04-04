@@ -717,14 +717,12 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                   ).then((value) =>
                                                       safeSetState(() {}));
 
+                                                  Navigator.pop(context);
                                                   if (FFAppState().writeTag) {
-                                                    Navigator.pop(context);
-
                                                     context.goNamedAuth(
                                                         'MemoriesTimeline',
                                                         context.mounted);
                                                   } else {
-                                                    Navigator.pop(context);
                                                     ScaffoldMessenger.of(
                                                             context)
                                                         .showSnackBar(
