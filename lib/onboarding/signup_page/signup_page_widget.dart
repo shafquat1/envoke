@@ -675,10 +675,8 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                             FFAppState().nfcTag,
                                                         userId: currentUserUid,
                                                       ));
-                                                  setState(() {
-                                                    FFAppState().userGuid =
-                                                        currentUserUid;
-                                                  });
+                                                  FFAppState().userGuid =
+                                                      currentUserUid;
                                                   await showModalBottomSheet(
                                                     isScrollControlled: true,
                                                     backgroundColor:
@@ -720,10 +718,13 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                       safeSetState(() {}));
 
                                                   if (FFAppState().writeTag) {
+                                                    Navigator.pop(context);
+
                                                     context.goNamedAuth(
                                                         'MemoriesTimeline',
                                                         context.mounted);
                                                   } else {
+                                                    Navigator.pop(context);
                                                     ScaffoldMessenger.of(
                                                             context)
                                                         .showSnackBar(
