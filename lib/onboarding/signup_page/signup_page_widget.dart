@@ -717,7 +717,6 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                   ).then((value) =>
                                                       safeSetState(() {}));
 
-                                                  Navigator.pop(context);
                                                   if (FFAppState().writeTag) {
                                                     context.goNamedAuth(
                                                         'MemoriesTimeline',

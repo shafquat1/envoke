@@ -38,6 +38,7 @@ class _WriteNfcTagWidgetState extends State<WriteNfcTagWidget> {
       await actions.writeNfcTag(
         widget.userID!,
       );
+      Navigator.pop(context);
     });
   }
 
