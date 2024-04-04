@@ -38,7 +38,7 @@ class FFAppState extends ChangeNotifier {
     _writeTag = value;
   }
 
-  String _userGuid = 'M9TXnAFedha4gCLmu0X4c4liYXX2';
+  String _userGuid = '';
   String get userGuid => _userGuid;
   set userGuid(String value) {
     _userGuid = value;
