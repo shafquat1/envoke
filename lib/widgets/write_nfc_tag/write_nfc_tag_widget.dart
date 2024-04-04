@@ -37,6 +37,9 @@ class _WriteNfcTagWidgetState extends State<WriteNfcTagWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await actions.writeNfcTag(
         widget.userID!,
+        () async {
+          Navigator.pop(context);
+        },
       );
     });
   }
