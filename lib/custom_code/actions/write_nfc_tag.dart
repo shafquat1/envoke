@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'dart:js';
+
 // import 'package:ndef/ndef.dart' as ndef;
 import 'package:nfc_manager/nfc_manager.dart';
 
@@ -30,6 +32,8 @@ Future<void> writeNfcTag(String userId) async {
       appState.update(() {
         appState.writeTag = true;
       });
+
+      Navigator.pop(context as BuildContext);
     } catch (e) {
       NfcManager.instance.stopSession(errorMessage: 'No NFC');
       return;
