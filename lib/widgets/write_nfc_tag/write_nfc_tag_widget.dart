@@ -42,7 +42,7 @@ class _WriteNfcTagWidgetState extends State<WriteNfcTagWidget> {
       if (FFAppState().writeTag) {
         Navigator.pop(context);
       } else {
-        Navigator.pop(context);
+        return;
       }
     });
   }
