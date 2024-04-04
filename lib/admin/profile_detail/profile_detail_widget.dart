@@ -524,6 +524,8 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                               await authManager.signOut();
                               GoRouter.of(context).clearRedirectLocation();
 
+                              FFAppState().userGuid = '';
+
                               context.goNamedAuth(
                                   'SplashScreen', context.mounted);
                             },
