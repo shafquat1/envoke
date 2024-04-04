@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:provider/provider.dart';
 import 'write_nfc_tag_model.dart';
 export 'write_nfc_tag_model.dart';
 
@@ -39,11 +38,6 @@ class _WriteNfcTagWidgetState extends State<WriteNfcTagWidget> {
       await actions.writeNfcTag(
         widget.userID!,
       );
-      if (FFAppState().writeTag) {
-        Navigator.pop(context);
-      } else {
-        Navigator.pop(context);
-      }
     });
   }
 
@@ -56,8 +50,6 @@ class _WriteNfcTagWidgetState extends State<WriteNfcTagWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Padding(
       padding: const EdgeInsets.all(14.0),
       child: Container(
