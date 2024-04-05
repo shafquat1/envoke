@@ -17,6 +17,9 @@ class FFAppState extends ChangeNotifier {
   Future initializePersistedState() async {
     prefs = await SharedPreferences.getInstance();
     _safeInit(() {
+      _nfcTag = prefs.getString('ff_nfcTag') ?? _nfcTag;
+    });
+    _safeInit(() {
       _userGuid = prefs.getString('ff_userGuid') ?? _userGuid;
     });
   }
@@ -32,6 +35,7 @@ class FFAppState extends ChangeNotifier {
   String get nfcTag => _nfcTag;
   set nfcTag(String value) {
     _nfcTag = value;
+    prefs.setString('ff_nfcTag', value);
   }
 
   String _nfcUserId = '';
