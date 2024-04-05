@@ -208,31 +208,6 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
               ),
             ),
             Align(
-              alignment: const AlignmentDirectional(-1.0, -1.0),
-              child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 0.0, 0.0),
-                child: InkWell(
-                  splashColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onTap: () async {
-                    context.safePop();
-                  },
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(0.0),
-                    child: SvgPicture.asset(
-                      'assets/images/Vector.svg',
-                      width: 30.0,
-                      height: 15.0,
-                      fit: BoxFit.cover,
-                      alignment: const Alignment(-1.0, -1.0),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Align(
               alignment: const AlignmentDirectional(10.0, 0.0),
               child: Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
@@ -289,6 +264,31 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                       ),
                     ),
                   ],
+                ),
+              ),
+            ),
+            Align(
+              alignment: const AlignmentDirectional(-1.0, -1.0),
+              child: Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 0.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    context.safePop();
+                  },
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(0.0),
+                    child: SvgPicture.asset(
+                      'assets/images/Vector.svg',
+                      width: 30.0,
+                      height: 15.0,
+                      fit: BoxFit.cover,
+                      alignment: const Alignment(-1.0, -1.0),
+                    ),
+                  ),
                 ),
               ),
             ),
