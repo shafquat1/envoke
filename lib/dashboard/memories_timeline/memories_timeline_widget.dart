@@ -708,8 +708,26 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                               .transparent,
                                                                       onTap:
                                                                           () async {
-                                                                        if (columnCount >
+                                                                        if (columnCount <=
                                                                             0) {
+                                                                          context
+                                                                              .pushNamed(
+                                                                            'createMoment',
+                                                                            queryParameters:
+                                                                                {
+                                                                              'memories': serializeParam(
+                                                                                columnMemoriesRecord,
+                                                                                ParamType.Document,
+                                                                              ),
+                                                                            }.withoutNulls,
+                                                                            extra: <String,
+                                                                                dynamic>{
+                                                                              'memories': columnMemoriesRecord,
+                                                                            },
+                                                                          );
+
+                                                                          return;
+                                                                        } else {
                                                                           context
                                                                               .pushNamed(
                                                                             'momentTimeline',
