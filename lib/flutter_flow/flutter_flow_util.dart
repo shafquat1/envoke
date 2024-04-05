@@ -382,7 +382,7 @@ Future<void> stopAudioRecording({
     return;
   }
   final recordedPath = await audioRecorder.stop();
-  final recordedFilePath = Platform.isIOS || Platform.isMacOS
+  final recordedFilePath = !kIsWeb && (Platform.isIOS || Platform.isMacOS)
       ? 'file://$recordedPath'
       : recordedPath;
   if (recordedFilePath == null) {

@@ -186,7 +186,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                             autofocus: true,
                                             obscureText: false,
                                             decoration: InputDecoration(
-                                              hintText: 'Add a title',
+                                              hintText: 'Add a Title',
                                               hintStyle: FlutterFlowTheme.of(
                                                       context)
                                                   .labelMedium

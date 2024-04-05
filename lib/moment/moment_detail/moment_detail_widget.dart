@@ -50,34 +50,33 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.black,
-        body: SafeArea(
-          top: true,
-          child: Stack(
-            alignment: const AlignmentDirectional(0.0, -1.0),
-            children: [
-              Opacity(
-                opacity: 0.8,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(0.0),
-                  child: OctoImage(
-                    placeholderBuilder: (_) => SizedBox.expand(
-                      child: Image(
-                        image: BlurHashImage(widget.moments!.imgBlurHash),
-                        fit: BoxFit.cover,
-                      ),
+        body: Stack(
+          alignment: const AlignmentDirectional(0.0, -1.0),
+          children: [
+            Opacity(
+              opacity: 0.8,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(0.0),
+                child: OctoImage(
+                  placeholderBuilder: (_) => SizedBox.expand(
+                    child: Image(
+                      image: BlurHashImage(widget.moments!.imgBlurHash),
+                      fit: BoxFit.cover,
                     ),
-                    image: NetworkImage(
-                      widget.moments!.imgUrl,
-                    ),
-                    width: double.infinity,
-                    height: MediaQuery.sizeOf(context).height * 0.65,
-                    fit: BoxFit.cover,
                   ),
+                  image: NetworkImage(
+                    widget.moments!.imgUrl,
+                  ),
+                  width: double.infinity,
+                  height: MediaQuery.sizeOf(context).height * 0.65,
+                  fit: BoxFit.cover,
                 ),
               ),
-              Column(
+            ),
+            SingleChildScrollView(
+              child: Column(
                 mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Align(
@@ -90,88 +89,67 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Align(
-                            alignment: const AlignmentDirectional(-1.0, -1.0),
+                          Flexible(
                             child: Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  15.0, 0.0, 0.0, 0.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.safePop();
-                                },
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(0.0),
-                                  child: SvgPicture.asset(
-                                    'assets/images/Vector.svg',
-                                    width: 30.0,
-                                    height: 15.0,
-                                    fit: BoxFit.cover,
-                                    alignment: const Alignment(-1.0, -1.0),
+                                  0.0, 20.0, 0.0, 0.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    widget.memories!.memoryTitle,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Istanbul type',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                          fontSize: 22.0,
+                                          letterSpacing: 0.0,
+                                          useGoogleFonts: false,
+                                        ),
                                   ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  widget.memories!.memoryTitle,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Istanbul type',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                        fontSize: 22.0,
-                                        letterSpacing: 0.0,
-                                        useGoogleFonts: false,
+                                  Align(
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 5.0, 0.0, 0.0),
+                                      child: Text(
+                                        dateTimeFormat('d MMMM y',
+                                            widget.memories!.createdTime!),
+                                        textAlign: TextAlign.start,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Istanbul type',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              fontSize: 16.0,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts: false,
+                                            ),
                                       ),
-                                ),
-                                Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 5.0, 0.0, 0.0),
-                                    child: Text(
-                                      dateTimeFormat('d MMMM y',
-                                          widget.memories!.createdTime!),
-                                      textAlign: TextAlign.start,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Istanbul type',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryBackground,
-                                            fontSize: 16.0,
-                                            letterSpacing: 0.0,
-                                            useGoogleFonts: false,
-                                          ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ],
                       ),
                     ),
                   ),
-                  Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
-                    child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 50.0),
-                      child: SingleChildScrollView(
+                  Flexible(
+                    child: Align(
+                      alignment: const AlignmentDirectional(0.0, 1.0),
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            0.0, 500.0, 0.0, 50.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
@@ -244,6 +222,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
+                                              fontSize: 20.0,
                                               letterSpacing: 0.0,
                                             ),
                                         playbackDurationTextStyle:
@@ -280,10 +259,35 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                       ),
                     ),
                   ),
-                ],
+                ].divide(const SizedBox(height: 8.0)),
               ),
-            ],
-          ),
+            ),
+            Align(
+              alignment: const AlignmentDirectional(-1.0, -1.0),
+              child: Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 0.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    context.safePop();
+                  },
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(0.0),
+                    child: SvgPicture.asset(
+                      'assets/images/Vector.svg',
+                      width: 30.0,
+                      height: 15.0,
+                      fit: BoxFit.cover,
+                      alignment: const Alignment(-1.0, -1.0),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

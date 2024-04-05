@@ -319,6 +319,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               setState(() => _model
                                                   .checkboxValue1 = newValue!);
                                             },
+                                            side: const BorderSide(
+                                              width: 2,
+                                              color: Color(0xFF828282),
+                                            ),
                                             activeColor: const Color(0xFF828282),
                                             checkColor:
                                                 FlutterFlowTheme.of(context)
@@ -422,6 +426,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               setState(() => _model
                                                   .checkboxValue2 = newValue!);
                                             },
+                                            side: const BorderSide(
+                                              width: 2,
+                                              color: Color(0xFF828282),
+                                            ),
                                             activeColor: const Color(0xFF828282),
                                             checkColor:
                                                 FlutterFlowTheme.of(context)
