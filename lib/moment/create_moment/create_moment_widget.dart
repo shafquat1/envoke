@@ -814,10 +814,8 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                           }
                                         }
 
-                                        setState(() {
-                                          _model.audioFile =
-                                              _model.uploadedFileUrl2;
-                                        });
+                                        _model.audioFile =
+                                            _model.uploadedFileUrl2;
                                         if (shouldSetState) setState(() {});
                                         return;
                                       } else {
