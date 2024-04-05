@@ -747,12 +747,6 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                         );
 
                                         shouldSetState = true;
-                                        setState(() {
-                                          _model.isRecording = false;
-                                        });
-                                        setState(() {
-                                          _model.showAudio = true;
-                                        });
                                         {
                                           setState(() =>
                                               _model.isDataUploading2 = true);
@@ -814,6 +808,12 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                           }
                                         }
 
+                                        setState(() {
+                                          _model.isRecording = false;
+                                        });
+                                        setState(() {
+                                          _model.showAudio = true;
+                                        });
                                         _model.audioFile =
                                             _model.uploadedFileUrl2;
                                         if (shouldSetState) setState(() {});
