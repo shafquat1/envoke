@@ -131,6 +131,8 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                     BorderRadius.circular(0.0),
                                                 child: SvgPicture.asset(
                                                   'assets/images/Vector.svg',
+                                                  width: 30.0,
+                                                  height: 15.0,
                                                   fit: BoxFit.cover,
                                                   alignment:
                                                       const Alignment(-1.0, -1.0),
