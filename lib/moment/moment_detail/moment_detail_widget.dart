@@ -211,7 +211,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                           widget.moments!.audioUrl,
                                           metas: Metas(
                                             id: '2vqf7_-f5638029',
-                                            title: 'Audio memo',
+                                            title: 'Audio Memo',
                                           ),
                                         ),
                                         titleTextStyle: FlutterFlowTheme.of(

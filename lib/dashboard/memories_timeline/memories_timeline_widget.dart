@@ -78,11 +78,11 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
               child: Stack(
                 children: [
                   Opacity(
-                    opacity: 0.5,
+                    opacity: 0.3,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.asset(
-                        'assets/images/happy-saint-valentine-s-day-concept_1.png',
+                        'assets/images/tran.jpeg',
                         width: double.infinity,
                         height: double.infinity,
                         fit: BoxFit.cover,
@@ -914,38 +914,45 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            context.pushNamed('profileDetail');
-                          },
-                          text: 'Admin',
-                          options: FFButtonOptions(
-                            height: 40.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Istanbul type',
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: false,
-                                ),
-                            elevation: 3.0,
-                            borderSide: const BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
+                      if (responsiveVisibility(
+                        context: context,
+                        phone: false,
+                        tablet: false,
+                        tabletLandscape: false,
+                        desktop: false,
+                      ))
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 5.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              context.pushNamed('profileDetail');
+                            },
+                            text: 'Admin',
+                            options: FFButtonOptions(
+                              height: 40.0,
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Istanbul type',
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                    useGoogleFonts: false,
+                                  ),
+                              elevation: 3.0,
+                              borderSide: const BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
-                            borderRadius: BorderRadius.circular(8.0),
                           ),
                         ),
-                      ),
                       Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),

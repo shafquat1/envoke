@@ -415,11 +415,11 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                           size:
                                                                               24.0,
                                                                         ),
-                                                                        onPressed:
-                                                                            () {
-                                                                          print(
-                                                                              'IconButton pressed ...');
-                                                                        },
+                                                                        onPressed: (momentListItem.audioUrl != '')
+                                                                            ? null
+                                                                            : () {
+                                                                                print('IconButton pressed ...');
+                                                                              },
                                                                       ),
                                                                     ),
                                                                   ),

@@ -1,6 +1,6 @@
 // Export pages
-export '/onboarding/splash_screen/splash_screen_widget.dart'
-    show SplashScreenWidget;
+export '/onboarding/entry_screen/entry_screen_widget.dart'
+    show EntryScreenWidget;
 export '/onboarding/signup_page/signup_page_widget.dart' show SignupPageWidget;
 export '/onboarding/login_page/login_page_widget.dart' show LoginPageWidget;
 export '/dashboard/create_memories/create_memories_widget.dart'

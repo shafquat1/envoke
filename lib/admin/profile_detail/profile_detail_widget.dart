@@ -525,7 +525,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                               GoRouter.of(context).clearRedirectLocation();
 
                               context.goNamedAuth(
-                                  'SplashScreen', context.mounted);
+                                  'EntryScreen', context.mounted);
                             },
                             text: 'Logout',
                             icon: const Icon(

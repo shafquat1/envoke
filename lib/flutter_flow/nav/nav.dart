@@ -71,21 +71,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => appStateNotifier.loggedIn
-          ? const SplashScreenWidget()
-          : const SplashScreenWidget(),
+      errorBuilder: (context, state) =>
+          appStateNotifier.loggedIn ? const EntryScreenWidget() : const EntryScreenWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? const SplashScreenWidget()
-              : const SplashScreenWidget(),
+              ? const EntryScreenWidget()
+              : const EntryScreenWidget(),
         ),
         FFRoute(
-          name: 'SplashScreen',
-          path: '/splashScreen',
-          builder: (context, params) => const SplashScreenWidget(),
+          name: 'EntryScreen',
+          path: '/entryScreen',
+          builder: (context, params) => const EntryScreenWidget(),
         ),
         FFRoute(
           name: 'SignupPage',
@@ -327,7 +326,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/splashScreen';
+            return '/entryScreen';
           }
           return null;
         },

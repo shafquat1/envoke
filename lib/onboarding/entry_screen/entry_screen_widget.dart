@@ -5,25 +5,25 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/widgets/nfc_scan_tag/nfc_scan_tag_widget.dart';
 import 'package:flutter/material.dart';
-import 'splash_screen_model.dart';
-export 'splash_screen_model.dart';
+import 'entry_screen_model.dart';
+export 'entry_screen_model.dart';
 
-class SplashScreenWidget extends StatefulWidget {
-  const SplashScreenWidget({super.key});
+class EntryScreenWidget extends StatefulWidget {
+  const EntryScreenWidget({super.key});
 
   @override
-  State<SplashScreenWidget> createState() => _SplashScreenWidgetState();
+  State<EntryScreenWidget> createState() => _EntryScreenWidgetState();
 }
 
-class _SplashScreenWidgetState extends State<SplashScreenWidget> {
-  late SplashScreenModel _model;
+class _EntryScreenWidgetState extends State<EntryScreenWidget> {
+  late EntryScreenModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => SplashScreenModel());
+    _model = createModel(context, () => EntryScreenModel());
   }
 
   @override

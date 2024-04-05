@@ -63,14 +63,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
-                              'assets/images/happy-saint-valentine-s-day-concept_1.png',
+                              'assets/images/tran.jpeg',
                               width: double.infinity,
                               height: MediaQuery.sizeOf(context).height * 1.0,
                               fit: BoxFit.cover,
                             ),
                           ),
                           Opacity(
-                            opacity: 0.8,
+                            opacity: 0.6,
                             child: Container(
                               width: double.infinity,
                               height: double.infinity,
@@ -80,21 +80,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             ),
                           ),
                         ],
-                      ),
-                      Align(
-                        alignment: const AlignmentDirectional(-0.06, -0.7),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              'assets/images/Group_2.png',
-                              width: 150.0,
-                              height: 105.0,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
                       ),
                       Align(
                         alignment: const AlignmentDirectional(0.0, 1.0),
@@ -293,112 +278,128 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           .passwordTextControllerValidator
                                           .asValidator(context),
                                     ),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Theme(
-                                          data: ThemeData(
-                                            checkboxTheme: CheckboxThemeData(
-                                              visualDensity:
-                                                  VisualDensity.compact,
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(4.0),
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 5.0, 0.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Theme(
+                                            data: ThemeData(
+                                              checkboxTheme: CheckboxThemeData(
+                                                visualDensity:
+                                                    VisualDensity.compact,
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          4.0),
+                                                ),
+                                              ),
+                                              unselectedWidgetColor:
+                                                  const Color(0xFF828282),
+                                            ),
+                                            child: Checkbox(
+                                              value: _model.checkboxValue1 ??=
+                                                  false,
+                                              onChanged: (newValue) async {
+                                                setState(() =>
+                                                    _model.checkboxValue1 =
+                                                        newValue!);
+                                              },
+                                              side: const BorderSide(
+                                                width: 2,
+                                                color: Color(0xFF828282),
+                                              ),
+                                              activeColor: const Color(0xFF828282),
+                                              checkColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .info,
+                                            ),
+                                          ),
+                                          Flexible(
+                                            child: RichText(
+                                              textScaler: MediaQuery.of(context)
+                                                  .textScaler,
+                                              text: TextSpan(
+                                                children: [
+                                                  TextSpan(
+                                                    text: 'Accept ',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color:
+                                                              const Color(0xFF828282),
+                                                          fontSize: 13.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                  ),
+                                                  TextSpan(
+                                                    text: 'Terms & Conditions ',
+                                                    style: GoogleFonts.getFont(
+                                                      'Inter',
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontSize: 13.0,
+                                                      decoration: TextDecoration
+                                                          .underline,
+                                                    ),
+                                                  ),
+                                                  TextSpan(
+                                                    text: 'and ',
+                                                    style: GoogleFonts.getFont(
+                                                      'Inter',
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontSize: 13.0,
+                                                    ),
+                                                  ),
+                                                  TextSpan(
+                                                    text: 'Data Protection ',
+                                                    style: GoogleFonts.getFont(
+                                                      'Inter',
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontSize: 13.0,
+                                                      decoration: TextDecoration
+                                                          .underline,
+                                                    ),
+                                                  ),
+                                                  TextSpan(
+                                                    text: '(Mandatory Field)',
+                                                    style: GoogleFonts.getFont(
+                                                      'Inter',
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontSize: 13.0,
+                                                    ),
+                                                  )
+                                                ],
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color:
+                                                              const Color(0xFF828282),
+                                                          fontSize: 13.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
                                               ),
                                             ),
-                                            unselectedWidgetColor:
-                                                const Color(0xFF828282),
                                           ),
-                                          child: Checkbox(
-                                            value: _model.checkboxValue1 ??=
-                                                false,
-                                            onChanged: (newValue) async {
-                                              setState(() => _model
-                                                  .checkboxValue1 = newValue!);
-                                            },
-                                            side: const BorderSide(
-                                              width: 2,
-                                              color: Color(0xFF828282),
-                                            ),
-                                            activeColor: const Color(0xFF828282),
-                                            checkColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .info,
-                                          ),
-                                        ),
-                                        Flexible(
-                                          child: RichText(
-                                            textScaler: MediaQuery.of(context)
-                                                .textScaler,
-                                            text: TextSpan(
-                                              children: [
-                                                TextSpan(
-                                                  text: 'Accept ',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        color:
-                                                            const Color(0xFF828282),
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                                ),
-                                                TextSpan(
-                                                  text: 'Terms & Conditions \n',
-                                                  style: GoogleFonts.getFont(
-                                                    'Inter',
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 14.0,
-                                                    decoration: TextDecoration
-                                                        .underline,
-                                                  ),
-                                                ),
-                                                TextSpan(
-                                                  text: 'and ',
-                                                  style: GoogleFonts.getFont(
-                                                    'Inter',
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 14.0,
-                                                  ),
-                                                ),
-                                                TextSpan(
-                                                  text: 'Data Protection ',
-                                                  style: GoogleFonts.getFont(
-                                                    'Inter',
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 14.0,
-                                                    decoration: TextDecoration
-                                                        .underline,
-                                                  ),
-                                                ),
-                                                TextSpan(
-                                                  text: '(Mandatory Field)',
-                                                  style: GoogleFonts.getFont(
-                                                    'Inter',
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 14.0,
-                                                  ),
-                                                )
-                                              ],
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Inter',
-                                                    color: const Color(0xFF828282),
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -525,6 +526,21 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                   ].divide(const SizedBox(height: 10.0)),
                                 ),
                               ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: const AlignmentDirectional(-0.06, -0.7),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Image.asset(
+                              'assets/images/Group_2.png',
+                              width: 150.0,
+                              height: 105.0,
+                              fit: BoxFit.cover,
                             ),
                           ),
                         ),
