@@ -83,13 +83,22 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
-                      child: SvgPicture.asset(
-                        'assets/images/Vector.svg',
-                        width: 30.0,
-                        height: 15.0,
-                        fit: BoxFit.cover,
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.safePop();
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: SvgPicture.asset(
+                          'assets/images/Vector.svg',
+                          width: 30.0,
+                          height: 15.0,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                     Flexible(
