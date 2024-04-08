@@ -397,9 +397,9 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                     ),
                                                                     Padding(
                                                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          30.0,
+                                                                          20.0,
                                                                           0.0,
-                                                                          30.0,
+                                                                          20.0,
                                                                           0.0),
                                                                       child:
                                                                           Row(
@@ -776,55 +776,56 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                     ),
                                                                     Padding(
                                                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          30.0,
+                                                                          20.0,
                                                                           0.0,
-                                                                          30.0,
+                                                                          20.0,
                                                                           0.0),
                                                                       child:
                                                                           Row(
                                                                         mainAxisSize:
                                                                             MainAxisSize.max,
                                                                         mainAxisAlignment:
-                                                                            MainAxisAlignment.spaceBetween,
+                                                                            MainAxisAlignment.start,
                                                                         children: [
-                                                                          Align(
-                                                                            alignment:
-                                                                                const AlignmentDirectional(-1.0, 0.0),
+                                                                          Expanded(
                                                                             child:
-                                                                                Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                                                                              child: Column(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                mainAxisAlignment: MainAxisAlignment.end,
-                                                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                children: [
-                                                                                  Align(
-                                                                                    alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                    child: Text(
-                                                                                      '${columnCount.toString()} items',
-                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Inter',
-                                                                                            color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                            letterSpacing: 0.0,
-                                                                                            fontWeight: FontWeight.w500,
-                                                                                          ),
+                                                                                Align(
+                                                                              alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                              child: Padding(
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                                                                                child: Column(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  mainAxisAlignment: MainAxisAlignment.end,
+                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                  children: [
+                                                                                    Align(
+                                                                                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                      child: Text(
+                                                                                        '${columnCount.toString()} items',
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'Inter',
+                                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                              letterSpacing: 0.0,
+                                                                                              fontWeight: FontWeight.w500,
+                                                                                            ),
+                                                                                      ),
                                                                                     ),
-                                                                                  ),
-                                                                                  Align(
-                                                                                    alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                    child: Text(
-                                                                                      columnMemoriesRecord.memoryTitle,
-                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Istanbul type',
-                                                                                            color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                            fontSize: 28.0,
-                                                                                            letterSpacing: 0.0,
-                                                                                            fontWeight: FontWeight.w300,
-                                                                                            useGoogleFonts: false,
-                                                                                          ),
+                                                                                    Align(
+                                                                                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                      child: Text(
+                                                                                        columnMemoriesRecord.memoryTitle,
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'Istanbul type',
+                                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                              fontSize: 28.0,
+                                                                                              letterSpacing: 0.0,
+                                                                                              fontWeight: FontWeight.w300,
+                                                                                              useGoogleFonts: false,
+                                                                                            ),
+                                                                                      ),
                                                                                     ),
-                                                                                  ),
-                                                                                ].divide(const SizedBox(height: 5.0)),
+                                                                                  ].divide(const SizedBox(height: 5.0)),
+                                                                                ),
                                                                               ),
                                                                             ),
                                                                           ),

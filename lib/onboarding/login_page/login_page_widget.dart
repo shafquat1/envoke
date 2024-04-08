@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -484,9 +485,27 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                     return;
                                                   }
 
-                                                  context.goNamedAuth(
-                                                      'MemoriesTimeline',
-                                                      context.mounted);
+                                                  _model.count =
+                                                      await queryMemoriesRecordCount(
+                                                    queryBuilder:
+                                                        (memoriesRecord) =>
+                                                            memoriesRecord
+                                                                .where(
+                                                      'user_id',
+                                                      isEqualTo: currentUserUid,
+                                                    ),
+                                                  );
+                                                  if (_model.count! <= 0) {
+                                                    context.goNamedAuth(
+                                                        'CreateMemories',
+                                                        context.mounted);
+                                                  } else {
+                                                    context.goNamedAuth(
+                                                        'MemoriesTimeline',
+                                                        context.mounted);
+                                                  }
+
+                                                  setState(() {});
                                                 },
                                           text: 'Login',
                                           options: FFButtonOptions(
