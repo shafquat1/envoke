@@ -510,7 +510,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondaryBackground,
                                                                             fontSize:
-                                                                                20.0,
+                                                                                14.0,
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
@@ -519,13 +519,13 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                           .labelMedium
                                                                           .override(
                                                                             fontFamily:
-                                                                                'Istanbul type',
+                                                                                'Inter',
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondaryBackground,
                                                                             letterSpacing:
                                                                                 0.0,
-                                                                            useGoogleFonts:
-                                                                                false,
+                                                                            fontWeight:
+                                                                                FontWeight.w500,
                                                                           ),
                                                                       fillColor:
                                                                           Colors

@@ -100,7 +100,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                               children: [
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      20.0, 0.0, 0.0, 10.0),
+                                      20.0, 10.0, 0.0, 10.0),
                                   child: Text(
                                     widget.moments!.title,
                                     style: FlutterFlowTheme.of(context)
@@ -118,7 +118,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      20.0, 0.0, 0.0, 10.0),
+                                      20.0, 10.0, 0.0, 10.0),
                                   child: Text(
                                     widget.moments!.notes,
                                     style: FlutterFlowTheme.of(context)
@@ -171,20 +171,20 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .secondaryBackground,
-                                                      fontSize: 20.0,
+                                                      fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                     ),
                                             playbackDurationTextStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
                                                     .override(
-                                                      fontFamily:
-                                                          'Istanbul type',
+                                                      fontFamily: 'Inter',
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .secondaryBackground,
                                                       letterSpacing: 0.0,
-                                                      useGoogleFonts: false,
+                                                      fontWeight:
+                                                          FontWeight.w500,
                                                     ),
                                             fillColor: Colors.black,
                                             playbackButtonColor:
@@ -196,7 +196,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                             inactiveTrackColor:
                                                 FlutterFlowTheme.of(context)
                                                     .secondaryText,
-                                            elevation: 1.0,
+                                            elevation: 0.0,
                                             playInBackground: PlayInBackground
                                                 .disabledRestoreOnForeground,
                                           ),
