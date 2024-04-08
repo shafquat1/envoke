@@ -112,6 +112,8 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Padding(
                                             padding:
@@ -220,7 +222,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
-                                              size: 24.0,
+                                              size: 28.0,
                                             ),
                                             onPressed: () async {
                                               context.pushNamed(
@@ -353,7 +355,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                   MainAxisAlignment
                                                                       .spaceBetween,
                                                               children: [
-                                                                Flexible(
+                                                                Expanded(
                                                                   child: Align(
                                                                     alignment:
                                                                         const AlignmentDirectional(
@@ -369,7 +371,8 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                       child:
                                                                           Text(
                                                                         momentListItem
-                                                                            .title,
+                                                                            .title
+                                                                            .maybeHandleOverflow(maxChars: 12),
                                                                         textAlign:
                                                                             TextAlign.start,
                                                                         style: FlutterFlowTheme.of(context)
@@ -389,40 +392,39 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                 if (momentListItem
                                                                             .audioUrl !=
                                                                         '')
-                                                                  Expanded(
-                                                                    child:
-                                                                        Align(
-                                                                      alignment:
-                                                                          const AlignmentDirectional(
-                                                                              1.0,
-                                                                              0.0),
-                                                                      child:
-                                                                          FlutterFlowIconButton(
-                                                                        borderColor:
-                                                                            FlutterFlowTheme.of(context).primaryBackground,
-                                                                        borderRadius:
-                                                                            20.0,
-                                                                        borderWidth:
+                                                                  Align(
+                                                                    alignment:
+                                                                        const AlignmentDirectional(
                                                                             1.0,
-                                                                        buttonSize:
-                                                                            45.0,
-                                                                        fillColor:
-                                                                            FlutterFlowTheme.of(context).primaryBackground,
-                                                                        icon:
-                                                                            const Icon(
-                                                                          Icons
-                                                                              .play_arrow,
-                                                                          color:
-                                                                              Colors.black,
-                                                                          size:
-                                                                              24.0,
-                                                                        ),
-                                                                        onPressed: (momentListItem.audioUrl != '')
-                                                                            ? null
-                                                                            : () {
-                                                                                print('IconButton pressed ...');
-                                                                              },
+                                                                            0.0),
+                                                                    child:
+                                                                        FlutterFlowIconButton(
+                                                                      borderColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .primaryBackground,
+                                                                      borderRadius:
+                                                                          20.0,
+                                                                      borderWidth:
+                                                                          1.0,
+                                                                      buttonSize:
+                                                                          45.0,
+                                                                      fillColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .primaryBackground,
+                                                                      icon:
+                                                                          const Icon(
+                                                                        Icons
+                                                                            .play_arrow,
+                                                                        color: Colors
+                                                                            .black,
+                                                                        size:
+                                                                            24.0,
                                                                       ),
+                                                                      onPressed: (momentListItem.audioUrl != '')
+                                                                          ? null
+                                                                          : () {
+                                                                              print('IconButton pressed ...');
+                                                                            },
                                                                     ),
                                                                   ),
                                                               ],

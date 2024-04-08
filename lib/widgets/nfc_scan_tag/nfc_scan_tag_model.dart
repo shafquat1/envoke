@@ -8,6 +8,8 @@ class NfcScanTagModel extends FlutterFlowModel<NfcScanTagWidget> {
   ///  State fields for stateful widgets in this component.
 
   // Stores action output result for [Firestore Query - Query a collection] action in nfcScanTag widget.
+  int? count;
+  // Stores action output result for [Firestore Query - Query a collection] action in nfcScanTag widget.
   NfcDataRecord? output;
 
   @override

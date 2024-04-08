@@ -38,7 +38,12 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
       await actions.nfcScan();
       if (FFAppState().nfcUserId == FFAppState().userGuid) {
         if (loggedIn) {
-          context.goNamed('MemoriesTimeline');
+          _model.count = await queryMemoriesRecordCount();
+          if (_model.count! <= 0) {
+            context.pushNamed('CreateMemories');
+          } else {
+            context.goNamed('MemoriesTimeline');
+          }
         } else {
           _model.output = await queryNfcDataRecordOnce(
             queryBuilder: (nfcDataRecord) => nfcDataRecord.where(

@@ -6,15 +6,29 @@ import 'package:flutter/material.dart';
 class AddSharedModel extends FlutterFlowModel<AddSharedWidget> {
   ///  State fields for stateful widgets in this component.
 
+  final formKey = GlobalKey<FormState>();
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
+  String? _textControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {
+      return 'Has to be a valid email address.';
+    }
+    return null;
+  }
+
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   UsersRecord? output;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    textControllerValidator = _textControllerValidator;
+  }
 
   @override
   void dispose() {

@@ -919,38 +919,52 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                     child: Align(
                                       alignment: const AlignmentDirectional(1.0, 0.0),
                                       child: FFButtonWidget(
-                                        onPressed: () async {
-                                          if (_model.formKey.currentState ==
-                                                  null ||
-                                              !_model.formKey.currentState!
-                                                  .validate()) {
-                                            return;
-                                          }
+                                        onPressed: ((_model.textController1
+                                                            .text !=
+                                                        '') &&
+                                                (_model.textController2
+                                                            .text !=
+                                                        ''))
+                                            ? null
+                                            : () async {
+                                                if (_model.formKey
+                                                            .currentState ==
+                                                        null ||
+                                                    !_model
+                                                        .formKey.currentState!
+                                                        .validate()) {
+                                                  return;
+                                                }
 
-                                          await MomentsRecord.createDoc(
-                                                  widget.memories!.reference)
-                                              .set(createMomentsRecordData(
-                                            title: _model.textController1.text,
-                                            notes: _model.textController2.text,
-                                            imgUrl: _model.imgFile,
-                                            audioUrl: _model.audioFile,
-                                            imgBlurHash: _model
-                                                .uploadedLocalFile1.blurHash,
-                                          ));
+                                                await MomentsRecord.createDoc(
+                                                        widget.memories!
+                                                            .reference)
+                                                    .set(
+                                                        createMomentsRecordData(
+                                                  title: _model
+                                                      .textController1.text,
+                                                  notes: _model
+                                                      .textController2.text,
+                                                  imgUrl: _model.imgFile,
+                                                  audioUrl: _model.audioFile,
+                                                  imgBlurHash: _model
+                                                      .uploadedLocalFile1
+                                                      .blurHash,
+                                                ));
 
-                                          context.goNamed(
-                                            'momentTimeline',
-                                            queryParameters: {
-                                              'memories': serializeParam(
-                                                widget.memories,
-                                                ParamType.Document,
-                                              ),
-                                            }.withoutNulls,
-                                            extra: <String, dynamic>{
-                                              'memories': widget.memories,
-                                            },
-                                          );
-                                        },
+                                                context.goNamed(
+                                                  'momentTimeline',
+                                                  queryParameters: {
+                                                    'memories': serializeParam(
+                                                      widget.memories,
+                                                      ParamType.Document,
+                                                    ),
+                                                  }.withoutNulls,
+                                                  extra: <String, dynamic>{
+                                                    'memories': widget.memories,
+                                                  },
+                                                );
+                                              },
                                         text: 'Save',
                                         options: FFButtonOptions(
                                           width: 120.0,
@@ -981,6 +995,8 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                           ),
                                           borderRadius:
                                               BorderRadius.circular(28.0),
+                                          disabledColor: const Color(0xFF242424),
+                                          disabledTextColor: const Color(0xFF444444),
                                         ),
                                       ),
                                     ),

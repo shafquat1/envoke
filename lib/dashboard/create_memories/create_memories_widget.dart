@@ -254,7 +254,6 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                   fontWeight: FontWeight.w300,
                                                   useGoogleFonts: false,
                                                 ),
-                                            maxLines: null,
                                             validator: _model
                                                 .textControllerValidator
                                                 .asValidator(context),
