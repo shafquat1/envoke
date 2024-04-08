@@ -7,7 +7,9 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/widgets/add_shared/add_shared_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
+import 'package:provider/provider.dart';
 import 'memories_timeline_model.dart';
 export 'memories_timeline_model.dart';
 
@@ -94,7 +96,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -105,7 +107,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 0.0, 0.0),
                                     child: AuthUserStreamWidget(
                                       builder: (context) => Text(
@@ -126,7 +128,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'Good morning',
@@ -151,17 +153,17 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                               false,
                             ))
                               Align(
-                                alignment: const AlignmentDirectional(1.0, -1.0),
+                                alignment: AlignmentDirectional(1.0, -1.0),
                                 child: Builder(
                                   builder: (context) => Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 20.0, 20.0, 0.0),
                                     child: FlutterFlowIconButton(
-                                      borderColor: const Color(0xFF212121),
+                                      borderColor: Color(0xFF212121),
                                       borderRadius: 16.0,
                                       borderWidth: 1.0,
                                       buttonSize: 40.0,
-                                      fillColor: const Color(0xFF212121),
+                                      fillColor: Color(0xFF212121),
                                       icon: Icon(
                                         Icons.share_rounded,
                                         color: FlutterFlowTheme.of(context)
@@ -179,7 +181,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                               backgroundColor:
                                                   Colors.transparent,
                                               alignment:
-                                                  const AlignmentDirectional(0.0, 0.0)
+                                                  AlignmentDirectional(0.0, 0.0)
                                                       .resolve(
                                                           Directionality.of(
                                                               context)),
@@ -191,7 +193,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                             _model.unfocusNode)
                                                     : FocusScope.of(context)
                                                         .unfocus(),
-                                                child: const AddSharedWidget(),
+                                                child: AddSharedWidget(),
                                               ),
                                             );
                                           },
@@ -207,9 +209,9 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                       Expanded(
                         child: Container(
                           width: double.infinity,
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 10.0, 0.0, 10.0, 0.0),
                             child: SingleChildScrollView(
                               child: Column(
@@ -224,7 +226,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                       )) {
                                         return Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 50.0, 0.0, 0.0),
                                           child: StreamBuilder<
                                               List<MemoriesRecord>>(
@@ -324,14 +326,14 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                           children: [
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       0.0, 0.0),
-                                                              child: SizedBox(
+                                                              child: Container(
                                                                 width: double
                                                                     .infinity,
                                                                 child: Stack(
                                                                   alignment:
-                                                                      const AlignmentDirectional(
+                                                                      AlignmentDirectional(
                                                                           0.0,
                                                                           1.0),
                                                                   children: [
@@ -396,7 +398,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           30.0,
                                                                           0.0,
                                                                           30.0,
@@ -411,16 +413,16 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                           Flexible(
                                                                             child:
                                                                                 Align(
-                                                                              alignment: const AlignmentDirectional(0.0, 0.0),
+                                                                              alignment: AlignmentDirectional(0.0, 0.0),
                                                                               child: Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                                                                                 child: Column(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   mainAxisAlignment: MainAxisAlignment.end,
                                                                                   crossAxisAlignment: CrossAxisAlignment.start,
                                                                                   children: [
                                                                                     Align(
-                                                                                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                      alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                       child: Text(
                                                                                         '${columnCount.toString()} items',
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -432,7 +434,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                       ),
                                                                                     ),
                                                                                     Align(
-                                                                                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                      alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                       child: Text(
                                                                                         columnMemoriesRecord.memoryTitle,
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -445,7 +447,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                             ),
                                                                                       ),
                                                                                     ),
-                                                                                  ].divide(const SizedBox(height: 5.0)),
+                                                                                  ].divide(SizedBox(height: 5.0)),
                                                                                 ),
                                                                               ),
                                                                             ),
@@ -491,7 +493,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                             ),
                                                             Stack(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       0.0, 0.0),
                                                               children: [
                                                                 Row(
@@ -540,7 +542,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                   ),
                                                                   child: Align(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                     child: Text(
@@ -583,7 +585,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                       } else {
                                         return Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 50.0, 0.0, 0.0),
                                           child: StreamBuilder<
                                               List<MemoriesRecord>>(
@@ -682,14 +684,14 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                           children: [
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       0.0, 0.0),
-                                                              child: SizedBox(
+                                                              child: Container(
                                                                 width: double
                                                                     .infinity,
                                                                 child: Stack(
                                                                   alignment:
-                                                                      const AlignmentDirectional(
+                                                                      AlignmentDirectional(
                                                                           0.0,
                                                                           1.0),
                                                                   children: [
@@ -775,7 +777,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           30.0,
                                                                           0.0,
                                                                           30.0,
@@ -789,17 +791,17 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                         children: [
                                                                           Align(
                                                                             alignment:
-                                                                                const AlignmentDirectional(-1.0, 0.0),
+                                                                                AlignmentDirectional(-1.0, 0.0),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                                                                               child: Column(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 mainAxisAlignment: MainAxisAlignment.end,
                                                                                 crossAxisAlignment: CrossAxisAlignment.start,
                                                                                 children: [
                                                                                   Align(
-                                                                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                     child: Text(
                                                                                       '${columnCount.toString()} items',
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -811,7 +813,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                     ),
                                                                                   ),
                                                                                   Align(
-                                                                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                     child: Text(
                                                                                       columnMemoriesRecord.memoryTitle,
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -824,7 +826,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                           ),
                                                                                     ),
                                                                                   ),
-                                                                                ].divide(const SizedBox(height: 5.0)),
+                                                                                ].divide(SizedBox(height: 5.0)),
                                                                               ),
                                                                             ),
                                                                           ),
@@ -837,7 +839,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                             ),
                                                             Stack(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       0.0, 0.0),
                                                               children: [
                                                                 Row(
@@ -886,7 +888,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                   ),
                                                                   child: Align(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                     child: Text(
@@ -943,7 +945,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                         desktop: false,
                       ))
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 5.0),
                           child: FFButtonWidget(
                             onPressed: () async {
@@ -952,9 +954,9 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                             text: 'Admin',
                             options: FFButtonOptions(
                               height: 40.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 24.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
@@ -966,7 +968,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                     useGoogleFonts: false,
                                   ),
                               elevation: 3.0,
-                              borderSide: const BorderSide(
+                              borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),
@@ -976,7 +978,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                         ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             context.pushNamed('CreateMemories');
@@ -990,9 +992,9 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                           options: FFButtonOptions(
                             width: 48.0,
                             height: 48.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 0.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
@@ -1004,7 +1006,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                   letterSpacing: 0.0,
                                   useGoogleFonts: false,
                                 ),
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),

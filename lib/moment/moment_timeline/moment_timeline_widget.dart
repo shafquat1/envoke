@@ -2,12 +2,16 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
+import 'package:provider/provider.dart';
 import 'moment_timeline_model.dart';
 export 'moment_timeline_model.dart';
 
@@ -98,16 +102,16 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     10.0, 24.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(0.0, -1.0),
+                                          AlignmentDirectional(0.0, -1.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -117,7 +121,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 190.0, 0.0),
                                             child: InkWell(
                                               splashColor: Colors.transparent,
@@ -126,7 +130,8 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                context.safePop();
+                                                context.goNamed(
+                                                    'MemoriesTimeline');
                                               },
                                               child: ClipRRect(
                                                 borderRadius:
@@ -137,16 +142,16 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                   height: 15.0,
                                                   fit: BoxFit.cover,
                                                   alignment:
-                                                      const Alignment(-1.0, -1.0),
+                                                      Alignment(-1.0, -1.0),
                                                 ),
                                               ),
                                             ),
                                           ),
                                           Container(
                                             width: 230.0,
-                                            decoration: const BoxDecoration(),
+                                            decoration: BoxDecoration(),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 20.0, 0.0, 0.0),
                                               child: Text(
@@ -169,9 +174,9 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
+                                                AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 5.0, 115.0, 0.0),
                                               child: Text(
@@ -202,10 +207,10 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                     Flexible(
                                       child: Align(
                                         alignment:
-                                            const AlignmentDirectional(1.0, 0.0),
+                                            AlignmentDirectional(1.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 20.0, 0.0, 0.0),
                                           child: FlutterFlowIconButton(
                                             borderColor:
@@ -247,13 +252,13 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 30.0, 0.0, 0.0),
                               child: Builder(
                                 builder: (context) {
                                   final momentList =
                                       momentTimelineMomentsRecordList.toList();
-                                  return SizedBox(
+                                  return Container(
                                     width: double.infinity,
                                     height:
                                         MediaQuery.sizeOf(context).height * 0.8,
@@ -309,7 +314,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                       CachedNetworkImageProvider(
                                                     valueOrDefault<String>(
                                                       momentListItem.imgUrl,
-                                                      'https://firebasestorage.googleapis.com/v0/b/envoke-7dtyz3.appspot.com/o/Group%202.png?alt=media&token=929a4fd5-b181-40a8-9534-3251c3f3e0e6',
+                                                      'https://firebasestorage.googleapis.com/v0/b/envoke-7dtyz3.appspot.com/o/Frame%201.png?alt=media&token=8c4b7f71-652d-4cf1-b4f2-1b4e0a946659',
                                                     ),
                                                   ),
                                                   width: 315.0,
@@ -322,7 +327,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                               ),
                                               Flexible(
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 20.0, 0.0, 0.0),
                                                   child: Container(
@@ -345,7 +350,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                         children: [
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     0.0, 0.0),
                                                             child: Row(
                                                               mainAxisSize:
@@ -358,12 +363,12 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                 Expanded(
                                                                   child: Align(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             -1.0,
                                                                             0.0),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           20.0,
                                                                           0.0,
                                                                           0.0,
@@ -391,10 +396,13 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                 ),
                                                                 if (momentListItem
                                                                             .audioUrl !=
+                                                                        null &&
+                                                                    momentListItem
+                                                                            .audioUrl !=
                                                                         '')
                                                                   Align(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             1.0,
                                                                             0.0),
                                                                     child:
@@ -412,7 +420,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                           FlutterFlowTheme.of(context)
                                                                               .primaryBackground,
                                                                       icon:
-                                                                          const Icon(
+                                                                          Icon(
                                                                         Icons
                                                                             .play_arrow,
                                                                         color: Colors
@@ -420,7 +428,8 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                         size:
                                                                             24.0,
                                                                       ),
-                                                                      onPressed: (momentListItem.audioUrl != '')
+                                                                      onPressed: (momentListItem.audioUrl != null &&
+                                                                              momentListItem.audioUrl != '')
                                                                           ? null
                                                                           : () {
                                                                               print('IconButton pressed ...');
@@ -432,11 +441,11 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     -1.0, 0.0),
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           20.0,
                                                                           10.0,
@@ -470,7 +479,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         20.0,
@@ -505,7 +514,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                               false,
                                                                         ),
                                                                   ),
-                                                                  const TextSpan(
+                                                                  TextSpan(
                                                                     text: '/',
                                                                     style:
                                                                         TextStyle(

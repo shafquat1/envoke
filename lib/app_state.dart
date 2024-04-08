@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import '/backend/backend.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -33,28 +35,28 @@ class FFAppState extends ChangeNotifier {
 
   String _nfcTag = '';
   String get nfcTag => _nfcTag;
-  set nfcTag(String value) {
-    _nfcTag = value;
-    prefs.setString('ff_nfcTag', value);
+  set nfcTag(String _value) {
+    _nfcTag = _value;
+    prefs.setString('ff_nfcTag', _value);
   }
 
   String _nfcUserId = '';
   String get nfcUserId => _nfcUserId;
-  set nfcUserId(String value) {
-    _nfcUserId = value;
+  set nfcUserId(String _value) {
+    _nfcUserId = _value;
   }
 
   bool _writeTag = false;
   bool get writeTag => _writeTag;
-  set writeTag(bool value) {
-    _writeTag = value;
+  set writeTag(bool _value) {
+    _writeTag = _value;
   }
 
   String _userGuid = '';
   String get userGuid => _userGuid;
-  set userGuid(String value) {
-    _userGuid = value;
-    prefs.setString('ff_userGuid', value);
+  set userGuid(String _value) {
+    _userGuid = _value;
+    prefs.setString('ff_userGuid', _value);
   }
 }
 

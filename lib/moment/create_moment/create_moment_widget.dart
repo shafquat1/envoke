@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_audio_player.dart';
@@ -7,11 +8,14 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/permissions_util.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
+import 'package:provider/provider.dart';
 import 'package:record/record.dart';
 import 'create_moment_model.dart';
 export 'create_moment_model.dart';
@@ -60,12 +64,12 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: const Color(0xFF171717),
+        backgroundColor: Color(0xFF171717),
         appBar: AppBar(
-          backgroundColor: const Color(0xFF171717),
+          backgroundColor: Color(0xFF171717),
           automaticallyImplyLeading: false,
           title: Align(
-            alignment: const AlignmentDirectional(0.0, 0.0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -90,7 +94,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                 ),
                 Flexible(
                   child: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       'Create Moment',
                       style:
@@ -106,7 +110,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
               ],
             ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -120,12 +124,12 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
               children: [
                 Flexible(
                   child: Stack(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(0.0, -1.0),
+                        alignment: AlignmentDirectional(0.0, -1.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 20.0, 0.0, 0.0),
                           child: SingleChildScrollView(
                             primary: false,
@@ -134,9 +138,9 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Align(
-                                  alignment: const AlignmentDirectional(0.0, -1.0),
+                                  alignment: AlignmentDirectional(0.0, -1.0),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.textController1,
@@ -197,9 +201,9 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                           (_model.showImg == true)
                                       ? 250.0
                                       : 350.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.textController2,
@@ -260,15 +264,15 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                 if ((_model.showAudio == true) ||
                                     (_model.showImg == true))
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 10.0, 0.0, 0.0),
                                       child: Container(
                                         height:
                                             MediaQuery.sizeOf(context).height *
                                                 0.5,
-                                        decoration: const BoxDecoration(
+                                        decoration: BoxDecoration(
                                           color: Colors.black,
                                           borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(0.0),
@@ -279,7 +283,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                         ),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 0.0, 20.0, 150.0),
                                           child: SingleChildScrollView(
                                             primary: false,
@@ -291,7 +295,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                 if (_model.showImg == true)
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 20.0,
                                                                 0.0, 20.0),
                                                     child: Text(
@@ -314,7 +318,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                   Flexible(
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   0.0,
@@ -351,7 +355,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     1.05, -1.0),
                                                             child: Container(
                                                               decoration:
@@ -412,7 +416,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                 if (_model.showAudio == true)
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 20.0,
                                                                 0.0, 20.0),
                                                     child: Text(
@@ -435,11 +439,11 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                   Flexible(
                                                     child: Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               0.0, 0.0),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     10.0,
                                                                     0.0,
@@ -447,12 +451,12 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                     0.0),
                                                         child: Stack(
                                                           alignment:
-                                                              const AlignmentDirectional(
+                                                              AlignmentDirectional(
                                                                   1.0, -1.0),
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -477,12 +481,12 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                 ),
                                                                 child: Align(
                                                                   alignment:
-                                                                      const AlignmentDirectional(
+                                                                      AlignmentDirectional(
                                                                           0.0,
                                                                           0.0),
                                                                   child:
                                                                       Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             10.0,
                                                                             5.0,
@@ -551,7 +555,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       1.0,
                                                                       -1.0),
                                                               child: Container(
@@ -627,12 +631,12 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 1.0),
+                        alignment: AlignmentDirectional(0.0, 1.0),
                         child: Container(
                           height: 120.0,
                           decoration: BoxDecoration(
                             color: Colors.black,
-                            borderRadius: const BorderRadius.only(
+                            borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(0.0),
                               bottomRight: Radius.circular(0.0),
                               topLeft: Radius.circular(30.0),
@@ -643,11 +647,11 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                               color: FlutterFlowTheme.of(context).primaryText,
                             ),
                           ),
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 10.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -659,7 +663,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                     borderRadius: 30.0,
                                     borderWidth: 1.0,
                                     buttonSize: 60.0,
-                                    fillColor: const Color(0xFF242424),
+                                    fillColor: Color(0xFF242424),
                                     disabledIconColor:
                                         FlutterFlowTheme.of(context)
                                             .secondaryText,
@@ -766,11 +770,11 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                   ),
                                   if (_model.isRecording == true)
                                     FlutterFlowIconButton(
-                                      borderColor: const Color(0xFF242424),
+                                      borderColor: Color(0xFF242424),
                                       borderRadius: 30.0,
                                       borderWidth: 1.0,
                                       buttonSize: 60.0,
-                                      fillColor: const Color(0xFF242424),
+                                      fillColor: Color(0xFF242424),
                                       icon: Icon(
                                         Icons.stop_circle_outlined,
                                         color: FlutterFlowTheme.of(context)
@@ -778,7 +782,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                         size: 24.0,
                                       ),
                                       onPressed: () async {
-                                        var shouldSetState = false;
+                                        var _shouldSetState = false;
                                         if (_model.isRecording == true) {
                                           await stopAudioRecording(
                                             audioRecorder: _model.audioRecorder,
@@ -792,7 +796,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                             },
                                           );
 
-                                          shouldSetState = true;
+                                          _shouldSetState = true;
                                           {
                                             setState(() =>
                                                 _model.isDataUploading2 = true);
@@ -863,23 +867,23 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                           });
                                           _model.audioFile =
                                               _model.uploadedFileUrl2;
-                                          if (shouldSetState) setState(() {});
+                                          if (_shouldSetState) setState(() {});
                                           return;
                                         } else {
-                                          if (shouldSetState) setState(() {});
+                                          if (_shouldSetState) setState(() {});
                                           return;
                                         }
 
-                                        if (shouldSetState) setState(() {});
+                                        if (_shouldSetState) setState(() {});
                                       },
                                     ),
                                   if (_model.isRecording == false)
                                     FlutterFlowIconButton(
-                                      borderColor: const Color(0xFF242424),
+                                      borderColor: Color(0xFF242424),
                                       borderRadius: 30.0,
                                       borderWidth: 1.0,
                                       buttonSize: 60.0,
-                                      fillColor: const Color(0xFF242424),
+                                      fillColor: Color(0xFF242424),
                                       disabledIconColor:
                                           FlutterFlowTheme.of(context)
                                               .secondaryText,
@@ -917,12 +921,17 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                     ),
                                   Flexible(
                                     child: Align(
-                                      alignment: const AlignmentDirectional(1.0, 0.0),
+                                      alignment: AlignmentDirectional(1.0, 0.0),
                                       child: FFButtonWidget(
                                         onPressed: ((_model.textController1
                                                             .text !=
+                                                        null &&
+                                                    _model.textController1
+                                                            .text !=
                                                         '') &&
-                                                (_model.textController2
+                                                (_model.textController2.text !=
+                                                        null &&
+                                                    _model.textController2
                                                             .text !=
                                                         ''))
                                             ? null
@@ -970,10 +979,10 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                           width: 120.0,
                                           height: 60.0,
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   24.0, 0.0, 24.0, 0.0),
                                           iconPadding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
@@ -990,18 +999,18 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                 fontWeight: FontWeight.normal,
                                               ),
                                           elevation: 3.0,
-                                          borderSide: const BorderSide(
+                                          borderSide: BorderSide(
                                             color: Colors.transparent,
                                           ),
                                           borderRadius:
                                               BorderRadius.circular(28.0),
-                                          disabledColor: const Color(0xFF242424),
-                                          disabledTextColor: const Color(0xFF444444),
+                                          disabledColor: Color(0xFF242424),
+                                          disabledTextColor: Color(0xFF444444),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ].divide(const SizedBox(width: 10.0)),
+                                ].divide(SizedBox(width: 10.0)),
                               ),
                             ),
                           ),
