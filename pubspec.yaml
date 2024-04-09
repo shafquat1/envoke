@@ -36,7 +36,6 @@ dependencies:
   cloud_firestore_web: 3.10.7
   collection: 1.18.0
   cross_file: 0.3.3+7
-  easy_debounce: 2.0.1
   file_picker: 6.1.1
   firebase_auth: 4.17.7
   firebase_auth_platform_interface: 7.1.7

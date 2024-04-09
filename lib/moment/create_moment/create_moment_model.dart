@@ -16,8 +16,6 @@ class CreateMomentModel extends FlutterFlowModel<CreateMomentWidget> {
 
   String? imgFile;
 
-  bool isTextFieldFilled = false;
-
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -38,6 +36,14 @@ class CreateMomentModel extends FlutterFlowModel<CreateMomentWidget> {
   FocusNode? textFieldFocusNode2;
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
+  String? _textController2Validator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    return null;
+  }
+
   bool isDataUploading1 = false;
   FFUploadedFile uploadedLocalFile1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -56,6 +62,7 @@ class CreateMomentModel extends FlutterFlowModel<CreateMomentWidget> {
   @override
   void initState(BuildContext context) {
     textController1Validator = _textController1Validator;
+    textController2Validator = _textController2Validator;
   }
 
   @override
