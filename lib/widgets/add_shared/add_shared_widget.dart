@@ -118,7 +118,7 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                           child: TextFormField(
                             controller: _model.textController,
                             focusNode: _model.textFieldFocusNode,
-                            autofocus: true,
+                            autofocus: false,
                             obscureText: false,
                             decoration: InputDecoration(
                               labelText: 'Enter Email',

@@ -141,7 +141,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                     child: TextFormField(
                                       controller: _model.textController1,
                                       focusNode: _model.textFieldFocusNode1,
-                                      autofocus: true,
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelStyle: FlutterFlowTheme.of(context)
@@ -204,7 +204,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                     child: TextFormField(
                                       controller: _model.textController2,
                                       focusNode: _model.textFieldFocusNode2,
-                                      autofocus: true,
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         hintText: 'Note',

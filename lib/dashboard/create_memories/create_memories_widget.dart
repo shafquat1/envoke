@@ -184,7 +184,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                             controller: _model.textController,
                                             focusNode:
                                                 _model.textFieldFocusNode,
-                                            autofocus: true,
+                                            autofocus: false,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               hintText: 'Add a Title',

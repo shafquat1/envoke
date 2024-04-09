@@ -155,7 +155,18 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            context.safePop();
+                            context.goNamed(
+                              'momentTimeline',
+                              queryParameters: {
+                                'memories': serializeParam(
+                                  widget.memories,
+                                  ParamType.Document,
+                                ),
+                              }.withoutNulls,
+                              extra: <String, dynamic>{
+                                'memories': widget.memories,
+                              },
+                            );
                           },
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(0.0),
