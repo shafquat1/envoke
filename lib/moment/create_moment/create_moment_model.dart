@@ -16,6 +16,8 @@ class CreateMomentModel extends FlutterFlowModel<CreateMomentWidget> {
 
   String? imgFile;
 
+  bool isTextFieldFilled = false;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

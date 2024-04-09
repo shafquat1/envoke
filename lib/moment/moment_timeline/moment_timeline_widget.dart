@@ -378,7 +378,12 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                           Text(
                                                                         momentListItem
                                                                             .title
-                                                                            .maybeHandleOverflow(maxChars: 12),
+                                                                            .maybeHandleOverflow(
+                                                                          maxChars:
+                                                                              12,
+                                                                          replacement:
+                                                                              '…',
+                                                                        ),
                                                                         textAlign:
                                                                             TextAlign.start,
                                                                         style: FlutterFlowTheme.of(context)

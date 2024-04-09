@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/permissions_util.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
@@ -141,6 +142,13 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                     child: TextFormField(
                                       controller: _model.textController1,
                                       focusNode: _model.textFieldFocusNode1,
+                                      onChanged: (_) => EasyDebounce.debounce(
+                                        '_model.textController1',
+                                        const Duration(milliseconds: 2000),
+                                        () async {
+                                          setState(() {});
+                                        },
+                                      ),
                                       autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
@@ -921,7 +929,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                       child: FFButtonWidget(
                                         onPressed: ((_model.textController1
                                                             .text ==
-                                                        '') &&
+                                                        '') ||
                                                 (_model.textController2
                                                             .text ==
                                                         ''))
