@@ -439,7 +439,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           ),
                                         ),
                                         Text(
-                                          'Newsletter',
+                                          'Newsletter (Optional)',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(

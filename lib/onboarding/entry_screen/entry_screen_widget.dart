@@ -164,12 +164,52 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                       desktop: false,
                     ))
                       Align(
-                        alignment: const AlignmentDirectional(0.04, 0.67),
+                        alignment: const AlignmentDirectional(0.15, 0.48),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            context.goNamed('LoginPage');
+                            context.pushNamed('SignupPage');
                           },
-                          text: 'NFC Scan',
+                          text: 'Signup',
+                          options: FFButtonOptions(
+                            width: MediaQuery.sizeOf(context).width * 0.85,
+                            height: 55.0,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: const Color(0xFF212121),
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Inter',
+                                  color: Colors.white,
+                                  fontSize: 18.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                            elevation: 3.0,
+                            borderSide: const BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                        ),
+                      ),
+                    if (responsiveVisibility(
+                      context: context,
+                      phone: false,
+                      tablet: false,
+                      tabletLandscape: false,
+                      desktop: false,
+                    ))
+                      Align(
+                        alignment: const AlignmentDirectional(0.23, 0.68),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            context.pushNamed('LoginPage');
+                          },
+                          text: 'Login',
                           options: FFButtonOptions(
                             width: MediaQuery.sizeOf(context).width * 0.85,
                             height: 55.0,
