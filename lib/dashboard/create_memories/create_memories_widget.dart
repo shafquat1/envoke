@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'create_memories_model.dart';
@@ -82,7 +83,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
                       child: Text(
-                        'Good morning',
+                        functions.getGreetingUsingTime(),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'JasmineUPC',
                               color: FlutterFlowTheme.of(context)
@@ -429,12 +430,6 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                       null ||
                                                   !_model.formKey.currentState!
                                                       .validate()) {
-                                                return;
-                                              }
-                                              if ((_model.uploadedLocalFile
-                                                              .bytes ??
-                                                          [])
-                                                      .isEmpty) {
                                                 return;
                                               }
                                               if (_model.uploadedFileUrl ==

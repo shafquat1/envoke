@@ -121,7 +121,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     TextFormField(
                                       controller: _model.emailTextController,
                                       focusNode: _model.textFieldFocusNode1,
-                                      autofocus: true,
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         hintText: 'Enter Email',
@@ -194,7 +194,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     TextFormField(
                                       controller: _model.passwordTextController,
                                       focusNode: _model.textFieldFocusNode2,
-                                      autofocus: true,
+                                      autofocus: false,
                                       obscureText: !_model.passwordVisibility,
                                       decoration: InputDecoration(
                                         hintText: 'Enter Password',

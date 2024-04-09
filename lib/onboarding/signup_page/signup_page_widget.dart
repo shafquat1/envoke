@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/widgets/write_nfc_tag/write_nfc_tag_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'signup_page_model.dart';
@@ -142,7 +143,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                       child: TextFormField(
                                         controller: _model.textController1,
                                         focusNode: _model.textFieldFocusNode1,
-                                        autofocus: true,
+                                        autofocus: false,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: 'First Name',
@@ -216,12 +217,16 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                         validator: _model
                                             .textController1Validator
                                             .asValidator(context),
+                                        inputFormatters: [
+                                          FilteringTextInputFormatter.allow(
+                                              RegExp('[a-zA-Z]'))
+                                        ],
                                       ),
                                     ),
                                     TextFormField(
                                       controller: _model.textController2,
                                       focusNode: _model.textFieldFocusNode2,
-                                      autofocus: true,
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         hintText: 'Last Name',
@@ -289,11 +294,15 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                       minLines: null,
                                       validator: _model.textController2Validator
                                           .asValidator(context),
+                                      inputFormatters: [
+                                        FilteringTextInputFormatter.allow(
+                                            RegExp('[a-zA-Z]'))
+                                      ],
                                     ),
                                     TextFormField(
                                       controller: _model.emailTextController,
                                       focusNode: _model.textFieldFocusNode3,
-                                      autofocus: true,
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         hintText: 'Enter Email',
@@ -366,7 +375,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                     TextFormField(
                                       controller: _model.passwordTextController,
                                       focusNode: _model.textFieldFocusNode4,
-                                      autofocus: true,
+                                      autofocus: false,
                                       obscureText: !_model.passwordVisibility,
                                       decoration: InputDecoration(
                                         hintText: 'Enter Password',

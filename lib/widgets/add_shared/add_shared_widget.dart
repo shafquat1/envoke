@@ -96,7 +96,7 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                           Icons.close,
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          size: 15.0,
+                          size: 20.0,
                         ),
                         onPressed: () async {
                           Navigator.pop(context);
@@ -176,6 +176,10 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                             child: FFButtonWidget(
                               onPressed: () async {
                                 var shouldSetState = false;
+                                if (_model.formKey.currentState == null ||
+                                    !_model.formKey.currentState!.validate()) {
+                                  return;
+                                }
                                 _model.output = await queryUsersRecordOnce(
                                   queryBuilder: (usersRecord) =>
                                       usersRecord.where(
@@ -185,20 +189,6 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                   singleRecord: true,
                                 ).then((s) => s.firstOrNull);
                                 shouldSetState = true;
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      '${_model.output?.email} Exists',
-                                      style: TextStyle(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    duration: const Duration(milliseconds: 4000),
-                                    backgroundColor:
-                                        FlutterFlowTheme.of(context).secondary,
-                                  ),
-                                );
                                 if (_model.output?.email != null &&
                                     _model.output?.email != '') {
                                   await SharedUserRecord.collection
@@ -247,10 +237,11 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Istanbul type',
+                                      fontFamily: 'Inter',
                                       color: Colors.white,
+                                      fontSize: 18.0,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
+                                      fontWeight: FontWeight.bold,
                                     ),
                                 elevation: 3.0,
                                 borderSide: const BorderSide(

@@ -398,7 +398,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                     ),
                                                                     Padding(
                                                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          20.0,
+                                                                          25.0,
                                                                           0.0,
                                                                           20.0,
                                                                           0.0),
@@ -793,7 +793,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                 Align(
                                                                               alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                               child: Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 10.0),
                                                                                 child: Column(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   mainAxisAlignment: MainAxisAlignment.end,

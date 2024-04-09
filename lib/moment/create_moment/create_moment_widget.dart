@@ -920,10 +920,10 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                       alignment: const AlignmentDirectional(1.0, 0.0),
                                       child: FFButtonWidget(
                                         onPressed: ((_model.textController1
-                                                            .text !=
+                                                            .text ==
                                                         '') &&
                                                 (_model.textController2
-                                                            .text !=
+                                                            .text ==
                                                         ''))
                                             ? null
                                             : () async {
