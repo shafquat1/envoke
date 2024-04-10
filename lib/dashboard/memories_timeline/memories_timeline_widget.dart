@@ -306,27 +306,70 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                       }
                                                       int columnCount =
                                                           snapshot.data!;
-                                                      return InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          context.pushNamed(
-                                                              'createMoment');
-                                                        },
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Align(
-                                                              alignment:
-                                                                  const AlignmentDirectional(
-                                                                      0.0, 0.0),
+                                                      return Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Align(
+                                                            alignment:
+                                                                const AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                if (columnCount <=
+                                                                    0) {
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'createMoment',
+                                                                    queryParameters:
+                                                                        {
+                                                                      'memories':
+                                                                          serializeParam(
+                                                                        columnMemoriesRecord,
+                                                                        ParamType
+                                                                            .Document,
+                                                                      ),
+                                                                    }.withoutNulls,
+                                                                    extra: <String,
+                                                                        dynamic>{
+                                                                      'memories':
+                                                                          columnMemoriesRecord,
+                                                                    },
+                                                                  );
+
+                                                                  return;
+                                                                } else {
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'momentTimeline',
+                                                                    queryParameters:
+                                                                        {
+                                                                      'memories':
+                                                                          serializeParam(
+                                                                        columnMemoriesRecord,
+                                                                        ParamType
+                                                                            .Document,
+                                                                      ),
+                                                                    }.withoutNulls,
+                                                                    extra: <String,
+                                                                        dynamic>{
+                                                                      'memories':
+                                                                          columnMemoriesRecord,
+                                                                    },
+                                                                  );
+
+                                                                  return;
+                                                                }
+                                                              },
                                                               child: SizedBox(
                                                                 width: double
                                                                     .infinity,
@@ -336,64 +379,34 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                           0.0,
                                                                           1.0),
                                                                   children: [
-                                                                    InkWell(
-                                                                      splashColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      focusColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      hoverColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      highlightColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      onTap:
-                                                                          () async {
-                                                                        context
-                                                                            .pushNamed(
-                                                                          'momentTimeline',
-                                                                          queryParameters:
-                                                                              {
-                                                                            'memories':
-                                                                                serializeParam(
-                                                                              columnMemoriesRecord,
-                                                                              ParamType.Document,
-                                                                            ),
-                                                                          }.withoutNulls,
-                                                                          extra: <String,
-                                                                              dynamic>{
-                                                                            'memories':
-                                                                                columnMemoriesRecord,
-                                                                          },
-                                                                        );
-                                                                      },
+                                                                    ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              24.0),
                                                                       child:
-                                                                          ClipRRect(
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(24.0),
-                                                                        child:
-                                                                            OctoImage(
-                                                                          placeholderBuilder: (_) =>
-                                                                              SizedBox.expand(
-                                                                            child:
-                                                                                Image(
-                                                                              image: BlurHashImage(columnMemoriesRecord.imgBlurHash),
-                                                                              fit: BoxFit.cover,
-                                                                            ),
+                                                                          OctoImage(
+                                                                        placeholderBuilder:
+                                                                            (_) =>
+                                                                                SizedBox.expand(
+                                                                          child:
+                                                                              Image(
+                                                                            image:
+                                                                                BlurHashImage(columnMemoriesRecord.imgBlurHash),
+                                                                            fit:
+                                                                                BoxFit.cover,
                                                                           ),
-                                                                          image:
-                                                                              NetworkImage(
-                                                                            columnMemoriesRecord.imgUrl,
-                                                                          ),
-                                                                          width:
-                                                                              350.0,
-                                                                          height:
-                                                                              200.0,
-                                                                          fit: BoxFit
-                                                                              .cover,
                                                                         ),
+                                                                        image:
+                                                                            NetworkImage(
+                                                                          columnMemoriesRecord
+                                                                              .imgUrl,
+                                                                        ),
+                                                                        width:
+                                                                            350.0,
+                                                                        height:
+                                                                            200.0,
+                                                                        fit: BoxFit
+                                                                            .cover,
                                                                       ),
                                                                     ),
                                                                     Padding(
@@ -490,89 +503,89 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                 ),
                                                               ),
                                                             ),
-                                                            Stack(
-                                                              alignment:
-                                                                  const AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              children: [
-                                                                Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .center,
-                                                                  children: [
-                                                                    SizedBox(
-                                                                      height:
-                                                                          100.0,
-                                                                      child:
-                                                                          VerticalDivider(
-                                                                        thickness:
-                                                                            1.0,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .accent4,
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                Container(
-                                                                  width: MediaQuery.sizeOf(
-                                                                              context)
-                                                                          .width *
-                                                                      0.6,
-                                                                  height: 40.0,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            16.0),
-                                                                    border:
-                                                                        Border
-                                                                            .all(
+                                                          ),
+                                                          Stack(
+                                                            alignment:
+                                                                const AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            children: [
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .center,
+                                                                children: [
+                                                                  SizedBox(
+                                                                    height:
+                                                                        100.0,
+                                                                    child:
+                                                                        VerticalDivider(
+                                                                      thickness:
+                                                                          1.0,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .secondaryBackground,
-                                                                      width:
-                                                                          1.0,
+                                                                          .accent4,
                                                                     ),
                                                                   ),
-                                                                  child: Align(
-                                                                    alignment:
-                                                                        const AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      dateTimeFormat(
-                                                                          'd MMMM y',
-                                                                          columnMemoriesRecord
-                                                                              .createdTime!),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Istanbul type',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondaryBackground,
-                                                                            fontSize:
-                                                                                20.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w300,
-                                                                            useGoogleFonts:
-                                                                                false,
-                                                                          ),
-                                                                    ),
+                                                                ],
+                                                              ),
+                                                              Container(
+                                                                width: MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .width *
+                                                                    0.6,
+                                                                height: 40.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .black,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              16.0),
+                                                                  border: Border
+                                                                      .all(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                    width: 1.0,
                                                                   ),
                                                                 ),
-                                                              ],
-                                                            ),
-                                                          ],
-                                                        ),
+                                                                child: Align(
+                                                                  alignment:
+                                                                      const AlignmentDirectional(
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    dateTimeFormat(
+                                                                        'd MMMM y',
+                                                                        columnMemoriesRecord
+                                                                            .createdTime!),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Istanbul type',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryBackground,
+                                                                          fontSize:
+                                                                              20.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w300,
+                                                                          useGoogleFonts:
+                                                                              false,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ],
                                                       );
                                                     },
                                                   );
@@ -664,27 +677,70 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                       }
                                                       int columnCount =
                                                           snapshot.data!;
-                                                      return InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          context.pushNamed(
-                                                              'createMoment');
-                                                        },
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Align(
-                                                              alignment:
-                                                                  const AlignmentDirectional(
-                                                                      0.0, 0.0),
+                                                      return Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Align(
+                                                            alignment:
+                                                                const AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                if (columnCount <=
+                                                                    0) {
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'createMoment',
+                                                                    queryParameters:
+                                                                        {
+                                                                      'memories':
+                                                                          serializeParam(
+                                                                        columnMemoriesRecord,
+                                                                        ParamType
+                                                                            .Document,
+                                                                      ),
+                                                                    }.withoutNulls,
+                                                                    extra: <String,
+                                                                        dynamic>{
+                                                                      'memories':
+                                                                          columnMemoriesRecord,
+                                                                    },
+                                                                  );
+
+                                                                  return;
+                                                                } else {
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'momentTimeline',
+                                                                    queryParameters:
+                                                                        {
+                                                                      'memories':
+                                                                          serializeParam(
+                                                                        columnMemoriesRecord,
+                                                                        ParamType
+                                                                            .Document,
+                                                                      ),
+                                                                    }.withoutNulls,
+                                                                    extra: <String,
+                                                                        dynamic>{
+                                                                      'memories':
+                                                                          columnMemoriesRecord,
+                                                                    },
+                                                                  );
+
+                                                                  return;
+                                                                }
+                                                              },
                                                               child: SizedBox(
                                                                 width: double
                                                                     .infinity,
@@ -694,85 +750,34 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                           0.0,
                                                                           1.0),
                                                                   children: [
-                                                                    InkWell(
-                                                                      splashColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      focusColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      hoverColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      highlightColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      onTap:
-                                                                          () async {
-                                                                        if (columnCount <=
-                                                                            0) {
-                                                                          context
-                                                                              .pushNamed(
-                                                                            'createMoment',
-                                                                            queryParameters:
-                                                                                {
-                                                                              'memories': serializeParam(
-                                                                                columnMemoriesRecord,
-                                                                                ParamType.Document,
-                                                                              ),
-                                                                            }.withoutNulls,
-                                                                            extra: <String,
-                                                                                dynamic>{
-                                                                              'memories': columnMemoriesRecord,
-                                                                            },
-                                                                          );
-
-                                                                          return;
-                                                                        } else {
-                                                                          context
-                                                                              .pushNamed(
-                                                                            'momentTimeline',
-                                                                            queryParameters:
-                                                                                {
-                                                                              'memories': serializeParam(
-                                                                                columnMemoriesRecord,
-                                                                                ParamType.Document,
-                                                                              ),
-                                                                            }.withoutNulls,
-                                                                            extra: <String,
-                                                                                dynamic>{
-                                                                              'memories': columnMemoriesRecord,
-                                                                            },
-                                                                          );
-
-                                                                          return;
-                                                                        }
-                                                                      },
+                                                                    ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              24.0),
                                                                       child:
-                                                                          ClipRRect(
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(24.0),
-                                                                        child:
-                                                                            OctoImage(
-                                                                          placeholderBuilder: (_) =>
-                                                                              SizedBox.expand(
-                                                                            child:
-                                                                                Image(
-                                                                              image: BlurHashImage(columnMemoriesRecord.imgBlurHash),
-                                                                              fit: BoxFit.cover,
-                                                                            ),
+                                                                          OctoImage(
+                                                                        placeholderBuilder:
+                                                                            (_) =>
+                                                                                SizedBox.expand(
+                                                                          child:
+                                                                              Image(
+                                                                            image:
+                                                                                BlurHashImage(columnMemoriesRecord.imgBlurHash),
+                                                                            fit:
+                                                                                BoxFit.cover,
                                                                           ),
-                                                                          image:
-                                                                              NetworkImage(
-                                                                            columnMemoriesRecord.imgUrl,
-                                                                          ),
-                                                                          width:
-                                                                              350.0,
-                                                                          height:
-                                                                              200.0,
-                                                                          fit: BoxFit
-                                                                              .cover,
                                                                         ),
+                                                                        image:
+                                                                            NetworkImage(
+                                                                          columnMemoriesRecord
+                                                                              .imgUrl,
+                                                                        ),
+                                                                        width:
+                                                                            350.0,
+                                                                        height:
+                                                                            200.0,
+                                                                        fit: BoxFit
+                                                                            .cover,
                                                                       ),
                                                                     ),
                                                                     Padding(
@@ -837,89 +842,89 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                 ),
                                                               ),
                                                             ),
-                                                            Stack(
-                                                              alignment:
-                                                                  const AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              children: [
-                                                                Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .center,
-                                                                  children: [
-                                                                    SizedBox(
-                                                                      height:
-                                                                          100.0,
-                                                                      child:
-                                                                          VerticalDivider(
-                                                                        thickness:
-                                                                            1.0,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .accent4,
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                Container(
-                                                                  width: MediaQuery.sizeOf(
-                                                                              context)
-                                                                          .width *
-                                                                      0.6,
-                                                                  height: 40.0,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            16.0),
-                                                                    border:
-                                                                        Border
-                                                                            .all(
+                                                          ),
+                                                          Stack(
+                                                            alignment:
+                                                                const AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            children: [
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .center,
+                                                                children: [
+                                                                  SizedBox(
+                                                                    height:
+                                                                        100.0,
+                                                                    child:
+                                                                        VerticalDivider(
+                                                                      thickness:
+                                                                          1.0,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .secondaryBackground,
-                                                                      width:
-                                                                          1.0,
+                                                                          .accent4,
                                                                     ),
                                                                   ),
-                                                                  child: Align(
-                                                                    alignment:
-                                                                        const AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      dateTimeFormat(
-                                                                          'd MMMM y',
-                                                                          columnMemoriesRecord
-                                                                              .createdTime!),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Istanbul type',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondaryBackground,
-                                                                            fontSize:
-                                                                                20.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w300,
-                                                                            useGoogleFonts:
-                                                                                false,
-                                                                          ),
-                                                                    ),
+                                                                ],
+                                                              ),
+                                                              Container(
+                                                                width: MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .width *
+                                                                    0.6,
+                                                                height: 40.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .black,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              16.0),
+                                                                  border: Border
+                                                                      .all(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                    width: 1.0,
                                                                   ),
                                                                 ),
-                                                              ],
-                                                            ),
-                                                          ],
-                                                        ),
+                                                                child: Align(
+                                                                  alignment:
+                                                                      const AlignmentDirectional(
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    dateTimeFormat(
+                                                                        'd MMMM y',
+                                                                        columnMemoriesRecord
+                                                                            .createdTime!),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Istanbul type',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryBackground,
+                                                                          fontSize:
+                                                                              20.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w300,
+                                                                          useGoogleFonts:
+                                                                              false,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ],
                                                       );
                                                     },
                                                   );
