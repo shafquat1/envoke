@@ -98,7 +98,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                         child: Padding(
                           padding: const EdgeInsets.all(14.0),
                           child: Container(
-                            height: MediaQuery.sizeOf(context).height * 0.80,
+                            height: 580.0,
                             decoration: BoxDecoration(
                               color: const Color(0xFF1C1C1C),
                               borderRadius: BorderRadius.circular(35.0),
@@ -107,7 +107,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                               padding: const EdgeInsets.all(22.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.end,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
