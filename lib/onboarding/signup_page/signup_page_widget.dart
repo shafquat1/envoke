@@ -98,7 +98,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                         child: Padding(
                           padding: const EdgeInsets.all(14.0),
                           child: Container(
-                            height: 565.0,
+                            height: 600.0,
                             decoration: BoxDecoration(
                               color: const Color(0xFF1C1C1C),
                               borderRadius: BorderRadius.circular(35.0),
@@ -792,7 +792,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                         alignment: const AlignmentDirectional(0.0, -1.0),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 50.0, 0.0, 0.0),
+                              0.0, 50.0, 0.0, 50.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
