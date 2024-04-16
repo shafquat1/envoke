@@ -64,7 +64,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
-                              'assets/images/tran.jpeg',
+                              'assets/images/happy-saint-valentine-s-day-concept_2.png',
                               width: double.infinity,
                               height: MediaQuery.sizeOf(context).height * 1.0,
                               fit: BoxFit.cover,
@@ -186,7 +186,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             fontWeight: FontWeight.w500,
                                           ),
                                       textAlign: TextAlign.start,
-                                      minLines: null,
                                       validator: _model
                                           .emailTextControllerValidator
                                           .asValidator(context),
@@ -274,7 +273,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             fontWeight: FontWeight.w500,
                                           ),
                                       textAlign: TextAlign.start,
-                                      minLines: null,
                                       validator: _model
                                           .passwordTextControllerValidator
                                           .asValidator(context),

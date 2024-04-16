@@ -61,7 +61,7 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(24.0),
                         child: Image.asset(
-                          'assets/images/tran.jpeg',
+                          'assets/images/happy-saint-valentine-s-day-concept_2.png',
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           height: MediaQuery.sizeOf(context).height * 1.0,
                           fit: BoxFit.cover,
@@ -86,11 +86,7 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                                     : FocusScope.of(context).unfocus(),
                                 child: Padding(
                                   padding: MediaQuery.viewInsetsOf(context),
-                                  child: SizedBox(
-                                    height:
-                                        MediaQuery.sizeOf(context).height * 0.5,
-                                    child: const NfcScanTagWidget(),
-                                  ),
+                                  child: const NfcScanTagWidget(),
                                 ),
                               );
                             },

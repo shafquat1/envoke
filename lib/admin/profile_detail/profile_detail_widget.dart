@@ -291,7 +291,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                     .fromSTEB(
                                                         0.0, 2.0, 0.0, 0.0),
                                                 child: Text(
-                                                  '00000000000',
+                                                  '********',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -301,7 +301,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .secondaryBackground,
-                                                        fontSize: 24.0,
+                                                        fontSize: 32.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w300,

@@ -83,7 +83,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.asset(
-                        'assets/images/tran.jpeg',
+                        'assets/images/happy-saint-valentine-s-day-concept_2.png',
                         width: double.infinity,
                         height: double.infinity,
                         fit: BoxFit.cover,

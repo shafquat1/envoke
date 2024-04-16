@@ -7,6 +7,7 @@ import '/custom_code/actions/index.dart' as actions;
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'nfc_scan_tag_model.dart';
 export 'nfc_scan_tag_model.dart';
@@ -124,34 +125,67 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Padding(
-      padding: const EdgeInsets.all(14.0),
-      child: Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).secondaryBackground,
-          borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(28.0),
-            bottomRight: Radius.circular(28.0),
-            topLeft: Radius.circular(28.0),
-            topRight: Radius.circular(28.0),
-          ),
+    return Container(
+      width: double.infinity,
+      height: 300.0,
+      decoration: BoxDecoration(
+        color: FlutterFlowTheme.of(context).secondaryBackground,
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(28.0),
+          bottomRight: Radius.circular(28.0),
+          topLeft: Radius.circular(28.0),
+          topRight: Radius.circular(28.0),
         ),
-        child: SizedBox(
-          width: double.infinity,
-          height: double.infinity,
-          child: Stack(
+      ),
+      child: Align(
+        alignment: const AlignmentDirectional(0.0, 0.0),
+        child: Padding(
+          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(2.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.asset(
-                    'assets/images/unnamed_(7)_1.png',
-                    width: double.infinity,
-                    height: double.infinity,
-                    fit: BoxFit.cover,
+              Align(
+                alignment: const AlignmentDirectional(0.0, -1.0),
+                child: Text(
+                  'Ready to scan',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Inter',
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        fontSize: 20.0,
+                        letterSpacing: 0.0,
+                      ),
+                ),
+              ),
+              Align(
+                alignment: const AlignmentDirectional(0.0, 0.0),
+                child: Container(
+                  width: double.infinity,
+                  height: 150.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    borderRadius: BorderRadius.circular(24.0),
+                  ),
+                  child: Lottie.asset(
+                    'assets/lottie_animations/NFC_Scan.json',
+                    width: 100.0,
+                    height: 100.0,
+                    fit: BoxFit.contain,
+                    animate: true,
+                  ),
+                ),
+              ),
+              Align(
+                alignment: const AlignmentDirectional(0.0, 0.0),
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
+                  child: Text(
+                    'Approach an NFC tag',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Inter',
+                          fontSize: 15.0,
+                          letterSpacing: 0.0,
+                        ),
                   ),
                 ),
               ),

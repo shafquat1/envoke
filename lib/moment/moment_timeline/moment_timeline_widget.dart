@@ -87,7 +87,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(0.0),
                             child: Image.asset(
-                              'assets/images/tran.jpeg',
+                              'assets/images/happy-saint-valentine-s-day-concept_2.png',
                               width: MediaQuery.sizeOf(context).width * 1.0,
                               height: MediaQuery.sizeOf(context).height * 0.6,
                               fit: BoxFit.cover,

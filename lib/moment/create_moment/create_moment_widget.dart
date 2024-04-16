@@ -184,7 +184,6 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                             fontWeight: FontWeight.w300,
                                             useGoogleFonts: false,
                                           ),
-                                      minLines: null,
                                       cursorColor: FlutterFlowTheme.of(context)
                                           .primaryText,
                                       validator: _model.textController1Validator
@@ -249,6 +248,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                           ),
                                       textAlign: TextAlign.start,
                                       maxLines: 25,
+                                      minLines: 1,
                                       maxLength: 500,
                                       maxLengthEnforcement:
                                           MaxLengthEnforcement.enforced,

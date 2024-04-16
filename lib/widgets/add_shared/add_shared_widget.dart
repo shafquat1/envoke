@@ -151,7 +151,6 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
-                            minLines: null,
                             keyboardType: TextInputType.emailAddress,
                             validator: _model.textControllerValidator
                                 .asValidator(context),
