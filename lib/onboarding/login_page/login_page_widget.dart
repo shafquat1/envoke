@@ -90,7 +90,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             width: MediaQuery.sizeOf(context).width * 0.9,
                             decoration: BoxDecoration(
                               color: const Color(0xFF1C1C1C),
-                              borderRadius: BorderRadius.circular(22.0),
+                              borderRadius: BorderRadius.circular(35.0),
                             ),
                             child: Padding(
                               padding: const EdgeInsets.all(22.0),
