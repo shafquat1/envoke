@@ -2,6 +2,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_audio_player.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -70,7 +71,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                               fit: BoxFit.cover,
                             ),
                           ),
-                          image: NetworkImage(
+                          image: CachedNetworkImageProvider(
                             valueOrDefault<String>(
                               widget.moments?.imgUrl,
                               'https://firebasestorage.googleapis.com/v0/b/envoke-7dtyz3.appspot.com/o/Frame%201.png?alt=media&token=8c4b7f71-652d-4cf1-b4f2-1b4e0a946659',
