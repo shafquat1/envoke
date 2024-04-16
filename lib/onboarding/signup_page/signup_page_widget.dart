@@ -98,7 +98,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                         child: Padding(
                           padding: const EdgeInsets.all(14.0),
                           child: Container(
-                            height: MediaQuery.sizeOf(context).height * 63.0,
+                            height: MediaQuery.sizeOf(context).height * 0.45,
                             decoration: BoxDecoration(
                               color: const Color(0xFF1C1C1C),
                               borderRadius: BorderRadius.circular(20.0),
