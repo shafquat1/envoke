@@ -837,9 +837,10 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(-0.06, -0.7),
+                        alignment: const AlignmentDirectional(0.0, -1.0),
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 50.0, 0.0, 0.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
