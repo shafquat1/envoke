@@ -105,9 +105,9 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                     Align(
                       alignment: const AlignmentDirectional(0.0, 1.0),
                       child: Padding(
-                        padding: const EdgeInsets.all(16.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            15.0, 50.0, 15.0, 15.0),
                         child: Container(
-                          height: 600.0,
                           decoration: BoxDecoration(
                             color: const Color(0xFF1C1C1C),
                             borderRadius: BorderRadius.circular(35.0),
@@ -115,7 +115,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                           child: Padding(
                             padding: const EdgeInsets.all(22.0),
                             child: Column(
-                              mainAxisSize: MainAxisSize.min,
+                              mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.end,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
