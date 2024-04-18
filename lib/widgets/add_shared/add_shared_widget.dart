@@ -1,14 +1,10 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'add_shared_model.dart';
 export 'add_shared_model.dart';
 
@@ -48,14 +44,14 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xFF242424),
+        color: const Color(0xFF242424),
         borderRadius: BorderRadius.circular(32.0),
       ),
       child: Form(
         key: _model.formKey,
         autovalidateMode: AutovalidateMode.disabled,
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 20.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 20.0, 0.0),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -67,9 +63,9 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                   children: [
                     Flexible(
                       child: Align(
-                        alignment: AlignmentDirectional(-1.0, 0.0),
+                        alignment: const AlignmentDirectional(-1.0, 0.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 40.0, 0.0, 0.0),
                           child: Text(
                             'Share Moment',
@@ -89,13 +85,13 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(1.0, -1.0),
+                      alignment: const AlignmentDirectional(1.0, -1.0),
                       child: FlutterFlowIconButton(
-                        borderColor: Color(0xFF212121),
+                        borderColor: const Color(0xFF212121),
                         borderRadius: 16.0,
                         borderWidth: 1.0,
                         buttonSize: 35.0,
-                        fillColor: Color(0xFF212121),
+                        fillColor: const Color(0xFF212121),
                         icon: Icon(
                           Icons.close,
                           color:
@@ -110,14 +106,14 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               8.0, 20.0, 8.0, 0.0),
                           child: TextFormField(
                             controller: _model.textController,
@@ -130,7 +126,7 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                   .titleSmall
                                   .override(
                                     fontFamily: 'Inter',
-                                    color: Color(0xFF5A5A5A),
+                                    color: const Color(0xFF5A5A5A),
                                     letterSpacing: 0.0,
                                   ),
                               hintStyle: FlutterFlowTheme.of(context)
@@ -145,7 +141,7 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                               errorBorder: InputBorder.none,
                               focusedErrorBorder: InputBorder.none,
                               filled: true,
-                              fillColor: Color(0xFF2F2F2F),
+                              fillColor: const Color(0xFF2F2F2F),
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .titleMedium
@@ -165,20 +161,20 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 10.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 10.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Flexible(
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 20.0, 0.0, 10.0),
                             child: FFButtonWidget(
                               onPressed: () async {
-                                var _shouldSetState = false;
+                                var shouldSetState = false;
                                 if (_model.formKey.currentState == null ||
                                     !_model.formKey.currentState!.validate()) {
                                   return;
@@ -191,7 +187,7 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                   ),
                                   singleRecord: true,
                                 ).then((s) => s.firstOrNull);
-                                _shouldSetState = true;
+                                shouldSetState = true;
                                 if (_model.output?.email != null &&
                                     _model.output?.email != '') {
                                   await SharedUserRecord.collection
@@ -204,7 +200,7 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                             _model.output?.firstName,
                                       ));
                                   Navigator.pop(context);
-                                  if (_shouldSetState) setState(() {});
+                                  if (shouldSetState) setState(() {});
                                   return;
                                 } else {
                                   ScaffoldMessenger.of(context).showSnackBar(
@@ -216,25 +212,25 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                               .primaryText,
                                         ),
                                       ),
-                                      duration: Duration(milliseconds: 4000),
+                                      duration: const Duration(milliseconds: 4000),
                                       backgroundColor:
                                           FlutterFlowTheme.of(context)
                                               .secondary,
                                     ),
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (shouldSetState) setState(() {});
                                   return;
                                 }
 
-                                if (_shouldSetState) setState(() {});
+                                if (shouldSetState) setState(() {});
                               },
                               text: 'Share',
                               options: FFButtonOptions(
                                 width: double.infinity,
                                 height: 60.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -247,7 +243,7 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                       fontWeight: FontWeight.bold,
                                     ),
                                 elevation: 3.0,
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
