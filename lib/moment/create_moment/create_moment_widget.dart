@@ -755,13 +755,36 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                               }
                                             }
 
-                                            setState(() {
-                                              _model.showImg = true;
-                                            });
-                                            setState(() {
-                                              _model.imgFile =
-                                                  _model.uploadedFileUrl1;
-                                            });
+                                            if (_model.uploadedFileUrl1 != '') {
+                                              setState(() {
+                                                _model.showImg = true;
+                                              });
+                                              setState(() {
+                                                _model.imgFile =
+                                                    _model.uploadedFileUrl1;
+                                              });
+                                            } else {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                    'Please select an image.',
+                                                    style: TextStyle(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                    ),
+                                                  ),
+                                                  duration: const Duration(
+                                                      milliseconds: 4000),
+                                                  backgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondary,
+                                                ),
+                                              );
+                                            }
                                           },
                                   ),
                                   if (_model.isRecording == true)
