@@ -1,10 +1,8 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/widgets/add_shared/add_shared_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -148,61 +146,6 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                 ],
                               ),
                             ),
-                            if (!valueOrDefault<bool>(
-                              memoriesTimelineSharedUserRecord?.isShared,
-                              false,
-                            ))
-                              Align(
-                                alignment: const AlignmentDirectional(1.0, -1.0),
-                                child: Builder(
-                                  builder: (context) => Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 20.0, 20.0, 0.0),
-                                    child: FlutterFlowIconButton(
-                                      borderColor: const Color(0xFF212121),
-                                      borderRadius: 16.0,
-                                      borderWidth: 1.0,
-                                      buttonSize: 40.0,
-                                      fillColor: const Color(0xFF212121),
-                                      icon: Icon(
-                                        Icons.share_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        size: 24.0,
-                                      ),
-                                      onPressed: () async {
-                                        await showDialog(
-                                          barrierDismissible: false,
-                                          context: context,
-                                          builder: (dialogContext) {
-                                            return Dialog(
-                                              elevation: 0,
-                                              insetPadding: EdgeInsets.zero,
-                                              backgroundColor:
-                                                  Colors.transparent,
-                                              alignment:
-                                                  const AlignmentDirectional(0.0, 0.0)
-                                                      .resolve(
-                                                          Directionality.of(
-                                                              context)),
-                                              child: GestureDetector(
-                                                onTap: () => _model.unfocusNode
-                                                        .canRequestFocus
-                                                    ? FocusScope.of(context)
-                                                        .requestFocus(
-                                                            _model.unfocusNode)
-                                                    : FocusScope.of(context)
-                                                        .unfocus(),
-                                                child: const AddSharedWidget(),
-                                              ),
-                                            );
-                                          },
-                                        ).then((value) => setState(() {}));
-                                      },
-                                    ),
-                                  ),
-                                ),
-                              ),
                           ],
                         ),
                       ),
@@ -900,7 +843,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                           0.0),
                                                                   child: Text(
                                                                     dateTimeFormat(
-                                                                        'd MMMM y',
+                                                                        'MMMM y',
                                                                         columnMemoriesRecord
                                                                             .createdTime!),
                                                                     style: FlutterFlowTheme.of(

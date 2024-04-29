@@ -150,7 +150,6 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                         ),
                       if (responsiveVisibility(
                         context: context,
-                        phone: false,
                         tablet: false,
                         tabletLandscape: false,
                         desktop: false,

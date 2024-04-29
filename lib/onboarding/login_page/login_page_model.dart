@@ -36,9 +36,7 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   }
 
   // State field(s) for Checkbox widget.
-  bool? checkboxValue1;
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue2;
+  bool? checkboxValue;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   int? count;
 
