@@ -104,13 +104,13 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                             ),
                           ),
                         ),
-                      if (responsiveVisibility(
-                        context: context,
-                        phone: false,
-                        tablet: false,
-                        tabletLandscape: false,
-                        desktop: false,
-                      ))
+                      if (!loggedIn &&
+                          responsiveVisibility(
+                            context: context,
+                            tablet: false,
+                            tabletLandscape: false,
+                            desktop: false,
+                          ))
                         Align(
                           alignment: const AlignmentDirectional(0.15, 0.48),
                           child: Padding(
@@ -150,7 +150,6 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                         ),
                       if (responsiveVisibility(
                         context: context,
-                        phone: false,
                         tablet: false,
                         tabletLandscape: false,
                         desktop: false,

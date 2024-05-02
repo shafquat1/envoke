@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -198,6 +199,7 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                         sharedUid: _model.output?.uid,
                                         sharedUserName:
                                             _model.output?.firstName,
+                                        ownUserId: currentUserUid,
                                       ));
                                   Navigator.pop(context);
                                   if (shouldSetState) setState(() {});

@@ -386,8 +386,9 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                       alignment: const AlignmentDirectional(-1.0, 0.0),
                       child: Builder(
                         builder: (context) {
-                          if (profileDetailSharedUserRecord?.isShared ??
-                              false) {
+                          if (profileDetailSharedUserRecord!.isShared &&
+                              (profileDetailSharedUserRecord.ownUserId ==
+                                  currentUserUid)) {
                             return Column(
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -460,7 +461,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 27.0),
                                                 child: Text(
-                                                  profileDetailSharedUserRecord!
+                                                  profileDetailSharedUserRecord
                                                       .sharedEmail,
                                                   style: FlutterFlowTheme.of(
                                                           context)
