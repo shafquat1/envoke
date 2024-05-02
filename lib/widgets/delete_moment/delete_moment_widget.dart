@@ -3,23 +3,23 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'delete_memories_model.dart';
-export 'delete_memories_model.dart';
+import 'delete_moment_model.dart';
+export 'delete_moment_model.dart';
 
-class DeleteMemoriesWidget extends StatefulWidget {
-  const DeleteMemoriesWidget({
+class DeleteMomentWidget extends StatefulWidget {
+  const DeleteMomentWidget({
     super.key,
-    required this.memory,
+    required this.moment,
   });
 
-  final MemoriesRecord? memory;
+  final MomentsRecord? moment;
 
   @override
-  State<DeleteMemoriesWidget> createState() => _DeleteMemoriesWidgetState();
+  State<DeleteMomentWidget> createState() => _DeleteMomentWidgetState();
 }
 
-class _DeleteMemoriesWidgetState extends State<DeleteMemoriesWidget> {
-  late DeleteMemoriesModel _model;
+class _DeleteMomentWidgetState extends State<DeleteMomentWidget> {
+  late DeleteMomentModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -30,7 +30,7 @@ class _DeleteMemoriesWidgetState extends State<DeleteMemoriesWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => DeleteMemoriesModel());
+    _model = createModel(context, () => DeleteMomentModel());
   }
 
   @override
@@ -65,7 +65,7 @@ class _DeleteMemoriesWidgetState extends State<DeleteMemoriesWidget> {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                         child: Text(
-                          'Do you want to remove this memory?',
+                          'Do you want to remove this moment?',
                           style:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'JasmineUPC',
@@ -85,7 +85,7 @@ class _DeleteMemoriesWidgetState extends State<DeleteMemoriesWidget> {
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: Text(
-                  widget.memory!.memoryTitle,
+                  widget.moment!.title,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'JasmineUPC',
                         color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -145,7 +145,7 @@ class _DeleteMemoriesWidgetState extends State<DeleteMemoriesWidget> {
                             const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            await widget.memory!.reference.delete();
+                            await widget.moment!.reference.delete();
                             Navigator.pop(context);
                           },
                           text: 'Yes',
