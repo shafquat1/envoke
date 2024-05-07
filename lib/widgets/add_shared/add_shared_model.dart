@@ -24,6 +24,8 @@ class AddSharedModel extends FlutterFlowModel<AddSharedWidget> {
 
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   UsersRecord? output;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  SharedUserRecord? output2;
 
   @override
   void initState(BuildContext context) {

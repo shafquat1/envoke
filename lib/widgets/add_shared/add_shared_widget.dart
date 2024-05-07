@@ -191,20 +191,51 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                 shouldSetState = true;
                                 if (_model.output?.email != null &&
                                     _model.output?.email != '') {
-                                  await SharedUserRecord.collection
-                                      .doc()
-                                      .set(createSharedUserRecordData(
-                                        isShared: true,
-                                        sharedEmail: _model.output?.email,
-                                        sharedUid: _model.output?.uid,
-                                        sharedUserName:
-                                            _model.output?.firstName,
-                                        ownUserId: currentUserUid,
-                                        ownEmail: currentUserEmail,
-                                      ));
-                                  Navigator.pop(context);
-                                  if (shouldSetState) setState(() {});
-                                  return;
+                                  _model.output2 =
+                                      await querySharedUserRecordOnce(
+                                    queryBuilder: (sharedUserRecord) =>
+                                        sharedUserRecord.where(
+                                      'sharedEmail',
+                                      isEqualTo: _model.textController.text,
+                                    ),
+                                    singleRecord: true,
+                                  ).then((s) => s.firstOrNull);
+                                  shouldSetState = true;
+                                  if (_model.output2?.sharedEmail != null &&
+                                      _model.output2?.sharedEmail != '') {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'Email already shared with another user.',
+                                          style: TextStyle(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                          ),
+                                        ),
+                                        duration: const Duration(milliseconds: 4000),
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondary,
+                                      ),
+                                    );
+                                    if (shouldSetState) setState(() {});
+                                    return;
+                                  } else {
+                                    await SharedUserRecord.collection
+                                        .doc()
+                                        .set(createSharedUserRecordData(
+                                          isShared: true,
+                                          sharedEmail: _model.output?.email,
+                                          sharedUid: _model.output?.uid,
+                                          sharedUserName:
+                                              _model.output?.firstName,
+                                          ownUserId: currentUserUid,
+                                          ownEmail: currentUserEmail,
+                                        ));
+                                    Navigator.pop(context);
+                                    if (shouldSetState) setState(() {});
+                                    return;
+                                  }
                                 } else {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
