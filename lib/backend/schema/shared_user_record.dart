@@ -40,12 +40,18 @@ class SharedUserRecord extends FirestoreRecord {
   String get ownUserId => _ownUserId ?? '';
   bool hasOwnUserId() => _ownUserId != null;
 
+  // "ownEmail" field.
+  String? _ownEmail;
+  String get ownEmail => _ownEmail ?? '';
+  bool hasOwnEmail() => _ownEmail != null;
+
   void _initializeFields() {
     _isShared = snapshotData['isShared'] as bool?;
     _sharedEmail = snapshotData['sharedEmail'] as String?;
     _sharedUid = snapshotData['sharedUid'] as String?;
     _sharedUserName = snapshotData['sharedUserName'] as String?;
     _ownUserId = snapshotData['ownUserId'] as String?;
+    _ownEmail = snapshotData['ownEmail'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -88,6 +94,7 @@ Map<String, dynamic> createSharedUserRecordData({
   String? sharedUid,
   String? sharedUserName,
   String? ownUserId,
+  String? ownEmail,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -96,6 +103,7 @@ Map<String, dynamic> createSharedUserRecordData({
       'sharedUid': sharedUid,
       'sharedUserName': sharedUserName,
       'ownUserId': ownUserId,
+      'ownEmail': ownEmail,
     }.withoutNulls,
   );
 
@@ -111,7 +119,8 @@ class SharedUserRecordDocumentEquality implements Equality<SharedUserRecord> {
         e1?.sharedEmail == e2?.sharedEmail &&
         e1?.sharedUid == e2?.sharedUid &&
         e1?.sharedUserName == e2?.sharedUserName &&
-        e1?.ownUserId == e2?.ownUserId;
+        e1?.ownUserId == e2?.ownUserId &&
+        e1?.ownEmail == e2?.ownEmail;
   }
 
   @override
@@ -120,7 +129,8 @@ class SharedUserRecordDocumentEquality implements Equality<SharedUserRecord> {
         e?.sharedEmail,
         e?.sharedUid,
         e?.sharedUserName,
-        e?.ownUserId
+        e?.ownUserId,
+        e?.ownEmail
       ]);
 
   @override
