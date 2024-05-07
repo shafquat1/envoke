@@ -218,6 +218,7 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                                 .secondary,
                                       ),
                                     );
+                                    Navigator.pop(context);
                                     if (shouldSetState) setState(() {});
                                     return;
                                   } else {
