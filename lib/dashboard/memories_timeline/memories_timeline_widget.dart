@@ -164,11 +164,8 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                   Builder(
                                     builder: (context) {
                                       if (valueOrDefault<bool>(
-                                        memoriesTimelineSharedUserRecord!
-                                                .isShared &&
-                                            (memoriesTimelineSharedUserRecord
-                                                    .ownUserId ==
-                                                currentUserUid),
+                                        memoriesTimelineSharedUserRecord
+                                            ?.isShared,
                                         false,
                                       )) {
                                         return Padding(
@@ -184,7 +181,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                         'user_id',
                                                         isEqualTo:
                                                             memoriesTimelineSharedUserRecord
-                                                                .sharedUid,
+                                                                ?.sharedUid,
                                                       )
                                                       .orderBy('created_time',
                                                           descending: true),
@@ -430,7 +427,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                       ),
                                                                                 ),
                                                                                 Text(
-                                                                                  memoriesTimelineSharedUserRecord.sharedUserName,
+                                                                                  memoriesTimelineSharedUserRecord!.sharedUserName,
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'JasmineUPC',
                                                                                         color: FlutterFlowTheme.of(context).secondaryBackground,

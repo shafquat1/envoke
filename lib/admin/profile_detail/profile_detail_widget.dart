@@ -43,6 +43,10 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
 
     return StreamBuilder<List<SharedUserRecord>>(
       stream: querySharedUserRecord(
+        queryBuilder: (sharedUserRecord) => sharedUserRecord.where(
+          'ownEmail',
+          isEqualTo: currentUserEmail,
+        ),
         singleRecord: true,
       ),
       builder: (context, snapshot) {
@@ -386,8 +390,10 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                       alignment: const AlignmentDirectional(-1.0, 0.0),
                       child: Builder(
                         builder: (context) {
-                          if (profileDetailSharedUserRecord?.isShared ??
-                              false) {
+                          if (valueOrDefault<bool>(
+                            profileDetailSharedUserRecord?.isShared,
+                            false,
+                          )) {
                             return Column(
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
