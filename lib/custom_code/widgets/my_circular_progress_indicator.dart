@@ -15,13 +15,13 @@ class MyCircularProgressIndicator extends StatefulWidget {
     this.width,
     this.height,
     required this.size,
-    this.color,
+    required this.color,
   });
 
   final double? width;
   final double? height;
   final double size;
-  final Color? color;
+  final Color color;
 
   @override
   State<MyCircularProgressIndicator> createState() =>
@@ -30,18 +30,36 @@ class MyCircularProgressIndicator extends StatefulWidget {
 
 class _MyCircularProgressIndicatorState
     extends State<MyCircularProgressIndicator> {
+  bool _isLoading = true;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _showLoader();
+  }
+
+  void _showLoader() {
+    Future.delayed(Duration(seconds: 3), () {
+      setState(() {
+        _isLoading = false;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: SizedBox(
-        width: widget.size,
-        height: widget.size,
-        child: CircularProgressIndicator(
-          valueColor: AlwaysStoppedAnimation<Color>(
-            widget.color ?? FlutterFlowTheme.of(context).primary,
-          ),
-        ),
-      ),
+      child: _isLoading
+          ? SizedBox(
+              width: widget.size,
+              height: widget.size,
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(
+                  widget.color,
+                ),
+              ),
+            )
+          : Container(),
     );
   }
 }

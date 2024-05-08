@@ -2,10 +2,11 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_audio_player.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:octo_image/octo_image.dart';
 import 'moment_detail_model.dart';
@@ -34,6 +35,11 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MomentDetailModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.loader();
+    });
   }
 
   @override
@@ -249,62 +255,31 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   20.0, 20.0, 20.0, 0.0),
-                              child: StreamBuilder<List<MomentsRecord>>(
-                                stream: queryMomentsRecord(
-                                  parent: widget.memories?.reference,
-                                  singleRecord: true,
+                              child: Container(
+                                height: 100.0,
+                                decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(40.0),
+                                  border: Border.all(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
                                 ),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 50.0,
-                                        height: 50.0,
-                                        child: SpinKitThreeBounce(
-                                          color: FlutterFlowTheme.of(context)
-                                              .success,
-                                          size: 50.0,
+                                child: Align(
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 5.0, 10.0, 5.0),
+                                    child: FlutterFlowAudioPlayer(
+                                      audio: Audio.network(
+                                        widget.moments!.audioUrl,
+                                        metas: Metas(
+                                          id: '2vqf7_-8bf81198',
+                                          title: 'Audio Memo',
                                         ),
                                       ),
-                                    );
-                                  }
-                                  List<MomentsRecord>
-                                      containerMomentsRecordList =
-                                      snapshot.data!;
-                                  // Return an empty Container when the item does not exist.
-                                  if (snapshot.data!.isEmpty) {
-                                    return Container();
-                                  }
-                                  final containerMomentsRecord =
-                                      containerMomentsRecordList.isNotEmpty
-                                          ? containerMomentsRecordList.first
-                                          : null;
-                                  return Container(
-                                    height: 100.0,
-                                    decoration: BoxDecoration(
-                                      color: Colors.black,
-                                      borderRadius: BorderRadius.circular(40.0),
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                      ),
-                                    ),
-                                    child: Align(
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
-                                      child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 5.0, 10.0, 5.0),
-                                        child: FlutterFlowAudioPlayer(
-                                          audio: Audio.network(
-                                            containerMomentsRecord!.audioUrl,
-                                            metas: Metas(
-                                              id: '2vqf7_-8bf81198',
-                                              title: 'Audio Memo',
-                                            ),
-                                          ),
-                                          titleTextStyle: FlutterFlowTheme.of(
-                                                  context)
+                                      titleTextStyle:
+                                          FlutterFlowTheme.of(context)
                                               .titleLarge
                                               .override(
                                                 fontFamily: 'Inter',
@@ -314,35 +289,33 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                               ),
-                                          playbackDurationTextStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium
-                                                  .override(
-                                                    fontFamily: 'Inter',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
+                                      playbackDurationTextStyle:
+                                          FlutterFlowTheme.of(context)
+                                              .labelMedium
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
-                                          fillColor: Colors.black,
-                                          playbackButtonColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondaryBackground,
-                                          activeTrackColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondaryBackground,
-                                          inactiveTrackColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondaryText,
-                                          elevation: 0.0,
-                                          playInBackground: PlayInBackground
-                                              .disabledRestoreOnForeground,
-                                        ),
-                                      ),
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                      fillColor: Colors.black,
+                                      playbackButtonColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                      activeTrackColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                      inactiveTrackColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                      elevation: 0.0,
+                                      playInBackground: PlayInBackground
+                                          .disabledRestoreOnForeground,
                                     ),
-                                  );
-                                },
+                                  ),
+                                ),
                               ),
                             ),
                         ],
