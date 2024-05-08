@@ -343,7 +343,7 @@ class FFRoute {
               ? Container(
                   color: Colors.transparent,
                   child: Image.asset(
-                    'assets/images/happy-saint-valentine-s-day-concept_1.png',
+                    'assets/images/happy-saint-valentine-s-day-concept_2.png',
                     fit: BoxFit.cover,
                   ),
                 )
