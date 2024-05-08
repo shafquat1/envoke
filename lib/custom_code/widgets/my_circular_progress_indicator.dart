@@ -15,13 +15,11 @@ class MyCircularProgressIndicator extends StatefulWidget {
     this.width,
     this.height,
     required this.size,
-    required this.color,
   });
 
   final double? width;
   final double? height;
   final double size;
-  final Color color;
 
   @override
   State<MyCircularProgressIndicator> createState() =>
@@ -55,7 +53,7 @@ class _MyCircularProgressIndicatorState
               height: widget.size,
               child: CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(
-                  widget.color,
+                  FlutterFlowTheme.of(context).primary,
                 ),
               ),
             )

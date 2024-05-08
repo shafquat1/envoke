@@ -41,6 +41,10 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
   Widget build(BuildContext context) {
     return StreamBuilder<List<SharedUserRecord>>(
       stream: querySharedUserRecord(
+        queryBuilder: (sharedUserRecord) => sharedUserRecord.where(
+          'ownEmail',
+          isEqualTo: currentUserEmail != '' ? currentUserEmail : null,
+        ),
         singleRecord: true,
       ),
       builder: (context, snapshot) {

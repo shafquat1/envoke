@@ -2,11 +2,9 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_audio_player.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:octo_image/octo_image.dart';
@@ -36,11 +34,6 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MomentDetailModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await actions.loader();
-    });
   }
 
   @override
@@ -321,17 +314,16 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                     ),
                                   ),
                                 ),
-                              Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                              const Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: SizedBox(
-                                  width: 100.0,
-                                  height: 100.0,
+                                  width: 150.0,
+                                  height: 150.0,
                                   child: custom_widgets
                                       .MyCircularProgressIndicator(
-                                    width: 100.0,
-                                    height: 100.0,
+                                    width: 150.0,
+                                    height: 150.0,
                                     size: 100.0,
-                                    color: FlutterFlowTheme.of(context).primary,
                                   ),
                                 ),
                               ),
