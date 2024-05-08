@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_audio_player.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -250,36 +251,38 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                   ),
                             ),
                           ),
-                          if (widget.moments?.audioUrl != null &&
-                              widget.moments?.audioUrl != '')
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 20.0, 20.0, 0.0),
-                              child: Container(
-                                height: 100.0,
-                                decoration: BoxDecoration(
-                                  color: Colors.black,
-                                  borderRadius: BorderRadius.circular(40.0),
-                                  border: Border.all(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                ),
-                                child: Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 5.0, 10.0, 5.0),
-                                    child: FlutterFlowAudioPlayer(
-                                      audio: Audio.network(
-                                        widget.moments!.audioUrl,
-                                        metas: Metas(
-                                          id: '2vqf7_-8bf81198',
-                                          title: 'Audio Memo',
-                                        ),
+                          Stack(
+                            children: [
+                              if (widget.moments?.audioUrl != null &&
+                                  widget.moments?.audioUrl != '')
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      20.0, 20.0, 20.0, 0.0),
+                                  child: Container(
+                                    height: 100.0,
+                                    decoration: BoxDecoration(
+                                      color: Colors.black,
+                                      borderRadius: BorderRadius.circular(40.0),
+                                      border: Border.all(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
                                       ),
-                                      titleTextStyle:
-                                          FlutterFlowTheme.of(context)
+                                    ),
+                                    child: Align(
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 5.0, 10.0, 5.0),
+                                        child: FlutterFlowAudioPlayer(
+                                          audio: Audio.network(
+                                            widget.moments!.audioUrl,
+                                            metas: Metas(
+                                              id: '2vqf7_-8bf81198',
+                                              title: 'Audio Memo',
+                                            ),
+                                          ),
+                                          titleTextStyle: FlutterFlowTheme.of(
+                                                  context)
                                               .titleLarge
                                               .override(
                                                 fontFamily: 'Inter',
@@ -289,35 +292,51 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                               ),
-                                      playbackDurationTextStyle:
-                                          FlutterFlowTheme.of(context)
-                                              .labelMedium
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
+                                          playbackDurationTextStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .override(
+                                                    fontFamily: 'Inter',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
                                                         .secondaryBackground,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                      fillColor: Colors.black,
-                                      playbackButtonColor:
-                                          FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                      activeTrackColor:
-                                          FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                      inactiveTrackColor:
-                                          FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                      elevation: 0.0,
-                                      playInBackground: PlayInBackground
-                                          .disabledRestoreOnForeground,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                          fillColor: Colors.black,
+                                          playbackButtonColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryBackground,
+                                          activeTrackColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryBackground,
+                                          inactiveTrackColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryText,
+                                          elevation: 0.0,
+                                          playInBackground: PlayInBackground
+                                              .disabledRestoreOnForeground,
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),
+                              Align(
+                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                child: SizedBox(
+                                  width: 100.0,
+                                  height: 100.0,
+                                  child: custom_widgets
+                                      .MyCircularProgressIndicator(
+                                    width: 100.0,
+                                    height: 100.0,
+                                    size: 100.0,
+                                    color: FlutterFlowTheme.of(context).primary,
+                                  ),
+                                ),
                               ),
-                            ),
+                            ],
+                          ),
                         ],
                       ),
                     ),
