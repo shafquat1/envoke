@@ -12,7 +12,7 @@ import '../widgets/index.dart';
 
 Future loader() async {
   // Add your function code here!
-  MyCircularProgressIndicator(
+  await MyCircularProgressIndicator(
     width: 100,
     height: 100,
     size: 100,
