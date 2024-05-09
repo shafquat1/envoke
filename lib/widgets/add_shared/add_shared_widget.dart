@@ -260,12 +260,14 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                             .doc()
                                             .set(createSharedUserRecordData(
                                               isShared: true,
-                                              sharedEmail: _model.output?.email,
-                                              sharedUid: _model.output?.uid,
-                                              sharedUserName:
-                                                  _model.output?.firstName,
-                                              ownUserId: currentUserUid,
-                                              ownEmail: currentUserEmail,
+                                              sharedEmail: currentUserEmail,
+                                              sharedUid: currentUserUid,
+                                              sharedUserName: valueOrDefault(
+                                                  currentUserDocument
+                                                      ?.firstName,
+                                                  ''),
+                                              ownUserId: _model.output?.uid,
+                                              ownEmail: _model.output?.email,
                                             ));
                                         Navigator.pop(context);
                                         if (shouldSetState) setState(() {});
