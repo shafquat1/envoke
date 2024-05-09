@@ -184,7 +184,8 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                       .where(
                                                         'user_id',
                                                         isEqualTo:
-                                                            currentUserUid,
+                                                            memoriesTimelineSharedUserRecord
+                                                                ?.ownUserId,
                                                       )
                                                       .orderBy('created_time',
                                                           descending: true),
