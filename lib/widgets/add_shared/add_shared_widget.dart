@@ -251,7 +251,7 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                         queryBuilder: (memoriesRecord) =>
                                             memoriesRecord.where(
                                           'user_id',
-                                          isEqualTo: _model.textController.text,
+                                          isEqualTo: currentUserUid,
                                         ),
                                       );
                                       shouldSetState = true;
