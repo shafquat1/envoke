@@ -8,6 +8,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:octo_image/octo_image.dart';
 import 'memories_timeline_model.dart';
 export 'memories_timeline_model.dart';
@@ -56,10 +57,9 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
               child: SizedBox(
                 width: 50.0,
                 height: 50.0,
-                child: CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(
-                    FlutterFlowTheme.of(context).primary,
-                  ),
+                child: SpinKitCircle(
+                  color: FlutterFlowTheme.of(context).primary,
+                  size: 50.0,
                 ),
               ),
             ),
@@ -197,15 +197,12 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                   child: SizedBox(
                                                     width: 50.0,
                                                     height: 50.0,
-                                                    child:
-                                                        CircularProgressIndicator(
-                                                      valueColor:
-                                                          AlwaysStoppedAnimation<
-                                                              Color>(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primary,
-                                                      ),
+                                                    child: SpinKitCircle(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      size: 50.0,
                                                     ),
                                                   ),
                                                 );
@@ -241,14 +238,11 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                             width: 50.0,
                                                             height: 50.0,
                                                             child:
-                                                                CircularProgressIndicator(
-                                                              valueColor:
-                                                                  AlwaysStoppedAnimation<
-                                                                      Color>(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                              ),
+                                                                SpinKitCircle(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primary,
+                                                              size: 50.0,
                                                             ),
                                                           ),
                                                         );
@@ -567,15 +561,12 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                   child: SizedBox(
                                                     width: 50.0,
                                                     height: 50.0,
-                                                    child:
-                                                        CircularProgressIndicator(
-                                                      valueColor:
-                                                          AlwaysStoppedAnimation<
-                                                              Color>(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primary,
-                                                      ),
+                                                    child: SpinKitCircle(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      size: 50.0,
                                                     ),
                                                   ),
                                                 );
@@ -611,14 +602,11 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                             width: 50.0,
                                                             height: 50.0,
                                                             child:
-                                                                CircularProgressIndicator(
-                                                              valueColor:
-                                                                  AlwaysStoppedAnimation<
-                                                                      Color>(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                              ),
+                                                                SpinKitCircle(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primary,
+                                                              size: 50.0,
                                                             ),
                                                           ),
                                                         );

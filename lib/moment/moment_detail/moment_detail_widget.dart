@@ -317,11 +317,11 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                               const Align(
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 child: SizedBox(
-                                  width: 150.0,
+                                  width: 200.0,
                                   height: 150.0,
                                   child: custom_widgets
                                       .MyCircularProgressIndicator(
-                                    width: 150.0,
+                                    width: 200.0,
                                     height: 150.0,
                                     size: 100.0,
                                   ),

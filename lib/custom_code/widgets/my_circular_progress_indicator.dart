@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+
 class MyCircularProgressIndicator extends StatefulWidget {
   const MyCircularProgressIndicator({
     super.key,
@@ -51,11 +53,7 @@ class _MyCircularProgressIndicatorState
           ? SizedBox(
               width: widget.size,
               height: widget.size,
-              child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(
-                  FlutterFlowTheme.of(context).primary,
-                ),
-              ),
+              child: SpinKitThreeInOut(color: Colors.white),
             )
           : Container(),
     );
