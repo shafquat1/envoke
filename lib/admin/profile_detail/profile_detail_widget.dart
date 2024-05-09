@@ -46,7 +46,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
     return StreamBuilder<List<SharedUserRecord>>(
       stream: querySharedUserRecord(
         queryBuilder: (sharedUserRecord) => sharedUserRecord.where(
-          'ownEmail',
+          'sharedEmail',
           isEqualTo: currentUserEmail,
         ),
         singleRecord: true,
