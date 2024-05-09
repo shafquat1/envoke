@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/widgets/add_shared/add_shared_widget.dart';
 import '/widgets/remove_shared/remove_shared_widget.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -152,8 +153,10 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                           padding: const EdgeInsets.all(25.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(50.0),
-                            child: Image.network(
-                              'https://picsum.photos/seed/634/600',
+                            child: CachedNetworkImage(
+                              fadeInDuration: const Duration(milliseconds: 500),
+                              fadeOutDuration: const Duration(milliseconds: 500),
+                              imageUrl: 'https://picsum.photos/seed/634/600',
                               fit: BoxFit.cover,
                             ),
                           ),
