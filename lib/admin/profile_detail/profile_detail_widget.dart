@@ -470,7 +470,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                         0.0, 0.0, 0.0, 27.0),
                                                 child: Text(
                                                   profileDetailSharedUserRecord!
-                                                      .sharedEmail,
+                                                      .ownEmail,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
