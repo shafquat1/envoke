@@ -180,33 +180,125 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                     !_model.formKey.currentState!.validate()) {
                                   return;
                                 }
-                                _model.output = await queryUsersRecordOnce(
-                                  queryBuilder: (usersRecord) =>
-                                      usersRecord.where(
-                                    'email',
-                                    isEqualTo: _model.textController.text,
-                                  ),
-                                  singleRecord: true,
-                                ).then((s) => s.firstOrNull);
-                                shouldSetState = true;
-                                if (_model.output?.email != null &&
-                                    _model.output?.email != '') {
-                                  _model.output2 =
-                                      await querySharedUserRecordOnce(
-                                    queryBuilder: (sharedUserRecord) =>
-                                        sharedUserRecord.where(
-                                      'sharedEmail',
+                                if (_model.textController.text ==
+                                    currentUserEmail) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'You cannot share memory with yourself.',
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
+                                      ),
+                                      duration: const Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondary,
+                                    ),
+                                  );
+                                  Navigator.pop(context);
+                                  if (shouldSetState) setState(() {});
+                                  return;
+                                } else {
+                                  _model.output = await queryUsersRecordOnce(
+                                    queryBuilder: (usersRecord) =>
+                                        usersRecord.where(
+                                      'email',
                                       isEqualTo: _model.textController.text,
                                     ),
                                     singleRecord: true,
                                   ).then((s) => s.firstOrNull);
                                   shouldSetState = true;
-                                  if (_model.output2?.sharedEmail != null &&
-                                      _model.output2?.sharedEmail != '') {
+                                  if (_model.output?.email != null &&
+                                      _model.output?.email != '') {
+                                    _model.output2 =
+                                        await querySharedUserRecordOnce(
+                                      queryBuilder: (sharedUserRecord) =>
+                                          sharedUserRecord.where(
+                                        'sharedEmail',
+                                        isEqualTo: _model.textController.text,
+                                      ),
+                                      singleRecord: true,
+                                    ).then((s) => s.firstOrNull);
+                                    shouldSetState = true;
+                                    if (_model.output2?.sharedEmail != null &&
+                                        _model.output2?.sharedEmail != '') {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Email already shared with another user.',
+                                            style: TextStyle(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                            ),
+                                          ),
+                                          duration:
+                                              const Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondary,
+                                        ),
+                                      );
+                                      Navigator.pop(context);
+                                      if (shouldSetState) setState(() {});
+                                      return;
+                                    } else {
+                                      _model.output3 =
+                                          await queryMemoriesRecordCount(
+                                        queryBuilder: (memoriesRecord) =>
+                                            memoriesRecord.where(
+                                          'user_id',
+                                          isEqualTo: _model.textController.text,
+                                        ),
+                                      );
+                                      shouldSetState = true;
+                                      if (_model.output3! > 0) {
+                                        await SharedUserRecord.collection
+                                            .doc()
+                                            .set(createSharedUserRecordData(
+                                              isShared: true,
+                                              sharedEmail: _model.output?.email,
+                                              sharedUid: _model.output?.uid,
+                                              sharedUserName:
+                                                  _model.output?.firstName,
+                                              ownUserId: currentUserUid,
+                                              ownEmail: currentUserEmail,
+                                            ));
+                                        Navigator.pop(context);
+                                        if (shouldSetState) setState(() {});
+                                        return;
+                                      } else {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Please add atleast one memory to share.',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                            duration:
+                                                const Duration(milliseconds: 4000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary,
+                                          ),
+                                        );
+                                        Navigator.pop(context);
+                                        if (shouldSetState) setState(() {});
+                                        return;
+                                      }
+                                    }
+                                  } else {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
                                         content: Text(
-                                          'Email already shared with another user.',
+                                          'User not registered.',
                                           style: TextStyle(
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
@@ -221,40 +313,7 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                     Navigator.pop(context);
                                     if (shouldSetState) setState(() {});
                                     return;
-                                  } else {
-                                    await SharedUserRecord.collection
-                                        .doc()
-                                        .set(createSharedUserRecordData(
-                                          isShared: true,
-                                          sharedEmail: _model.output?.email,
-                                          sharedUid: _model.output?.uid,
-                                          sharedUserName:
-                                              _model.output?.firstName,
-                                          ownUserId: currentUserUid,
-                                          ownEmail: currentUserEmail,
-                                        ));
-                                    Navigator.pop(context);
-                                    if (shouldSetState) setState(() {});
-                                    return;
                                   }
-                                } else {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text(
-                                        'User not registered.',
-                                        style: TextStyle(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                        ),
-                                      ),
-                                      duration: const Duration(milliseconds: 4000),
-                                      backgroundColor:
-                                          FlutterFlowTheme.of(context)
-                                              .secondary,
-                                    ),
-                                  );
-                                  if (shouldSetState) setState(() {});
-                                  return;
                                 }
 
                                 if (shouldSetState) setState(() {});
