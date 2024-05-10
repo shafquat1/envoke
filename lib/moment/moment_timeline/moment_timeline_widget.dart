@@ -612,8 +612,8 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                           _model.carouselController ??=
                                               CarouselController(),
                                       options: CarouselOptions(
-                                        initialPage:
-                                            min(0, momentList.length - 1),
+                                        initialPage: max(
+                                            0, min(0, momentList.length - 1)),
                                         viewportFraction: 0.8,
                                         disableCenter: true,
                                         enlargeCenterPage: true,

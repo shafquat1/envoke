@@ -370,7 +370,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                 Align(
                                                                               alignment: const AlignmentDirectional(0.0, 0.0),
                                                                               child: Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 10.0),
                                                                                 child: Column(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   mainAxisAlignment: MainAxisAlignment.end,
@@ -409,33 +409,36 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                           ),
                                                                           Flexible(
                                                                             child:
-                                                                                Column(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                                                              children: [
-                                                                                Text(
-                                                                                  'Shared by',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'JasmineUPC',
-                                                                                        color: FlutterFlowTheme.of(context).info,
-                                                                                        fontSize: 18.0,
-                                                                                        letterSpacing: 0.0,
-                                                                                        fontWeight: FontWeight.w300,
-                                                                                        useGoogleFonts: false,
-                                                                                      ),
-                                                                                ),
-                                                                                Text(
-                                                                                  memoriesTimelineSharedUserRecord!.sharedUserName,
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'JasmineUPC',
-                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                        fontSize: 24.0,
-                                                                                        letterSpacing: 0.0,
-                                                                                        fontWeight: FontWeight.w300,
-                                                                                        useGoogleFonts: false,
-                                                                                      ),
-                                                                                ),
-                                                                              ],
+                                                                                Padding(
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                              child: Column(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                children: [
+                                                                                  Text(
+                                                                                    'Shared by',
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: 'JasmineUPC',
+                                                                                          color: FlutterFlowTheme.of(context).info,
+                                                                                          fontSize: 18.0,
+                                                                                          letterSpacing: 0.0,
+                                                                                          fontWeight: FontWeight.w300,
+                                                                                          useGoogleFonts: false,
+                                                                                        ),
+                                                                                  ),
+                                                                                  Text(
+                                                                                    memoriesTimelineSharedUserRecord!.sharedUserName,
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: 'JasmineUPC',
+                                                                                          color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                          fontSize: 24.0,
+                                                                                          letterSpacing: 0.0,
+                                                                                          fontWeight: FontWeight.w300,
+                                                                                          useGoogleFonts: false,
+                                                                                        ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
                                                                             ),
                                                                           ),
                                                                         ],
