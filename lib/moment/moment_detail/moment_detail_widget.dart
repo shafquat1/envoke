@@ -213,8 +213,8 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                               ));
                                             },
                                             child: Text(
-                                              widget.moments!.createdAt!
-                                                  .toString(),
+                                              dateTimeFormat('d MMMM y',
+                                                  widget.moments!.createdAt!),
                                               textAlign: TextAlign.start,
                                               style: FlutterFlowTheme.of(
                                                       context)
