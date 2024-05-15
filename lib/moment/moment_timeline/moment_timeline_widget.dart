@@ -119,32 +119,26 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 190.0, 0.0),
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  context.goNamed(
-                                                      'MemoriesTimeline');
-                                                },
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          0.0),
-                                                  child: SvgPicture.asset(
-                                                    'assets/images/Vector.svg',
-                                                    width: 30.0,
-                                                    height: 15.0,
-                                                    fit: BoxFit.cover,
-                                                    alignment:
-                                                        const Alignment(-1.0, -1.0),
-                                                  ),
+                                            InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.goNamed(
+                                                    'MemoriesTimeline');
+                                              },
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(0.0),
+                                                child: SvgPicture.asset(
+                                                  'assets/images/Vector.svg',
+                                                  width: 35.0,
+                                                  height: 15.0,
+                                                  fit: BoxFit.cover,
+                                                  alignment:
+                                                      const Alignment(-1.0, -1.0),
                                                 ),
                                               ),
                                             ),
@@ -176,29 +170,32 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                             Align(
                                               alignment: const AlignmentDirectional(
                                                   -1.0, 0.0),
-                                              child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 5.0, 115.0, 0.0),
-                                                child: Text(
-                                                  dateTimeFormat(
-                                                      'MMMM y',
-                                                      widget.memories!
-                                                          .createdTime!),
-                                                  textAlign: TextAlign.start,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Istanbul type',
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .primaryBackground,
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
-                                                      ),
+                                              child: Container(
+                                                decoration: const BoxDecoration(),
+                                                child: Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 5.0, 115.0, 0.0),
+                                                  child: Text(
+                                                    dateTimeFormat(
+                                                        'MMMM y',
+                                                        widget.memories!
+                                                            .createdTime!),
+                                                    textAlign: TextAlign.start,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Istanbul type',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryBackground,
+                                                          fontSize: 16.0,
+                                                          letterSpacing: 0.0,
+                                                          useGoogleFonts: false,
+                                                        ),
+                                                  ),
                                                 ),
                                               ),
                                             ),

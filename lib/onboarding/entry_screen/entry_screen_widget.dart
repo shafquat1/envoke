@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/widgets/nfc_scan_tag/nfc_scan_tag_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'entry_screen_model.dart';
 export 'entry_screen_model.dart';
 
@@ -74,8 +75,8 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                         alignment: const AlignmentDirectional(-0.04, -0.05),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
-                          child: Image.asset(
-                            'assets/images/Group_2.png',
+                          child: SvgPicture.asset(
+                            'assets/images/Ev_Logo.svg',
                             fit: BoxFit.cover,
                           ),
                         ),

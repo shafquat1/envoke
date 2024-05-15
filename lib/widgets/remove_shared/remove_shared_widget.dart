@@ -115,7 +115,7 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: Text(
                   widget.shared!.sharedUserName,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(

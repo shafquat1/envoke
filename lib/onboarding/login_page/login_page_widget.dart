@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'login_page_model.dart';
 export 'login_page_model.dart';
 
@@ -95,8 +96,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     0.0, 0.0, 0.0, 200.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.asset(
-                                    'assets/images/Group_2.png',
+                                  child: SvgPicture.asset(
+                                    'assets/images/Ev_Logo.svg',
                                     width: 150.0,
                                     height: 105.0,
                                     fit: BoxFit.cover,

@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/widgets/write_nfc_tag/write_nfc_tag_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'signup_page_model.dart';
@@ -97,8 +98,8 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                               0.0, 50.0, 0.0, 50.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              'assets/images/Group_2.png',
+                            child: SvgPicture.asset(
+                              'assets/images/Ev_Logo.svg',
                               fit: BoxFit.cover,
                             ),
                           ),

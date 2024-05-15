@@ -82,7 +82,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                     borderRadius: BorderRadius.circular(8.0),
                     child: SvgPicture.asset(
                       'assets/images/Vector.svg',
-                      width: 30.0,
+                      width: 35.0,
                       height: 15.0,
                       fit: BoxFit.cover,
                     ),
@@ -959,6 +959,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                             audioUrl: _model.audioFile,
                                             imgBlurHash: _model
                                                 .uploadedLocalFile1.blurHash,
+                                            createdAt: getCurrentTimestamp,
                                           ));
 
                                           context.goNamed(

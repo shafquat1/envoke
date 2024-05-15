@@ -40,6 +40,11 @@ class MomentsRecord extends FirestoreRecord {
   String get imgBlurHash => _imgBlurHash ?? '';
   bool hasImgBlurHash() => _imgBlurHash != null;
 
+  // "created_at" field.
+  DateTime? _createdAt;
+  DateTime? get createdAt => _createdAt;
+  bool hasCreatedAt() => _createdAt != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -48,6 +53,7 @@ class MomentsRecord extends FirestoreRecord {
     _title = snapshotData['title'] as String?;
     _notes = snapshotData['notes'] as String?;
     _imgBlurHash = snapshotData['img_blur_hash'] as String?;
+    _createdAt = snapshotData['created_at'] as DateTime?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -95,6 +101,7 @@ Map<String, dynamic> createMomentsRecordData({
   String? title,
   String? notes,
   String? imgBlurHash,
+  DateTime? createdAt,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -103,6 +110,7 @@ Map<String, dynamic> createMomentsRecordData({
       'title': title,
       'notes': notes,
       'img_blur_hash': imgBlurHash,
+      'created_at': createdAt,
     }.withoutNulls,
   );
 
@@ -118,12 +126,19 @@ class MomentsRecordDocumentEquality implements Equality<MomentsRecord> {
         e1?.audioUrl == e2?.audioUrl &&
         e1?.title == e2?.title &&
         e1?.notes == e2?.notes &&
-        e1?.imgBlurHash == e2?.imgBlurHash;
+        e1?.imgBlurHash == e2?.imgBlurHash &&
+        e1?.createdAt == e2?.createdAt;
   }
 
   @override
-  int hash(MomentsRecord? e) => const ListEquality()
-      .hash([e?.imgUrl, e?.audioUrl, e?.title, e?.notes, e?.imgBlurHash]);
+  int hash(MomentsRecord? e) => const ListEquality().hash([
+        e?.imgUrl,
+        e?.audioUrl,
+        e?.title,
+        e?.notes,
+        e?.imgBlurHash,
+        e?.createdAt
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is MomentsRecord;
