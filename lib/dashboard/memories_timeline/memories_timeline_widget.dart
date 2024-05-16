@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/widgets/delete_memories/delete_memories_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -854,67 +855,49 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                         .transparent,
                                                                 onTap:
                                                                     () async {
-                                                                  final datePickedDate =
-                                                                      await showDatePicker(
-                                                                    context:
-                                                                        context,
-                                                                    initialDate:
-                                                                        getCurrentTimestamp,
-                                                                    firstDate:
-                                                                        DateTime(
-                                                                            1900),
-                                                                    lastDate:
-                                                                        DateTime(
-                                                                            2050),
-                                                                    builder:
-                                                                        (context,
-                                                                            child) {
-                                                                      return wrapInMaterialDatePickerTheme(
-                                                                        context,
-                                                                        child!,
-                                                                        headerBackgroundColor:
-                                                                            FlutterFlowTheme.of(context).primary,
-                                                                        headerForegroundColor:
-                                                                            FlutterFlowTheme.of(context).info,
-                                                                        headerTextStyle: FlutterFlowTheme.of(context)
-                                                                            .headlineLarge
-                                                                            .override(
-                                                                              fontFamily: 'Inter',
-                                                                              fontSize: 32.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.w600,
+                                                                  await showModalBottomSheet<
+                                                                          bool>(
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (context) {
+                                                                        final datePickedCupertinoTheme =
+                                                                            CupertinoTheme.of(context);
+                                                                        return Container(
+                                                                          height:
+                                                                              MediaQuery.of(context).size.height / 3,
+                                                                          width: MediaQuery.of(context)
+                                                                              .size
+                                                                              .width,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryBackground,
+                                                                          child:
+                                                                              CupertinoTheme(
+                                                                            data:
+                                                                                datePickedCupertinoTheme.copyWith(
+                                                                              textTheme: datePickedCupertinoTheme.textTheme.copyWith(
+                                                                                dateTimePickerTextStyle: FlutterFlowTheme.of(context).headlineMedium.override(
+                                                                                      fontFamily: 'Inter',
+                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
                                                                             ),
-                                                                        pickerBackgroundColor:
-                                                                            FlutterFlowTheme.of(context).secondaryBackground,
-                                                                        pickerForegroundColor:
-                                                                            FlutterFlowTheme.of(context).primaryText,
-                                                                        selectedDateTimeBackgroundColor:
-                                                                            FlutterFlowTheme.of(context).primary,
-                                                                        selectedDateTimeForegroundColor:
-                                                                            FlutterFlowTheme.of(context).info,
-                                                                        actionButtonForegroundColor:
-                                                                            FlutterFlowTheme.of(context).primaryText,
-                                                                        iconSize:
-                                                                            24.0,
-                                                                      );
-                                                                    },
-                                                                  );
-
-                                                                  if (datePickedDate !=
-                                                                      null) {
-                                                                    safeSetState(
-                                                                        () {
-                                                                      _model.datePicked =
-                                                                          DateTime(
-                                                                        datePickedDate
-                                                                            .year,
-                                                                        datePickedDate
-                                                                            .month,
-                                                                        datePickedDate
-                                                                            .day,
-                                                                      );
-                                                                    });
-                                                                  }
+                                                                            child:
+                                                                                CupertinoDatePicker(
+                                                                              mode: CupertinoDatePickerMode.date,
+                                                                              minimumDate: DateTime(1900),
+                                                                              initialDateTime: getCurrentTimestamp,
+                                                                              maximumDate: DateTime(2050),
+                                                                              backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                              use24hFormat: false,
+                                                                              onDateTimeChanged: (newDateTime) => safeSetState(() {
+                                                                                _model.datePicked = newDateTime;
+                                                                              }),
+                                                                            ),
+                                                                          ),
+                                                                        );
+                                                                      });
 
                                                                   await columnMemoriesRecord
                                                                       .reference
