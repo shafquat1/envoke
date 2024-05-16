@@ -178,7 +178,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                           0.0, 5.0, 115.0, 0.0),
                                                   child: Text(
                                                     dateTimeFormat(
-                                                        'd MMMM y',
+                                                        'MMMM y',
                                                         widget.memories!
                                                             .createdTime!),
                                                     textAlign: TextAlign.start,
