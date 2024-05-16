@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:octo_image/octo_image.dart';
@@ -34,6 +35,13 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MomentDetailModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {
+        _model.createdAt = widget.moments?.createdAt;
+      });
+    });
   }
 
   @override
@@ -197,6 +205,10 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                                 );
                                               });
                                             }
+                                            setState(() {
+                                              _model.createdAt =
+                                                  _model.datePicked;
+                                            });
 
                                             await widget.moments!.reference
                                                 .update(createMomentsRecordData(
@@ -210,7 +222,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                                   .fromSTEB(0.0, 5.0, 0.0, 0.0),
                                               child: Text(
                                                 dateTimeFormat('d MMMM y',
-                                                    widget.moments!.createdAt!),
+                                                    _model.createdAt),
                                                 textAlign: TextAlign.start,
                                                 style:
                                                     FlutterFlowTheme.of(context)
