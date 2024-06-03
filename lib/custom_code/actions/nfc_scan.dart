@@ -44,7 +44,9 @@ Future<void> updateNfcTagInAppState(FFAppState appState, NFCTag? tag) async {
   var currentTagId = tag.id;
   // Update the app state with the scanned NFC tag ID
   appState.update(() {
-    appState.nfcTag = currentTagId;
+    if (appState.nfcTag.isEmpty) {
+      appState.nfcTag = currentTagId;
+    }
   });
 }
 
