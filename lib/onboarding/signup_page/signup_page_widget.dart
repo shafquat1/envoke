@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/widgets/write_nfc_tag/write_nfc_tag_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -641,6 +642,8 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                         .validate()) {
                                                   return;
                                                 }
+                                                await actions
+                                                    .generateRandomNfcId();
                                                 GoRouter.of(context)
                                                     .prepareAuthEvent();
 
@@ -683,82 +686,76 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                     ));
                                                 FFAppState().userGuid =
                                                     currentUserUid;
-                                                await showModalBottomSheet(
-                                                  isScrollControlled: true,
-                                                  backgroundColor:
-                                                      Colors.transparent,
-                                                  enableDrag: false,
-                                                  context: context,
-                                                  builder: (context) {
-                                                    return GestureDetector(
-                                                      onTap: () => _model
-                                                              .unfocusNode
-                                                              .canRequestFocus
-                                                          ? FocusScope.of(
-                                                                  context)
-                                                              .requestFocus(_model
-                                                                  .unfocusNode)
-                                                          : FocusScope.of(
-                                                                  context)
-                                                              .unfocus(),
-                                                      child: Padding(
-                                                        padding: MediaQuery
-                                                            .viewInsetsOf(
-                                                                context),
-                                                        child:
-                                                            WriteNfcTagWidget(
-                                                          userID:
-                                                              currentUserUid,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  },
-                                                ).then((value) =>
-                                                    safeSetState(() {}));
-
                                                 if (FFAppState().writeTag) {
-                                                  _model.count =
-                                                      await queryMemoriesRecordCount(
-                                                    queryBuilder:
-                                                        (memoriesRecord) =>
-                                                            memoriesRecord
-                                                                .where(
-                                                      'user_id',
-                                                      isEqualTo: currentUserUid,
-                                                    ),
-                                                  );
-                                                  if (_model.count! <= 0) {
+                                                  context.goNamedAuth(
+                                                      'CreateMemories',
+                                                      context.mounted);
+
+                                                  return;
+                                                } else {
+                                                  await showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    backgroundColor:
+                                                        Colors.transparent,
+                                                    enableDrag: false,
+                                                    context: context,
+                                                    builder: (context) {
+                                                      return GestureDetector(
+                                                        onTap: () => _model
+                                                                .unfocusNode
+                                                                .canRequestFocus
+                                                            ? FocusScope.of(
+                                                                    context)
+                                                                .requestFocus(_model
+                                                                    .unfocusNode)
+                                                            : FocusScope.of(
+                                                                    context)
+                                                                .unfocus(),
+                                                        child: Padding(
+                                                          padding: MediaQuery
+                                                              .viewInsetsOf(
+                                                                  context),
+                                                          child:
+                                                              WriteNfcTagWidget(
+                                                            userID:
+                                                                currentUserUid,
+                                                          ),
+                                                        ),
+                                                      );
+                                                    },
+                                                  ).then((value) =>
+                                                      safeSetState(() {}));
+
+                                                  if (FFAppState().writeTag) {
                                                     context.goNamedAuth(
                                                         'CreateMemories',
                                                         context.mounted);
-                                                  } else {
-                                                    context.goNamedAuth(
-                                                        'MemoriesTimeline',
-                                                        context.mounted);
-                                                  }
-                                                } else {
-                                                  ScaffoldMessenger.of(context)
-                                                      .showSnackBar(
-                                                    SnackBar(
-                                                      content: Text(
-                                                        'Writing NFC tag failed. Please try again.',
-                                                        style: TextStyle(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                        ),
-                                                      ),
-                                                      duration: const Duration(
-                                                          milliseconds: 4000),
-                                                      backgroundColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondary,
-                                                    ),
-                                                  );
-                                                }
 
-                                                setState(() {});
+                                                    return;
+                                                  } else {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          'Writing NFC tag failed. Please try again.',
+                                                          style: TextStyle(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                          ),
+                                                        ),
+                                                        duration: const Duration(
+                                                            milliseconds: 4000),
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                      ),
+                                                    );
+                                                    return;
+                                                  }
+                                                }
                                               },
                                         text: 'Signup',
                                         options: FFButtonOptions(

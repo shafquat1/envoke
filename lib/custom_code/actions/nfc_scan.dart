@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import 'package:flutter_nfc_kit/flutter_nfc_kit.dart';
+import 'package:uuid/uuid.dart';
 
 Future<void> nfcScan() async {
   // Add your function code here!
@@ -19,9 +20,14 @@ Future<void> nfcScan() async {
 
   availability = await FlutterNfcKit.nfcAvailability;
 
+  var uuid = Uuid();
+
   try {
     // Poll for the NFC tag
     NFCTag tag = await FlutterNfcKit.poll();
+    appState.update(() {
+      appState.nfcTag = uuid.v4();
+    });
     updateNfcTagInAppState(appState, tag);
     readNfcData(appState, tag);
   } catch (e) {

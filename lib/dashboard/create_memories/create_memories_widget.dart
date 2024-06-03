@@ -116,9 +116,8 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    setState(() {
-                                      _model.addNew = true;
-                                    });
+                                    _model.addNew = true;
+                                    setState(() {});
                                   },
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,

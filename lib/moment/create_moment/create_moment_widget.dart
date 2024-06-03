@@ -385,14 +385,14 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                         '';
                                                                   });
 
-                                                                  setState(() {
-                                                                    _model.showImg =
-                                                                        false;
-                                                                  });
-                                                                  setState(() {
-                                                                    _model.imgFile =
-                                                                        null;
-                                                                  });
+                                                                  _model.showImg =
+                                                                      false;
+                                                                  setState(
+                                                                      () {});
+                                                                  _model.imgFile =
+                                                                      null;
+                                                                  setState(
+                                                                      () {});
                                                                 },
                                                                 child: Icon(
                                                                   Icons
@@ -576,11 +576,10 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                           .transparent,
                                                                   onTap:
                                                                       () async {
+                                                                    _model.showAudio =
+                                                                        false;
                                                                     setState(
-                                                                        () {
-                                                                      _model.showAudio =
-                                                                          false;
-                                                                    });
+                                                                        () {});
                                                                     setState(
                                                                         () {
                                                                       _model.isDataUploading2 =
@@ -592,11 +591,10 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                           '';
                                                                     });
 
+                                                                    _model.audioFile =
+                                                                        null;
                                                                     setState(
-                                                                        () {
-                                                                      _model.audioFile =
-                                                                          null;
-                                                                    });
+                                                                        () {});
                                                                   },
                                                                   child: Icon(
                                                                     Icons
@@ -756,13 +754,11 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                             }
 
                                             if (_model.uploadedFileUrl1 != '') {
-                                              setState(() {
-                                                _model.showImg = true;
-                                              });
-                                              setState(() {
-                                                _model.imgFile =
-                                                    _model.uploadedFileUrl1;
-                                              });
+                                              _model.showImg = true;
+                                              setState(() {});
+                                              _model.imgFile =
+                                                  _model.uploadedFileUrl1;
+                                              setState(() {});
                                             } else {
                                               ScaffoldMessenger.of(context)
                                                   .showSnackBar(
@@ -878,12 +874,10 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                             }
                                           }
 
-                                          setState(() {
-                                            _model.isRecording = false;
-                                          });
-                                          setState(() {
-                                            _model.showAudio = true;
-                                          });
+                                          _model.isRecording = false;
+                                          setState(() {});
+                                          _model.showAudio = true;
+                                          setState(() {});
                                           _model.audioFile =
                                               _model.uploadedFileUrl2;
                                           if (shouldSetState) setState(() {});
@@ -922,9 +916,8 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                               }
                                               if (await getPermissionStatus(
                                                   microphonePermission)) {
-                                                setState(() {
-                                                  _model.isRecording = true;
-                                                });
+                                                _model.isRecording = true;
+                                                setState(() {});
                                               } else {
                                                 await requestPermission(
                                                     microphonePermission);

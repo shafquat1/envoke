@@ -60,8 +60,6 @@ class SignupPageModel extends FlutterFlowModel<SignupPageWidget> {
   bool? checkboxValue1;
   // State field(s) for Checkbox widget.
   bool? checkboxValue2;
-  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
-  int? count;
 
   @override
   void initState(BuildContext context) {
