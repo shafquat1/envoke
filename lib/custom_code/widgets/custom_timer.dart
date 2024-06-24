@@ -56,10 +56,11 @@ class _CustomTimerState extends State<CustomTimer> {
   }
 
   String getFormattedTime() {
-    int seconds = _milliseconds ~/ 1000;
-    int milliseconds = _milliseconds % 1000;
-    double fractionalSeconds = milliseconds / 1000.0;
-    return '${seconds.toString()}.${fractionalSeconds.toStringAsFixed(2).substring(2)}';
+    int minutes = (_milliseconds ~/ 60000) % 60;
+    int seconds = (_milliseconds ~/ 1000) % 60;
+    String formattedMinutes = minutes.toString().padLeft(2, '0');
+    String formattedSeconds = seconds.toString().padLeft(2, '0');
+    return '$formattedMinutes:$formattedSeconds';
   }
 
   @override
