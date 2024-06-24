@@ -9,7 +9,6 @@ class MomentTimelineModel extends FlutterFlowModel<MomentTimelineWidget> {
   final unfocusNode = FocusNode();
   // State field(s) for Carousel widget.
   CarouselController? carouselController;
-
   int carouselCurrentIndex = 0;
 
   @override

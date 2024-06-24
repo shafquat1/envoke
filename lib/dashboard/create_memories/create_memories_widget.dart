@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'create_memories_model.dart';
@@ -306,11 +307,6 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
 
                                                 var downloadUrls = <String>[];
                                                 try {
-                                                  showUploadMessage(
-                                                    context,
-                                                    'Uploading file...',
-                                                    showLoading: true,
-                                                  );
                                                   selectedUploadedFiles =
                                                       selectedMedia
                                                           .map((m) =>
@@ -345,8 +341,6 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                           .map((u) => u!)
                                                           .toList();
                                                 } finally {
-                                                  ScaffoldMessenger.of(context)
-                                                      .hideCurrentSnackBar();
                                                   _model.isDataUploading =
                                                       false;
                                                 }
@@ -362,12 +356,8 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                     _model.uploadedFileUrl =
                                                         downloadUrls.first;
                                                   });
-                                                  showUploadMessage(
-                                                      context, 'Success!');
                                                 } else {
                                                   setState(() {});
-                                                  showUploadMessage(context,
-                                                      'Failed to upload data');
                                                   return;
                                                 }
                                               }
@@ -406,8 +396,17 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(8.0),
-                                                        child: Image.network(
-                                                          _model
+                                                        child:
+                                                            CachedNetworkImage(
+                                                          fadeInDuration:
+                                                              const Duration(
+                                                                  milliseconds:
+                                                                      500),
+                                                          fadeOutDuration:
+                                                              const Duration(
+                                                                  milliseconds:
+                                                                      500),
+                                                          imageUrl: _model
                                                               .uploadedFileUrl,
                                                           width:
                                                               double.infinity,

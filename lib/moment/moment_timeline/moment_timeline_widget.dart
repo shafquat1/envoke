@@ -7,7 +7,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:octo_image/octo_image.dart';
 import 'moment_timeline_model.dart';
@@ -52,15 +51,16 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return Scaffold(
+          return const Scaffold(
             backgroundColor: Colors.black,
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
-                child: SpinKitCircle(
-                  color: FlutterFlowTheme.of(context).primary,
-                  size: 50.0,
+                width: 50,
+                height: 50,
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    Colors.transparent,
+                  ),
                 ),
               ),
             ),
@@ -349,10 +349,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                     ),
                                                     image:
                                                         CachedNetworkImageProvider(
-                                                      valueOrDefault<String>(
-                                                        momentListItem.imgUrl,
-                                                        'https://firebasestorage.googleapis.com/v0/b/envoke-7dtyz3.appspot.com/o/Frame%201.png?alt=media&token=8c4b7f71-652d-4cf1-b4f2-1b4e0a946659',
-                                                      ),
+                                                      momentListItem.imgUrl,
                                                     ),
                                                     width: 315.0,
                                                     height: MediaQuery.sizeOf(

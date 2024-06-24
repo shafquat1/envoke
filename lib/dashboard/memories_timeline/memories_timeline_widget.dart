@@ -9,7 +9,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:octo_image/octo_image.dart';
 import 'memories_timeline_model.dart';
 export 'memories_timeline_model.dart';
@@ -52,15 +51,16 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return Scaffold(
+          return const Scaffold(
             backgroundColor: Colors.black,
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
-                child: SpinKitCircle(
-                  color: FlutterFlowTheme.of(context).primary,
-                  size: 50.0,
+                width: 50,
+                height: 50,
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    Colors.transparent,
+                  ),
                 ),
               ),
             ),
@@ -194,16 +194,17 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                             builder: (context, snapshot) {
                                               // Customize what your widget looks like when it's loading.
                                               if (!snapshot.hasData) {
-                                                return Center(
+                                                return const Center(
                                                   child: SizedBox(
-                                                    width: 50.0,
-                                                    height: 50.0,
-                                                    child: SpinKitCircle(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      size: 50.0,
+                                                    width: 50,
+                                                    height: 50,
+                                                    child:
+                                                        CircularProgressIndicator(
+                                                      valueColor:
+                                                          AlwaysStoppedAnimation<
+                                                              Color>(
+                                                        Colors.transparent,
+                                                      ),
                                                     ),
                                                   ),
                                                 );
@@ -234,16 +235,18 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                         (context, snapshot) {
                                                       // Customize what your widget looks like when it's loading.
                                                       if (!snapshot.hasData) {
-                                                        return Center(
+                                                        return const Center(
                                                           child: SizedBox(
-                                                            width: 50.0,
-                                                            height: 50.0,
+                                                            width: 50,
+                                                            height: 50,
                                                             child:
-                                                                SpinKitCircle(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primary,
-                                                              size: 50.0,
+                                                                CircularProgressIndicator(
+                                                              valueColor:
+                                                                  AlwaysStoppedAnimation<
+                                                                      Color>(
+                                                                Colors
+                                                                    .transparent,
+                                                              ),
                                                             ),
                                                           ),
                                                         );
@@ -341,7 +344,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                           ),
                                                                         ),
                                                                         image:
-                                                                            NetworkImage(
+                                                                            CachedNetworkImageProvider(
                                                                           columnMemoriesRecord
                                                                               .imgUrl,
                                                                         ),
@@ -561,16 +564,17 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                             builder: (context, snapshot) {
                                               // Customize what your widget looks like when it's loading.
                                               if (!snapshot.hasData) {
-                                                return Center(
+                                                return const Center(
                                                   child: SizedBox(
-                                                    width: 50.0,
-                                                    height: 50.0,
-                                                    child: SpinKitCircle(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      size: 50.0,
+                                                    width: 50,
+                                                    height: 50,
+                                                    child:
+                                                        CircularProgressIndicator(
+                                                      valueColor:
+                                                          AlwaysStoppedAnimation<
+                                                              Color>(
+                                                        Colors.transparent,
+                                                      ),
                                                     ),
                                                   ),
                                                 );
@@ -601,16 +605,18 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                         (context, snapshot) {
                                                       // Customize what your widget looks like when it's loading.
                                                       if (!snapshot.hasData) {
-                                                        return Center(
+                                                        return const Center(
                                                           child: SizedBox(
-                                                            width: 50.0,
-                                                            height: 50.0,
+                                                            width: 50,
+                                                            height: 50,
                                                             child:
-                                                                SpinKitCircle(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primary,
-                                                              size: 50.0,
+                                                                CircularProgressIndicator(
+                                                              valueColor:
+                                                                  AlwaysStoppedAnimation<
+                                                                      Color>(
+                                                                Colors
+                                                                    .transparent,
+                                                              ),
                                                             ),
                                                           ),
                                                         );

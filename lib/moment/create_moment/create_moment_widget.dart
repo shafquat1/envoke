@@ -6,7 +6,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/permissions_util.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
@@ -340,7 +342,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                 ),
                                                               ),
                                                               image:
-                                                                  NetworkImage(
+                                                                  CachedNetworkImageProvider(
                                                                 _model.imgFile!,
                                                               ),
                                                               width: double
@@ -627,7 +629,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                       Align(
                         alignment: const AlignmentDirectional(0.0, 1.0),
                         child: Container(
-                          height: 120.0,
+                          height: 130.0,
                           decoration: BoxDecoration(
                             color: Colors.black,
                             borderRadius: const BorderRadius.only(
@@ -651,120 +653,358 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  FlutterFlowIconButton(
-                                    borderColor: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    borderRadius: 30.0,
-                                    borderWidth: 1.0,
-                                    buttonSize: 60.0,
-                                    fillColor: const Color(0xFF242424),
-                                    disabledIconColor:
-                                        FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                    icon: Icon(
-                                      Icons.camera_alt,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      size: 24.0,
-                                    ),
-                                    onPressed: (_model.imgFile != null &&
-                                            _model.imgFile != '')
-                                        ? null
-                                        : () async {
-                                            final selectedMedia =
-                                                await selectMediaWithSourceBottomSheet(
-                                              context: context,
-                                              allowPhoto: true,
-                                              includeBlurHash: true,
-                                            );
-                                            if (selectedMedia != null &&
-                                                selectedMedia.every((m) =>
-                                                    validateFileFormat(
-                                                        m.storagePath,
-                                                        context))) {
-                                              setState(() => _model
-                                                  .isDataUploading1 = true);
-                                              var selectedUploadedFiles =
-                                                  <FFUploadedFile>[];
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 10.0, 0.0, 45.0),
+                                    child: FlutterFlowIconButton(
+                                      borderColor: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      borderRadius: 30.0,
+                                      borderWidth: 1.0,
+                                      buttonSize: 60.0,
+                                      fillColor: const Color(0xFF242424),
+                                      disabledIconColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                      icon: Icon(
+                                        Icons.camera_alt,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        size: 24.0,
+                                      ),
+                                      onPressed: (_model.imgFile != null &&
+                                              _model.imgFile != '')
+                                          ? null
+                                          : () async {
+                                              final selectedMedia =
+                                                  await selectMediaWithSourceBottomSheet(
+                                                context: context,
+                                                allowPhoto: true,
+                                                includeBlurHash: true,
+                                              );
+                                              if (selectedMedia != null &&
+                                                  selectedMedia.every((m) =>
+                                                      validateFileFormat(
+                                                          m.storagePath,
+                                                          context))) {
+                                                setState(() => _model
+                                                    .isDataUploading1 = true);
+                                                var selectedUploadedFiles =
+                                                    <FFUploadedFile>[];
 
-                                              var downloadUrls = <String>[];
-                                              try {
-                                                showUploadMessage(
-                                                  context,
-                                                  'Uploading file...',
-                                                  showLoading: true,
-                                                );
-                                                selectedUploadedFiles =
-                                                    selectedMedia
-                                                        .map((m) =>
-                                                            FFUploadedFile(
-                                                              name: m
-                                                                  .storagePath
-                                                                  .split('/')
-                                                                  .last,
-                                                              bytes: m.bytes,
-                                                              height: m
-                                                                  .dimensions
-                                                                  ?.height,
-                                                              width: m
-                                                                  .dimensions
-                                                                  ?.width,
-                                                              blurHash:
-                                                                  m.blurHash,
-                                                            ))
-                                                        .toList();
+                                                var downloadUrls = <String>[];
+                                                try {
+                                                  selectedUploadedFiles =
+                                                      selectedMedia
+                                                          .map((m) =>
+                                                              FFUploadedFile(
+                                                                name: m
+                                                                    .storagePath
+                                                                    .split('/')
+                                                                    .last,
+                                                                bytes: m.bytes,
+                                                                height: m
+                                                                    .dimensions
+                                                                    ?.height,
+                                                                width: m
+                                                                    .dimensions
+                                                                    ?.width,
+                                                                blurHash:
+                                                                    m.blurHash,
+                                                              ))
+                                                          .toList();
 
-                                                downloadUrls =
-                                                    (await Future.wait(
-                                                  selectedMedia.map(
-                                                    (m) async =>
-                                                        await uploadData(
-                                                            m.storagePath,
-                                                            m.bytes),
+                                                  downloadUrls =
+                                                      (await Future.wait(
+                                                    selectedMedia.map(
+                                                      (m) async =>
+                                                          await uploadData(
+                                                              m.storagePath,
+                                                              m.bytes),
+                                                    ),
+                                                  ))
+                                                          .where(
+                                                              (u) => u != null)
+                                                          .map((u) => u!)
+                                                          .toList();
+                                                } finally {
+                                                  _model.isDataUploading1 =
+                                                      false;
+                                                }
+                                                if (selectedUploadedFiles
+                                                            .length ==
+                                                        selectedMedia.length &&
+                                                    downloadUrls.length ==
+                                                        selectedMedia.length) {
+                                                  setState(() {
+                                                    _model.uploadedLocalFile1 =
+                                                        selectedUploadedFiles
+                                                            .first;
+                                                    _model.uploadedFileUrl1 =
+                                                        downloadUrls.first;
+                                                  });
+                                                } else {
+                                                  setState(() {});
+                                                  return;
+                                                }
+                                              }
+
+                                              if (_model.uploadedFileUrl1 !=
+                                                      '') {
+                                                _model.showImg = true;
+                                                setState(() {});
+                                                _model.imgFile =
+                                                    _model.uploadedFileUrl1;
+                                                setState(() {});
+                                              } else {
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                    content: Text(
+                                                      'Please select an image.',
+                                                      style: TextStyle(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ),
+                                                    ),
+                                                    duration: const Duration(
+                                                        milliseconds: 4000),
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondary,
                                                   ),
-                                                ))
+                                                );
+                                              }
+                                            },
+                                    ),
+                                  ),
+                                  if (_model.isRecording == true)
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: FlutterFlowIconButton(
+                                            borderColor: const Color(0xFF242424),
+                                            borderRadius: 30.0,
+                                            borderWidth: 1.0,
+                                            buttonSize: 60.0,
+                                            fillColor: const Color(0xFF242424),
+                                            icon: Icon(
+                                              Icons.stop_circle_outlined,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              size: 24.0,
+                                            ),
+                                            onPressed: () async {
+                                              var shouldSetState = false;
+                                              if (_model.isRecording == true) {
+                                                await stopAudioRecording(
+                                                  audioRecorder:
+                                                      _model.audioRecorder,
+                                                  audioName:
+                                                      'recordedFileBytes.mp3',
+                                                  onRecordingComplete:
+                                                      (audioFilePath,
+                                                          audioBytes) {
+                                                    _model.myRecording =
+                                                        audioFilePath;
+                                                    _model.recordedFileBytes =
+                                                        audioBytes;
+                                                  },
+                                                );
+
+                                                shouldSetState = true;
+                                                {
+                                                  setState(() => _model
+                                                      .isDataUploading2 = true);
+                                                  var selectedUploadedFiles =
+                                                      <FFUploadedFile>[];
+                                                  var selectedFiles =
+                                                      <SelectedFile>[];
+                                                  var downloadUrls = <String>[];
+                                                  try {
+                                                    showUploadMessage(
+                                                      context,
+                                                      'Uploading file...',
+                                                      showLoading: true,
+                                                    );
+                                                    selectedUploadedFiles = _model
+                                                            .recordedFileBytes
+                                                            .bytes!
+                                                            .isNotEmpty
+                                                        ? [
+                                                            _model
+                                                                .recordedFileBytes
+                                                          ]
+                                                        : <FFUploadedFile>[];
+                                                    selectedFiles =
+                                                        selectedFilesFromUploadedFiles(
+                                                      selectedUploadedFiles,
+                                                    );
+                                                    downloadUrls = (await Future
+                                                            .wait(
+                                                      selectedFiles.map(
+                                                        (f) async =>
+                                                            await uploadData(
+                                                                f.storagePath,
+                                                                f.bytes),
+                                                      ),
+                                                    ))
                                                         .where((u) => u != null)
                                                         .map((u) => u!)
                                                         .toList();
-                                              } finally {
-                                                ScaffoldMessenger.of(context)
-                                                    .hideCurrentSnackBar();
-                                                _model.isDataUploading1 = false;
-                                              }
-                                              if (selectedUploadedFiles
-                                                          .length ==
-                                                      selectedMedia.length &&
-                                                  downloadUrls.length ==
-                                                      selectedMedia.length) {
-                                                setState(() {
-                                                  _model.uploadedLocalFile1 =
-                                                      selectedUploadedFiles
-                                                          .first;
-                                                  _model.uploadedFileUrl1 =
-                                                      downloadUrls.first;
-                                                });
-                                                showUploadMessage(
-                                                    context, 'Success!');
-                                              } else {
+                                                  } finally {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .hideCurrentSnackBar();
+                                                    _model.isDataUploading2 =
+                                                        false;
+                                                  }
+                                                  if (selectedUploadedFiles
+                                                              .length ==
+                                                          selectedFiles
+                                                              .length &&
+                                                      downloadUrls.length ==
+                                                          selectedFiles
+                                                              .length) {
+                                                    setState(() {
+                                                      _model.uploadedLocalFile2 =
+                                                          selectedUploadedFiles
+                                                              .first;
+                                                      _model.uploadedFileUrl2 =
+                                                          downloadUrls.first;
+                                                    });
+                                                    showUploadMessage(
+                                                      context,
+                                                      'Success!',
+                                                    );
+                                                  } else {
+                                                    setState(() {});
+                                                    showUploadMessage(
+                                                      context,
+                                                      'Failed to upload file',
+                                                    );
+                                                    return;
+                                                  }
+                                                }
+
+                                                _model.isRecording = false;
                                                 setState(() {});
-                                                showUploadMessage(context,
-                                                    'Failed to upload data');
+                                                _model.showAudio = true;
+                                                setState(() {});
+                                                _model.audioFile =
+                                                    _model.uploadedFileUrl2;
+                                                if (shouldSetState) {
+                                                  setState(() {});
+                                                }
+                                                return;
+                                              } else {
+                                                if (shouldSetState) {
+                                                  setState(() {});
+                                                }
                                                 return;
                                               }
-                                            }
 
-                                            if (_model.uploadedFileUrl1 != '') {
-                                              _model.showImg = true;
-                                              setState(() {});
-                                              _model.imgFile =
-                                                  _model.uploadedFileUrl1;
-                                              setState(() {});
-                                            } else {
+                                              if (shouldSetState) {
+                                                setState(() {});
+                                              }
+                                            },
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 5.0, 0.0, 0.0),
+                                          child: SizedBox(
+                                            width: 40.0,
+                                            height: 40.0,
+                                            child: custom_widgets.CustomTimer(
+                                              width: 40.0,
+                                              height: 40.0,
+                                              isRecording: _model.isRecording,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  if (_model.isRecording == false)
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 10.0, 0.0, 45.0),
+                                      child: FlutterFlowIconButton(
+                                        borderColor: const Color(0xFF242424),
+                                        borderRadius: 30.0,
+                                        borderWidth: 1.0,
+                                        buttonSize: 60.0,
+                                        fillColor: const Color(0xFF242424),
+                                        disabledIconColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                        icon: Icon(
+                                          Icons.mic_none,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                          size: 24.0,
+                                        ),
+                                        onPressed: (_model.audioFile != null &&
+                                                _model.audioFile != '')
+                                            ? null
+                                            : () async {
+                                                if (_model.isRecording ==
+                                                    false) {
+                                                  await requestPermission(
+                                                      microphonePermission);
+                                                }
+                                                if (await getPermissionStatus(
+                                                    microphonePermission)) {
+                                                  _model.isRecording = true;
+                                                  setState(() {});
+                                                } else {
+                                                  await requestPermission(
+                                                      microphonePermission);
+                                                }
+
+                                                await startAudioRecording(
+                                                  context,
+                                                  audioRecorder:
+                                                      _model.audioRecorder ??=
+                                                          AudioRecorder(),
+                                                );
+                                              },
+                                      ),
+                                    ),
+                                  Flexible(
+                                    child: Align(
+                                      alignment: const AlignmentDirectional(1.0, 0.0),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 10.0, 0.0, 40.0),
+                                        child: FFButtonWidget(
+                                          onPressed: () async {
+                                            if (_model.formKey.currentState ==
+                                                    null ||
+                                                !_model.formKey.currentState!
+                                                    .validate()) {
+                                              return;
+                                            }
+                                            if ((_model.uploadedLocalFile1
+                                                            .bytes ??
+                                                        [])
+                                                    .isEmpty) {
                                               ScaffoldMessenger.of(context)
                                                   .showSnackBar(
                                                 SnackBar(
                                                   content: Text(
-                                                    'Please select an image.',
+                                                    'Please upload an image.',
                                                     style: TextStyle(
                                                       color:
                                                           FlutterFlowTheme.of(
@@ -780,224 +1020,67 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                           .secondary,
                                                 ),
                                               );
-                                            }
-                                          },
-                                  ),
-                                  if (_model.isRecording == true)
-                                    FlutterFlowIconButton(
-                                      borderColor: const Color(0xFF242424),
-                                      borderRadius: 30.0,
-                                      borderWidth: 1.0,
-                                      buttonSize: 60.0,
-                                      fillColor: const Color(0xFF242424),
-                                      icon: Icon(
-                                        Icons.stop_circle_outlined,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                        size: 24.0,
-                                      ),
-                                      onPressed: () async {
-                                        var shouldSetState = false;
-                                        if (_model.isRecording == true) {
-                                          await stopAudioRecording(
-                                            audioRecorder: _model.audioRecorder,
-                                            audioName: 'recordedFileBytes.mp3',
-                                            onRecordingComplete:
-                                                (audioFilePath, audioBytes) {
-                                              _model.myRecording =
-                                                  audioFilePath;
-                                              _model.recordedFileBytes =
-                                                  audioBytes;
-                                            },
-                                          );
-
-                                          shouldSetState = true;
-                                          {
-                                            setState(() =>
-                                                _model.isDataUploading2 = true);
-                                            var selectedUploadedFiles =
-                                                <FFUploadedFile>[];
-                                            var selectedFiles =
-                                                <SelectedFile>[];
-                                            var downloadUrls = <String>[];
-                                            try {
-                                              showUploadMessage(
-                                                context,
-                                                'Uploading file...',
-                                                showLoading: true,
-                                              );
-                                              selectedUploadedFiles = _model
-                                                      .recordedFileBytes
-                                                      .bytes!
-                                                      .isNotEmpty
-                                                  ? [_model.recordedFileBytes]
-                                                  : <FFUploadedFile>[];
-                                              selectedFiles =
-                                                  selectedFilesFromUploadedFiles(
-                                                selectedUploadedFiles,
-                                              );
-                                              downloadUrls = (await Future.wait(
-                                                selectedFiles.map(
-                                                  (f) async => await uploadData(
-                                                      f.storagePath, f.bytes),
-                                                ),
-                                              ))
-                                                  .where((u) => u != null)
-                                                  .map((u) => u!)
-                                                  .toList();
-                                            } finally {
-                                              ScaffoldMessenger.of(context)
-                                                  .hideCurrentSnackBar();
-                                              _model.isDataUploading2 = false;
-                                            }
-                                            if (selectedUploadedFiles.length ==
-                                                    selectedFiles.length &&
-                                                downloadUrls.length ==
-                                                    selectedFiles.length) {
-                                              setState(() {
-                                                _model.uploadedLocalFile2 =
-                                                    selectedUploadedFiles.first;
-                                                _model.uploadedFileUrl2 =
-                                                    downloadUrls.first;
-                                              });
-                                              showUploadMessage(
-                                                context,
-                                                'Success!',
-                                              );
-                                            } else {
-                                              setState(() {});
-                                              showUploadMessage(
-                                                context,
-                                                'Failed to upload file',
-                                              );
                                               return;
                                             }
-                                          }
 
-                                          _model.isRecording = false;
-                                          setState(() {});
-                                          _model.showAudio = true;
-                                          setState(() {});
-                                          _model.audioFile =
-                                              _model.uploadedFileUrl2;
-                                          if (shouldSetState) setState(() {});
-                                          return;
-                                        } else {
-                                          if (shouldSetState) setState(() {});
-                                          return;
-                                        }
+                                            await MomentsRecord.createDoc(
+                                                    widget.memories!.reference)
+                                                .set(createMomentsRecordData(
+                                              title:
+                                                  _model.textController1.text,
+                                              notes:
+                                                  _model.textController2.text,
+                                              imgUrl: _model.imgFile,
+                                              audioUrl: _model.audioFile,
+                                              imgBlurHash: _model
+                                                  .uploadedLocalFile1.blurHash,
+                                              createdAt: getCurrentTimestamp,
+                                            ));
 
-                                        if (shouldSetState) setState(() {});
-                                      },
-                                    ),
-                                  if (_model.isRecording == false)
-                                    FlutterFlowIconButton(
-                                      borderColor: const Color(0xFF242424),
-                                      borderRadius: 30.0,
-                                      borderWidth: 1.0,
-                                      buttonSize: 60.0,
-                                      fillColor: const Color(0xFF242424),
-                                      disabledIconColor:
-                                          FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                      icon: Icon(
-                                        Icons.mic_none,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                        size: 24.0,
-                                      ),
-                                      onPressed: (_model.audioFile != null &&
-                                              _model.audioFile != '')
-                                          ? null
-                                          : () async {
-                                              if (_model.isRecording == false) {
-                                                await requestPermission(
-                                                    microphonePermission);
-                                              }
-                                              if (await getPermissionStatus(
-                                                  microphonePermission)) {
-                                                _model.isRecording = true;
-                                                setState(() {});
-                                              } else {
-                                                await requestPermission(
-                                                    microphonePermission);
-                                              }
-
-                                              await startAudioRecording(
-                                                context,
-                                                audioRecorder:
-                                                    _model.audioRecorder ??=
-                                                        AudioRecorder(),
-                                              );
-                                            },
-                                    ),
-                                  Flexible(
-                                    child: Align(
-                                      alignment: const AlignmentDirectional(1.0, 0.0),
-                                      child: FFButtonWidget(
-                                        onPressed: () async {
-                                          if (_model.formKey.currentState ==
-                                                  null ||
-                                              !_model.formKey.currentState!
-                                                  .validate()) {
-                                            return;
-                                          }
-
-                                          await MomentsRecord.createDoc(
-                                                  widget.memories!.reference)
-                                              .set(createMomentsRecordData(
-                                            title: _model.textController1.text,
-                                            notes: _model.textController2.text,
-                                            imgUrl: _model.imgFile,
-                                            audioUrl: _model.audioFile,
-                                            imgBlurHash: _model
-                                                .uploadedLocalFile1.blurHash,
-                                            createdAt: getCurrentTimestamp,
-                                          ));
-
-                                          context.goNamed(
-                                            'momentTimeline',
-                                            queryParameters: {
-                                              'memories': serializeParam(
-                                                widget.memories,
-                                                ParamType.Document,
-                                              ),
-                                            }.withoutNulls,
-                                            extra: <String, dynamic>{
-                                              'memories': widget.memories,
-                                            },
-                                          );
-                                        },
-                                        text: 'Save',
-                                        options: FFButtonOptions(
-                                          width: 120.0,
-                                          height: 60.0,
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 0.0, 24.0, 0.0),
-                                          iconPadding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          textStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .titleSmall
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                fontSize: 20.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.normal,
-                                              ),
-                                          elevation: 3.0,
-                                          borderSide: const BorderSide(
-                                            color: Colors.transparent,
+                                            context.goNamed(
+                                              'momentTimeline',
+                                              queryParameters: {
+                                                'memories': serializeParam(
+                                                  widget.memories,
+                                                  ParamType.Document,
+                                                ),
+                                              }.withoutNulls,
+                                              extra: <String, dynamic>{
+                                                'memories': widget.memories,
+                                              },
+                                            );
+                                          },
+                                          text: 'Save',
+                                          options: FFButtonOptions(
+                                            width: 120.0,
+                                            height: 60.0,
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    24.0, 0.0, 24.0, 0.0),
+                                            iconPadding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                            textStyle: FlutterFlowTheme.of(
+                                                    context)
+                                                .titleSmall
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  fontSize: 20.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                            elevation: 3.0,
+                                            borderSide: const BorderSide(
+                                              color: Colors.transparent,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(28.0),
                                           ),
-                                          borderRadius:
-                                              BorderRadius.circular(28.0),
                                         ),
                                       ),
                                     ),
