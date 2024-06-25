@@ -477,77 +477,85 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                         .secondaryBackground,
                                                                   ),
                                                                 ),
-                                                                child: Align(
-                                                                  alignment:
-                                                                      const AlignmentDirectional(
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
+                                                                child: Stack(
+                                                                  children: [
+                                                                    Align(
+                                                                      alignment:
+                                                                          const AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             10.0,
                                                                             5.0,
                                                                             10.0,
                                                                             5.0),
-                                                                    child:
-                                                                        FlutterFlowAudioPlayer(
-                                                                      audio: Audio
-                                                                          .network(
-                                                                        _model
-                                                                            .audioFile!,
-                                                                        metas:
-                                                                            Metas(
-                                                                          id: '2vqf7_-d46648ef',
-                                                                          title:
-                                                                              'Audio Memo',
+                                                                        child:
+                                                                            FlutterFlowAudioPlayer(
+                                                                          audio:
+                                                                              Audio.network(
+                                                                            _model.audioFile!,
+                                                                            metas:
+                                                                                Metas(
+                                                                              id: '2vqf7_-d46648ef',
+                                                                              title: 'Audio Memo',
+                                                                            ),
+                                                                          ),
+                                                                          titleTextStyle: FlutterFlowTheme.of(context)
+                                                                              .titleLarge
+                                                                              .override(
+                                                                                fontFamily: 'Inter',
+                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
+                                                                              ),
+                                                                          playbackDurationTextStyle: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .override(
+                                                                                fontFamily: 'Inter',
+                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FontWeight.w500,
+                                                                              ),
+                                                                          fillColor:
+                                                                              Colors.black,
+                                                                          playbackButtonColor:
+                                                                              FlutterFlowTheme.of(context).secondaryBackground,
+                                                                          activeTrackColor:
+                                                                              FlutterFlowTheme.of(context).secondaryBackground,
+                                                                          inactiveTrackColor:
+                                                                              FlutterFlowTheme.of(context).secondaryText,
+                                                                          elevation:
+                                                                              1.0,
+                                                                          playInBackground:
+                                                                              PlayInBackground.disabledRestoreOnForeground,
                                                                         ),
                                                                       ),
-                                                                      titleTextStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .titleLarge
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Inter',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondaryBackground,
-                                                                            fontSize:
-                                                                                14.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                          ),
-                                                                      playbackDurationTextStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .labelMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Inter',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondaryBackground,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                          ),
-                                                                      fillColor:
-                                                                          Colors
-                                                                              .black,
-                                                                      playbackButtonColor:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .secondaryBackground,
-                                                                      activeTrackColor:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .secondaryBackground,
-                                                                      inactiveTrackColor:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .secondaryText,
-                                                                      elevation:
-                                                                          1.0,
-                                                                      playInBackground:
-                                                                          PlayInBackground
-                                                                              .disabledRestoreOnForeground,
                                                                     ),
-                                                                  ),
+                                                                    const Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          SizedBox(
+                                                                        width:
+                                                                            200.0,
+                                                                        height:
+                                                                            150.0,
+                                                                        child: custom_widgets
+                                                                            .MyCircularProgressIndicator(
+                                                                          width:
+                                                                              200.0,
+                                                                          height:
+                                                                              150.0,
+                                                                          size:
+                                                                              100.0,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
                                                                 ),
                                                               ),
                                                             ),
@@ -807,6 +815,8 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                             onPressed: () async {
                                               var shouldSetState = false;
                                               if (_model.isRecording == true) {
+                                                _model.isRecording = false;
+                                                setState(() {});
                                                 await stopAudioRecording(
                                                   audioRecorder:
                                                       _model.audioRecorder,
@@ -832,11 +842,6 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                       <SelectedFile>[];
                                                   var downloadUrls = <String>[];
                                                   try {
-                                                    showUploadMessage(
-                                                      context,
-                                                      'Uploading file...',
-                                                      showLoading: true,
-                                                    );
                                                     selectedUploadedFiles = _model
                                                             .recordedFileBytes
                                                             .bytes!
@@ -863,9 +868,6 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                         .map((u) => u!)
                                                         .toList();
                                                   } finally {
-                                                    ScaffoldMessenger.of(
-                                                            context)
-                                                        .hideCurrentSnackBar();
                                                     _model.isDataUploading2 =
                                                         false;
                                                   }
@@ -883,22 +885,12 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                       _model.uploadedFileUrl2 =
                                                           downloadUrls.first;
                                                     });
-                                                    showUploadMessage(
-                                                      context,
-                                                      'Success!',
-                                                    );
                                                   } else {
                                                     setState(() {});
-                                                    showUploadMessage(
-                                                      context,
-                                                      'Failed to upload file',
-                                                    );
                                                     return;
                                                   }
                                                 }
 
-                                                _model.isRecording = false;
-                                                setState(() {});
                                                 _model.showAudio = true;
                                                 setState(() {});
                                                 _model.audioFile =
