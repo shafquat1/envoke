@@ -817,6 +817,8 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                               if (_model.isRecording == true) {
                                                 _model.isRecording = false;
                                                 setState(() {});
+                                                _model.showAudio = true;
+                                                setState(() {});
                                                 await stopAudioRecording(
                                                   audioRecorder:
                                                       _model.audioRecorder,
@@ -891,8 +893,6 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                   }
                                                 }
 
-                                                _model.showAudio = true;
-                                                setState(() {});
                                                 _model.audioFile =
                                                     _model.uploadedFileUrl2;
                                                 if (shouldSetState) {
@@ -947,8 +947,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                               .primaryBackground,
                                           size: 24.0,
                                         ),
-                                        onPressed: (_model.audioFile != null &&
-                                                _model.audioFile != '')
+                                        onPressed: (_model.showAudio == true)
                                             ? null
                                             : () async {
                                                 if (_model.isRecording ==
