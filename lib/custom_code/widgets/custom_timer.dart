@@ -28,34 +28,32 @@ class CustomTimer extends StatefulWidget {
 }
 
 class _CustomTimerState extends State<CustomTimer> {
+  Stopwatch _stopwatch = Stopwatch();
   Timer? _timer;
-  int _milliseconds = 0;
 
   void startTimer() {
     if (_timer != null) {
       _timer!.cancel();
     }
-    _timer = Timer.periodic(Duration(milliseconds: 1), (timer) {
-      setState(() {
-        _milliseconds++;
-      });
+    _stopwatch.start();
+    _timer = Timer.periodic(Duration(milliseconds: 10), (timer) {
+      setState(() {});
     });
   }
 
   void stopTimer() {
-    if (_timer != null) {
-      _timer!.cancel();
-    }
+    _stopwatch.stop();
+    _timer?.cancel();
   }
 
   void resetTimer() {
     stopTimer();
-    setState(() {
-      _milliseconds = 0;
-    });
+    _stopwatch.reset();
+    setState(() {});
   }
 
   String getFormattedTime() {
+    int _milliseconds = _stopwatch.elapsedMilliseconds;
     int minutes = (_milliseconds ~/ 60000) % 60;
     int seconds = (_milliseconds ~/ 1000) % 60;
     String formattedMinutes = minutes.toString().padLeft(2, '0');
