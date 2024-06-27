@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'dart:typed_data';
+
 import 'package:path_provider/path_provider.dart';
 
 import 'package:path/path.dart' as p;
@@ -39,5 +41,5 @@ Future<String> imgCompressSPBupload(FFUploadedFile file) async {
   await compressedFile.writeAsBytes(result);
 
   // Return the file path
-  return compressedFile.path;
+  return compressedFile.uri.toString();
 }

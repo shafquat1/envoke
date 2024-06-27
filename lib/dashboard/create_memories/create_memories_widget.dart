@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'create_memories_model.dart';
@@ -392,18 +391,11 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(8.0),
-                                                        child:
-                                                            CachedNetworkImage(
-                                                          fadeInDuration:
-                                                              const Duration(
-                                                                  milliseconds:
-                                                                      500),
-                                                          fadeOutDuration:
-                                                              const Duration(
-                                                                  milliseconds:
-                                                                      500),
-                                                          imageUrl:
-                                                              _model.imagePath!,
+                                                        child: Image.memory(
+                                                          _model.uploadedLocalFile
+                                                                  .bytes ??
+                                                              Uint8List
+                                                                  .fromList([]),
                                                           width:
                                                               double.infinity,
                                                           fit: BoxFit.contain,
