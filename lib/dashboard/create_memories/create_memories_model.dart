@@ -1,11 +1,14 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import 'create_memories_widget.dart' show CreateMemoriesWidget;
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CreateMemoriesModel extends FlutterFlowModel<CreateMemoriesWidget> {
   ///  Local state fields for this page.
 
   bool addNew = false;
+
+  DateTime? date;
 
   ///  State fields for stateful widgets in this page.
 
@@ -29,6 +32,7 @@ class CreateMemoriesModel extends FlutterFlowModel<CreateMemoriesWidget> {
 
   // Stores action output result for [Custom Action - compress] action in Container widget.
   FFUploadedFile? compressedImage;
+  DateTime? datePicked;
   bool isDataUploading2 = false;
   FFUploadedFile uploadedLocalFile2 =
       FFUploadedFile(bytes: Uint8List.fromList([]));

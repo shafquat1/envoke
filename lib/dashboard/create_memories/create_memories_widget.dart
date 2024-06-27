@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'create_memories_model.dart';
@@ -163,7 +164,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                     0.0, 80.0, 0.0, 0.0),
                                 child: Container(
                                   width: MediaQuery.sizeOf(context).width * 0.9,
-                                  height: 389.0,
+                                  height: 400.0,
                                   decoration: BoxDecoration(
                                     color: const Color(0xFF1C1C1C),
                                     borderRadius: BorderRadius.circular(24.0),
@@ -407,7 +408,169 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                         Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 50.0, 0.0, 0.0),
+                                                  0.0, 20.0, 0.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        10.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  _model.date != null
+                                                      ? dateTimeFormat(
+                                                          'd MMMM y',
+                                                          _model.date)
+                                                      : dateTimeFormat(
+                                                          'd MMMM y',
+                                                          getCurrentTimestamp),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'JasmineUPC',
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        fontSize: 30.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        useGoogleFonts: false,
+                                                      ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 10.0, 0.0),
+                                                child: FFButtonWidget(
+                                                  onPressed: (_model
+                                                                  .compressedImage ==
+                                                              null ||
+                                                          (_model
+                                                                  .compressedImage
+                                                                  ?.bytes
+                                                                  ?.isEmpty ??
+                                                              true))
+                                                      ? null
+                                                      : () async {
+                                                          await showModalBottomSheet<
+                                                                  bool>(
+                                                              context: context,
+                                                              builder:
+                                                                  (context) {
+                                                                final datePickedCupertinoTheme =
+                                                                    CupertinoTheme.of(
+                                                                        context);
+                                                                return Container(
+                                                                  height: MediaQuery.of(
+                                                                              context)
+                                                                          .size
+                                                                          .height /
+                                                                      3,
+                                                                  width: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                                  child:
+                                                                      CupertinoTheme(
+                                                                    data: datePickedCupertinoTheme
+                                                                        .copyWith(
+                                                                      textTheme: datePickedCupertinoTheme
+                                                                          .textTheme
+                                                                          .copyWith(
+                                                                        dateTimePickerTextStyle: FlutterFlowTheme.of(context)
+                                                                            .headlineMedium
+                                                                            .override(
+                                                                              fontFamily: 'Inter',
+                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                              letterSpacing: 0.0,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                    child:
+                                                                        CupertinoDatePicker(
+                                                                      mode: CupertinoDatePickerMode
+                                                                          .date,
+                                                                      minimumDate:
+                                                                          DateTime(
+                                                                              1900),
+                                                                      initialDateTime:
+                                                                          getCurrentTimestamp,
+                                                                      maximumDate:
+                                                                          DateTime(
+                                                                              2050),
+                                                                      backgroundColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .secondaryBackground,
+                                                                      use24hFormat:
+                                                                          false,
+                                                                      onDateTimeChanged:
+                                                                          (newDateTime) =>
+                                                                              safeSetState(() {
+                                                                        _model.datePicked =
+                                                                            newDateTime;
+                                                                      }),
+                                                                    ),
+                                                                  ),
+                                                                );
+                                                              });
+                                                          _model.date =
+                                                              _model.datePicked;
+                                                          setState(() {});
+                                                        },
+                                                  text: 'Change',
+                                                  options: FFButtonOptions(
+                                                    width: MediaQuery.sizeOf(
+                                                                context)
+                                                            .width *
+                                                        0.35,
+                                                    height: 35.0,
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(24.0, 0.0,
+                                                                24.0, 0.0),
+                                                    iconPadding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    textStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    borderSide: const BorderSide(
+                                                      color: Colors.transparent,
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            22.0),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 30.0, 0.0, 0.0),
                                           child: FFButtonWidget(
                                             onPressed: (_model
                                                             .compressedImage ==
@@ -525,8 +688,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                           .doc()
                                                           .set(
                                                               createMemoriesRecordData(
-                                                            createdTime:
-                                                                getCurrentTimestamp,
+                                                            createdTime: _model.date ?? getCurrentTimestamp,
                                                             imgUrl: _model
                                                                 .uploadedFileUrl2,
                                                             userId:
