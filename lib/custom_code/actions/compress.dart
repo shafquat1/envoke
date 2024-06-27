@@ -8,38 +8,25 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'dart:typed_data';
-
 import 'package:path_provider/path_provider.dart';
-
-import 'package:path/path.dart' as p;
 
 import 'dart:io';
 
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 
-Future<String> imgCompressSPBupload(FFUploadedFile file) async {
+Future<FFUploadedFile> compress(FFUploadedFile file) async {
   Uint8List bytess = file.bytes!;
 
   // converts uint8LIst? to uint8List
 
   var result = await FlutterImageCompress.compressWithList(
     bytess,
-    quality: 90,
+    quality: 94,
   );
 
-// Get the temporary directory
-  final tempDir = await getTemporaryDirectory();
-  final tempPath = tempDir.path;
+// you can add more params as per the documentation in the pub.dev package.
 
-  // Create a unique file name
-  final fileName =
-      'compressed_image_${DateTime.now().millisecondsSinceEpoch}.jpg';
+//uint8List is bytes.
 
-  // Write the compressed bytes to a file
-  final compressedFile = File(p.join(tempPath, fileName));
-  await compressedFile.writeAsBytes(result);
-
-  // Return the file path
-  return compressedFile.uri.toString();
+  return FFUploadedFile(name: file.name, bytes: result);
 }

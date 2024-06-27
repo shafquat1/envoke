@@ -730,12 +730,14 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                 _model.showImg = true;
                                                 setState(() {});
                                                 _model.compressedImg =
-                                                    await actions
-                                                        .imgCompressSPBupload(
+                                                    await actions.compress(
                                                   _model.uploadedLocalFile1,
                                                 );
-                                                _model.imgFile =
-                                                    _model.compressedImg;
+                                                _model.imgPath = await actions
+                                                    .convertImageFileToBase64(
+                                                  _model.compressedImg!,
+                                                );
+                                                _model.imgFile = _model.imgPath;
                                                 setState(() {});
                                               } else {
                                                 ScaffoldMessenger.of(context)

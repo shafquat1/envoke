@@ -343,12 +343,14 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                               }
 
                                               _model.compressedImage =
-                                                  await actions
-                                                      .imgCompressSPBupload(
+                                                  await actions.compress(
                                                 _model.uploadedLocalFile,
                                               );
-                                              _model.imagePath =
-                                                  _model.compressedImage;
+                                              _model.imgPath = await actions
+                                                  .convertImageFileToBase64(
+                                                _model.compressedImage!,
+                                              );
+                                              _model.imagePath = _model.imgPath;
                                               setState(() {});
 
                                               setState(() {});
