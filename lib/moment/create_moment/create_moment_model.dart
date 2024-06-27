@@ -47,8 +47,9 @@ class CreateMomentModel extends FlutterFlowModel<CreateMomentWidget> {
   bool isDataUploading1 = false;
   FFUploadedFile uploadedLocalFile1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl1 = '';
 
+  // Stores action output result for [Custom Action - imgCompressSPBupload] action in IconButton widget.
+  String? compressedImg;
   String? myRecording;
   FFUploadedFile recordedFileBytes =
       FFUploadedFile(bytes: Uint8List.fromList([]));

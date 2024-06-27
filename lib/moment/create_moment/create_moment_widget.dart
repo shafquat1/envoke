@@ -6,14 +6,12 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/permissions_util.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:octo_image/octo_image.dart';
 import 'package:record/record.dart';
 import 'create_moment_model.dart';
 export 'create_moment_model.dart';
@@ -329,22 +327,12 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                 BorderRadius
                                                                     .circular(
                                                                         28.0),
-                                                            child: OctoImage(
-                                                              placeholderBuilder:
-                                                                  (_) => SizedBox
-                                                                      .expand(
-                                                                child: Image(
-                                                                  image: BlurHashImage(_model
-                                                                      .uploadedLocalFile1
-                                                                      .blurHash!),
-                                                                  fit: BoxFit
-                                                                      .cover,
-                                                                ),
-                                                              ),
-                                                              image:
-                                                                  CachedNetworkImageProvider(
-                                                                _model.imgFile!,
-                                                              ),
+                                                            child: Image.memory(
+                                                              _model.uploadedLocalFile1
+                                                                      .bytes ??
+                                                                  Uint8List
+                                                                      .fromList(
+                                                                          []),
                                                               width: double
                                                                   .infinity,
                                                               height: 200.0,
@@ -383,8 +371,6 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                         FFUploadedFile(
                                                                             bytes:
                                                                                 Uint8List.fromList([]));
-                                                                    _model.uploadedFileUrl1 =
-                                                                        '';
                                                                   });
 
                                                                   _model.showImg =
@@ -700,7 +686,6 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
 
-                                                var downloadUrls = <String>[];
                                                 try {
                                                   selectedUploadedFiles =
                                                       selectedMedia
@@ -721,35 +706,17 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                     m.blurHash,
                                                               ))
                                                           .toList();
-
-                                                  downloadUrls =
-                                                      (await Future.wait(
-                                                    selectedMedia.map(
-                                                      (m) async =>
-                                                          await uploadData(
-                                                              m.storagePath,
-                                                              m.bytes),
-                                                    ),
-                                                  ))
-                                                          .where(
-                                                              (u) => u != null)
-                                                          .map((u) => u!)
-                                                          .toList();
                                                 } finally {
                                                   _model.isDataUploading1 =
                                                       false;
                                                 }
                                                 if (selectedUploadedFiles
-                                                            .length ==
-                                                        selectedMedia.length &&
-                                                    downloadUrls.length ==
-                                                        selectedMedia.length) {
+                                                        .length ==
+                                                    selectedMedia.length) {
                                                   setState(() {
                                                     _model.uploadedLocalFile1 =
                                                         selectedUploadedFiles
                                                             .first;
-                                                    _model.uploadedFileUrl1 =
-                                                        downloadUrls.first;
                                                   });
                                                 } else {
                                                   setState(() {});
@@ -757,12 +724,18 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                 }
                                               }
 
-                                              if (_model.uploadedFileUrl1 !=
-                                                      '') {
+                                              if ((_model.uploadedLocalFile1
+                                                          .bytes?.isNotEmpty ??
+                                                      false)) {
                                                 _model.showImg = true;
                                                 setState(() {});
+                                                _model.compressedImg =
+                                                    await actions
+                                                        .imgCompressSPBupload(
+                                                  _model.uploadedLocalFile1,
+                                                );
                                                 _model.imgFile =
-                                                    _model.uploadedFileUrl1;
+                                                    _model.compressedImg;
                                                 setState(() {});
                                               } else {
                                                 ScaffoldMessenger.of(context)
@@ -786,6 +759,8 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                   ),
                                                 );
                                               }
+
+                                              setState(() {});
                                             },
                                     ),
                                   ),
