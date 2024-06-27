@@ -14,8 +14,6 @@ class CreateMomentModel extends FlutterFlowModel<CreateMomentWidget> {
 
   String? audioFile;
 
-  String? imgFile;
-
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -50,8 +48,6 @@ class CreateMomentModel extends FlutterFlowModel<CreateMomentWidget> {
 
   // Stores action output result for [Custom Action - compress] action in IconButton widget.
   FFUploadedFile? compressedImg;
-  // Stores action output result for [Custom Action - convertImageFileToBase64] action in IconButton widget.
-  String? imgPath;
   String? myRecording;
   FFUploadedFile recordedFileBytes =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -61,6 +57,10 @@ class CreateMomentModel extends FlutterFlowModel<CreateMomentWidget> {
   String uploadedFileUrl2 = '';
 
   AudioRecorder? audioRecorder;
+  bool isDataUploading3 = false;
+  FFUploadedFile uploadedLocalFile3 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl3 = '';
 
   @override
   void initState(BuildContext context) {

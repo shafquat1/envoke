@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -300,7 +301,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                           m.storagePath,
                                                           context))) {
                                                 setState(() => _model
-                                                    .isDataUploading = true);
+                                                    .isDataUploading1 = true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
 
@@ -325,14 +326,14 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                               ))
                                                           .toList();
                                                 } finally {
-                                                  _model.isDataUploading =
+                                                  _model.isDataUploading1 =
                                                       false;
                                                 }
                                                 if (selectedUploadedFiles
                                                         .length ==
                                                     selectedMedia.length) {
                                                   setState(() {
-                                                    _model.uploadedLocalFile =
+                                                    _model.uploadedLocalFile1 =
                                                         selectedUploadedFiles
                                                             .first;
                                                   });
@@ -344,14 +345,8 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
 
                                               _model.compressedImage =
                                                   await actions.compress(
-                                                _model.uploadedLocalFile,
+                                                _model.uploadedLocalFile1,
                                               );
-                                              _model.imgPath = await actions
-                                                  .convertImageFileToBase64(
-                                                _model.compressedImage!,
-                                              );
-                                              _model.imagePath = _model.imgPath;
-                                              setState(() {});
 
                                               setState(() {});
                                             },
@@ -368,7 +363,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.center,
                                                 children: [
-                                                  if ((_model.uploadedLocalFile
+                                                  if ((_model.uploadedLocalFile1
                                                               .bytes?.isEmpty ??
                                                           true))
                                                     Align(
@@ -384,7 +379,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                       ),
                                                     ),
                                                   if ((_model
-                                                              .uploadedLocalFile
+                                                              .uploadedLocalFile1
                                                               .bytes
                                                               ?.isNotEmpty ??
                                                           false))
@@ -394,7 +389,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                             BorderRadius
                                                                 .circular(8.0),
                                                         child: Image.memory(
-                                                          _model.uploadedLocalFile
+                                                          _model.uploadedLocalFile1
                                                                   .bytes ??
                                                               Uint8List
                                                                   .fromList([]),
@@ -414,70 +409,140 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 50.0, 0.0, 0.0),
                                           child: FFButtonWidget(
-                                            onPressed:
-                                                (_model.imagePath == null ||
-                                                        _model.imagePath == '')
-                                                    ? null
-                                                    : () async {
-                                                        if (_model.formKey
-                                                                    .currentState ==
-                                                                null ||
-                                                            !_model.formKey
-                                                                .currentState!
-                                                                .validate()) {
-                                                          return;
-                                                        }
-                                                        if (_model.imagePath ==
-                                                                null ||
-                                                            _model.imagePath ==
-                                                                '') {
-                                                          ScaffoldMessenger.of(
-                                                                  context)
-                                                              .showSnackBar(
-                                                            SnackBar(
-                                                              content: Text(
-                                                                'Please upload an Image.',
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                ),
-                                                              ),
-                                                              duration: const Duration(
-                                                                  milliseconds:
-                                                                      4000),
-                                                              backgroundColor:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondary,
+                                            onPressed: (_model
+                                                            .compressedImage ==
+                                                        null ||
+                                                    (_model.compressedImage
+                                                            ?.bytes?.isEmpty ??
+                                                        true))
+                                                ? null
+                                                : () async {
+                                                    if (_model.formKey
+                                                                .currentState ==
+                                                            null ||
+                                                        !_model.formKey
+                                                            .currentState!
+                                                            .validate()) {
+                                                      return;
+                                                    }
+                                                    if (_model.compressedImage ==
+                                                            null ||
+                                                        (_model
+                                                                .compressedImage
+                                                                ?.bytes
+                                                                ?.isEmpty ??
+                                                            true)) {
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        SnackBar(
+                                                          content: Text(
+                                                            'Please upload an Image.',
+                                                            style: TextStyle(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryText,
                                                             ),
+                                                          ),
+                                                          duration: const Duration(
+                                                              milliseconds:
+                                                                  4000),
+                                                          backgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .secondary,
+                                                        ),
+                                                      );
+                                                      return;
+                                                    } else {
+                                                      {
+                                                        setState(() => _model
+                                                                .isDataUploading2 =
+                                                            true);
+                                                        var selectedUploadedFiles =
+                                                            <FFUploadedFile>[];
+                                                        var selectedMedia =
+                                                            <SelectedFile>[];
+                                                        var downloadUrls =
+                                                            <String>[];
+                                                        try {
+                                                          selectedUploadedFiles = _model
+                                                                  .compressedImage!
+                                                                  .bytes!
+                                                                  .isNotEmpty
+                                                              ? [
+                                                                  _model
+                                                                      .compressedImage!
+                                                                ]
+                                                              : <FFUploadedFile>[];
+                                                          selectedMedia =
+                                                              selectedFilesFromUploadedFiles(
+                                                            selectedUploadedFiles,
                                                           );
-                                                          return;
-                                                        } else {
-                                                          await MemoriesRecord
-                                                              .collection
-                                                              .doc()
-                                                              .set(
-                                                                  createMemoriesRecordData(
-                                                                createdTime:
-                                                                    getCurrentTimestamp,
-                                                                imgUrl: _model
-                                                                    .imagePath,
-                                                                userId:
-                                                                    currentUserUid,
-                                                                memoryTitle: _model
-                                                                    .textController
-                                                                    .text,
-                                                                imgBlurHash: _model
-                                                                    .uploadedLocalFile
-                                                                    .blurHash,
-                                                              ));
-
-                                                          context.goNamed(
-                                                              'MemoriesTimeline');
+                                                          downloadUrls =
+                                                              (await Future
+                                                                      .wait(
+                                                            selectedMedia.map(
+                                                              (m) async =>
+                                                                  await uploadData(
+                                                                      m.storagePath,
+                                                                      m.bytes),
+                                                            ),
+                                                          ))
+                                                                  .where((u) =>
+                                                                      u != null)
+                                                                  .map(
+                                                                      (u) => u!)
+                                                                  .toList();
+                                                        } finally {
+                                                          _model.isDataUploading2 =
+                                                              false;
                                                         }
-                                                      },
+                                                        if (selectedUploadedFiles
+                                                                    .length ==
+                                                                selectedMedia
+                                                                    .length &&
+                                                            downloadUrls
+                                                                    .length ==
+                                                                selectedMedia
+                                                                    .length) {
+                                                          setState(() {
+                                                            _model.uploadedLocalFile2 =
+                                                                selectedUploadedFiles
+                                                                    .first;
+                                                            _model.uploadedFileUrl2 =
+                                                                downloadUrls
+                                                                    .first;
+                                                          });
+                                                        } else {
+                                                          setState(() {});
+                                                          return;
+                                                        }
+                                                      }
+
+                                                      await MemoriesRecord
+                                                          .collection
+                                                          .doc()
+                                                          .set(
+                                                              createMemoriesRecordData(
+                                                            createdTime:
+                                                                getCurrentTimestamp,
+                                                            imgUrl: _model
+                                                                .uploadedFileUrl2,
+                                                            userId:
+                                                                currentUserUid,
+                                                            memoryTitle: _model
+                                                                .textController
+                                                                .text,
+                                                            imgBlurHash: _model
+                                                                .compressedImage
+                                                                ?.blurHash,
+                                                          ));
+
+                                                      context.goNamed(
+                                                          'MemoriesTimeline');
+                                                    }
+                                                  },
                                             text: 'Save',
                                             options: FFButtonOptions(
                                               width: MediaQuery.sizeOf(context)

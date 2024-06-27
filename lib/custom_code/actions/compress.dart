@@ -21,12 +21,13 @@ Future<FFUploadedFile> compress(FFUploadedFile file) async {
 
   var result = await FlutterImageCompress.compressWithList(
     bytess,
-    quality: 94,
+    quality: 10,
   );
 
 // you can add more params as per the documentation in the pub.dev package.
 
 //uint8List is bytes.
 
-  return FFUploadedFile(name: file.name, bytes: result);
+  return FFUploadedFile(
+      name: file.name, bytes: result, blurHash: file.blurHash);
 }

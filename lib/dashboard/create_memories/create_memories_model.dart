@@ -7,8 +7,6 @@ class CreateMemoriesModel extends FlutterFlowModel<CreateMemoriesWidget> {
 
   bool addNew = false;
 
-  String? imagePath;
-
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -25,14 +23,16 @@ class CreateMemoriesModel extends FlutterFlowModel<CreateMemoriesWidget> {
     return null;
   }
 
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
+  bool isDataUploading1 = false;
+  FFUploadedFile uploadedLocalFile1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Stores action output result for [Custom Action - compress] action in Container widget.
   FFUploadedFile? compressedImage;
-  // Stores action output result for [Custom Action - convertImageFileToBase64] action in Container widget.
-  String? imgPath;
+  bool isDataUploading2 = false;
+  FFUploadedFile uploadedLocalFile2 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl2 = '';
 
   @override
   void initState(BuildContext context) {

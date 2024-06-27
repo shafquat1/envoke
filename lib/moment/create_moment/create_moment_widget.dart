@@ -373,12 +373,19 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                                 Uint8List.fromList([]));
                                                                   });
 
+                                                                  setState(() {
+                                                                    _model.isDataUploading3 =
+                                                                        false;
+                                                                    _model.uploadedLocalFile3 =
+                                                                        FFUploadedFile(
+                                                                            bytes:
+                                                                                Uint8List.fromList([]));
+                                                                    _model.uploadedFileUrl3 =
+                                                                        '';
+                                                                  });
+
                                                                   _model.showImg =
                                                                       false;
-                                                                  setState(
-                                                                      () {});
-                                                                  _model.imgFile =
-                                                                      null;
                                                                   setState(
                                                                       () {});
                                                                 },
@@ -666,8 +673,11 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                             .primaryBackground,
                                         size: 24.0,
                                       ),
-                                      onPressed: (_model.imgFile != null &&
-                                              _model.imgFile != '')
+                                      onPressed: (_model.compressedImg !=
+                                                  null &&
+                                              (_model.compressedImg?.bytes
+                                                      ?.isNotEmpty ??
+                                                  false))
                                           ? null
                                           : () async {
                                               final selectedMedia =
@@ -727,17 +737,11 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                               if ((_model.uploadedLocalFile1
                                                           .bytes?.isNotEmpty ??
                                                       false)) {
-                                                _model.showImg = true;
-                                                setState(() {});
                                                 _model.compressedImg =
                                                     await actions.compress(
                                                   _model.uploadedLocalFile1,
                                                 );
-                                                _model.imgPath = await actions
-                                                    .convertImageFileToBase64(
-                                                  _model.compressedImg!,
-                                                );
-                                                _model.imgFile = _model.imgPath;
+                                                _model.showImg = true;
                                                 setState(() {});
                                               } else {
                                                 ScaffoldMessenger.of(context)
@@ -991,6 +995,57 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                               );
                                               return;
                                             }
+                                            {
+                                              setState(() => _model
+                                                  .isDataUploading3 = true);
+                                              var selectedUploadedFiles =
+                                                  <FFUploadedFile>[];
+                                              var selectedMedia =
+                                                  <SelectedFile>[];
+                                              var downloadUrls = <String>[];
+                                              try {
+                                                selectedUploadedFiles = _model
+                                                        .compressedImg!
+                                                        .bytes!
+                                                        .isNotEmpty
+                                                    ? [_model.compressedImg!]
+                                                    : <FFUploadedFile>[];
+                                                selectedMedia =
+                                                    selectedFilesFromUploadedFiles(
+                                                  selectedUploadedFiles,
+                                                );
+                                                downloadUrls =
+                                                    (await Future.wait(
+                                                  selectedMedia.map(
+                                                    (m) async =>
+                                                        await uploadData(
+                                                            m.storagePath,
+                                                            m.bytes),
+                                                  ),
+                                                ))
+                                                        .where((u) => u != null)
+                                                        .map((u) => u!)
+                                                        .toList();
+                                              } finally {
+                                                _model.isDataUploading3 = false;
+                                              }
+                                              if (selectedUploadedFiles
+                                                          .length ==
+                                                      selectedMedia.length &&
+                                                  downloadUrls.length ==
+                                                      selectedMedia.length) {
+                                                setState(() {
+                                                  _model.uploadedLocalFile3 =
+                                                      selectedUploadedFiles
+                                                          .first;
+                                                  _model.uploadedFileUrl3 =
+                                                      downloadUrls.first;
+                                                });
+                                              } else {
+                                                setState(() {});
+                                                return;
+                                              }
+                                            }
 
                                             await MomentsRecord.createDoc(
                                                     widget.memories!.reference)
@@ -999,10 +1054,10 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                   _model.textController1.text,
                                               notes:
                                                   _model.textController2.text,
-                                              imgUrl: _model.imgFile,
+                                              imgUrl: _model.uploadedFileUrl3,
                                               audioUrl: _model.audioFile,
                                               imgBlurHash: _model
-                                                  .uploadedLocalFile1.blurHash,
+                                                  .compressedImg?.blurHash,
                                               createdAt: getCurrentTimestamp,
                                             ));
 
