@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'create_memories_model.dart';
@@ -341,6 +342,17 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                   return;
                                                 }
                                               }
+
+                                              _model.compressedImage =
+                                                  await actions
+                                                      .imgCompressSPBupload(
+                                                _model.uploadedLocalFile,
+                                              );
+                                              _model.imagePath =
+                                                  _model.compressedImage;
+                                              setState(() {});
+
+                                              setState(() {});
                                             },
                                             child: Container(
                                               width: 100.0,
@@ -380,11 +392,18 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(8.0),
-                                                        child: Image.memory(
-                                                          _model.uploadedLocalFile
-                                                                  .bytes ??
-                                                              Uint8List
-                                                                  .fromList([]),
+                                                        child:
+                                                            CachedNetworkImage(
+                                                          fadeInDuration:
+                                                              const Duration(
+                                                                  milliseconds:
+                                                                      500),
+                                                          fadeOutDuration:
+                                                              const Duration(
+                                                                  milliseconds:
+                                                                      500),
+                                                          imageUrl:
+                                                              _model.imagePath!,
                                                           width:
                                                               double.infinity,
                                                           fit: BoxFit.contain,
@@ -401,72 +420,70 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 50.0, 0.0, 0.0),
                                           child: FFButtonWidget(
-                                            onPressed: () async {
-                                              var shouldSetState = false;
-                                              if (_model.formKey.currentState ==
-                                                      null ||
-                                                  !_model.formKey.currentState!
-                                                      .validate()) {
-                                                return;
-                                              }
-                                              _model.compressedImg =
-                                                  await actions
-                                                      .imgCompressSPBupload(
-                                                _model.uploadedLocalFile,
-                                              );
-                                              shouldSetState = true;
-                                              if (_model.compressedImg ==
-                                                      null ||
-                                                  _model.compressedImg == '') {
-                                                ScaffoldMessenger.of(context)
-                                                    .showSnackBar(
-                                                  SnackBar(
-                                                    content: Text(
-                                                      'Please upload an Image.',
-                                                      style: TextStyle(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                      ),
-                                                    ),
-                                                    duration: const Duration(
-                                                        milliseconds: 4000),
-                                                    backgroundColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondary,
-                                                  ),
-                                                );
-                                                if (shouldSetState) {
-                                                  setState(() {});
-                                                }
-                                                return;
-                                              } else {
-                                                await MemoriesRecord.collection
-                                                    .doc()
-                                                    .set(
-                                                        createMemoriesRecordData(
-                                                      createdTime:
-                                                          getCurrentTimestamp,
-                                                      imgUrl:
-                                                          _model.compressedImg,
-                                                      userId: currentUserUid,
-                                                      memoryTitle: _model
-                                                          .textController.text,
-                                                      imgBlurHash: _model
-                                                          .uploadedLocalFile
-                                                          .blurHash,
-                                                    ));
+                                            onPressed:
+                                                (_model.imagePath == null ||
+                                                        _model.imagePath == '')
+                                                    ? null
+                                                    : () async {
+                                                        if (_model.formKey
+                                                                    .currentState ==
+                                                                null ||
+                                                            !_model.formKey
+                                                                .currentState!
+                                                                .validate()) {
+                                                          return;
+                                                        }
+                                                        if (_model.imagePath ==
+                                                                null ||
+                                                            _model.imagePath ==
+                                                                '') {
+                                                          ScaffoldMessenger.of(
+                                                                  context)
+                                                              .showSnackBar(
+                                                            SnackBar(
+                                                              content: Text(
+                                                                'Please upload an Image.',
+                                                                style:
+                                                                    TextStyle(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
+                                                              ),
+                                                              duration: const Duration(
+                                                                  milliseconds:
+                                                                      4000),
+                                                              backgroundColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                            ),
+                                                          );
+                                                          return;
+                                                        } else {
+                                                          await MemoriesRecord
+                                                              .collection
+                                                              .doc()
+                                                              .set(
+                                                                  createMemoriesRecordData(
+                                                                createdTime:
+                                                                    getCurrentTimestamp,
+                                                                imgUrl: _model
+                                                                    .imagePath,
+                                                                userId:
+                                                                    currentUserUid,
+                                                                memoryTitle: _model
+                                                                    .textController
+                                                                    .text,
+                                                                imgBlurHash: _model
+                                                                    .uploadedLocalFile
+                                                                    .blurHash,
+                                                              ));
 
-                                                context.goNamed(
-                                                    'MemoriesTimeline');
-                                              }
-
-                                              if (shouldSetState) {
-                                                setState(() {});
-                                              }
-                                            },
+                                                          context.goNamed(
+                                                              'MemoriesTimeline');
+                                                        }
+                                                      },
                                             text: 'Save',
                                             options: FFButtonOptions(
                                               width: MediaQuery.sizeOf(context)
