@@ -26,7 +26,9 @@ class CreateMemoriesModel extends FlutterFlowModel<CreateMemoriesWidget> {
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl = '';
+
+  // Stores action output result for [Custom Action - imgCompressSPBupload] action in Button widget.
+  String? compressedImg;
 
   @override
   void initState(BuildContext context) {

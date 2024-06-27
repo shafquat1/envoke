@@ -1,12 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'create_memories_model.dart';
@@ -305,7 +304,6 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
 
-                                                var downloadUrls = <String>[];
                                                 try {
                                                   selectedUploadedFiles =
                                                       selectedMedia
@@ -326,35 +324,17 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                     m.blurHash,
                                                               ))
                                                           .toList();
-
-                                                  downloadUrls =
-                                                      (await Future.wait(
-                                                    selectedMedia.map(
-                                                      (m) async =>
-                                                          await uploadData(
-                                                              m.storagePath,
-                                                              m.bytes),
-                                                    ),
-                                                  ))
-                                                          .where(
-                                                              (u) => u != null)
-                                                          .map((u) => u!)
-                                                          .toList();
                                                 } finally {
                                                   _model.isDataUploading =
                                                       false;
                                                 }
                                                 if (selectedUploadedFiles
-                                                            .length ==
-                                                        selectedMedia.length &&
-                                                    downloadUrls.length ==
-                                                        selectedMedia.length) {
+                                                        .length ==
+                                                    selectedMedia.length) {
                                                   setState(() {
                                                     _model.uploadedLocalFile =
                                                         selectedUploadedFiles
                                                             .first;
-                                                    _model.uploadedFileUrl =
-                                                        downloadUrls.first;
                                                   });
                                                 } else {
                                                   setState(() {});
@@ -375,8 +355,9 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.center,
                                                 children: [
-                                                  if (_model.uploadedFileUrl ==
-                                                          '')
+                                                  if ((_model.uploadedLocalFile
+                                                              .bytes?.isEmpty ??
+                                                          true))
                                                     Align(
                                                       alignment:
                                                           const AlignmentDirectional(
@@ -389,25 +370,21 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                         size: 50.0,
                                                       ),
                                                     ),
-                                                  if (_model.uploadedFileUrl !=
-                                                          '')
+                                                  if ((_model
+                                                              .uploadedLocalFile
+                                                              .bytes
+                                                              ?.isNotEmpty ??
+                                                          false))
                                                     Flexible(
                                                       child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(8.0),
-                                                        child:
-                                                            CachedNetworkImage(
-                                                          fadeInDuration:
-                                                              const Duration(
-                                                                  milliseconds:
-                                                                      500),
-                                                          fadeOutDuration:
-                                                              const Duration(
-                                                                  milliseconds:
-                                                                      500),
-                                                          imageUrl: _model
-                                                              .uploadedFileUrl,
+                                                        child: Image.memory(
+                                                          _model.uploadedLocalFile
+                                                                  .bytes ??
+                                                              Uint8List
+                                                                  .fromList([]),
                                                           width:
                                                               double.infinity,
                                                           fit: BoxFit.contain,
@@ -425,14 +402,22 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                   0.0, 50.0, 0.0, 0.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
+                                              var shouldSetState = false;
                                               if (_model.formKey.currentState ==
                                                       null ||
                                                   !_model.formKey.currentState!
                                                       .validate()) {
                                                 return;
                                               }
-                                              if (_model.uploadedFileUrl ==
-                                                      '') {
+                                              _model.compressedImg =
+                                                  await actions
+                                                      .imgCompressSPBupload(
+                                                _model.uploadedLocalFile,
+                                              );
+                                              shouldSetState = true;
+                                              if (_model.compressedImg ==
+                                                      null ||
+                                                  _model.compressedImg == '') {
                                                 ScaffoldMessenger.of(context)
                                                     .showSnackBar(
                                                   SnackBar(
@@ -453,6 +438,9 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                             .secondary,
                                                   ),
                                                 );
+                                                if (shouldSetState) {
+                                                  setState(() {});
+                                                }
                                                 return;
                                               } else {
                                                 await MemoriesRecord.collection
@@ -461,8 +449,8 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                         createMemoriesRecordData(
                                                       createdTime:
                                                           getCurrentTimestamp,
-                                                      imgUrl: _model
-                                                          .uploadedFileUrl,
+                                                      imgUrl:
+                                                          _model.compressedImg,
                                                       userId: currentUserUid,
                                                       memoryTitle: _model
                                                           .textController.text,
@@ -473,6 +461,10 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
 
                                                 context.goNamed(
                                                     'MemoriesTimeline');
+                                              }
+
+                                              if (shouldSetState) {
+                                                setState(() {});
                                               }
                                             },
                                             text: 'Save',
