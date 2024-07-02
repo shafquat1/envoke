@@ -759,7 +759,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              75.0, 180.0, 75.0, 40.0),
+                              75.0, 150.0, 75.0, 40.0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               GoRouter.of(context).prepareAuthEvent();

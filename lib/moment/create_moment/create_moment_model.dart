@@ -14,6 +14,8 @@ class CreateMomentModel extends FlutterFlowModel<CreateMomentWidget> {
 
   String? audioFile;
 
+  bool showTimer = false;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
