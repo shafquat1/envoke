@@ -810,7 +810,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 0.0),
+                                                    5.0, 10.0, 5.0, 0.0),
                                             child: FlutterFlowIconButton(
                                               borderColor: const Color(0xFF242424),
                                               borderRadius: 30.0,
@@ -826,7 +826,6 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                               ),
                                               onPressed: () async {
                                                 _model.showTimer = false;
-                                                setState(() {});
                                                 await stopAudioRecording(
                                                   audioRecorder:
                                                       _model.audioRecorder,
@@ -843,9 +842,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                 );
 
                                                 _model.isRecording = false;
-                                                setState(() {});
                                                 _model.showAudio = true;
-                                                setState(() {});
                                                 {
                                                   setState(() => _model
                                                       .isDataUploading2 = true);
