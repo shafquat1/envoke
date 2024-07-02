@@ -801,12 +801,12 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                               },
                                       ),
                                     ),
-                                    if (_model.isRecording == true)
-                                      Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        if (_model.isRecording == true)
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
@@ -930,23 +930,23 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                               },
                                             ),
                                           ),
-                                          if (_model.showTimer)
-                                            Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 5.0, 0.0, 0.0),
-                                              child: SizedBox(
+                                        if (_model.showTimer)
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 5.0, 0.0, 0.0),
+                                            child: SizedBox(
+                                              width: 40.0,
+                                              height: 40.0,
+                                              child: custom_widgets.CustomTimer(
                                                 width: 40.0,
                                                 height: 40.0,
-                                                child:
-                                                    custom_widgets.CustomTimer(
-                                                  width: 40.0,
-                                                  height: 40.0,
-                                                  isRecording: _model.showTimer,
-                                                ),
+                                                isRecording: _model.showTimer,
                                               ),
                                             ),
-                                        ],
-                                      ),
+                                          ),
+                                      ],
+                                    ),
                                     if (_model.isRecording == false)
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
