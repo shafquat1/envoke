@@ -825,108 +825,89 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                 size: 24.0,
                                               ),
                                               onPressed: () async {
-                                                var shouldSetState = false;
-                                                if (_model.isRecording ==
-                                                    true) {
-                                                  await stopAudioRecording(
-                                                    audioRecorder:
-                                                        _model.audioRecorder,
-                                                    audioName:
-                                                        'recordedFileBytes.mp3',
-                                                    onRecordingComplete:
-                                                        (audioFilePath,
-                                                            audioBytes) {
-                                                      _model.myRecording =
-                                                          audioFilePath;
-                                                      _model.recordedFileBytes =
-                                                          audioBytes;
-                                                    },
-                                                  );
+                                                _model.showTimer = false;
+                                                setState(() {});
+                                                await stopAudioRecording(
+                                                  audioRecorder:
+                                                      _model.audioRecorder,
+                                                  audioName:
+                                                      'recordedFileBytes.mp3',
+                                                  onRecordingComplete:
+                                                      (audioFilePath,
+                                                          audioBytes) {
+                                                    _model.myRecording =
+                                                        audioFilePath;
+                                                    _model.recordedFileBytes =
+                                                        audioBytes;
+                                                  },
+                                                );
 
-                                                  shouldSetState = true;
-                                                  _model.showTimer = false;
-                                                  setState(() {});
-                                                  _model.isRecording = false;
-                                                  setState(() {});
-                                                  _model.showAudio = true;
-                                                  setState(() {});
-                                                  {
-                                                    setState(() => _model
-                                                            .isDataUploading2 =
-                                                        true);
-                                                    var selectedUploadedFiles =
-                                                        <FFUploadedFile>[];
-                                                    var selectedFiles =
-                                                        <SelectedFile>[];
-                                                    var downloadUrls =
-                                                        <String>[];
-                                                    try {
-                                                      selectedUploadedFiles = _model
-                                                              .recordedFileBytes
-                                                              .bytes!
-                                                              .isNotEmpty
-                                                          ? [
-                                                              _model
-                                                                  .recordedFileBytes
-                                                            ]
-                                                          : <FFUploadedFile>[];
-                                                      selectedFiles =
-                                                          selectedFilesFromUploadedFiles(
-                                                        selectedUploadedFiles,
-                                                      );
-                                                      downloadUrls =
-                                                          (await Future.wait(
-                                                        selectedFiles.map(
-                                                          (f) async =>
-                                                              await uploadData(
-                                                                  f.storagePath,
-                                                                  f.bytes),
-                                                        ),
-                                                      ))
-                                                              .where((u) =>
-                                                                  u != null)
-                                                              .map((u) => u!)
-                                                              .toList();
-                                                    } finally {
-                                                      _model.isDataUploading2 =
-                                                          false;
-                                                    }
-                                                    if (selectedUploadedFiles
-                                                                .length ==
-                                                            selectedFiles
-                                                                .length &&
-                                                        downloadUrls.length ==
-                                                            selectedFiles
-                                                                .length) {
-                                                      setState(() {
-                                                        _model.uploadedLocalFile2 =
-                                                            selectedUploadedFiles
-                                                                .first;
-                                                        _model.uploadedFileUrl2 =
-                                                            downloadUrls.first;
-                                                      });
-                                                    } else {
-                                                      setState(() {});
-                                                      return;
-                                                    }
+                                                _model.isRecording = false;
+                                                setState(() {});
+                                                _model.showAudio = true;
+                                                setState(() {});
+                                                {
+                                                  setState(() => _model
+                                                      .isDataUploading2 = true);
+                                                  var selectedUploadedFiles =
+                                                      <FFUploadedFile>[];
+                                                  var selectedFiles =
+                                                      <SelectedFile>[];
+                                                  var downloadUrls = <String>[];
+                                                  try {
+                                                    selectedUploadedFiles = _model
+                                                            .recordedFileBytes
+                                                            .bytes!
+                                                            .isNotEmpty
+                                                        ? [
+                                                            _model
+                                                                .recordedFileBytes
+                                                          ]
+                                                        : <FFUploadedFile>[];
+                                                    selectedFiles =
+                                                        selectedFilesFromUploadedFiles(
+                                                      selectedUploadedFiles,
+                                                    );
+                                                    downloadUrls = (await Future
+                                                            .wait(
+                                                      selectedFiles.map(
+                                                        (f) async =>
+                                                            await uploadData(
+                                                                f.storagePath,
+                                                                f.bytes),
+                                                      ),
+                                                    ))
+                                                        .where((u) => u != null)
+                                                        .map((u) => u!)
+                                                        .toList();
+                                                  } finally {
+                                                    _model.isDataUploading2 =
+                                                        false;
                                                   }
-
-                                                  _model.audioFile =
-                                                      _model.uploadedFileUrl2;
-                                                  if (shouldSetState) {
+                                                  if (selectedUploadedFiles
+                                                              .length ==
+                                                          selectedFiles
+                                                              .length &&
+                                                      downloadUrls.length ==
+                                                          selectedFiles
+                                                              .length) {
+                                                    setState(() {
+                                                      _model.uploadedLocalFile2 =
+                                                          selectedUploadedFiles
+                                                              .first;
+                                                      _model.uploadedFileUrl2 =
+                                                          downloadUrls.first;
+                                                    });
+                                                  } else {
                                                     setState(() {});
+                                                    return;
                                                   }
-                                                  return;
-                                                } else {
-                                                  if (shouldSetState) {
-                                                    setState(() {});
-                                                  }
-                                                  return;
                                                 }
 
-                                                if (shouldSetState) {
-                                                  setState(() {});
-                                                }
+                                                _model.audioFile =
+                                                    _model.uploadedFileUrl2;
+
+                                                setState(() {});
                                               },
                                             ),
                                           ),
