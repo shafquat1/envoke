@@ -957,9 +957,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                   if (await getPermissionStatus(
                                                       microphonePermission)) {
                                                     _model.isRecording = true;
-                                                    setState(() {});
                                                     _model.showTimer = true;
-                                                    setState(() {});
                                                   } else {
                                                     await requestPermission(
                                                         microphonePermission);
