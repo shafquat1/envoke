@@ -828,8 +828,6 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                 var shouldSetState = false;
                                                 if (_model.isRecording ==
                                                     true) {
-                                                  _model.showTimer = false;
-                                                  setState(() {});
                                                   await stopAudioRecording(
                                                     audioRecorder:
                                                         _model.audioRecorder,
@@ -846,6 +844,8 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                   );
 
                                                   shouldSetState = true;
+                                                  _model.showTimer = false;
+                                                  setState(() {});
                                                   _model.isRecording = false;
                                                   setState(() {});
                                                   _model.showAudio = true;
