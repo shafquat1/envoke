@@ -951,7 +951,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                     width: 40.0,
                                                     height: 40.0,
                                                     isRecording:
-                                                        _model.showTimer,
+                                                        _model.showTimer!,
                                                   ),
                                                 ),
                                               ),
