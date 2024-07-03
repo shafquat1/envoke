@@ -6,15 +6,15 @@ import 'package:record/record.dart';
 class CreateMomentModel extends FlutterFlowModel<CreateMomentWidget> {
   ///  Local state fields for this page.
 
-  bool? isRecording = false;
+  bool isRecording = false;
 
-  bool? showAudio = false;
+  bool showAudio = false;
 
-  bool? showImg = false;
+  bool showImg = false;
 
   String? audioFile;
 
-  bool? showTimer = false;
+  bool showTimer = false;
 
   ///  State fields for stateful widgets in this page.
 

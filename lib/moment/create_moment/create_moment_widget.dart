@@ -939,22 +939,23 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                   },
                                                 ),
                                               ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 5.0, 0.0, 0.0),
-                                                child: SizedBox(
-                                                  width: 40.0,
-                                                  height: 40.0,
-                                                  child: custom_widgets
-                                                      .CustomTimer(
+                                              if (_model.showTimer)
+                                                Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 5.0, 0.0, 0.0),
+                                                  child: SizedBox(
                                                     width: 40.0,
                                                     height: 40.0,
-                                                    isRecording:
-                                                        _model.showTimer!,
+                                                    child: custom_widgets
+                                                        .CustomTimer(
+                                                      width: 40.0,
+                                                      height: 40.0,
+                                                      isRecording:
+                                                          _model.showTimer,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
                                             ],
                                           );
                                         } else {
