@@ -832,7 +832,6 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                     if (_model.isRecording ==
                                                         true) {
                                                       _model.showTimer = false;
-                                                      setState(() {});
                                                       await stopAudioRecording(
                                                         audioRecorder: _model
                                                             .audioRecorder,
@@ -939,23 +938,22 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                   },
                                                 ),
                                               ),
-                                              if (_model.showTimer)
-                                                Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 5.0, 0.0, 0.0),
-                                                  child: SizedBox(
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 5.0, 0.0, 0.0),
+                                                child: SizedBox(
+                                                  width: 40.0,
+                                                  height: 40.0,
+                                                  child: custom_widgets
+                                                      .CustomTimer(
                                                     width: 40.0,
                                                     height: 40.0,
-                                                    child: custom_widgets
-                                                        .CustomTimer(
-                                                      width: 40.0,
-                                                      height: 40.0,
-                                                      isRecording:
-                                                          _model.showTimer,
-                                                    ),
+                                                    isRecording:
+                                                        _model.showTimer,
                                                   ),
                                                 ),
+                                              ),
                                             ],
                                           );
                                         } else {
