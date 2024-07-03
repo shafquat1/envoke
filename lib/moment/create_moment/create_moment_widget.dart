@@ -854,8 +854,6 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                       setState(() {});
                                                       _model.showAudio = true;
                                                       setState(() {});
-                                                      _model.audioFile = _model
-                                                          .uploadedFileUrl2;
                                                       {
                                                         setState(() => _model
                                                                 .isDataUploading2 =
@@ -921,6 +919,9 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                         }
                                                       }
 
+                                                      _model.audioFile = _model
+                                                          .uploadedFileUrl2;
+                                                      setState(() {});
                                                       if (shouldSetState) {
                                                         setState(() {});
                                                       }
@@ -938,23 +939,22 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                   },
                                                 ),
                                               ),
-                                              if (_model.showTimer)
-                                                Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 5.0, 0.0, 0.0),
-                                                  child: SizedBox(
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 5.0, 0.0, 0.0),
+                                                child: SizedBox(
+                                                  width: 40.0,
+                                                  height: 40.0,
+                                                  child: custom_widgets
+                                                      .CustomTimer(
                                                     width: 40.0,
                                                     height: 40.0,
-                                                    child: custom_widgets
-                                                        .CustomTimer(
-                                                      width: 40.0,
-                                                      height: 40.0,
-                                                      isRecording:
-                                                          _model.showTimer,
-                                                    ),
+                                                    isRecording:
+                                                        _model.showTimer,
                                                   ),
                                                 ),
+                                              ),
                                             ],
                                           );
                                         } else {
