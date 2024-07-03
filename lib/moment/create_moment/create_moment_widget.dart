@@ -801,177 +801,217 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                               },
                                       ),
                                     ),
-                                    Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        if (_model.isRecording == true)
-                                          Padding(
+                                    Builder(
+                                      builder: (context) {
+                                        if (_model.isRecording == true) {
+                                          return Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 10.0, 0.0, 0.0),
+                                                child: FlutterFlowIconButton(
+                                                  borderColor:
+                                                      const Color(0xFF242424),
+                                                  borderRadius: 30.0,
+                                                  borderWidth: 1.0,
+                                                  buttonSize: 60.0,
+                                                  fillColor: const Color(0xFF242424),
+                                                  icon: Icon(
+                                                    Icons.stop_circle_outlined,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryBackground,
+                                                    size: 24.0,
+                                                  ),
+                                                  onPressed: () async {
+                                                    var shouldSetState = false;
+                                                    if (_model.isRecording ==
+                                                        true) {
+                                                      _model.showTimer = false;
+                                                      setState(() {});
+                                                      await stopAudioRecording(
+                                                        audioRecorder: _model
+                                                            .audioRecorder,
+                                                        audioName:
+                                                            'recordedFileBytes.mp3',
+                                                        onRecordingComplete:
+                                                            (audioFilePath,
+                                                                audioBytes) {
+                                                          _model.myRecording =
+                                                              audioFilePath;
+                                                          _model.recordedFileBytes =
+                                                              audioBytes;
+                                                        },
+                                                      );
+
+                                                      shouldSetState = true;
+                                                      _model.isRecording =
+                                                          false;
+                                                      setState(() {});
+                                                      _model.showAudio = true;
+                                                      setState(() {});
+                                                      _model.audioFile = _model
+                                                          .uploadedFileUrl2;
+                                                      {
+                                                        setState(() => _model
+                                                                .isDataUploading2 =
+                                                            true);
+                                                        var selectedUploadedFiles =
+                                                            <FFUploadedFile>[];
+                                                        var selectedFiles =
+                                                            <SelectedFile>[];
+                                                        var downloadUrls =
+                                                            <String>[];
+                                                        try {
+                                                          selectedUploadedFiles = _model
+                                                                  .recordedFileBytes
+                                                                  .bytes!
+                                                                  .isNotEmpty
+                                                              ? [
+                                                                  _model
+                                                                      .recordedFileBytes
+                                                                ]
+                                                              : <FFUploadedFile>[];
+                                                          selectedFiles =
+                                                              selectedFilesFromUploadedFiles(
+                                                            selectedUploadedFiles,
+                                                          );
+                                                          downloadUrls =
+                                                              (await Future
+                                                                      .wait(
+                                                            selectedFiles.map(
+                                                              (f) async =>
+                                                                  await uploadData(
+                                                                      f.storagePath,
+                                                                      f.bytes),
+                                                            ),
+                                                          ))
+                                                                  .where((u) =>
+                                                                      u != null)
+                                                                  .map(
+                                                                      (u) => u!)
+                                                                  .toList();
+                                                        } finally {
+                                                          _model.isDataUploading2 =
+                                                              false;
+                                                        }
+                                                        if (selectedUploadedFiles
+                                                                    .length ==
+                                                                selectedFiles
+                                                                    .length &&
+                                                            downloadUrls
+                                                                    .length ==
+                                                                selectedFiles
+                                                                    .length) {
+                                                          setState(() {
+                                                            _model.uploadedLocalFile2 =
+                                                                selectedUploadedFiles
+                                                                    .first;
+                                                            _model.uploadedFileUrl2 =
+                                                                downloadUrls
+                                                                    .first;
+                                                          });
+                                                        } else {
+                                                          setState(() {});
+                                                          return;
+                                                        }
+                                                      }
+
+                                                      if (shouldSetState) {
+                                                        setState(() {});
+                                                      }
+                                                      return;
+                                                    } else {
+                                                      if (shouldSetState) {
+                                                        setState(() {});
+                                                      }
+                                                      return;
+                                                    }
+
+                                                    if (shouldSetState) {
+                                                      setState(() {});
+                                                    }
+                                                  },
+                                                ),
+                                              ),
+                                              if (_model.showTimer)
+                                                Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 5.0, 0.0, 0.0),
+                                                  child: SizedBox(
+                                                    width: 40.0,
+                                                    height: 40.0,
+                                                    child: custom_widgets
+                                                        .CustomTimer(
+                                                      width: 40.0,
+                                                      height: 40.0,
+                                                      isRecording:
+                                                          _model.showTimer,
+                                                    ),
+                                                  ),
+                                                ),
+                                            ],
+                                          );
+                                        } else {
+                                          return Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    5.0, 10.0, 5.0, 0.0),
+                                                    0.0, 10.0, 0.0, 45.0),
                                             child: FlutterFlowIconButton(
                                               borderColor: const Color(0xFF242424),
                                               borderRadius: 30.0,
                                               borderWidth: 1.0,
                                               buttonSize: 60.0,
                                               fillColor: const Color(0xFF242424),
+                                              disabledIconColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
                                               icon: Icon(
-                                                Icons.stop_circle_outlined,
+                                                Icons.mic_none,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBackground,
                                                 size: 24.0,
                                               ),
-                                              onPressed: () async {
-                                                _model.showTimer = false;
-                                                await stopAudioRecording(
-                                                  audioRecorder:
-                                                      _model.audioRecorder,
-                                                  audioName:
-                                                      'recordedFileBytes.mp3',
-                                                  onRecordingComplete:
-                                                      (audioFilePath,
-                                                          audioBytes) {
-                                                    _model.myRecording =
-                                                        audioFilePath;
-                                                    _model.recordedFileBytes =
-                                                        audioBytes;
-                                                  },
-                                                );
+                                              onPressed: (_model.audioFile !=
+                                                          null &&
+                                                      _model.audioFile != '')
+                                                  ? null
+                                                  : () async {
+                                                      if (_model.isRecording ==
+                                                          false) {
+                                                        await requestPermission(
+                                                            microphonePermission);
+                                                      }
+                                                      if (await getPermissionStatus(
+                                                          microphonePermission)) {
+                                                        _model.isRecording =
+                                                            true;
+                                                        setState(() {});
+                                                        _model.showTimer = true;
+                                                        setState(() {});
+                                                      } else {
+                                                        await requestPermission(
+                                                            microphonePermission);
+                                                      }
 
-                                                _model.isRecording = false;
-                                                _model.showAudio = true;
-                                                {
-                                                  setState(() => _model
-                                                      .isDataUploading2 = true);
-                                                  var selectedUploadedFiles =
-                                                      <FFUploadedFile>[];
-                                                  var selectedFiles =
-                                                      <SelectedFile>[];
-                                                  var downloadUrls = <String>[];
-                                                  try {
-                                                    selectedUploadedFiles = _model
-                                                            .recordedFileBytes
-                                                            .bytes!
-                                                            .isNotEmpty
-                                                        ? [
-                                                            _model
-                                                                .recordedFileBytes
-                                                          ]
-                                                        : <FFUploadedFile>[];
-                                                    selectedFiles =
-                                                        selectedFilesFromUploadedFiles(
-                                                      selectedUploadedFiles,
-                                                    );
-                                                    downloadUrls = (await Future
-                                                            .wait(
-                                                      selectedFiles.map(
-                                                        (f) async =>
-                                                            await uploadData(
-                                                                f.storagePath,
-                                                                f.bytes),
-                                                      ),
-                                                    ))
-                                                        .where((u) => u != null)
-                                                        .map((u) => u!)
-                                                        .toList();
-                                                  } finally {
-                                                    _model.isDataUploading2 =
-                                                        false;
-                                                  }
-                                                  if (selectedUploadedFiles
-                                                              .length ==
-                                                          selectedFiles
-                                                              .length &&
-                                                      downloadUrls.length ==
-                                                          selectedFiles
-                                                              .length) {
-                                                    setState(() {
-                                                      _model.uploadedLocalFile2 =
-                                                          selectedUploadedFiles
-                                                              .first;
-                                                      _model.uploadedFileUrl2 =
-                                                          downloadUrls.first;
-                                                    });
-                                                  } else {
-                                                    setState(() {});
-                                                    return;
-                                                  }
-                                                }
-
-                                                _model.audioFile =
-                                                    _model.uploadedFileUrl2;
-
-                                                setState(() {});
-                                              },
-                                            ),
-                                          ),
-                                        if (_model.showTimer)
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 5.0, 0.0, 0.0),
-                                            child: SizedBox(
-                                              width: 40.0,
-                                              height: 40.0,
-                                              child: custom_widgets.CustomTimer(
-                                                width: 40.0,
-                                                height: 40.0,
-                                                isRecording: _model.showTimer,
-                                              ),
-                                            ),
-                                          ),
-                                      ],
-                                    ),
-                                    if (_model.isRecording == false)
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 10.0, 0.0, 45.0),
-                                        child: FlutterFlowIconButton(
-                                          borderColor: const Color(0xFF242424),
-                                          borderRadius: 30.0,
-                                          borderWidth: 1.0,
-                                          buttonSize: 60.0,
-                                          fillColor: const Color(0xFF242424),
-                                          disabledIconColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondaryText,
-                                          icon: Icon(
-                                            Icons.mic_none,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryBackground,
-                                            size: 24.0,
-                                          ),
-                                          onPressed: (_model.audioFile !=
-                                                      null &&
-                                                  _model.audioFile != '')
-                                              ? null
-                                              : () async {
-                                                  if (_model.isRecording ==
-                                                      false) {
-                                                    await requestPermission(
-                                                        microphonePermission);
-                                                  }
-                                                  if (await getPermissionStatus(
-                                                      microphonePermission)) {
-                                                    _model.isRecording = true;
-                                                    _model.showTimer = true;
-                                                  } else {
-                                                    await requestPermission(
-                                                        microphonePermission);
-                                                  }
-
-                                                  await startAudioRecording(
-                                                    context,
-                                                    audioRecorder:
-                                                        _model.audioRecorder ??=
+                                                      await startAudioRecording(
+                                                        context,
+                                                        audioRecorder: _model
+                                                                .audioRecorder ??=
                                                             AudioRecorder(),
-                                                  );
-                                                },
-                                        ),
-                                      ),
+                                                      );
+                                                    },
+                                            ),
+                                          );
+                                        }
+                                      },
+                                    ),
                                     Flexible(
                                       child: Align(
                                         alignment:
