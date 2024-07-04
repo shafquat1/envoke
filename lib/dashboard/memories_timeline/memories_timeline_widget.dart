@@ -387,7 +387,10 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                       Align(
                                                                                         alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                                         child: Text(
-                                                                                          '${columnCount.toString()} items',
+                                                                                          valueOrDefault<String>(
+                                                                                            columnMemoriesRecord.createdTime?.toString(),
+                                                                                            '0',
+                                                                                          ),
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 fontFamily: 'Inter',
                                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -791,7 +794,10 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                         Align(
                                                                                           alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                                           child: Text(
-                                                                                            '${columnCount.toString()} items',
+                                                                                            valueOrDefault<String>(
+                                                                                              columnMemoriesRecord.createdTime?.toString(),
+                                                                                              '0',
+                                                                                            ),
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
