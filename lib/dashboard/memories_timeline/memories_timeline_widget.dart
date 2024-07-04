@@ -356,7 +356,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                           width:
                                                                               350.0,
                                                                           height:
-                                                                              200.0,
+                                                                              350.0,
                                                                           fit: BoxFit
                                                                               .cover,
                                                                         ),
@@ -387,10 +387,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                       Align(
                                                                                         alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                                         child: Text(
-                                                                                          valueOrDefault<String>(
-                                                                                            columnMemoriesRecord.createdTime?.toString(),
-                                                                                            '0',
-                                                                                          ),
+                                                                                          dateTimeFormat('d MMMM y', columnMemoriesRecord.createdTime!),
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 fontFamily: 'Inter',
                                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -763,7 +760,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                             width:
                                                                                 350.0,
                                                                             height:
-                                                                                200.0,
+                                                                                350.0,
                                                                             fit:
                                                                                 BoxFit.cover,
                                                                           ),
@@ -794,10 +791,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                         Align(
                                                                                           alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                                           child: Text(
-                                                                                            valueOrDefault<String>(
-                                                                                              columnMemoriesRecord.createdTime?.toString(),
-                                                                                              '0',
-                                                                                            ),
+                                                                                            dateTimeFormat('d MMMM y', columnMemoriesRecord.createdTime!),
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
