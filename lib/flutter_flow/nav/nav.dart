@@ -99,7 +99,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'CreateMemories',
           path: '/createMemories',
-          builder: (context, params) => const CreateMemoriesWidget(),
+          builder: (context, params) => CreateMemoriesWidget(
+            enableBack: params.getParam(
+              'enableBack',
+              ParamType.bool,
+            ),
+          ),
         ),
         FFRoute(
           name: 'MemoriesTimeline',
