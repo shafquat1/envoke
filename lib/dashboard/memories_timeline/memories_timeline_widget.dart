@@ -1053,7 +1053,15 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                               0.0, 0.0, 0.0, 20.0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              context.pushNamed('CreateMemories');
+                              context.pushNamed(
+                                'CreateMemories',
+                                queryParameters: {
+                                  'enableBack': serializeParam(
+                                    true,
+                                    ParamType.bool,
+                                  ),
+                                }.withoutNulls,
+                              );
                             },
                             text: '',
                             icon: Icon(
