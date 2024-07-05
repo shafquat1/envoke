@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:octo_image/octo_image.dart';
+import 'package:provider/provider.dart';
 import 'moment_timeline_model.dart';
 export 'moment_timeline_model.dart';
 
@@ -44,6 +45,8 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return StreamBuilder<List<MomentsRecord>>(
       stream: queryMomentsRecord(
         parent: widget.memories?.reference,
@@ -85,17 +88,46 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                     children: [
                       Stack(
                         children: [
-                          Opacity(
-                            opacity: 0.3,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(0.0),
-                              child: Image.asset(
-                                'assets/images/happy-saint-valentine-s-day-concept_2.png',
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: MediaQuery.sizeOf(context).height * 0.6,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
+                          Builder(
+                            builder: (context) {
+                              if (FFAppState().bgImg == '') {
+                                return Opacity(
+                                  opacity: 0.2,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(0.0),
+                                    child: Image.asset(
+                                      'assets/images/happy-saint-valentine-s-day-concept_2.png',
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.6,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                );
+                              } else {
+                                return Opacity(
+                                  opacity: 0.2,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(0.0),
+                                    child: CachedNetworkImage(
+                                      fadeInDuration:
+                                          const Duration(milliseconds: 500),
+                                      fadeOutDuration:
+                                          const Duration(milliseconds: 500),
+                                      imageUrl: FFAppState().bgImg,
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.6,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                );
+                              }
+                            },
                           ),
                           Column(
                             mainAxisSize: MainAxisSize.max,

@@ -22,6 +22,9 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _userGuid = prefs.getString('ff_userGuid') ?? _userGuid;
     });
+    _safeInit(() {
+      _bgImg = prefs.getString('ff_bgImg') ?? _bgImg;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -55,6 +58,13 @@ class FFAppState extends ChangeNotifier {
   set userGuid(String value) {
     _userGuid = value;
     prefs.setString('ff_userGuid', value);
+  }
+
+  String _bgImg = '';
+  String get bgImg => _bgImg;
+  set bgImg(String value) {
+    _bgImg = value;
+    prefs.setString('ff_bgImg', value);
   }
 }
 
