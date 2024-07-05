@@ -1,6 +1,5 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import 'create_memories_widget.dart' show CreateMemoriesWidget;
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CreateMemoriesModel extends FlutterFlowModel<CreateMemoriesWidget> {
@@ -23,10 +22,10 @@ class CreateMemoriesModel extends FlutterFlowModel<CreateMemoriesWidget> {
       ? pageViewController!.page!.round()
       : 0;
   // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode;
-  TextEditingController? textController;
-  String? Function(BuildContext, String?)? textControllerValidator;
-  String? _textControllerValidator(BuildContext context, String? val) {
+  FocusNode? textFieldFocusNode1;
+  TextEditingController? textController1;
+  String? Function(BuildContext, String?)? textController1Validator;
+  String? _textController1Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'Field is required';
     }
@@ -40,21 +39,28 @@ class CreateMemoriesModel extends FlutterFlowModel<CreateMemoriesWidget> {
 
   // Stores action output result for [Custom Action - compress] action in Container widget.
   FFUploadedFile? compressedImage;
-  DateTime? datePicked;
   bool isDataUploading2 = false;
   FFUploadedFile uploadedLocalFile2 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl2 = '';
 
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode2;
+  TextEditingController? textController2;
+  String? Function(BuildContext, String?)? textController2Validator;
+
   @override
   void initState(BuildContext context) {
-    textControllerValidator = _textControllerValidator;
+    textController1Validator = _textController1Validator;
   }
 
   @override
   void dispose() {
     unfocusNode.dispose();
-    textFieldFocusNode?.dispose();
-    textController?.dispose();
+    textFieldFocusNode1?.dispose();
+    textController1?.dispose();
+
+    textFieldFocusNode2?.dispose();
+    textController2?.dispose();
   }
 }
