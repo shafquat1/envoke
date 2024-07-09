@@ -228,8 +228,13 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                                     .fromSTEB(
                                                         0.0, 5.0, 0.0, 0.0),
                                                 child: Text(
-                                                  dateTimeFormat('d MMMM y',
-                                                      _model.createdAt),
+                                                  dateTimeFormat(
+                                                    'd MMMM y',
+                                                    _model.createdAt,
+                                                    locale: FFLocalizations.of(
+                                                            context)
+                                                        .languageCode,
+                                                  ),
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)

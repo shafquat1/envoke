@@ -94,7 +94,9 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                     child: Align(
                       alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Text(
-                        'Create Moment',
+                        FFLocalizations.of(context).getText(
+                          'pvdu758k' /* Create Moment */,
+                        ),
                         style: FlutterFlowTheme.of(context)
                             .headlineMedium
                             .override(
@@ -159,7 +161,10 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts: false,
                                               ),
-                                          hintText: 'Add Title',
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            'hqsbxj6p' /* Add Title */,
+                                          ),
                                           hintStyle: FlutterFlowTheme.of(
                                                   context)
                                               .labelMedium
@@ -214,7 +219,10 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                         autofocus: false,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText: 'Note',
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            '8dphrngn' /* Note */,
+                                          ),
                                           hintStyle: FlutterFlowTheme.of(
                                                   context)
                                               .labelMedium
@@ -309,7 +317,11 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                   0.0,
                                                                   20.0),
                                                       child: Text(
-                                                        'Photo',
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'svm5xn61' /* Photo */,
+                                                        ),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -436,7 +448,11 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                   0.0,
                                                                   20.0),
                                                       child: Text(
-                                                        'Audio',
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'pcv316fz' /* Audio */,
+                                                        ),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1135,7 +1151,10 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                 },
                                               );
                                             },
-                                            text: 'Save',
+                                            text: FFLocalizations.of(context)
+                                                .getText(
+                                              'kk3tofj5' /* Save */,
+                                            ),
                                             options: FFButtonOptions(
                                               width: 120.0,
                                               height: 60.0,

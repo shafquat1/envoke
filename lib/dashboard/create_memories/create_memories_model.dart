@@ -27,7 +27,9 @@ class CreateMemoriesModel extends FlutterFlowModel<CreateMemoriesWidget> {
   String? Function(BuildContext, String?)? textController1Validator;
   String? _textController1Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return FFLocalizations.of(context).getText(
+        '104lv5k3' /* Field is required */,
+      );
     }
 
     return null;

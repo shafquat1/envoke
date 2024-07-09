@@ -65,7 +65,9 @@ class _DeleteMemoriesWidgetState extends State<DeleteMemoriesWidget> {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                         child: Text(
-                          'Do you want to remove this memory?',
+                          FFLocalizations.of(context).getText(
+                            'd3jua6u7' /* Do you want to remove this mem... */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'JasmineUPC',
@@ -110,7 +112,9 @@ class _DeleteMemoriesWidgetState extends State<DeleteMemoriesWidget> {
                           onPressed: () async {
                             Navigator.pop(context);
                           },
-                          text: 'No',
+                          text: FFLocalizations.of(context).getText(
+                            '0my93jvm' /* No */,
+                          ),
                           options: FFButtonOptions(
                             width: 150.0,
                             height: 50.0,
@@ -148,7 +152,9 @@ class _DeleteMemoriesWidgetState extends State<DeleteMemoriesWidget> {
                             await widget.memory!.reference.delete();
                             Navigator.pop(context);
                           },
-                          text: 'Yes',
+                          text: FFLocalizations.of(context).getText(
+                            '27upjych' /* Yes */,
+                          ),
                           options: FFButtonOptions(
                             width: 150.0,
                             height: 50.0,

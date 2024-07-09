@@ -13,7 +13,9 @@ class SignupPageModel extends FlutterFlowModel<SignupPageWidget> {
   String? Function(BuildContext, String?)? textController1Validator;
   String? _textController1Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return FFLocalizations.of(context).getText(
+        'hn7facjc' /* Field is required */,
+      );
     }
 
     return null;
@@ -25,7 +27,9 @@ class SignupPageModel extends FlutterFlowModel<SignupPageWidget> {
   String? Function(BuildContext, String?)? textController2Validator;
   String? _textController2Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return FFLocalizations.of(context).getText(
+        'jnd4hegr' /* Field is required */,
+      );
     }
 
     return null;
@@ -37,7 +41,9 @@ class SignupPageModel extends FlutterFlowModel<SignupPageWidget> {
   String? Function(BuildContext, String?)? emailTextControllerValidator;
   String? _emailTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return FFLocalizations.of(context).getText(
+        'wjx2t0tb' /* Field is required */,
+      );
     }
 
     return null;
@@ -50,7 +56,9 @@ class SignupPageModel extends FlutterFlowModel<SignupPageWidget> {
   String? Function(BuildContext, String?)? passwordTextControllerValidator;
   String? _passwordTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return FFLocalizations.of(context).getText(
+        'bqapgnbs' /* Field is required */,
+      );
     }
 
     return null;

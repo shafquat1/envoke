@@ -411,7 +411,11 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                       Align(
                                                                                         alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                                         child: Text(
-                                                                                          dateTimeFormat('d MMMM y', columnMemoriesRecord.createdTime!),
+                                                                                          dateTimeFormat(
+                                                                                            'd MMMM y',
+                                                                                            columnMemoriesRecord.createdTime!,
+                                                                                            locale: FFLocalizations.of(context).languageCode,
+                                                                                          ),
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 fontFamily: 'Inter',
                                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -447,7 +451,9 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                   crossAxisAlignment: CrossAxisAlignment.start,
                                                                                   children: [
                                                                                     Text(
-                                                                                      'Shared by',
+                                                                                      FFLocalizations.of(context).getText(
+                                                                                        'mlh4k9n0' /* Shared by */,
+                                                                                      ),
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'JasmineUPC',
                                                                                             color: FlutterFlowTheme.of(context).info,
@@ -536,9 +542,12 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                             0.0),
                                                                     child: Text(
                                                                       dateTimeFormat(
-                                                                          'MMMM y',
-                                                                          columnMemoriesRecord
-                                                                              .createdTime!),
+                                                                        'MMMM y',
+                                                                        columnMemoriesRecord
+                                                                            .createdTime!,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium
@@ -815,7 +824,11 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                         Align(
                                                                                           alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                                           child: Text(
-                                                                                            dateTimeFormat('d MMMM y', columnMemoriesRecord.createdTime!),
+                                                                                            dateTimeFormat(
+                                                                                              'd MMMM y',
+                                                                                              columnMemoriesRecord.createdTime!,
+                                                                                              locale: FFLocalizations.of(context).languageCode,
+                                                                                            ),
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -973,8 +986,12 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                       child:
                                                                           Text(
                                                                         dateTimeFormat(
-                                                                            'MMMM y',
-                                                                            columnMemoriesRecord.createdTime!),
+                                                                          'MMMM y',
+                                                                          columnMemoriesRecord
+                                                                              .createdTime!,
+                                                                          locale:
+                                                                              FFLocalizations.of(context).languageCode,
+                                                                        ),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
@@ -1023,7 +1040,9 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                               onPressed: () async {
                                 context.pushNamed('profileDetail');
                               },
-                              text: 'Admin',
+                              text: FFLocalizations.of(context).getText(
+                                'wlbmob1d' /* Admin */,
+                              ),
                               options: FFButtonOptions(
                                 height: 40.0,
                                 padding: const EdgeInsetsDirectional.fromSTEB(

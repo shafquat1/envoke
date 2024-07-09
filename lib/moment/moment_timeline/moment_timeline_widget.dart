@@ -216,9 +216,14 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                 115.0, 0.0),
                                                     child: Text(
                                                       dateTimeFormat(
-                                                          'MMMM y',
-                                                          widget.memories!
-                                                              .createdTime!),
+                                                        'MMMM y',
+                                                        widget.memories!
+                                                            .createdTime!,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      ),
                                                       textAlign:
                                                           TextAlign.start,
                                                       style:
@@ -583,11 +588,13 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                               useGoogleFonts: false,
                                                                             ),
                                                                       ),
-                                                                      const TextSpan(
-                                                                        text:
-                                                                            '/',
+                                                                      TextSpan(
+                                                                        text: FFLocalizations.of(context)
+                                                                            .getText(
+                                                                          '07lvnb36' /* / */,
+                                                                        ),
                                                                         style:
-                                                                            TextStyle(
+                                                                            const TextStyle(
                                                                           fontFamily:
                                                                               'Istanbul type',
                                                                           fontWeight:

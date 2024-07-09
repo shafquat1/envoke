@@ -65,7 +65,9 @@ class _DeleteMomentWidgetState extends State<DeleteMomentWidget> {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                         child: Text(
-                          'Do you want to remove this moment?',
+                          FFLocalizations.of(context).getText(
+                            'y40vfda4' /* Do you want to remove this mom... */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'JasmineUPC',
@@ -110,7 +112,9 @@ class _DeleteMomentWidgetState extends State<DeleteMomentWidget> {
                           onPressed: () async {
                             Navigator.pop(context);
                           },
-                          text: 'No',
+                          text: FFLocalizations.of(context).getText(
+                            'dshwdki0' /* No */,
+                          ),
                           options: FFButtonOptions(
                             width: 150.0,
                             height: 50.0,
@@ -148,7 +152,9 @@ class _DeleteMomentWidgetState extends State<DeleteMomentWidget> {
                             await widget.moment!.reference.delete();
                             Navigator.pop(context);
                           },
-                          text: 'Yes',
+                          text: FFLocalizations.of(context).getText(
+                            'z0syegbd' /* Yes */,
+                          ),
                           options: FFButtonOptions(
                             width: 150.0,
                             height: 50.0,

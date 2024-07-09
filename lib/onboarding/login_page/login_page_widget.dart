@@ -127,7 +127,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 10.0),
                                           child: Text(
-                                            'Login',
+                                            FFLocalizations.of(context).getText(
+                                              'yv85sux6' /* Login */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -148,7 +150,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           autofocus: false,
                                           obscureText: false,
                                           decoration: InputDecoration(
-                                            hintText: 'Enter Email',
+                                            hintText:
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                              'plhe2fq4' /* Enter Email */,
+                                            ),
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
@@ -228,7 +234,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           obscureText:
                                               !_model.passwordVisibility,
                                           decoration: InputDecoration(
-                                            hintText: 'Enter Password',
+                                            hintText:
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                              'zv114nrz' /* Enter Password */,
+                                            ),
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
@@ -357,7 +367,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               ),
                                             ),
                                             Text(
-                                              'Newsletter (Optional)',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '87x4eu1b' /* Newsletter (Optional) */,
+                                              ),
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyMedium
@@ -423,7 +436,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
 
                                                 setState(() {});
                                               },
-                                              text: 'Login',
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                '1rp3sxed' /* Login */,
+                                              ),
                                               options: FFButtonOptions(
                                                 width:
                                                     MediaQuery.sizeOf(context)

@@ -148,7 +148,9 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
               Align(
                 alignment: const AlignmentDirectional(0.0, -1.0),
                 child: Text(
-                  'Ready to scan',
+                  FFLocalizations.of(context).getText(
+                    '573e8toi' /* Ready to scan */,
+                  ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Inter',
                         color: FlutterFlowTheme.of(context).secondaryText,
@@ -180,7 +182,9 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
                   child: Text(
-                    'Approach an NFC tag',
+                    FFLocalizations.of(context).getText(
+                      'tqi77a8b' /* Approach an NFC tag */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Inter',
                           fontSize: 15.0,
@@ -195,7 +199,9 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
                   onPressed: () async {
                     context.safePop();
                   },
-                  text: 'Cancel',
+                  text: FFLocalizations.of(context).getText(
+                    'm7sxf65m' /* Cancel */,
+                  ),
                   options: FFButtonOptions(
                     width: MediaQuery.sizeOf(context).width * 0.8,
                     height: 55.0,

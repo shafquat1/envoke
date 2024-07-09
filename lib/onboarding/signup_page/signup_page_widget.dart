@@ -124,7 +124,9 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Signup',
+                                    FFLocalizations.of(context).getText(
+                                      'g29afgtn' /* Signup */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -140,7 +142,11 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 20.0),
                                     child: Text(
-                                      'Create account and link\nwith Jewelry',
+                                      FFLocalizations.of(context).getText(
+                                        'r8vanqci' /* Create account and link
+with J... */
+                                        ,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -158,7 +164,10 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                     autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      hintText: 'First Name',
+                                      hintText:
+                                          FFLocalizations.of(context).getText(
+                                        'mzmzndvg' /* First Name */,
+                                      ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
@@ -233,7 +242,10 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                     autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      hintText: 'Last Name',
+                                      hintText:
+                                          FFLocalizations.of(context).getText(
+                                        'okn0atwy' /* Last Name */,
+                                      ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
@@ -308,7 +320,10 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                     autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      hintText: 'Enter Email',
+                                      hintText:
+                                          FFLocalizations.of(context).getText(
+                                        'd7l42iea' /* Enter Email */,
+                                      ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
@@ -380,7 +395,10 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                     autofocus: false,
                                     obscureText: !_model.passwordVisibility,
                                     decoration: InputDecoration(
-                                      hintText: 'Enter Password',
+                                      hintText:
+                                          FFLocalizations.of(context).getText(
+                                        'mdxrsfez' /* Enter Password */,
+                                      ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
@@ -509,7 +527,11 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                             text: TextSpan(
                                               children: [
                                                 TextSpan(
-                                                  text: 'Accept ',
+                                                  text: FFLocalizations.of(
+                                                          context)
+                                                      .getText(
+                                                    'l4chstq1' /* Accept  */,
+                                                  ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -524,7 +546,11 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                       ),
                                                 ),
                                                 TextSpan(
-                                                  text: 'Terms & Conditions ',
+                                                  text: FFLocalizations.of(
+                                                          context)
+                                                      .getText(
+                                                    '7jgms7a2' /* Terms & Conditions  */,
+                                                  ),
                                                   style: GoogleFonts.getFont(
                                                     'Inter',
                                                     fontWeight: FontWeight.w500,
@@ -534,7 +560,11 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                   ),
                                                 ),
                                                 TextSpan(
-                                                  text: 'and ',
+                                                  text: FFLocalizations.of(
+                                                          context)
+                                                      .getText(
+                                                    's24pf2te' /* and  */,
+                                                  ),
                                                   style: GoogleFonts.getFont(
                                                     'Inter',
                                                     fontWeight: FontWeight.w500,
@@ -542,7 +572,11 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                   ),
                                                 ),
                                                 TextSpan(
-                                                  text: 'Data Protection ',
+                                                  text: FFLocalizations.of(
+                                                          context)
+                                                      .getText(
+                                                    'jgbv43s2' /* Data Protection  */,
+                                                  ),
                                                   style: GoogleFonts.getFont(
                                                     'Inter',
                                                     fontWeight: FontWeight.w500,
@@ -552,7 +586,11 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                   ),
                                                 ),
                                                 TextSpan(
-                                                  text: '(Mandatory Field)',
+                                                  text: FFLocalizations.of(
+                                                          context)
+                                                      .getText(
+                                                    't6hcum7a' /* (Mandatory Field) */,
+                                                  ),
                                                   style: GoogleFonts.getFont(
                                                     'Inter',
                                                     fontWeight: FontWeight.w500,
@@ -613,7 +651,9 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                         ),
                                       ),
                                       Text(
-                                        'Newsletter (Optional)',
+                                        FFLocalizations.of(context).getText(
+                                          'q9cpenar' /* Newsletter (Optional) */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -757,7 +797,10 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                   }
                                                 }
                                               },
-                                        text: 'Signup',
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          'nzu73ybr' /* Signup */,
+                                        ),
                                         options: FFButtonOptions(
                                           width:
                                               MediaQuery.sizeOf(context).width *

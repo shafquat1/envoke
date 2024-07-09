@@ -26,7 +26,9 @@ class CreateMomentModel extends FlutterFlowModel<CreateMomentWidget> {
   String? Function(BuildContext, String?)? textController1Validator;
   String? _textController1Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return FFLocalizations.of(context).getText(
+        'ouc01oo8' /* Field is required */,
+      );
     }
 
     return null;
@@ -38,7 +40,9 @@ class CreateMomentModel extends FlutterFlowModel<CreateMomentWidget> {
   String? Function(BuildContext, String?)? textController2Validator;
   String? _textController2Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return FFLocalizations.of(context).getText(
+        'wusawv25' /* Field is required */,
+      );
     }
 
     return null;

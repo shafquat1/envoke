@@ -69,7 +69,9 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 40.0, 0.0, 0.0),
                           child: Text(
-                            'Share Moment',
+                            FFLocalizations.of(context).getText(
+                              '5qaemse6' /* Share Moment */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -122,7 +124,9 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                             autofocus: false,
                             obscureText: false,
                             decoration: InputDecoration(
-                              labelText: 'Enter Email',
+                              labelText: FFLocalizations.of(context).getText(
+                                'o4lbzebi' /* Enter Email */,
+                              ),
                               labelStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
@@ -320,7 +324,9 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
 
                                 if (shouldSetState) setState(() {});
                               },
-                              text: 'Share',
+                              text: FFLocalizations.of(context).getText(
+                                '8xnosua5' /* Share */,
+                              ),
                               options: FFButtonOptions(
                                 width: double.infinity,
                                 height: 60.0,

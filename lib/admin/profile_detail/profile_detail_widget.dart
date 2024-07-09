@@ -125,7 +125,9 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                             Align(
                               alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Text(
-                                'Profile',
+                                FFLocalizations.of(context).getText(
+                                  '4b0rqxol' /* Profile */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
@@ -208,7 +210,9 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 33.0, 30.0, 0.0, 10.0),
                             child: Text(
-                              'Account',
+                              FFLocalizations.of(context).getText(
+                                '5tllo5ij' /* Account */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -243,7 +247,9 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 23.0, 0.0, 0.0),
                                         child: Text(
-                                          'Email ID',
+                                          FFLocalizations.of(context).getText(
+                                            'i03wi7q2' /* Email ID */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -296,7 +302,10 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                 alignment: const AlignmentDirectional(
                                                     -1.0, 0.0),
                                                 child: Text(
-                                                  'Password',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'ooblk8o7' /* Password */,
+                                                  ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -316,7 +325,10 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                     .fromSTEB(
                                                         0.0, 2.0, 0.0, 0.0),
                                                 child: Text(
-                                                  '********',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'he3snuh7' /* ******** */,
+                                                  ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -362,7 +374,11 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                     context: context,
                                                   );
                                                 },
-                                                text: 'Change',
+                                                text:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'gxczi6tw' /* Change */,
+                                                ),
                                                 options: FFButtonOptions(
                                                   height: 40.0,
                                                   padding: const EdgeInsetsDirectional
@@ -421,7 +437,9 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       33.0, 30.0, 0.0, 10.0),
                                   child: Text(
-                                    'Shared Album',
+                                    FFLocalizations.of(context).getText(
+                                      'kdhbogbp' /* Shared Album */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -464,7 +482,10 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                       .fromSTEB(
                                                           0.0, 23.0, 0.0, 0.0),
                                                   child: Text(
-                                                    'Email ID',
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'vy8ziskk' /* Email ID */,
+                                                    ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -550,7 +571,10 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                 ).then(
                                                     (value) => setState(() {}));
                                               },
-                                              text: 'Remove',
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                '6v99qqye' /* Remove */,
+                                              ),
                                               options: FFButtonOptions(
                                                 height: 40.0,
                                                 padding: const EdgeInsetsDirectional
@@ -616,7 +640,9 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 23.0, 0.0, 0.0),
                                           child: Text(
-                                            'Share with an existing user',
+                                            FFLocalizations.of(context).getText(
+                                              'k3fxxds1' /* Share with an existing user */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -706,7 +732,9 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 33.0, 30.0, 0.0, 10.0),
                             child: Text(
-                              'Jewellery',
+                              FFLocalizations.of(context).getText(
+                                '84zkepek' /* Jewellery */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -764,7 +792,9 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               33.0, 30.0, 0.0, 10.0),
                           child: Text(
-                            'Change background',
+                            FFLocalizations.of(context).getText(
+                              'gqv9sa85' /* Change background */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -910,7 +940,9 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                           _model.uploadedFileUrl;
                                       setState(() {});
                                     },
-                                    text: 'Change',
+                                    text: FFLocalizations.of(context).getText(
+                                      'ueqglvg7' /* Change */,
+                                    ),
                                     options: FFButtonOptions(
                                       height: 40.0,
                                       padding: const EdgeInsetsDirectional.fromSTEB(
@@ -960,7 +992,9 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                               context.goNamedAuth(
                                   'EntryScreen', context.mounted);
                             },
-                            text: 'Logout',
+                            text: FFLocalizations.of(context).getText(
+                              'n8qmq6kn' /* Logout */,
+                            ),
                             icon: const Icon(
                               Icons.power_settings_new_outlined,
                               color: Color(0xFF060606),

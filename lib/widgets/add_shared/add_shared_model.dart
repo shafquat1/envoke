@@ -13,7 +13,9 @@ class AddSharedModel extends FlutterFlowModel<AddSharedWidget> {
   String? Function(BuildContext, String?)? textControllerValidator;
   String? _textControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return FFLocalizations.of(context).getText(
+        '1ew1upa7' /* Field is required */,
+      );
     }
 
     if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {

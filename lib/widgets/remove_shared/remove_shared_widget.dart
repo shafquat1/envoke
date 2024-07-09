@@ -65,7 +65,9 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                         child: Text(
-                          'Do you want to Remove?',
+                          FFLocalizations.of(context).getText(
+                            'kxspqn1p' /* Do you want to Remove? */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'JasmineUPC',
@@ -142,7 +144,9 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                           onPressed: () async {
                             Navigator.pop(context);
                           },
-                          text: 'No',
+                          text: FFLocalizations.of(context).getText(
+                            'l8ak8h1l' /* No */,
+                          ),
                           options: FFButtonOptions(
                             width: 150.0,
                             height: 50.0,
@@ -180,7 +184,9 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                             await widget.shared!.reference.delete();
                             Navigator.pop(context);
                           },
-                          text: 'Yes',
+                          text: FFLocalizations.of(context).getText(
+                            'zdojvoyq' /* Yes */,
+                          ),
                           options: FFButtonOptions(
                             width: 150.0,
                             height: 50.0,

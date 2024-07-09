@@ -121,7 +121,9 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                               onPressed: () async {
                                 context.pushNamed('SignupPage');
                               },
-                              text: 'Signup',
+                              text: FFLocalizations.of(context).getText(
+                                '8bauxdju' /* Signup */,
+                              ),
                               options: FFButtonOptions(
                                 width: MediaQuery.sizeOf(context).width * 0.85,
                                 height: 55.0,
@@ -164,7 +166,9 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                               onPressed: () async {
                                 context.pushNamed('LoginPage');
                               },
-                              text: 'Login',
+                              text: FFLocalizations.of(context).getText(
+                                'x4rfwak8' /* Login */,
+                              ),
                               options: FFButtonOptions(
                                 width: MediaQuery.sizeOf(context).width * 0.85,
                                 height: 55.0,
@@ -217,7 +221,9 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                               },
                             ).then((value) => safeSetState(() {}));
                           },
-                          text: 'NFC Scan',
+                          text: FFLocalizations.of(context).getText(
+                            '9tyh2n55' /* NFC Scan */,
+                          ),
                           options: FFButtonOptions(
                             width: MediaQuery.sizeOf(context).width * 0.85,
                             height: 55.0,

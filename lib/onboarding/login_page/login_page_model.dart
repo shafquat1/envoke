@@ -13,7 +13,9 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   String? Function(BuildContext, String?)? emailTextControllerValidator;
   String? _emailTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return FFLocalizations.of(context).getText(
+        'jh9unk20' /* Field is required */,
+      );
     }
 
     if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {
@@ -29,7 +31,9 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   String? Function(BuildContext, String?)? passwordTextControllerValidator;
   String? _passwordTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return FFLocalizations.of(context).getText(
+        'w3kbpedn' /* Field is required */,
+      );
     }
 
     return null;

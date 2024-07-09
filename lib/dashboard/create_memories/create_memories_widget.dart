@@ -220,7 +220,11 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                         decoration:
                                                             InputDecoration(
                                                           hintText:
-                                                              'Add a Title',
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                            'z9czxuh3' /* Add a Title */,
+                                                          ),
                                                           hintStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -333,7 +337,11 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        'Upload Cover Page',
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          '8lkntg0d' /* Upload Cover Page */,
+                                                        ),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -629,7 +637,12 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                             return;
                                                           }
                                                         },
-                                                        text: 'Next',
+                                                        text:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'tdmtpwlw' /* Next */,
+                                                        ),
                                                         options:
                                                             FFButtonOptions(
                                                           width:
@@ -822,7 +835,12 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                       obscureText: false,
                                                       decoration:
                                                           InputDecoration(
-                                                        hintText: 'Select Date',
+                                                        hintText:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'kh7kjpgx' /* Select Date */,
+                                                        ),
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -959,10 +977,18 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                   ? dateTimeFormat(
                                                                       'd MMMM y',
                                                                       _model
-                                                                          .date)
+                                                                          .date,
+                                                                      locale: FFLocalizations.of(
+                                                                              context)
+                                                                          .languageCode,
+                                                                    )
                                                                   : dateTimeFormat(
                                                                       'd MMMM y',
-                                                                      getCurrentTimestamp),
+                                                                      getCurrentTimestamp,
+                                                                      locale: FFLocalizations.of(
+                                                                              context)
+                                                                          .languageCode,
+                                                                    ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -1075,7 +1101,11 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                               'MemoriesTimeline');
                                                         }
                                                       },
-                                                      text: 'Save',
+                                                      text: FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'jzf6h30d' /* Save */,
+                                                      ),
                                                       options: FFButtonOptions(
                                                         width:
                                                             MediaQuery.sizeOf(
@@ -1285,7 +1315,11 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 10.0, 0.0, 0.0),
                                       child: Text(
-                                        'Create\nMemories',
+                                        FFLocalizations.of(context).getText(
+                                          'po5axe7a' /* Create
+Memories */
+                                          ,
+                                        ),
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
