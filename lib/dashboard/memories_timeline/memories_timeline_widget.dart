@@ -71,6 +71,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
         }
         List<SharedUserRecord> memoriesTimelineSharedUserRecordList =
             snapshot.data!;
+
         final memoriesTimelineSharedUserRecord =
             memoriesTimelineSharedUserRecordList.isNotEmpty
                 ? memoriesTimelineSharedUserRecordList.first
@@ -242,6 +243,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                 List<MemoriesRecord>
                                                     columnMemoriesRecordList =
                                                     snapshot.data!;
+
                                                 return Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -285,6 +287,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                         }
                                                         int columnCount =
                                                             snapshot.data!;
+
                                                         return Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -621,6 +624,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                 List<MemoriesRecord>
                                                     columnMemoriesRecordList =
                                                     snapshot.data!;
+
                                                 return Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -664,6 +668,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                         }
                                                         int columnCount =
                                                             snapshot.data!;
+
                                                         return Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,

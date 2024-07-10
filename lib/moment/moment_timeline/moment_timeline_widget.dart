@@ -70,6 +70,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
           );
         }
         List<MomentsRecord> momentTimelineMomentsRecordList = snapshot.data!;
+
         return GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
               ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -285,7 +286,8 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                     ),
                                                   }.withoutNulls,
                                                   extra: <String, dynamic>{
-                                                    'memories': widget.memories,
+                                                    'memories':
+                                                        widget.memories,
                                                   },
                                                 );
                                               },
@@ -305,6 +307,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                     final momentList =
                                         momentTimelineMomentsRecordList
                                             .toList();
+
                                     return SizedBox(
                                       width: double.infinity,
                                       height:
@@ -338,7 +341,8 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                   }.withoutNulls,
                                                   extra: <String, dynamic>{
                                                     'moments': momentListItem,
-                                                    'memories': widget.memories,
+                                                    'memories':
+                                                        widget.memories,
                                                   },
                                                 );
                                               },

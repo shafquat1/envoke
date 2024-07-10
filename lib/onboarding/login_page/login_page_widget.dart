@@ -153,7 +153,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             hintText:
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                              'plhe2fq4' /* Enter Email */,
+                                              'plhe2fq4' /* Email */,
                                             ),
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
@@ -237,7 +237,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             hintText:
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                              'zv114nrz' /* Enter Password */,
+                                              'zv114nrz' /* Password */,
                                             ),
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)

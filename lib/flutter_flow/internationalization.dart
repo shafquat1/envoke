@@ -226,12 +226,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': 'Anmeldung',
     },
     'plhe2fq4': {
-      'en': 'Enter Email',
-      'de': 'Email eingeben',
+      'en': 'Email',
+      'de': 'Email',
     },
     'zv114nrz': {
-      'en': 'Enter Password',
-      'de': 'Passwort eingeben',
+      'en': 'Password',
+      'de': 'Passwort',
     },
     '87x4eu1b': {
       'en': 'Newsletter (Optional)',
@@ -294,7 +294,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'po5axe7a': {
       'en': 'Create\nMemories',
-      'de': 'Erinnerungen schaffen',
+      'de': 'Memory \nerstellen',
     },
     '486vl2i8': {
       'en': 'Home',
@@ -389,11 +389,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '5tllo5ij': {
       'en': 'Account',
-      'de': 'Konto',
+      'de': '',
     },
     'i03wi7q2': {
       'en': 'Email ID',
-      'de': 'E-Mail-ID',
+      'de': 'Email ID',
     },
     'ooblk8o7': {
       'en': 'Password',
@@ -405,7 +405,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'gxczi6tw': {
       'en': 'Change',
-      'de': 'Ändern',
+      'de': 'Deutsch',
     },
     'kdhbogbp': {
       'en': 'Shared Album',
@@ -421,11 +421,23 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'k3fxxds1': {
       'en': 'Share with an existing user',
-      'de': 'Mit einem vorhandenen Benutzer teilen',
+      'de': 'Mit anderem User teilen',
     },
     '84zkepek': {
       'en': 'Jewellery',
-      'de': 'Schmuck',
+      'de': 'Jewellery',
+    },
+    'r9cwtr0c': {
+      'en': 'Change Language',
+      'de': 'Jewellery',
+    },
+    '52or7oq4': {
+      'en': 'English',
+      'de': 'Englisch',
+    },
+    'kqfv8huh': {
+      'en': 'German',
+      'de': 'Deutsch',
     },
     'gqv9sa85': {
       'en': 'Change background',
@@ -452,11 +464,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'tqi77a8b': {
       'en': 'Approach an NFC tag',
-      'de': 'Nähern Sie sich einem NFC-Tag',
+      'de': 'Schmuck an das Smartphone halten',
     },
     'm7sxf65m': {
       'en': 'Cancel',
-      'de': 'Stornieren',
+      'de': 'abbrechen',
     },
   },
   // writeNfcTag
@@ -467,7 +479,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'ojv73js6': {
       'en': 'Approach an NFC tag',
-      'de': 'Nähern Sie sich einem NFC-Tag',
+      'de': 'Schmuck an das Smartphone halten',
     },
     't38133jg': {
       'en': 'Cancel',
@@ -545,16 +557,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Miscellaneous
   {
     'i360jk6w': {
-      'en': '',
-      'de': '',
+      'en':
+          'In order to take a picture or video, this app requires permission to access the camera.',
+      'de':
+          'Um ein Bild oder Video aufzunehmen, benötigt diese App die Berechtigung für den Zugriff auf die Kamera.',
     },
     'l0nkifdh': {
-      'en': '',
-      'de': '',
+      'en':
+          'In order to upload data, this app requires permission to access the photo library.',
+      'de':
+          'Zum Hochladen von Daten benötigt diese App eine Berechtigung zum Zugriff auf die Fotobibliothek.',
     },
     'a3temrxl': {
-      'en': '',
-      'de': '',
+      'en': 'This app requires permissions to record audio.',
+      'de': 'Diese App erfordert Berechtigungen zum Aufzeichnen von Audio.',
     },
     'zmw2s4jz': {
       'en': '',
@@ -622,23 +638,23 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '1upvf0i7': {
       'en': '',
-      'de': '',
+      'de': 'Quelle Wählen',
     },
     '0quq8f1g': {
       'en': '',
-      'de': '',
+      'de': 'Galerie',
     },
     'tv7tmm0k': {
       'en': '',
-      'de': '',
+      'de': 'Galerie',
     },
     'x31ct6km': {
       'en': '',
-      'de': '',
+      'de': 'Galerie',
     },
     'w0wctoy5': {
       'en': '',
-      'de': '',
+      'de': 'Kamera',
     },
     'bjertfl5': {
       'en': '',

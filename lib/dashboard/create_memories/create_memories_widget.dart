@@ -486,7 +486,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                           .bytes
                                                                           ?.isNotEmpty ??
                                                                       false))
-                                                                Flexible(
+                                                                Expanded(
                                                                   child:
                                                                       ClipRRect(
                                                                     borderRadius:
@@ -494,14 +494,18 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                             8.0),
                                                                     child: Image
                                                                         .memory(
-                                                                      _model.compressedImage
-                                                                              ?.bytes ??
+                                                                      _model.uploadedLocalFile1
+                                                                              .bytes ??
                                                                           Uint8List.fromList(
                                                                               []),
                                                                       width: double
                                                                           .infinity,
                                                                       fit: BoxFit
                                                                           .contain,
+                                                                      alignment:
+                                                                          const Alignment(
+                                                                              0.0,
+                                                                              0.0),
                                                                     ),
                                                                   ),
                                                                 ),

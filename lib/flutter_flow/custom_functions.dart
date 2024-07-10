@@ -15,10 +15,10 @@ import '/auth/firebase_auth/auth_util.dart';
 String getGreetingUsingTime() {
   var hour = DateTime.now().hour;
   if (hour < 12) {
-    return 'Good Morning';
+    return 'Guten Morgen';
   }
   if (hour < 17) {
-    return 'Good Afternoon';
+    return 'Guten Tag';
   }
-  return 'Good Evening';
+  return 'Guten Abend';
 }
