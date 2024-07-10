@@ -393,7 +393,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'i03wi7q2': {
       'en': 'Email ID',
-      'de': 'Email ID',
+      'de': 'E-Mail-ID',
     },
     'ooblk8o7': {
       'en': 'Password',
@@ -405,7 +405,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'gxczi6tw': {
       'en': 'Change',
-      'de': 'Deutsch',
+      'de': 'Ändern',
     },
     'kdhbogbp': {
       'en': 'Shared Album',
@@ -413,7 +413,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'vy8ziskk': {
       'en': 'Email ID',
-      'de': 'Email ID',
+      'de': 'E-Mail-ID',
     },
     '6v99qqye': {
       'en': 'Remove',
@@ -421,15 +421,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'k3fxxds1': {
       'en': 'Share with an existing user',
-      'de': 'Mit anderem User teilen',
+      'de': 'Mit einem vorhandenen Benutzer teilen',
     },
     '84zkepek': {
       'en': 'Jewellery',
-      'de': 'Jewellery',
+      'de': 'Schmuck',
     },
     'r9cwtr0c': {
       'en': 'Change Language',
-      'de': 'Jewellery',
+      'de': 'Schmuck',
     },
     '52or7oq4': {
       'en': 'English',
@@ -437,7 +437,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'kqfv8huh': {
       'en': 'German',
-      'de': 'Deutsch',
+      'de': 'Ändern',
     },
     'gqv9sa85': {
       'en': 'Change background',
