@@ -239,7 +239,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '1rp3sxed': {
       'en': 'Login',
-      'de': 'Anmeldung',
+      'de': 'Login',
     },
     'jh9unk20': {
       'en': 'Field is required',
@@ -389,7 +389,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '5tllo5ij': {
       'en': 'Account',
-      'de': '',
+      'de': 'Account',
     },
     'i03wi7q2': {
       'en': 'Email ID',
@@ -413,7 +413,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'vy8ziskk': {
       'en': 'Email ID',
-      'de': 'E-Mail-ID',
+      'de': 'Email ID',
     },
     '6v99qqye': {
       'en': 'Remove',
@@ -578,11 +578,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'w65jn2kp': {
       'en': '',
-      'de': '',
+      'de': 'E-Mail zum Zurücksetzen des Passworts gesendet!',
     },
     '6a8qmc9v': {
       'en': '',
-      'de': '',
+      'de': 'Email erforderlich!',
     },
     'da6s0zyf': {
       'en': '',
@@ -610,11 +610,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'ipw8md7c': {
       'en': '',
-      'de': '',
+      'de': 'E-Mail wird bereits von einem anderen Konto verwendet',
     },
     '9h16jelt': {
       'en': '',
-      'de': '',
+      'de':
+          'Die angegebenen Authentifizierungsdaten sind falsch, fehlerhaft oder abgelaufen',
     },
     '4ti735qg': {
       'en': '',
