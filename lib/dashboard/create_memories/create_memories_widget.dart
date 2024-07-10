@@ -1132,14 +1132,6 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                 0.0, 20.0),
                                                     child: FFButtonWidget(
                                                       onPressed: () async {
-                                                        if (_model.formKey
-                                                                    .currentState ==
-                                                                null ||
-                                                            !_model.formKey
-                                                                .currentState!
-                                                                .validate()) {
-                                                          return;
-                                                        }
                                                         if (_model.compressedImage ==
                                                                 null ||
                                                             (_model

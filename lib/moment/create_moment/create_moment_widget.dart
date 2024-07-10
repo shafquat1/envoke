@@ -456,14 +456,6 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                     0.0, 50.0, 0.0, 0.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
-                                                if (_model.formKey
-                                                            .currentState ==
-                                                        null ||
-                                                    !_model
-                                                        .formKey.currentState!
-                                                        .validate()) {
-                                                  return;
-                                                }
                                                 if (_model.compressedImg ==
                                                         null ||
                                                     (_model.compressedImg?.bytes
