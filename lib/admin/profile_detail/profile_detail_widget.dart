@@ -796,7 +796,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                 33.0, 30.0, 0.0, 10.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                'r9cwtr0c' /* Change Language */,
+                                'wrhahwv0' /* Change language */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -805,7 +805,6 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w500,
                                   ),
                             ),
                           ),

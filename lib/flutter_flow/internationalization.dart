@@ -427,9 +427,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Jewellery',
       'de': 'Schmuck',
     },
-    'r9cwtr0c': {
-      'en': 'Change Language',
-      'de': 'Schmuck',
+    'wrhahwv0': {
+      'en': 'Change language',
+      'de': 'Sprache ändern',
     },
     '52or7oq4': {
       'en': 'English',
