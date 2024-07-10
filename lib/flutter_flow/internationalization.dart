@@ -239,7 +239,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '1rp3sxed': {
       'en': 'Login',
-      'de': 'Login',
+      'de': 'Anmeldung',
     },
     'jh9unk20': {
       'en': 'Field is required',
@@ -294,7 +294,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'po5axe7a': {
       'en': 'Create\nMemories',
-      'de': 'Memory \nerstellen',
+      'de': 'Erinnerungen schaffen',
     },
     '486vl2i8': {
       'en': 'Home',
@@ -322,39 +322,51 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Create Moment',
       'de': 'Moment erstellen',
     },
-    'hqsbxj6p': {
+    'q46mca09': {
+      'en': 'Add a Title',
+      'de': 'Füge einen Titel hinzu',
+    },
+    'ixcjg3mi': {
+      'en': 'Upload Cover Page',
+      'de': 'Deckblatt hochladen',
+    },
+    '1tv4mfiy': {
+      'en': 'Next',
+      'de': 'Nächste',
+    },
+    '2x9k2v4y': {
       'en': 'Add Title',
       'de': 'Titel hinzufügen',
     },
-    '8dphrngn': {
+    'z6kerzdy': {
       'en': 'Note',
       'de': 'Notiz',
     },
-    'svm5xn61': {
+    'krxvyxfu': {
       'en': 'Photo',
       'de': 'Foto',
     },
-    'pcv316fz': {
+    '8iy8tb7f': {
       'en': 'Audio',
       'de': 'Audio',
     },
-    'kk3tofj5': {
+    '6xafy8od': {
       'en': 'Save',
       'de': 'Speichern',
     },
-    'ouc01oo8': {
+    'sccjx7wi': {
       'en': 'Field is required',
       'de': 'Das Feld ist erforderlich',
     },
-    '6dzvivda': {
+    'yhffkuys': {
       'en': 'Please choose an option from the dropdown',
       'de': 'Bitte wählen Sie eine Option aus der Dropdown-Liste',
     },
-    'wusawv25': {
+    'ioh9xjsy': {
       'en': 'Field is required',
       'de': 'Das Feld ist erforderlich',
     },
-    'tq9pkci7': {
+    'gmsfr20x': {
       'en': 'Please choose an option from the dropdown',
       'de': 'Bitte wählen Sie eine Option aus der Dropdown-Liste',
     },
@@ -464,11 +476,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'tqi77a8b': {
       'en': 'Approach an NFC tag',
-      'de': 'Schmuck an das Smartphone halten',
+      'de': 'Nähern Sie sich einem NFC-Tag',
     },
     'm7sxf65m': {
       'en': 'Cancel',
-      'de': 'abbrechen',
+      'de': 'Stornieren',
     },
   },
   // writeNfcTag
@@ -479,7 +491,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'ojv73js6': {
       'en': 'Approach an NFC tag',
-      'de': 'Schmuck an das Smartphone halten',
+      'de': 'Nähern Sie sich einem NFC-Tag',
     },
     't38133jg': {
       'en': 'Cancel',

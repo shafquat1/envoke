@@ -20,19 +20,28 @@ class CreateMomentModel extends FlutterFlowModel<CreateMomentWidget> {
 
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
+  // State field(s) for PageView widget.
+  PageController? pageViewController;
+
+  int get pageViewCurrentIndex => pageViewController != null &&
+          pageViewController!.hasClients &&
+          pageViewController!.page != null
+      ? pageViewController!.page!.round()
+      : 0;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
   String? Function(BuildContext, String?)? textController1Validator;
-  String? _textController1Validator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        'ouc01oo8' /* Field is required */,
-      );
-    }
+  bool isDataUploading1 = false;
+  FFUploadedFile uploadedLocalFile1 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
 
-    return null;
-  }
+  // Stores action output result for [Custom Action - compress] action in Container widget.
+  FFUploadedFile? compressedImg;
+  bool isDataUploading2 = false;
+  FFUploadedFile uploadedLocalFile2 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl2 = '';
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode2;
@@ -41,37 +50,45 @@ class CreateMomentModel extends FlutterFlowModel<CreateMomentWidget> {
   String? _textController2Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'wusawv25' /* Field is required */,
+        'sccjx7wi' /* Field is required */,
       );
     }
 
     return null;
   }
 
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode3;
+  TextEditingController? textController3;
+  String? Function(BuildContext, String?)? textController3Validator;
+  String? _textController3Validator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return FFLocalizations.of(context).getText(
+        'ioh9xjsy' /* Field is required */,
+      );
+    }
 
-  // Stores action output result for [Custom Action - compress] action in IconButton widget.
-  FFUploadedFile? compressedImg;
+    return null;
+  }
+
   String? myRecording;
   FFUploadedFile recordedFileBytes =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl2 = '';
-
-  AudioRecorder? audioRecorder;
   bool isDataUploading3 = false;
   FFUploadedFile uploadedLocalFile3 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl3 = '';
 
+  AudioRecorder? audioRecorder;
+  bool isDataUploading4 = false;
+  FFUploadedFile uploadedLocalFile4 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl4 = '';
+
   @override
   void initState(BuildContext context) {
-    textController1Validator = _textController1Validator;
     textController2Validator = _textController2Validator;
+    textController3Validator = _textController3Validator;
   }
 
   @override
@@ -82,5 +99,8 @@ class CreateMomentModel extends FlutterFlowModel<CreateMomentWidget> {
 
     textFieldFocusNode2?.dispose();
     textController2?.dispose();
+
+    textFieldFocusNode3?.dispose();
+    textController3?.dispose();
   }
 }

@@ -494,8 +494,8 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                             8.0),
                                                                     child: Image
                                                                         .memory(
-                                                                      _model.uploadedLocalFile1
-                                                                              .bytes ??
+                                                                      _model.compressedImage
+                                                                              ?.bytes ??
                                                                           Uint8List.fromList(
                                                                               []),
                                                                       width: double
