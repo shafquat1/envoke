@@ -967,9 +967,9 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                           initialDate:
                                                               getCurrentTimestamp,
                                                           firstDate:
-                                                              getCurrentTimestamp,
+                                                              DateTime(1900),
                                                           lastDate:
-                                                              DateTime(2050),
+                                                              getCurrentTimestamp,
                                                           builder:
                                                               (context, child) {
                                                             return wrapInMaterialDatePickerTheme(
