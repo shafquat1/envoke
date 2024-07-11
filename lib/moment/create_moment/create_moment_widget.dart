@@ -179,7 +179,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                 hintText:
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                  'q46mca09' /* Add a Title */,
+                                                  'q46mca09' /* Upload Image */,
                                                 ),
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)

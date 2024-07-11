@@ -1173,24 +1173,21 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                             queryBuilder:
                                                                 (memoriesRecord) =>
                                                                     memoriesRecord
-                                                                        .where(Filter
-                                                                            .or(
-                                                              Filter(
-                                                                'created_at',
-                                                                isEqualTo:
-                                                                    dateTimeFormat(
-                                                                  'd/M/y',
-                                                                  getCurrentTimestamp,
-                                                                  locale: FFLocalizations.of(
-                                                                          context)
-                                                                      .languageCode,
-                                                                ),
-                                                              ),
-                                                              Filter(
-                                                                'user_id',
-                                                                isEqualTo: '',
-                                                              ),
-                                                            )),
+                                                                        .where(
+                                                                          'created_at',
+                                                                          isEqualTo:
+                                                                              dateTimeFormat(
+                                                                            'd/M/y',
+                                                                            getCurrentTimestamp,
+                                                                            locale:
+                                                                                FFLocalizations.of(context).languageCode,
+                                                                          ),
+                                                                        )
+                                                                        .where(
+                                                                          'user_id',
+                                                                          isEqualTo:
+                                                                              currentUserUid,
+                                                                        ),
                                                           );
                                                           shouldSetState =
                                                               true;
@@ -1209,7 +1206,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                       currentUserUid,
                                                                   memoryTitle:
                                                                       _model
-                                                                          .textController2
+                                                                          .textController1
                                                                           .text,
                                                                   imgBlurHash: _model
                                                                       .compressedImage
@@ -1229,7 +1226,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                               userId:
                                                                   currentUserUid,
                                                               memoryTitle: _model
-                                                                  .textController2
+                                                                  .textController1
                                                                   .text,
                                                               imgBlurHash: _model
                                                                   .compressedImage
@@ -1254,7 +1251,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                       userId:
                                                                           currentUserUid,
                                                                       memoryTitle: _model
-                                                                          .textController2
+                                                                          .textController1
                                                                           .text,
                                                                       imgBlurHash: _model
                                                                           .compressedImage

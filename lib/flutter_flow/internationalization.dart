@@ -323,8 +323,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': 'Moment erstellen',
     },
     'q46mca09': {
-      'en': 'Add a Title',
-      'de': 'Füge einen Titel hinzu',
+      'en': 'Upload Image',
+      'de': 'Bild hochladen',
     },
     'ixcjg3mi': {
       'en': 'Upload Cover Page',
