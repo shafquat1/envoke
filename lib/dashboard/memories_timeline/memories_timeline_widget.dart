@@ -896,121 +896,117 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                     ),
                                                                   ],
                                                                 ),
-                                                                InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    await showModalBottomSheet<
-                                                                            bool>(
-                                                                        context:
-                                                                            context,
-                                                                        builder:
-                                                                            (context) {
-                                                                          final datePickedCupertinoTheme =
-                                                                              CupertinoTheme.of(context);
-                                                                          return Container(
-                                                                            height:
-                                                                                MediaQuery.of(context).size.height / 3,
-                                                                            width:
-                                                                                MediaQuery.of(context).size.width,
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondaryBackground,
-                                                                            child:
-                                                                                CupertinoTheme(
-                                                                              data: datePickedCupertinoTheme.copyWith(
-                                                                                textTheme: datePickedCupertinoTheme.textTheme.copyWith(
-                                                                                  dateTimePickerTextStyle: FlutterFlowTheme.of(context).headlineMedium.override(
-                                                                                        fontFamily: 'Inter',
-                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                        letterSpacing: 0.0,
-                                                                                      ),
+                                                                if (columnMemoriesRecord
+                                                                            .createdAt !=
+                                                                        '')
+                                                                  InkWell(
+                                                                    splashColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    focusColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    hoverColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    highlightColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    onTap:
+                                                                        () async {
+                                                                      await showModalBottomSheet<
+                                                                              bool>(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (context) {
+                                                                            final datePickedCupertinoTheme =
+                                                                                CupertinoTheme.of(context);
+                                                                            return Container(
+                                                                              height: MediaQuery.of(context).size.height / 3,
+                                                                              width: MediaQuery.of(context).size.width,
+                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                              child: CupertinoTheme(
+                                                                                data: datePickedCupertinoTheme.copyWith(
+                                                                                  textTheme: datePickedCupertinoTheme.textTheme.copyWith(
+                                                                                    dateTimePickerTextStyle: FlutterFlowTheme.of(context).headlineMedium.override(
+                                                                                          fontFamily: 'Inter',
+                                                                                          color: FlutterFlowTheme.of(context).primaryText,
+                                                                                          letterSpacing: 0.0,
+                                                                                        ),
+                                                                                  ),
+                                                                                ),
+                                                                                child: CupertinoDatePicker(
+                                                                                  mode: CupertinoDatePickerMode.date,
+                                                                                  minimumDate: DateTime(1900),
+                                                                                  initialDateTime: getCurrentTimestamp,
+                                                                                  maximumDate: getCurrentTimestamp,
+                                                                                  backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                  use24hFormat: false,
+                                                                                  onDateTimeChanged: (newDateTime) => safeSetState(() {
+                                                                                    _model.datePicked = newDateTime;
+                                                                                  }),
                                                                                 ),
                                                                               ),
-                                                                              child: CupertinoDatePicker(
-                                                                                mode: CupertinoDatePickerMode.date,
-                                                                                minimumDate: DateTime(1900),
-                                                                                initialDateTime: getCurrentTimestamp,
-                                                                                maximumDate: getCurrentTimestamp,
-                                                                                backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                use24hFormat: false,
-                                                                                onDateTimeChanged: (newDateTime) => safeSetState(() {
-                                                                                  _model.datePicked = newDateTime;
-                                                                                }),
-                                                                              ),
-                                                                            ),
-                                                                          );
-                                                                        });
+                                                                            );
+                                                                          });
 
-                                                                    await columnMemoriesRecord
-                                                                        .reference
-                                                                        .update(
-                                                                            createMemoriesRecordData(
-                                                                      createdTime:
-                                                                          _model
-                                                                              .datePicked,
-                                                                    ));
-                                                                  },
-                                                                  child:
-                                                                      Container(
-                                                                    width: MediaQuery.sizeOf(context)
-                                                                            .width *
-                                                                        0.6,
-                                                                    height:
-                                                                        40.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: Colors
-                                                                          .black,
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              16.0),
-                                                                      border:
-                                                                          Border
-                                                                              .all(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondaryBackground,
-                                                                        width:
-                                                                            1.0,
-                                                                      ),
-                                                                    ),
+                                                                      await columnMemoriesRecord
+                                                                          .reference
+                                                                          .update(
+                                                                              createMemoriesRecordData(
+                                                                        createdTime:
+                                                                            _model.datePicked,
+                                                                      ));
+                                                                    },
                                                                     child:
-                                                                        Align(
-                                                                      alignment:
-                                                                          const AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        dateTimeFormat(
-                                                                          'MMMM y',
-                                                                          columnMemoriesRecord
-                                                                              .createdTime!,
-                                                                          locale:
-                                                                              FFLocalizations.of(context).languageCode,
+                                                                        Container(
+                                                                      width: MediaQuery.sizeOf(context)
+                                                                              .width *
+                                                                          0.6,
+                                                                      height:
+                                                                          40.0,
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        color: Colors
+                                                                            .black,
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(16.0),
+                                                                        border:
+                                                                            Border.all(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryBackground,
+                                                                          width:
+                                                                              1.0,
                                                                         ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Istanbul type',
-                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                              fontSize: 20.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.w300,
-                                                                              useGoogleFonts: false,
-                                                                            ),
+                                                                      ),
+                                                                      child:
+                                                                          Align(
+                                                                        alignment: const AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Text(
+                                                                          dateTimeFormat(
+                                                                            'MMMM y',
+                                                                            columnMemoriesRecord.createdTime!,
+                                                                            locale:
+                                                                                FFLocalizations.of(context).languageCode,
+                                                                          ),
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Istanbul type',
+                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                fontSize: 20.0,
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FontWeight.w300,
+                                                                                useGoogleFonts: false,
+                                                                              ),
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                ),
                                                               ],
                                                             ),
                                                           ],

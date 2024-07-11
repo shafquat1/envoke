@@ -494,8 +494,8 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                             8.0),
                                                                     child: Image
                                                                         .memory(
-                                                                      _model.compressedImage
-                                                                              ?.bytes ??
+                                                                      _model.uploadedLocalFile1
+                                                                              .bytes ??
                                                                           Uint8List.fromList(
                                                                               []),
                                                                       width: double
@@ -1132,6 +1132,8 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                 0.0, 20.0),
                                                     child: FFButtonWidget(
                                                       onPressed: () async {
+                                                        var shouldSetState =
+                                                            false;
                                                         if (_model.compressedImage ==
                                                                 null ||
                                                             (_model
@@ -1161,30 +1163,121 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                       .secondary,
                                                             ),
                                                           );
+                                                          if (shouldSetState) {
+                                                            setState(() {});
+                                                          }
                                                           return;
                                                         } else {
-                                                          await MemoriesRecord
-                                                              .collection
-                                                              .doc()
-                                                              .set(
-                                                                  createMemoriesRecordData(
-                                                                createdTime:
-                                                                    _model
-                                                                            .date ?? getCurrentTimestamp,
-                                                                imgUrl: _model
-                                                                    .uploadedFileUrl2,
-                                                                userId:
-                                                                    currentUserUid,
-                                                                memoryTitle: _model
-                                                                    .textController2
-                                                                    .text,
-                                                                imgBlurHash: _model
-                                                                    .compressedImage
-                                                                    ?.blurHash,
-                                                              ));
+                                                          _model.count =
+                                                              await queryMemoriesRecordCount(
+                                                            queryBuilder:
+                                                                (memoriesRecord) =>
+                                                                    memoriesRecord
+                                                                        .where(Filter
+                                                                            .or(
+                                                              Filter(
+                                                                'created_at',
+                                                                isEqualTo:
+                                                                    dateTimeFormat(
+                                                                  'd/M/y',
+                                                                  getCurrentTimestamp,
+                                                                  locale: FFLocalizations.of(
+                                                                          context)
+                                                                      .languageCode,
+                                                                ),
+                                                              ),
+                                                              Filter(
+                                                                'user_id',
+                                                                isEqualTo: '',
+                                                              ),
+                                                            )),
+                                                          );
+                                                          shouldSetState =
+                                                              true;
+                                                          if (_model.count! >
+                                                              0) {
+                                                            await MemoriesRecord
+                                                                .collection
+                                                                .doc()
+                                                                .set(
+                                                                    createMemoriesRecordData(
+                                                                  createdTime: _model
+                                                                          .date ?? getCurrentTimestamp,
+                                                                  imgUrl: _model
+                                                                      .uploadedFileUrl2,
+                                                                  userId:
+                                                                      currentUserUid,
+                                                                  memoryTitle:
+                                                                      _model
+                                                                          .textController2
+                                                                          .text,
+                                                                  imgBlurHash: _model
+                                                                      .compressedImage
+                                                                      ?.blurHash,
+                                                                ));
+                                                          } else {
+                                                            var memoriesRecordReference2 =
+                                                                MemoriesRecord
+                                                                    .collection
+                                                                    .doc();
+                                                            await memoriesRecordReference2
+                                                                .set(
+                                                                    createMemoriesRecordData(
+                                                              createdTime: _model.date ?? getCurrentTimestamp,
+                                                              imgUrl: _model
+                                                                  .uploadedFileUrl2,
+                                                              userId:
+                                                                  currentUserUid,
+                                                              memoryTitle: _model
+                                                                  .textController2
+                                                                  .text,
+                                                              imgBlurHash: _model
+                                                                  .compressedImage
+                                                                  ?.blurHash,
+                                                              createdAt:
+                                                                  dateTimeFormat(
+                                                                'd/M/y',
+                                                                _model
+                                                                        .date ?? getCurrentTimestamp,
+                                                                locale: FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode,
+                                                              ),
+                                                            ));
+                                                            _model.result = MemoriesRecord
+                                                                .getDocumentFromData(
+                                                                    createMemoriesRecordData(
+                                                                      createdTime: _model
+                                                                              .date ?? getCurrentTimestamp,
+                                                                      imgUrl: _model
+                                                                          .uploadedFileUrl2,
+                                                                      userId:
+                                                                          currentUserUid,
+                                                                      memoryTitle: _model
+                                                                          .textController2
+                                                                          .text,
+                                                                      imgBlurHash: _model
+                                                                          .compressedImage
+                                                                          ?.blurHash,
+                                                                      createdAt:
+                                                                          dateTimeFormat(
+                                                                        'd/M/y',
+                                                                        _model.date ?? getCurrentTimestamp,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                    ),
+                                                                    memoriesRecordReference2);
+                                                            shouldSetState =
+                                                                true;
+                                                          }
 
                                                           context.goNamed(
                                                               'MemoriesTimeline');
+                                                        }
+
+                                                        if (shouldSetState) {
+                                                          setState(() {});
                                                         }
                                                       },
                                                       text: FFLocalizations.of(

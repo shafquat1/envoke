@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'create_memories_widget.dart' show CreateMemoriesWidget;
 import 'package:flutter/material.dart';
@@ -51,6 +52,10 @@ class CreateMemoriesModel extends FlutterFlowModel<CreateMemoriesWidget> {
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
   DateTime? datePicked;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  int? count;
+  // Stores action output result for [Backend Call - Create Document] action in Button widget.
+  MemoriesRecord? result;
 
   @override
   void initState(BuildContext context) {

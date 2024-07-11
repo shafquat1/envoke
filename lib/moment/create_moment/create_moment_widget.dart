@@ -419,32 +419,24 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                           size: 50.0,
                                                         ),
                                                       ),
-                                                    if ((_model
-                                                                .uploadedLocalFile1
-                                                                .bytes
-                                                                ?.isNotEmpty ??
-                                                            false))
-                                                      Expanded(
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                          child: Image.memory(
-                                                            _model.uploadedLocalFile1
-                                                                    .bytes ??
-                                                                Uint8List
-                                                                    .fromList(
-                                                                        []),
-                                                            width:
-                                                                double.infinity,
-                                                            fit: BoxFit.contain,
-                                                            alignment:
-                                                                const Alignment(
-                                                                    0.0, 0.0),
-                                                          ),
+                                                    Expanded(
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        child: Image.memory(
+                                                          _model.uploadedLocalFile1
+                                                                  .bytes ??
+                                                              Uint8List
+                                                                  .fromList([]),
+                                                          width:
+                                                              double.infinity,
+                                                          fit: BoxFit.contain,
+                                                          alignment: const Alignment(
+                                                              0.0, 0.0),
                                                         ),
                                                       ),
+                                                    ),
                                                   ],
                                                 ),
                                               ),
