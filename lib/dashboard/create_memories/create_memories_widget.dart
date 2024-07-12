@@ -9,6 +9,7 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -1169,30 +1170,84 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                           return;
                                                         } else {
                                                           _model.count =
-                                                              await queryMemoriesRecordCount(
+                                                              await queryMemoriesRecordOnce(
                                                             queryBuilder:
                                                                 (memoriesRecord) =>
                                                                     memoriesRecord
                                                                         .where(
-                                                                          'created_at',
-                                                                          isEqualTo:
-                                                                              dateTimeFormat(
-                                                                            'MMMM y',
-                                                                            getCurrentTimestamp,
-                                                                            locale:
-                                                                                FFLocalizations.of(context).languageCode,
-                                                                          ),
-                                                                        )
-                                                                        .where(
-                                                                          'user_id',
-                                                                          isEqualTo:
-                                                                              currentUserUid,
-                                                                        ),
-                                                          );
+                                                              'user_id',
+                                                              isEqualTo:
+                                                                  currentUserUid,
+                                                            ),
+                                                            singleRecord: true,
+                                                          ).then((s) => s
+                                                                  .firstOrNull);
                                                           shouldSetState =
                                                               true;
-                                                          if (_model.count! >
-                                                              0) {
+                                                          if (() {
+                                                            if (_model.count
+                                                                    ?.createdAt ==
+                                                                'January') {
+                                                              return true;
+                                                            } else if (_model
+                                                                    .count
+                                                                    ?.createdAt ==
+                                                                'February') {
+                                                              return true;
+                                                            } else if (_model
+                                                                    .count
+                                                                    ?.createdAt ==
+                                                                'March') {
+                                                              return true;
+                                                            } else if (_model
+                                                                    .count
+                                                                    ?.createdAt ==
+                                                                'April') {
+                                                              return true;
+                                                            } else if (_model
+                                                                    .count
+                                                                    ?.createdAt ==
+                                                                'May') {
+                                                              return true;
+                                                            } else if (_model
+                                                                    .count
+                                                                    ?.createdAt ==
+                                                                'June') {
+                                                              return true;
+                                                            } else if (_model
+                                                                    .count
+                                                                    ?.createdAt ==
+                                                                'July') {
+                                                              return true;
+                                                            } else if (_model
+                                                                    .count
+                                                                    ?.createdAt ==
+                                                                'August') {
+                                                              return true;
+                                                            } else if (_model
+                                                                    .count
+                                                                    ?.createdAt ==
+                                                                'September') {
+                                                              return true;
+                                                            } else if (_model
+                                                                    .count
+                                                                    ?.createdAt ==
+                                                                'October') {
+                                                              return true;
+                                                            } else if (_model
+                                                                    .count
+                                                                    ?.createdAt ==
+                                                                'November') {
+                                                              return true;
+                                                            } else if (_model
+                                                                    .count
+                                                                    ?.createdAt ==
+                                                                'December') {
+                                                              return true;
+                                                            } else {
+                                                              return false;
+                                                            }
+                                                          }()) {
                                                             await MemoriesRecord
                                                                 .collection
                                                                 .doc()
@@ -1233,7 +1288,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                   ?.blurHash,
                                                               createdAt:
                                                                   dateTimeFormat(
-                                                                'MMMM y',
+                                                                'MMMM',
                                                                 _model
                                                                         .date ?? getCurrentTimestamp,
                                                                 locale: FFLocalizations.of(
@@ -1258,7 +1313,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                           ?.blurHash,
                                                                       createdAt:
                                                                           dateTimeFormat(
-                                                                        'MMMM y',
+                                                                        'MMMM',
                                                                         _model.date ?? getCurrentTimestamp,
                                                                         locale:
                                                                             FFLocalizations.of(context).languageCode,

@@ -53,7 +53,7 @@ class CreateMemoriesModel extends FlutterFlowModel<CreateMemoriesWidget> {
   String? Function(BuildContext, String?)? textController2Validator;
   DateTime? datePicked;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
-  int? count;
+  MemoriesRecord? count;
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   MemoriesRecord? result;
 

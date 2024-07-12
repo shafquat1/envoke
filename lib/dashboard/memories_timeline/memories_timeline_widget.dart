@@ -545,7 +545,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                             0.0),
                                                                     child: Text(
                                                                       dateTimeFormat(
-                                                                        'MMMM y',
+                                                                        'MMMM',
                                                                         columnMemoriesRecord
                                                                             .createdTime!,
                                                                         locale:
@@ -988,7 +988,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                         child:
                                                                             Text(
                                                                           dateTimeFormat(
-                                                                            'MMMM y',
+                                                                            'MMMM',
                                                                             columnMemoriesRecord.createdTime!,
                                                                             locale:
                                                                                 FFLocalizations.of(context).languageCode,
