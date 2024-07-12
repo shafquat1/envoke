@@ -870,36 +870,35 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                 ),
                                                               ),
                                                             ),
-                                                            if (columnMemoriesRecord
-                                                                        .createdAt !=
-                                                                    '')
-                                                              Stack(
-                                                                alignment:
-                                                                    const AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
-                                                                children: [
-                                                                  Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .center,
-                                                                    children: [
-                                                                      SizedBox(
-                                                                        height:
-                                                                            100.0,
-                                                                        child:
-                                                                            VerticalDivider(
-                                                                          thickness:
-                                                                              1.0,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).accent4,
-                                                                        ),
+                                                            Stack(
+                                                              alignment:
+                                                                  const AlignmentDirectional(
+                                                                      0.0, 0.0),
+                                                              children: [
+                                                                Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .center,
+                                                                  children: [
+                                                                    SizedBox(
+                                                                      height:
+                                                                          100.0,
+                                                                      child:
+                                                                          VerticalDivider(
+                                                                        thickness:
+                                                                            1.0,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .accent4,
                                                                       ),
-                                                                    ],
-                                                                  ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                                if (columnMemoriesRecord
+                                                                            .createdAt !=
+                                                                        '')
                                                                   InkWell(
                                                                     splashColor:
                                                                         Colors
@@ -1008,8 +1007,8 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                ],
-                                                              ),
+                                                              ],
+                                                            ),
                                                           ],
                                                         );
                                                       },
