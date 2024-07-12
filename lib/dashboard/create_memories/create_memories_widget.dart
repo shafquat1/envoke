@@ -1177,7 +1177,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                           'created_at',
                                                                           isEqualTo:
                                                                               dateTimeFormat(
-                                                                            'd/M/y',
+                                                                            'MMMM y',
                                                                             getCurrentTimestamp,
                                                                             locale:
                                                                                 FFLocalizations.of(context).languageCode,
@@ -1233,7 +1233,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                   ?.blurHash,
                                                               createdAt:
                                                                   dateTimeFormat(
-                                                                'd/M/y',
+                                                                'MMMM y',
                                                                 _model
                                                                         .date ?? getCurrentTimestamp,
                                                                 locale: FFLocalizations.of(
@@ -1258,7 +1258,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                           ?.blurHash,
                                                                       createdAt:
                                                                           dateTimeFormat(
-                                                                        'd/M/y',
+                                                                        'MMMM y',
                                                                         _model.date ?? getCurrentTimestamp,
                                                                         locale:
                                                                             FFLocalizations.of(context).languageCode,
