@@ -5,15 +5,12 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
-import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 import 'create_memories_model.dart';
 export 'create_memories_model.dart';
 
@@ -55,8 +52,6 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -382,9 +377,11 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                         highlightColor:
                                                             Colors.transparent,
                                                         onTap: () async {
+                                                          // uploadImage
                                                           final selectedMedia =
                                                               await selectMediaWithSourceBottomSheet(
                                                             context: context,
+                                                            imageQuality: 50,
                                                             allowPhoto: true,
                                                             includeBlurHash:
                                                                 true,
@@ -396,11 +393,13 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                       m.storagePath,
                                                                       context))) {
                                                             setState(() => _model
-                                                                    .isDataUploading1 =
+                                                                    .isDataUploading =
                                                                 true);
                                                             var selectedUploadedFiles =
                                                                 <FFUploadedFile>[];
 
+                                                            var downloadUrls =
+                                                                <String>[];
                                                             try {
                                                               selectedUploadedFiles =
                                                                   selectedMedia
@@ -418,17 +417,42 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                                 m.blurHash,
                                                                           ))
                                                                       .toList();
+
+                                                              downloadUrls =
+                                                                  (await Future
+                                                                          .wait(
+                                                                selectedMedia
+                                                                    .map(
+                                                                  (m) async =>
+                                                                      await uploadData(
+                                                                          m.storagePath,
+                                                                          m.bytes),
+                                                                ),
+                                                              ))
+                                                                      .where((u) =>
+                                                                          u !=
+                                                                          null)
+                                                                      .map((u) =>
+                                                                          u!)
+                                                                      .toList();
                                                             } finally {
-                                                              _model.isDataUploading1 =
+                                                              _model.isDataUploading =
                                                                   false;
                                                             }
                                                             if (selectedUploadedFiles
-                                                                    .length ==
-                                                                selectedMedia
-                                                                    .length) {
+                                                                        .length ==
+                                                                    selectedMedia
+                                                                        .length &&
+                                                                downloadUrls
+                                                                        .length ==
+                                                                    selectedMedia
+                                                                        .length) {
                                                               setState(() {
-                                                                _model.uploadedLocalFile1 =
+                                                                _model.uploadedLocalFile =
                                                                     selectedUploadedFiles
+                                                                        .first;
+                                                                _model.uploadedFileUrl =
+                                                                    downloadUrls
                                                                         .first;
                                                               });
                                                             } else {
@@ -436,15 +460,6 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                               return;
                                                             }
                                                           }
-
-                                                          _model.compressedImage =
-                                                              await actions
-                                                                  .compress(
-                                                            _model
-                                                                .uploadedLocalFile1,
-                                                          );
-
-                                                          setState(() {});
                                                         },
                                                         child: Container(
                                                           width: 100.0,
@@ -467,7 +482,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                     .center,
                                                             children: [
                                                               if ((_model
-                                                                          .uploadedLocalFile1
+                                                                          .uploadedLocalFile
                                                                           .bytes
                                                                           ?.isEmpty ??
                                                                       true))
@@ -485,11 +500,8 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                     size: 50.0,
                                                                   ),
                                                                 ),
-                                                              if ((_model
-                                                                          .uploadedLocalFile1
-                                                                          .bytes
-                                                                          ?.isNotEmpty ??
-                                                                      false))
+                                                              if (_model.uploadedFileUrl !=
+                                                                      '')
                                                                 Expanded(
                                                                   child:
                                                                       ClipRRect(
@@ -498,7 +510,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                             8.0),
                                                                     child: Image
                                                                         .memory(
-                                                                      _model.uploadedLocalFile1
+                                                                      _model.uploadedLocalFile
                                                                               .bytes ??
                                                                           Uint8List.fromList(
                                                                               []),
@@ -536,13 +548,8 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                   .validate()) {
                                                             return;
                                                           }
-                                                          if (_model.compressedImage ==
-                                                                  null ||
-                                                              (_model
-                                                                      .compressedImage
-                                                                      ?.bytes
-                                                                      ?.isEmpty ??
-                                                                  true)) {
+                                                          if (_model.uploadedFileUrl ==
+                                                                  '') {
                                                             ScaffoldMessenger
                                                                     .of(context)
                                                                 .showSnackBar(
@@ -567,72 +574,6 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                             );
                                                             return;
                                                           } else {
-                                                            {
-                                                              setState(() =>
-                                                                  _model.isDataUploading2 =
-                                                                      true);
-                                                              var selectedUploadedFiles =
-                                                                  <FFUploadedFile>[];
-                                                              var selectedMedia =
-                                                                  <SelectedFile>[];
-                                                              var downloadUrls =
-                                                                  <String>[];
-                                                              try {
-                                                                selectedUploadedFiles = _model
-                                                                        .compressedImage!
-                                                                        .bytes!
-                                                                        .isNotEmpty
-                                                                    ? [
-                                                                        _model
-                                                                            .compressedImage!
-                                                                      ]
-                                                                    : <FFUploadedFile>[];
-                                                                selectedMedia =
-                                                                    selectedFilesFromUploadedFiles(
-                                                                  selectedUploadedFiles,
-                                                                );
-                                                                downloadUrls = (await Future
-                                                                        .wait(
-                                                                  selectedMedia
-                                                                      .map(
-                                                                    (m) async =>
-                                                                        await uploadData(
-                                                                            m.storagePath,
-                                                                            m.bytes),
-                                                                  ),
-                                                                ))
-                                                                    .where((u) =>
-                                                                        u !=
-                                                                        null)
-                                                                    .map((u) =>
-                                                                        u!)
-                                                                    .toList();
-                                                              } finally {
-                                                                _model.isDataUploading2 =
-                                                                    false;
-                                                              }
-                                                              if (selectedUploadedFiles
-                                                                          .length ==
-                                                                      selectedMedia
-                                                                          .length &&
-                                                                  downloadUrls
-                                                                          .length ==
-                                                                      selectedMedia
-                                                                          .length) {
-                                                                setState(() {
-                                                                  _model.uploadedLocalFile2 =
-                                                                      selectedUploadedFiles
-                                                                          .first;
-                                                                  _model.uploadedFileUrl2 =
-                                                                      downloadUrls
-                                                                          .first;
-                                                                });
-                                                              } else {
-                                                                setState(() {});
-                                                                return;
-                                                              }
-                                                            }
-
                                                             await _model
                                                                 .pageViewController
                                                                 ?.nextPage(
@@ -1136,205 +1077,108 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                 0.0, 20.0),
                                                     child: FFButtonWidget(
                                                       onPressed: () async {
-                                                        var shouldSetState =
-                                                            false;
-                                                        if (_model.compressedImage ==
-                                                                null ||
-                                                            (_model
-                                                                    .compressedImage
-                                                                    ?.bytes
-                                                                    ?.isEmpty ??
-                                                                true)) {
-                                                          ScaffoldMessenger.of(
-                                                                  context)
-                                                              .showSnackBar(
-                                                            SnackBar(
-                                                              content: Text(
-                                                                'Please upload an Image.',
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                ),
-                                                              ),
-                                                              duration: const Duration(
-                                                                  milliseconds:
-                                                                      4000),
-                                                              backgroundColor:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondary,
-                                                            ),
-                                                          );
-                                                          if (shouldSetState) {
-                                                            setState(() {});
-                                                          }
-                                                          return;
-                                                        } else {
-                                                          _model.count =
-                                                              await queryMemoriesRecordOnce(
-                                                            queryBuilder:
-                                                                (memoriesRecord) =>
-                                                                    memoriesRecord
-                                                                        .where(
-                                                              'user_id',
-                                                              isEqualTo:
-                                                                  FFAppState()
-                                                                      .userGuid,
-                                                            ),
-                                                            singleRecord: true,
-                                                          ).then((s) => s
-                                                                  .firstOrNull);
-                                                          shouldSetState =
-                                                              true;
-                                                          if (() {
-                                                            if (_model.count
-                                                                    ?.createdAt ==
-                                                                'January') {
-                                                              return true;
-                                                            } else if (_model
-                                                                    .count
-                                                                    ?.createdAt ==
-                                                                'February') {
-                                                              return true;
-                                                            } else if (_model
-                                                                    .count
-                                                                    ?.createdAt ==
-                                                                'March') {
-                                                              return true;
-                                                            } else if (_model
-                                                                    .count
-                                                                    ?.createdAt ==
-                                                                'April') {
-                                                              return true;
-                                                            } else if (_model
-                                                                    .count
-                                                                    ?.createdAt ==
-                                                                'May') {
-                                                              return true;
-                                                            } else if (_model
-                                                                    .count
-                                                                    ?.createdAt ==
-                                                                'June') {
-                                                              return true;
-                                                            } else if (_model
-                                                                    .count
-                                                                    ?.createdAt ==
-                                                                'July') {
-                                                              return true;
-                                                            } else if (_model
-                                                                    .count
-                                                                    ?.createdAt ==
-                                                                'August') {
-                                                              return true;
-                                                            } else if (_model
-                                                                    .count
-                                                                    ?.createdAt ==
-                                                                'September') {
-                                                              return true;
-                                                            } else if (_model
-                                                                    .count
-                                                                    ?.createdAt ==
-                                                                'October') {
-                                                              return true;
-                                                            } else if (_model
-                                                                    .count
-                                                                    ?.createdAt ==
-                                                                'November') {
-                                                              return true;
-                                                            } else if (_model
-                                                                    .count
-                                                                    ?.createdAt ==
-                                                                'December') {
-                                                              return true;
-                                                            } else {
-                                                              return false;
-                                                            }
-                                                          }()) {
-                                                            await MemoriesRecord
-                                                                .collection
-                                                                .doc()
-                                                                .set(
-                                                                    createMemoriesRecordData(
-                                                                  createdTime: _model
-                                                                          .date ?? getCurrentTimestamp,
-                                                                  imgUrl: _model
-                                                                      .uploadedFileUrl2,
-                                                                  userId:
-                                                                      currentUserUid,
-                                                                  memoryTitle:
-                                                                      _model
-                                                                          .textController1
-                                                                          .text,
-                                                                  imgBlurHash: _model
-                                                                      .compressedImage
-                                                                      ?.blurHash,
-                                                                ));
-                                                          } else {
-                                                            var memoriesRecordReference2 =
-                                                                MemoriesRecord
-                                                                    .collection
-                                                                    .doc();
-                                                            await memoriesRecordReference2
-                                                                .set(
-                                                                    createMemoriesRecordData(
-                                                              createdTime: _model.date ?? getCurrentTimestamp,
-                                                              imgUrl: _model
-                                                                  .uploadedFileUrl2,
-                                                              userId:
-                                                                  currentUserUid,
-                                                              memoryTitle: _model
-                                                                  .textController1
-                                                                  .text,
-                                                              imgBlurHash: _model
-                                                                  .compressedImage
-                                                                  ?.blurHash,
-                                                              createdAt:
-                                                                  dateTimeFormat(
-                                                                'MMMM',
-                                                                _model
-                                                                        .date ?? getCurrentTimestamp,
-                                                                locale: FFLocalizations.of(
-                                                                        context)
-                                                                    .languageCode,
-                                                              ),
-                                                            ));
-                                                            _model.result = MemoriesRecord
-                                                                .getDocumentFromData(
-                                                                    createMemoriesRecordData(
-                                                                      createdTime: _model
-                                                                              .date ?? getCurrentTimestamp,
-                                                                      imgUrl: _model
-                                                                          .uploadedFileUrl2,
-                                                                      userId:
-                                                                          currentUserUid,
-                                                                      memoryTitle: _model
-                                                                          .textController1
-                                                                          .text,
-                                                                      imgBlurHash: _model
-                                                                          .compressedImage
-                                                                          ?.blurHash,
-                                                                      createdAt:
-                                                                          dateTimeFormat(
-                                                                        'MMMM',
-                                                                        _model.date ?? getCurrentTimestamp,
-                                                                        locale:
-                                                                            FFLocalizations.of(context).languageCode,
+                                                        _model.count =
+                                                            await queryMemoriesRecordCount(
+                                                          queryBuilder:
+                                                              (memoriesRecord) =>
+                                                                  memoriesRecord
+                                                                      .where(
+                                                                        'user_id',
+                                                                        isEqualTo:
+                                                                            currentUserUid,
+                                                                      )
+                                                                      .where(
+                                                                        'created_at',
+                                                                        isEqualTo:
+                                                                            dateTimeFormat(
+                                                                          'MMMM',
+                                                                          _model.date ?? getCurrentTimestamp,
+                                                                          locale:
+                                                                              FFLocalizations.of(context).languageCode,
+                                                                        ),
                                                                       ),
+                                                        );
+                                                        if (_model.count! > 0) {
+                                                          await MemoriesRecord
+                                                              .collection
+                                                              .doc()
+                                                              .set(
+                                                                  createMemoriesRecordData(
+                                                                createdTime:
+                                                                    _model
+                                                                            .date ?? getCurrentTimestamp,
+                                                                imgUrl: _model
+                                                                    .uploadedFileUrl,
+                                                                userId:
+                                                                    currentUserUid,
+                                                                memoryTitle: _model
+                                                                    .textController1
+                                                                    .text,
+                                                                imgBlurHash: _model
+                                                                    .uploadedLocalFile
+                                                                    .blurHash,
+                                                              ));
+                                                        } else {
+                                                          var memoriesRecordReference2 =
+                                                              MemoriesRecord
+                                                                  .collection
+                                                                  .doc();
+                                                          await memoriesRecordReference2
+                                                              .set(
+                                                                  createMemoriesRecordData(
+                                                            createdTime: _model.date ?? getCurrentTimestamp,
+                                                            imgUrl: _model
+                                                                .uploadedFileUrl,
+                                                            userId:
+                                                                currentUserUid,
+                                                            memoryTitle: _model
+                                                                .textController1
+                                                                .text,
+                                                            imgBlurHash: _model
+                                                                .uploadedLocalFile
+                                                                .blurHash,
+                                                            createdAt:
+                                                                dateTimeFormat(
+                                                              'MMMM',
+                                                              _model.date ?? getCurrentTimestamp,
+                                                              locale: FFLocalizations
+                                                                      .of(context)
+                                                                  .languageCode,
+                                                            ),
+                                                          ));
+                                                          _model.result = MemoriesRecord
+                                                              .getDocumentFromData(
+                                                                  createMemoriesRecordData(
+                                                                    createdTime: _model
+                                                                            .date ?? getCurrentTimestamp,
+                                                                    imgUrl: _model
+                                                                        .uploadedFileUrl,
+                                                                    userId:
+                                                                        currentUserUid,
+                                                                    memoryTitle:
+                                                                        _model
+                                                                            .textController1
+                                                                            .text,
+                                                                    imgBlurHash: _model
+                                                                        .uploadedLocalFile
+                                                                        .blurHash,
+                                                                    createdAt:
+                                                                        dateTimeFormat(
+                                                                      'MMMM',
+                                                                      _model
+                                                                              .date ?? getCurrentTimestamp,
+                                                                      locale: FFLocalizations.of(
+                                                                              context)
+                                                                          .languageCode,
                                                                     ),
-                                                                    memoriesRecordReference2);
-                                                            shouldSetState =
-                                                                true;
-                                                          }
-
-                                                          context.goNamed(
-                                                              'MemoriesTimeline');
+                                                                  ),
+                                                                  memoriesRecordReference2);
                                                         }
 
-                                                        if (shouldSetState) {
-                                                          setState(() {});
-                                                        }
+                                                        context.goNamed(
+                                                            'MemoriesTimeline');
+
+                                                        setState(() {});
                                                       },
                                                       text: FFLocalizations.of(
                                                               context)

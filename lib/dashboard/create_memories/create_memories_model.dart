@@ -36,16 +36,10 @@ class CreateMemoriesModel extends FlutterFlowModel<CreateMemoriesWidget> {
     return null;
   }
 
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading = false;
+  FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-
-  // Stores action output result for [Custom Action - compress] action in Container widget.
-  FFUploadedFile? compressedImage;
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl2 = '';
+  String uploadedFileUrl = '';
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode2;
@@ -53,7 +47,7 @@ class CreateMemoriesModel extends FlutterFlowModel<CreateMemoriesWidget> {
   String? Function(BuildContext, String?)? textController2Validator;
   DateTime? datePicked;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
-  MemoriesRecord? count;
+  int? count;
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   MemoriesRecord? result;
 

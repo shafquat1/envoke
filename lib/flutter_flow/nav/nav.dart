@@ -71,14 +71,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const EntryScreenWidget() : const EntryScreenWidget(),
+      errorBuilder: (context, state) => appStateNotifier.loggedIn
+          ? const MemoriesTimelineWidget()
+          : const EntryScreenWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? const EntryScreenWidget()
+              ? const MemoriesTimelineWidget()
               : const EntryScreenWidget(),
         ),
         FFRoute(
