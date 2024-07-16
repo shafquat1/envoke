@@ -117,9 +117,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'cw27vr56': {
       'en': 'NFC Scan',
-      'de': '',
+      'de': 'NFC Scan',
     },
-    'd2mg2fv3': {
+    'mxsmdcar': {
       'en': 'Home',
       'de': '',
     },
@@ -185,39 +185,39 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'hn7facjc': {
       'en': 'Field is required',
-      'de': 'Das Feld ist erforderlich',
+      'de': 'Field is required',
     },
     'nbsag65x': {
       'en': 'Please choose an option from the dropdown',
-      'de': 'Bitte wählen Sie eine Option aus der Dropdown-Liste',
+      'de': 'Please choose an option from the dropdown',
     },
     'jnd4hegr': {
       'en': 'Field is required',
-      'de': 'Das Feld ist erforderlich',
+      'de': 'Field is required',
     },
     '33jqavdo': {
       'en': 'Please choose an option from the dropdown',
-      'de': 'Bitte wählen Sie eine Option aus der Dropdown-Liste',
+      'de': 'Please choose an option from the dropdown',
     },
     '3futqyst': {
       'en': 'Field is required',
-      'de': 'Das Feld ist erforderlich',
+      'de': 'Field is required',
     },
     'u0o8gm80': {
       'en': 'Please choose an option from the dropdown',
-      'de': 'Bitte wählen Sie eine Option aus der Dropdown-Liste',
+      'de': 'Please choose an option from the dropdown',
     },
     '99krpiap': {
       'en': 'Field is required',
-      'de': 'Das Feld ist erforderlich',
+      'de': 'Field is required',
     },
     'dgnbbwcm': {
       'en': 'Please choose an option from the dropdown',
-      'de': 'Bitte wählen Sie eine Option aus der Dropdown-Liste',
+      'de': 'Please choose an option from the dropdown',
     },
-    'vaf6y5am': {
+    'd2mg2fv3': {
       'en': 'Home',
-      'de': 'Heim',
+      'de': '',
     },
   },
   // LoginPage
@@ -244,23 +244,23 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'feqb67te': {
       'en': 'Field is required',
-      'de': 'Das Feld ist erforderlich',
+      'de': 'Field is required',
     },
     '2zpbyxmv': {
       'en': 'Please choose an option from the dropdown',
-      'de': 'Bitte wählen Sie eine Option aus der Dropdown-Liste',
+      'de': 'Please choose an option from the dropdown',
     },
     'x2befdvy': {
       'en': 'Field is required',
-      'de': 'Das Feld ist erforderlich',
+      'de': 'Field is required',
     },
     'he0dkuup': {
       'en': 'Please choose an option from the dropdown',
-      'de': 'Bitte wählen Sie eine Option aus der Dropdown-Liste',
+      'de': 'Please choose an option from the dropdown',
     },
-    'xpxck8da': {
+    'vaf6y5am': {
       'en': 'Home',
-      'de': '',
+      'de': 'Heim',
     },
   },
   // CreateMemories
@@ -297,7 +297,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Create\nMemories',
       'de': 'Memory erstellen',
     },
-    'oqiavfu6': {
+    'xpxck8da': {
       'en': 'Home',
       'de': '',
     },
@@ -312,7 +312,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Admin',
       'de': '',
     },
-    'fsf6plm1': {
+    'oqiavfu6': {
       'en': 'Home',
       'de': '',
     },
@@ -325,7 +325,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '5alyusf7': {
       'en': 'Upload Image',
-      'de': '',
+      'de': 'Upload Image',
     },
     '9lrq4761': {
       'en': 'Upload Cover Page',
@@ -341,7 +341,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '8dphrngn': {
       'en': 'Note',
-      'de': '',
+      'de': 'Notiz',
     },
     '028dio4c': {
       'en': 'Photo',
@@ -349,7 +349,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'pcv316fz': {
       'en': 'Audio',
-      'de': '',
+      'de': 'Audio',
     },
     'n6siqkz1': {
       'en': 'Save',
@@ -371,7 +371,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Please choose an option from the dropdown',
       'de': 'Please choose an option from the dropdown',
     },
-    'ex83b97a': {
+    'fsf6plm1': {
       'en': 'Home',
       'de': '',
     },
@@ -382,91 +382,91 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '/',
       'de': '',
     },
-    'er82dmm5': {
+    'ex83b97a': {
       'en': 'Home',
       'de': '',
     },
   },
   // momentDetail
   {
-    'yh5vfjg9': {
+    'er82dmm5': {
       'en': 'Home',
       'de': '',
     },
   },
   // profileDetail
   {
-    'n8v9f64u': {
+    'p65jxrcj': {
       'en': 'Profile',
-      'de': 'Profil',
+      'de': '',
     },
-    'fnqnsi0a': {
+    '4uohkq9t': {
       'en': 'Account',
-      'de': 'Account',
+      'de': '',
     },
-    'fvy1beav': {
+    'gbyqq7nq': {
       'en': 'Email ID',
-      'de': 'Email ID',
+      'de': '',
     },
-    '0cehfw1e': {
+    'oqkbyuzd': {
       'en': 'Password',
-      'de': 'Passwort',
+      'de': '',
     },
-    'w1odirgf': {
+    '8hbce8b0': {
       'en': '********',
-      'de': '********',
+      'de': '',
     },
-    'ys9vt5jj': {
+    'eo4w3r1h': {
       'en': 'Change',
-      'de': 'Ändern',
+      'de': '',
     },
-    '36r9wnme': {
+    'kkx1086u': {
       'en': 'Shared Album',
-      'de': 'Geteiltes Album',
+      'de': '',
     },
-    'h0rqwljz': {
+    'l1sw5v5d': {
       'en': 'Email ID',
-      'de': 'Email ID',
+      'de': '',
     },
-    '8gqg9k68': {
+    'dy9qol50': {
       'en': 'Remove',
-      'de': 'Remove',
+      'de': '',
     },
-    '83ms76z2': {
+    'wc09zzns': {
       'en': 'Share with an existing user',
-      'de': 'Mit anderem User teilen',
+      'de': '',
     },
-    '0ku1eg0e': {
+    'p56qj7g1': {
       'en': 'Jewellery',
-      'de': 'Jewellery',
+      'de': '',
     },
-    'tfey64cp': {
+    'e2838rm9': {
       'en': 'Change language',
-      'de': 'Sprache ändern',
+      'de': '',
     },
-    'c0ks10l9': {
+    'tyu3ip80': {
       'en': 'English',
-      'de': 'Englisch',
+      'de': '',
     },
-    '54vtm9lz': {
+    'ravm9mxz': {
       'en': 'German',
-      'de': 'Deutsch',
+      'de': '',
     },
-    'f0mydqig': {
+    'gqv9sa85': {
       'en': 'Change background',
-      'de': 'Change background',
+      'de': '',
     },
-    'n82pdtuj': {
+    'idi1um6l': {
       'en': 'Change',
-      'de': 'Ändern',
+      'de': '',
     },
-    '4ogb93fp': {
+    'c3rj4p4r': {
       'en': 'Logout',
-      'de': 'Ausloggen',
+      'de': '',
     },
-    'ordopf1f': {
+    'yh5vfjg9': {
       'en': 'Home',
-      'de': 'Heim',
+      'de': '',
     },
   },
   // nfcScanTag

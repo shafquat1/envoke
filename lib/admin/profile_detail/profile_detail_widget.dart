@@ -127,7 +127,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                               alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  'n8v9f64u' /* Profile */,
+                                  'p65jxrcj' /* Profile */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
@@ -213,7 +213,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                 33.0, 30.0, 0.0, 10.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                'fnqnsi0a' /* Account */,
+                                '4uohkq9t' /* Account */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -251,7 +251,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                             0.0, 23.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'fvy1beav' /* Email ID */,
+                                            'gbyqq7nq' /* Email ID */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -307,7 +307,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    '0cehfw1e' /* Password */,
+                                                    'oqkbyuzd' /* Password */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -331,7 +331,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'w1odirgf' /* ******** */,
+                                                    '8hbce8b0' /* ******** */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -380,7 +380,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                 text:
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                  'ys9vt5jj' /* Change */,
+                                                  'eo4w3r1h' /* Change */,
                                                 ),
                                                 options: FFButtonOptions(
                                                   height: 40.0,
@@ -442,7 +442,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                       33.0, 30.0, 0.0, 10.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      '36r9wnme' /* Shared Album */,
+                                      'kkx1086u' /* Shared Album */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -489,7 +489,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'h0rqwljz' /* Email ID */,
+                                                      'l1sw5v5d' /* Email ID */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -577,7 +577,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                               },
                                               text: FFLocalizations.of(context)
                                                   .getText(
-                                                '8gqg9k68' /* Remove */,
+                                                'dy9qol50' /* Remove */,
                                               ),
                                               options: FFButtonOptions(
                                                 height: 40.0,
@@ -647,7 +647,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                   0.0, 23.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              '83ms76z2' /* Share with an existing user */,
+                                              'wc09zzns' /* Share with an existing user */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -656,7 +656,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
-                                                  fontSize: 24.0,
+                                                  fontSize: 18.0,
                                                   letterSpacing: 0.0,
                                                   useGoogleFonts: false,
                                                 ),
@@ -739,7 +739,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                 33.0, 30.0, 0.0, 10.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                '0ku1eg0e' /* Jewellery */,
+                                'p56qj7g1' /* Jewellery */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -802,7 +802,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                 33.0, 30.0, 0.0, 10.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                'tfey64cp' /* Change language */,
+                                'e2838rm9' /* Change language */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -842,7 +842,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                           },
                                           text: FFLocalizations.of(context)
                                               .getText(
-                                            'c0ks10l9' /* English */,
+                                            'tyu3ip80' /* English */,
                                           ),
                                           options: FFButtonOptions(
                                             height: 40.0,
@@ -884,7 +884,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                           },
                                           text: FFLocalizations.of(context)
                                               .getText(
-                                            '54vtm9lz' /* German */,
+                                            'ravm9mxz' /* German */,
                                           ),
                                           options: FFButtonOptions(
                                             height: 40.0,
@@ -933,7 +933,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                               33.0, 30.0, 0.0, 10.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'f0mydqig' /* Change background */,
+                              'gqv9sa85' /* Change background */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -1081,7 +1081,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                       setState(() {});
                                     },
                                     text: FFLocalizations.of(context).getText(
-                                      'n82pdtuj' /* Change */,
+                                      'idi1um6l' /* Change */,
                                     ),
                                     options: FFButtonOptions(
                                       height: 40.0,
@@ -1134,7 +1134,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                   'EntryScreen', context.mounted);
                             },
                             text: FFLocalizations.of(context).getText(
-                              '4ogb93fp' /* Logout */,
+                              'c3rj4p4r' /* Logout */,
                             ),
                             icon: const Icon(
                               Icons.power_settings_new_outlined,
