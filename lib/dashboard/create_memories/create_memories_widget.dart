@@ -138,19 +138,20 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                           child: AuthUserStreamWidget(
                                             builder: (context) => Text(
                                               'Hi, ${valueOrDefault(currentUserDocument?.firstName, '')}',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Istanbul type',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    fontSize: 45.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w300,
-                                                    useGoogleFonts: false,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Helvetica',
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        fontSize: 50.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        useGoogleFonts: false,
+                                                      ),
                                             ),
                                           ),
                                         ),
@@ -163,13 +164,13 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'JasmineUPC',
+                                                  fontFamily: 'Helvetica',
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
-                                                  fontSize: 48.0,
+                                                  fontSize: 30.0,
                                                   letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w300,
+                                                  fontWeight: FontWeight.normal,
                                                   useGoogleFonts: false,
                                                 ),
                                           ),
@@ -230,7 +231,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                   .labelMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Istanbul type',
+                                                                        'Helvetica',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryBackground,
@@ -306,7 +307,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Istanbul type',
+                                                                      'Helvetica',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryBackground,
@@ -339,7 +340,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          '8lkntg0d' /* Upload Cover Page */,
+                                                          'ocayeenx' /* Upload Cover Page */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -347,7 +348,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Inter',
+                                                                      'Helvetica',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryBackground,
@@ -356,6 +357,8 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
+                                                                  useGoogleFonts:
+                                                                      false,
                                                                 ),
                                                       ),
                                                     ),
@@ -590,7 +593,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          'tdmtpwlw' /* Next */,
+                                                          'ywfvksyu' /* Next */,
                                                         ),
                                                         options:
                                                             FFButtonOptions(
@@ -623,12 +626,14 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                   .titleSmall
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Inter',
+                                                                        'Helvetica',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryText,
                                                                     letterSpacing:
                                                                         0.0,
+                                                                    useGoogleFonts:
+                                                                        false,
                                                                   ),
                                                           borderSide:
                                                               const BorderSide(
@@ -711,7 +716,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Istanbul type',
+                                                  fontFamily: 'Helvetica',
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
@@ -731,7 +736,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'JasmineUPC',
+                                                fontFamily: 'Helvetica',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
@@ -788,7 +793,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          'kh7kjpgx' /* Select Date */,
+                                                          '67fiycm4' /* Select Date */,
                                                         ),
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
@@ -796,7 +801,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                 .labelMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Istanbul type',
+                                                                      'Helvetica',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryBackground,
@@ -871,7 +876,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily:
-                                                                'Istanbul type',
+                                                                'Helvetica',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondaryBackground,
@@ -934,13 +939,15 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                       .headlineLarge
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Inter',
+                                                                            'Helvetica',
                                                                         fontSize:
                                                                             32.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.w600,
+                                                                        useGoogleFonts:
+                                                                            false,
                                                                       ),
                                                               pickerBackgroundColor:
                                                                   FlutterFlowTheme.of(
@@ -1032,7 +1039,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                     .bodyMedium
                                                                     .override(
                                                                       fontFamily:
-                                                                          'JasmineUPC',
+                                                                          'Helvetica',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .secondaryBackground,
@@ -1183,7 +1190,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                       text: FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'jzf6h30d' /* Save */,
+                                                        'adnw6ctu' /* Save */,
                                                       ),
                                                       options: FFButtonOptions(
                                                         width:
@@ -1330,7 +1337,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Istanbul type',
+                                    fontFamily: 'Helvetica',
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                     fontSize: 45.0,
@@ -1349,7 +1356,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'JasmineUPC',
+                                  fontFamily: 'Helvetica',
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   fontSize: 48.0,
@@ -1395,7 +1402,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                           0.0, 10.0, 0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          'po5axe7a' /* Create
+                                          '78xy7mn5' /* Create
 Memories */
                                           ,
                                         ),
@@ -1403,7 +1410,7 @@ Memories */
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Istanbul type',
+                                              fontFamily: 'Helvetica',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,

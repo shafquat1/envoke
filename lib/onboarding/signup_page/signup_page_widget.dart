@@ -125,17 +125,18 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                 children: [
                                   Text(
                                     FFLocalizations.of(context).getText(
-                                      'g29afgtn' /* Signup */,
+                                      'ylitu1gq' /* Signup */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
+                                          fontFamily: 'Helvetica',
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           fontSize: 30.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
+                                          useGoogleFonts: false,
                                         ),
                                   ),
                                   Padding(
@@ -143,18 +144,19 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                         0.0, 0.0, 0.0, 20.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'r8vanqci' /* Create account and link
+                                        '68r368mw' /* Create account and link
 with J... */
                                         ,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Inter',
+                                            fontFamily: 'Helvetica',
                                             color: const Color(0xFF828282),
                                             fontSize: 20.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
+                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ),
@@ -166,16 +168,17 @@ with J... */
                                     decoration: InputDecoration(
                                       hintText:
                                           FFLocalizations.of(context).getText(
-                                        'mzmzndvg' /* First Name */,
+                                        'g478xbar' /* First Name */,
                                       ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Inter',
+                                            fontFamily: 'Helvetica',
                                             color: const Color(0xFF5A5A5A),
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
+                                            useGoogleFonts: false,
                                           ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
@@ -221,12 +224,13 @@ with J... */
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
+                                          fontFamily: 'Helvetica',
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
+                                          useGoogleFonts: false,
                                         ),
                                     textAlign: TextAlign.start,
                                     validator: _model.textController1Validator
@@ -244,16 +248,17 @@ with J... */
                                     decoration: InputDecoration(
                                       hintText:
                                           FFLocalizations.of(context).getText(
-                                        'okn0atwy' /* Last Name */,
+                                        '5137an5s' /* Last Name */,
                                       ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Inter',
+                                            fontFamily: 'Helvetica',
                                             color: const Color(0xFF5A5A5A),
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
+                                            useGoogleFonts: false,
                                           ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
@@ -299,12 +304,13 @@ with J... */
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
+                                          fontFamily: 'Helvetica',
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
+                                          useGoogleFonts: false,
                                         ),
                                     textAlign: TextAlign.start,
                                     validator: _model.textController2Validator
@@ -322,16 +328,17 @@ with J... */
                                     decoration: InputDecoration(
                                       hintText:
                                           FFLocalizations.of(context).getText(
-                                        'd7l42iea' /* Enter Email */,
+                                        'hpbyq7ly' /* Enter Email */,
                                       ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Inter',
+                                            fontFamily: 'Helvetica',
                                             color: const Color(0xFF5A5A5A),
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
+                                            useGoogleFonts: false,
                                           ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
@@ -377,12 +384,13 @@ with J... */
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
+                                          fontFamily: 'Helvetica',
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
+                                          useGoogleFonts: false,
                                         ),
                                     textAlign: TextAlign.start,
                                     validator: _model
@@ -397,16 +405,17 @@ with J... */
                                     decoration: InputDecoration(
                                       hintText:
                                           FFLocalizations.of(context).getText(
-                                        'mdxrsfez' /* Enter Password */,
+                                        'jsiql9h2' /* Enter Password */,
                                       ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Inter',
+                                            fontFamily: 'Helvetica',
                                             color: const Color(0xFF5A5A5A),
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
+                                            useGoogleFonts: false,
                                           ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
@@ -467,12 +476,13 @@ with J... */
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
+                                          fontFamily: 'Helvetica',
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
+                                          useGoogleFonts: false,
                                         ),
                                     textAlign: TextAlign.start,
                                     validator: _model
@@ -530,7 +540,7 @@ with J... */
                                                   text: FFLocalizations.of(
                                                           context)
                                                       .getText(
-                                                    'l4chstq1' /* Accept  */,
+                                                    'xr7uzhii' /* Accept  */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -549,7 +559,7 @@ with J... */
                                                   text: FFLocalizations.of(
                                                           context)
                                                       .getText(
-                                                    '7jgms7a2' /* Terms & Conditions  */,
+                                                    'dnymi8uf' /* Terms & Conditions  */,
                                                   ),
                                                   style: GoogleFonts.getFont(
                                                     'Inter',
@@ -563,7 +573,7 @@ with J... */
                                                   text: FFLocalizations.of(
                                                           context)
                                                       .getText(
-                                                    's24pf2te' /* and  */,
+                                                    '4fa93zaz' /* and  */,
                                                   ),
                                                   style: GoogleFonts.getFont(
                                                     'Inter',
@@ -575,7 +585,7 @@ with J... */
                                                   text: FFLocalizations.of(
                                                           context)
                                                       .getText(
-                                                    'jgbv43s2' /* Data Protection  */,
+                                                    '5rhpo6v0' /* Data Protection  */,
                                                   ),
                                                   style: GoogleFonts.getFont(
                                                     'Inter',
@@ -589,7 +599,7 @@ with J... */
                                                   text: FFLocalizations.of(
                                                           context)
                                                       .getText(
-                                                    't6hcum7a' /* (Mandatory Field) */,
+                                                    'eyul05br' /* (Mandatory Field) */,
                                                   ),
                                                   style: GoogleFonts.getFont(
                                                     'Inter',
@@ -602,10 +612,11 @@ with J... */
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Inter',
+                                                    fontFamily: 'Helvetica',
                                                     color: const Color(0xFF828282),
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
+                                                    useGoogleFonts: false,
                                                   ),
                                             ),
                                           ),
@@ -652,15 +663,16 @@ with J... */
                                       ),
                                       Text(
                                         FFLocalizations.of(context).getText(
-                                          'q9cpenar' /* Newsletter (Optional) */,
+                                          'gv40r3er' /* Newsletter (Optional) */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Inter',
+                                              fontFamily: 'Helvetica',
                                               color: const Color(0xFF828282),
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
+                                              useGoogleFonts: false,
                                             ),
                                       ),
                                     ],
@@ -799,7 +811,7 @@ with J... */
                                               },
                                         text:
                                             FFLocalizations.of(context).getText(
-                                          'nzu73ybr' /* Signup */,
+                                          '0dixnnph' /* Signup */,
                                         ),
                                         options: FFButtonOptions(
                                           width:

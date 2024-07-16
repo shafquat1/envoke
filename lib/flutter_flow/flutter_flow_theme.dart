@@ -159,107 +159,107 @@ class ThemeTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Inter';
-  TextStyle get displayLarge => GoogleFonts.getFont(
-        'Inter',
+  String get displayLargeFamily => 'Helvetica';
+  TextStyle get displayLarge => TextStyle(
+        fontFamily: 'Helvetica',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'Inter';
-  TextStyle get displayMedium => GoogleFonts.getFont(
-        'Inter',
+  String get displayMediumFamily => 'Helvetica';
+  TextStyle get displayMedium => TextStyle(
+        fontFamily: 'Helvetica',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'Inter';
-  TextStyle get displaySmall => GoogleFonts.getFont(
-        'Inter',
+  String get displaySmallFamily => 'Helvetica';
+  TextStyle get displaySmall => TextStyle(
+        fontFamily: 'Helvetica',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'Inter';
-  TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Inter',
+  String get headlineLargeFamily => 'Helvetica';
+  TextStyle get headlineLarge => TextStyle(
+        fontFamily: 'Helvetica',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Inter';
-  TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Inter',
+  String get headlineMediumFamily => 'Helvetica';
+  TextStyle get headlineMedium => TextStyle(
+        fontFamily: 'Helvetica',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 24.0,
       );
-  String get headlineSmallFamily => 'Inter';
-  TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Inter',
+  String get headlineSmallFamily => 'Helvetica';
+  TextStyle get headlineSmall => TextStyle(
+        fontFamily: 'Helvetica',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Inter';
-  TextStyle get titleLarge => GoogleFonts.getFont(
-        'Inter',
+  String get titleLargeFamily => 'Helvetica';
+  TextStyle get titleLarge => TextStyle(
+        fontFamily: 'Helvetica',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Istanbul type';
+  String get titleMediumFamily => 'Helvetica';
   TextStyle get titleMedium => TextStyle(
-        fontFamily: 'Istanbul type',
+        fontFamily: 'Helvetica',
         color: theme.info,
         fontWeight: FontWeight.normal,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Istanbul type';
+  String get titleSmallFamily => 'Helvetica';
   TextStyle get titleSmall => TextStyle(
-        fontFamily: 'Istanbul type',
+        fontFamily: 'Helvetica',
         color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Istanbul type';
+  String get labelLargeFamily => 'Helvetica';
   TextStyle get labelLarge => TextStyle(
-        fontFamily: 'Istanbul type',
+        fontFamily: 'Helvetica',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Istanbul type';
+  String get labelMediumFamily => 'Helvetica';
   TextStyle get labelMedium => TextStyle(
-        fontFamily: 'Istanbul type',
+        fontFamily: 'Helvetica',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Istanbul type';
+  String get labelSmallFamily => 'Helvetica';
   TextStyle get labelSmall => TextStyle(
-        fontFamily: 'Istanbul type',
+        fontFamily: 'Helvetica',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Istanbul type';
+  String get bodyLargeFamily => 'Helvetica';
   TextStyle get bodyLarge => TextStyle(
-        fontFamily: 'Istanbul type',
+        fontFamily: 'Helvetica',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Istanbul type';
+  String get bodyMediumFamily => 'Helvetica';
   TextStyle get bodyMedium => TextStyle(
-        fontFamily: 'Istanbul type',
+        fontFamily: 'Helvetica',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Istanbul type';
+  String get bodySmallFamily => 'Helvetica';
   TextStyle get bodySmall => TextStyle(
-        fontFamily: 'Istanbul type',
+        fontFamily: 'Helvetica',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,

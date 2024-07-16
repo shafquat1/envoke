@@ -42,7 +42,7 @@ class SignupPageModel extends FlutterFlowModel<SignupPageWidget> {
   String? _emailTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'wjx2t0tb' /* Field is required */,
+        'hn7facjc' /* Field is required */,
       );
     }
 
@@ -57,7 +57,7 @@ class SignupPageModel extends FlutterFlowModel<SignupPageWidget> {
   String? _passwordTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'bqapgnbs' /* Field is required */,
+        'jnd4hegr' /* Field is required */,
       );
     }
 

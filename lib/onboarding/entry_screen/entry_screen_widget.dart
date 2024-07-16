@@ -122,7 +122,7 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                                 context.pushNamed('SignupPage');
                               },
                               text: FFLocalizations.of(context).getText(
-                                '8bauxdju' /* Signup */,
+                                'uk6jj2ez' /* Signup */,
                               ),
                               options: FFButtonOptions(
                                 width: MediaQuery.sizeOf(context).width * 0.85,
@@ -135,11 +135,12 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: 'Helvetica',
                                       color: Colors.white,
                                       fontSize: 18.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
+                                      useGoogleFonts: false,
                                     ),
                                 elevation: 3.0,
                                 borderSide: const BorderSide(
@@ -167,7 +168,7 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                                 context.pushNamed('LoginPage');
                               },
                               text: FFLocalizations.of(context).getText(
-                                'x4rfwak8' /* Login */,
+                                'w32fjupc' /* Login */,
                               ),
                               options: FFButtonOptions(
                                 width: MediaQuery.sizeOf(context).width * 0.85,
@@ -180,11 +181,12 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: 'Helvetica',
                                       color: Colors.white,
                                       fontSize: 18.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
+                                      useGoogleFonts: false,
                                     ),
                                 elevation: 3.0,
                                 borderSide: const BorderSide(
@@ -222,7 +224,7 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                             ).then((value) => safeSetState(() {}));
                           },
                           text: FFLocalizations.of(context).getText(
-                            '9tyh2n55' /* NFC Scan */,
+                            'cw27vr56' /* NFC Scan */,
                           ),
                           options: FFButtonOptions(
                             width: MediaQuery.sizeOf(context).width * 0.85,
@@ -235,11 +237,12 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Helvetica',
                                   color: Colors.white,
                                   fontSize: 18.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
+                                  useGoogleFonts: false,
                                 ),
                             elevation: 3.0,
                             borderSide: const BorderSide(

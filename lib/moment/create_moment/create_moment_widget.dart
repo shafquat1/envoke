@@ -101,15 +101,16 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                       alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
-                          'pvdu758k' /* Create Moment */,
+                          'f3dazzzd' /* Create Moment */,
                         ),
                         style: FlutterFlowTheme.of(context)
                             .headlineMedium
                             .override(
-                              fontFamily: 'Inter',
+                              fontFamily: 'Helvetica',
                               color: Colors.white,
                               fontSize: 18.0,
                               letterSpacing: 0.0,
+                              useGoogleFonts: false,
                             ),
                       ),
                     ),
@@ -179,14 +180,14 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                 hintText:
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                  'q46mca09' /* Upload Image */,
+                                                  '5alyusf7' /* Upload Image */,
                                                 ),
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Istanbul type',
+                                                              'Helvetica',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryBackground,
@@ -247,7 +248,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Istanbul type',
+                                                    fontFamily: 'Helvetica',
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryBackground,
@@ -269,19 +270,21 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'ixcjg3mi' /* Upload Cover Page */,
+                                                '9lrq4761' /* Upload Cover Page */,
                                               ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Inter',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Helvetica',
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        useGoogleFonts: false,
+                                                      ),
                                             ),
                                           ),
                                           Padding(
@@ -547,7 +550,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                               },
                                               text: FFLocalizations.of(context)
                                                   .getText(
-                                                '1tv4mfiy' /* Next */,
+                                                'a8f5zeo9' /* Next */,
                                               ),
                                               options: FFButtonOptions(
                                                 width:
@@ -565,16 +568,20 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily: 'Helvetica',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .primaryText,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      useGoogleFonts: false,
+                                                    ),
                                                 borderSide: const BorderSide(
                                                   color: Colors.transparent,
                                                   width: 1.0,
@@ -640,7 +647,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                 .labelMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Istanbul type',
+                                                                      'Helvetica',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBackground,
@@ -655,7 +662,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          '2x9k2v4y' /* Add Title */,
+                                                          'hqsbxj6p' /* Add Title */,
                                                         ),
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
@@ -663,7 +670,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                 .labelMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Istanbul type',
+                                                                      'Helvetica',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBackground,
@@ -691,7 +698,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                           .titleMedium
                                                           .override(
                                                             fontFamily:
-                                                                'Istanbul type',
+                                                                'Helvetica',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryBackground,
@@ -738,7 +745,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          'z6kerzdy' /* Note */,
+                                                          '8dphrngn' /* Note */,
                                                         ),
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
@@ -746,7 +753,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                 .labelMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Istanbul type',
+                                                                      'Helvetica',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBackground,
@@ -763,7 +770,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                 .titleMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Inter',
+                                                                      'Helvetica',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryBackground,
@@ -773,7 +780,9 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                       0.0,
                                                                   fontWeight:
                                                                       FontWeight
-                                                                          .w500,
+                                                                          .normal,
+                                                                  useGoogleFonts:
+                                                                      false,
                                                                   lineHeight:
                                                                       10.0,
                                                                 ),
@@ -786,19 +795,25 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                         focusedErrorBorder:
                                                             InputBorder.none,
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .titleMedium
-                                                          .override(
-                                                            fontFamily: 'Inter',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                          ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Helvetica',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                useGoogleFonts:
+                                                                    false,
+                                                              ),
                                                       textAlign:
                                                           TextAlign.start,
                                                       maxLines: 25,
@@ -886,20 +901,22 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                       FFLocalizations.of(
                                                                               context)
                                                                           .getText(
-                                                                        'krxvyxfu' /* Photo */,
+                                                                        '028dio4c' /* Photo */,
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
                                                                             fontFamily:
-                                                                                'Inter',
+                                                                                'Helvetica',
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondaryBackground,
                                                                             letterSpacing:
                                                                                 0.0,
                                                                             fontWeight:
-                                                                                FontWeight.w500,
+                                                                                FontWeight.normal,
+                                                                            useGoogleFonts:
+                                                                                false,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -983,7 +1000,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                       FFLocalizations.of(
                                                                               context)
                                                                           .getText(
-                                                                        '8iy8tb7f' /* Audio */,
+                                                                        'pcv316fz' /* Audio */,
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
@@ -1049,10 +1066,11 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                                             ),
                                                                                           ),
                                                                                           titleTextStyle: FlutterFlowTheme.of(context).titleLarge.override(
-                                                                                                fontFamily: 'Inter',
+                                                                                                fontFamily: 'Helvetica',
                                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                                 fontSize: 14.0,
                                                                                                 letterSpacing: 0.0,
+                                                                                                useGoogleFonts: false,
                                                                                               ),
                                                                                           playbackDurationTextStyle: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                                 fontFamily: 'Inter',
@@ -1550,7 +1568,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                           text: FFLocalizations
                                                                   .of(context)
                                                               .getText(
-                                                            '6xafy8od' /* Save */,
+                                                            'n6siqkz1' /* Save */,
                                                           ),
                                                           options:
                                                               FFButtonOptions(
@@ -1579,7 +1597,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                     .titleSmall
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Inter',
+                                                                          'Helvetica',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primaryText,
@@ -1590,6 +1608,8 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      useGoogleFonts:
+                                                                          false,
                                                                     ),
                                                             elevation: 3.0,
                                                             borderSide:

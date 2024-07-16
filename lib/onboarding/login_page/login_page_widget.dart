@@ -128,18 +128,19 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   0.0, 0.0, 0.0, 10.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              'yv85sux6' /* Login */,
+                                              'unc10t38' /* Login */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
+                                                  fontFamily: 'Helvetica',
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
                                                   fontSize: 30.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.bold,
+                                                  useGoogleFonts: false,
                                                 ),
                                           ),
                                         ),
@@ -153,18 +154,19 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             hintText:
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                              'plhe2fq4' /* Email */,
+                                              'yd4eo0sb' /* Email */,
                                             ),
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
                                                     .override(
-                                                      fontFamily: 'Inter',
+                                                      fontFamily: 'Helvetica',
                                                       color: const Color(0xFF5A5A5A),
                                                       fontSize: 16.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w500,
+                                                      useGoogleFonts: false,
                                                     ),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: const BorderSide(
@@ -213,13 +215,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily: 'Helvetica',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
+                                                useGoogleFonts: false,
                                               ),
                                           textAlign: TextAlign.start,
                                           validator: _model
@@ -237,18 +240,19 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             hintText:
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                              'zv114nrz' /* Password */,
+                                              'ik6zt5el' /* Password */,
                                             ),
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
                                                     .override(
-                                                      fontFamily: 'Inter',
+                                                      fontFamily: 'Helvetica',
                                                       color: const Color(0xFF5A5A5A),
                                                       fontSize: 16.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w500,
+                                                      useGoogleFonts: false,
                                                     ),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: const BorderSide(
@@ -314,13 +318,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily: 'Helvetica',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
+                                                useGoogleFonts: false,
                                               ),
                                           textAlign: TextAlign.start,
                                           validator: _model
@@ -369,16 +374,17 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                '87x4eu1b' /* Newsletter (Optional) */,
+                                                'ld0i6ng9' /* Newsletter (Optional) */,
                                               ),
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Inter',
+                                                    fontFamily: 'Helvetica',
                                                     color: const Color(0xFF828282),
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
+                                                    useGoogleFonts: false,
                                                   ),
                                             ),
                                           ],
@@ -438,7 +444,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               },
                                               text: FFLocalizations.of(context)
                                                   .getText(
-                                                '1rp3sxed' /* Login */,
+                                                '8wlncbon' /* Login */,
                                               ),
                                               options: FFButtonOptions(
                                                 width:
@@ -458,12 +464,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily:
+                                                              'Helvetica',
                                                           color: Colors.white,
                                                           fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
+                                                          useGoogleFonts: false,
                                                         ),
                                                 elevation: 3.0,
                                                 borderSide: const BorderSide(

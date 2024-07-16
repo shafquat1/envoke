@@ -194,7 +194,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Istanbul type',
+                                                              'Helvetica',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
@@ -233,7 +233,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                               .bodyMedium
                                                               .override(
                                                                 fontFamily:
-                                                                    'Istanbul type',
+                                                                    'Helvetica',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
@@ -479,11 +479,11 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                             textAlign:
                                                                                 TextAlign.start,
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Istanbul type',
+                                                                                  fontFamily: 'Helvetica',
                                                                                   color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                   fontSize: 36.0,
                                                                                   letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.w300,
+                                                                                  fontWeight: FontWeight.normal,
                                                                                   useGoogleFonts: false,
                                                                                 ),
                                                                           ),
@@ -549,7 +549,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                         .bodyMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Inter',
+                                                                              'Helvetica',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primaryBackground,
                                                                           fontSize:
@@ -557,7 +557,9 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
-                                                                              FontWeight.w500,
+                                                                              FontWeight.normal,
+                                                                          useGoogleFonts:
+                                                                              false,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -584,7 +586,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              fontFamily: 'Istanbul type',
+                                                                              fontFamily: 'Helvetica',
                                                                               color: FlutterFlowTheme.of(context).primaryBackground,
                                                                               fontSize: 38.0,
                                                                               letterSpacing: 0.0,
@@ -595,12 +597,12 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                       TextSpan(
                                                                         text: FFLocalizations.of(context)
                                                                             .getText(
-                                                                          '07lvnb36' /* / */,
+                                                                          'dbrr87f2' /* / */,
                                                                         ),
                                                                         style:
                                                                             const TextStyle(
                                                                           fontFamily:
-                                                                              'Istanbul type',
+                                                                              'Helvetica',
                                                                           fontWeight:
                                                                               FontWeight.w300,
                                                                           fontSize:
@@ -614,7 +616,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                         style:
                                                                             TextStyle(
                                                                           fontFamily:
-                                                                              'Istanbul type',
+                                                                              'Helvetica',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primaryBackground,
                                                                           fontWeight:
@@ -629,7 +631,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                         .bodyMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Istanbul type',
+                                                                              'Helvetica',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondaryBackground,
                                                                           letterSpacing:

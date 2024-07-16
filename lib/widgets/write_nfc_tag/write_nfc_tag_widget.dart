@@ -80,13 +80,14 @@ class _WriteNfcTagWidgetState extends State<WriteNfcTagWidget> {
                   alignment: const AlignmentDirectional(0.0, -1.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
-                      'clgfwm63' /* Ready to scan */,
+                      'tvkw1m40' /* Ready to scan */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Inter',
+                          fontFamily: 'Helvetica',
                           color: FlutterFlowTheme.of(context).secondaryText,
                           fontSize: 20.0,
                           letterSpacing: 0.0,
+                          useGoogleFonts: false,
                         ),
                   ),
                 ),
@@ -115,12 +116,13 @@ class _WriteNfcTagWidgetState extends State<WriteNfcTagWidget> {
                         const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
-                        'ojv73js6' /* Approach an NFC tag */,
+                        'ow2e8xeh' /* Approach an NFC tag */,
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Inter',
+                            fontFamily: 'Helvetica',
                             fontSize: 15.0,
                             letterSpacing: 0.0,
+                            useGoogleFonts: false,
                           ),
                     ),
                   ),
@@ -132,7 +134,7 @@ class _WriteNfcTagWidgetState extends State<WriteNfcTagWidget> {
                       context.safePop();
                     },
                     text: FFLocalizations.of(context).getText(
-                      't38133jg' /* Cancel */,
+                      'mg5431fe' /* Cancel */,
                     ),
                     options: FFButtonOptions(
                       width: MediaQuery.sizeOf(context).width * 0.8,
@@ -144,10 +146,11 @@ class _WriteNfcTagWidgetState extends State<WriteNfcTagWidget> {
                       color: const Color(0xFFDCDFE2),
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Inter',
+                                fontFamily: 'Helvetica',
                                 color: Colors.black,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.bold,
+                                useGoogleFonts: false,
                               ),
                       elevation: 3.0,
                       borderSide: const BorderSide(

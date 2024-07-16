@@ -146,13 +146,13 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Istanbul type',
+                                                fontFamily: 'Helvetica',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
-                                                fontSize: 45.0,
+                                                fontSize: 50.0,
                                                 letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w300,
+                                                fontWeight: FontWeight.normal,
                                                 useGoogleFonts: false,
                                               ),
                                         ),
@@ -166,13 +166,13 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'JasmineUPC',
+                                              fontFamily: 'Helvetica',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
-                                              fontSize: 48.0,
+                                              fontSize: 30.0,
                                               letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w300,
+                                              fontWeight: FontWeight.normal,
                                               useGoogleFonts: false,
                                             ),
                                       ),
@@ -420,10 +420,11 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                             locale: FFLocalizations.of(context).languageCode,
                                                                                           ),
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Inter',
+                                                                                                fontFamily: 'Helvetica',
                                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                                 letterSpacing: 0.0,
-                                                                                                fontWeight: FontWeight.w500,
+                                                                                                fontWeight: FontWeight.normal,
+                                                                                                useGoogleFonts: false,
                                                                                               ),
                                                                                         ),
                                                                                       ),
@@ -432,11 +433,11 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                         child: Text(
                                                                                           columnMemoriesRecord.memoryTitle,
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Istanbul type',
+                                                                                                fontFamily: 'Helvetica',
                                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                                 fontSize: 28.0,
                                                                                                 letterSpacing: 0.0,
-                                                                                                fontWeight: FontWeight.w300,
+                                                                                                fontWeight: FontWeight.normal,
                                                                                                 useGoogleFonts: false,
                                                                                               ),
                                                                                         ),
@@ -455,25 +456,25 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                   children: [
                                                                                     Text(
                                                                                       FFLocalizations.of(context).getText(
-                                                                                        'mlh4k9n0' /* Shared by */,
+                                                                                        '4qj8i09j' /* Shared by */,
                                                                                       ),
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'JasmineUPC',
+                                                                                            fontFamily: 'Helvetica',
                                                                                             color: FlutterFlowTheme.of(context).info,
                                                                                             fontSize: 18.0,
                                                                                             letterSpacing: 0.0,
-                                                                                            fontWeight: FontWeight.w300,
+                                                                                            fontWeight: FontWeight.normal,
                                                                                             useGoogleFonts: false,
                                                                                           ),
                                                                                     ),
                                                                                     Text(
                                                                                       memoriesTimelineSharedUserRecord!.sharedUserName,
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'JasmineUPC',
+                                                                                            fontFamily: 'Helvetica',
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                             fontSize: 24.0,
                                                                                             letterSpacing: 0.0,
-                                                                                            fontWeight: FontWeight.w300,
+                                                                                            fontWeight: FontWeight.normal,
                                                                                             useGoogleFonts: false,
                                                                                           ),
                                                                                     ),
@@ -556,7 +557,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                           .bodyMedium
                                                                           .override(
                                                                             fontFamily:
-                                                                                'Istanbul type',
+                                                                                'Helvetica',
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondaryBackground,
                                                                             fontSize:
@@ -835,10 +836,11 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                               locale: FFLocalizations.of(context).languageCode,
                                                                                             ),
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Inter',
+                                                                                                  fontFamily: 'Helvetica',
                                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                                   letterSpacing: 0.0,
-                                                                                                  fontWeight: FontWeight.w500,
+                                                                                                  fontWeight: FontWeight.normal,
+                                                                                                  useGoogleFonts: false,
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -847,11 +849,11 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                           child: Text(
                                                                                             columnMemoriesRecord.memoryTitle,
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Istanbul type',
+                                                                                                  fontFamily: 'Helvetica',
                                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                                   fontSize: 28.0,
                                                                                                   letterSpacing: 0.0,
-                                                                                                  fontWeight: FontWeight.w300,
+                                                                                                  fontWeight: FontWeight.normal,
                                                                                                   useGoogleFonts: false,
                                                                                                 ),
                                                                                           ),
@@ -930,9 +932,10 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                 data: datePickedCupertinoTheme.copyWith(
                                                                                   textTheme: datePickedCupertinoTheme.textTheme.copyWith(
                                                                                     dateTimePickerTextStyle: FlutterFlowTheme.of(context).headlineMedium.override(
-                                                                                          fontFamily: 'Inter',
+                                                                                          fontFamily: 'Helvetica',
                                                                                           color: FlutterFlowTheme.of(context).primaryText,
                                                                                           letterSpacing: 0.0,
+                                                                                          useGoogleFonts: false,
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -996,11 +999,11 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Istanbul type',
+                                                                                fontFamily: 'Helvetica',
                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                 fontSize: 20.0,
                                                                                 letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.w300,
+                                                                                fontWeight: FontWeight.normal,
                                                                                 useGoogleFonts: false,
                                                                               ),
                                                                         ),
@@ -1042,7 +1045,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                 context.pushNamed('profileDetail');
                               },
                               text: FFLocalizations.of(context).getText(
-                                'wlbmob1d' /* Admin */,
+                                'rr7kpabr' /* Admin */,
                               ),
                               options: FFButtonOptions(
                                 height: 40.0,
@@ -1054,7 +1057,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Istanbul type',
+                                      fontFamily: 'Helvetica',
                                       color: Colors.white,
                                       letterSpacing: 0.0,
                                       useGoogleFonts: false,
@@ -1101,7 +1104,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Istanbul type',
+                                    fontFamily: 'Helvetica',
                                     color: Colors.white,
                                     letterSpacing: 0.0,
                                     useGoogleFonts: false,

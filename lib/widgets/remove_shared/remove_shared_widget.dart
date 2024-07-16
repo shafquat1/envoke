@@ -66,16 +66,16 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                             const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            'kxspqn1p' /* Do you want to Remove? */,
+                            'aqp2m3jq' /* Do you want to Remove? */,
                           ),
                           style:
                               FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'JasmineUPC',
+                                    fontFamily: 'Helvetica',
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    fontSize: 40.0,
+                                    fontSize: 24.0,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w300,
+                                    fontWeight: FontWeight.normal,
                                     useGoogleFonts: false,
                                   ),
                         ),
@@ -121,11 +121,11 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                 child: Text(
                   widget.shared!.sharedUserName,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'JasmineUPC',
+                        fontFamily: 'Helvetica',
                         color: FlutterFlowTheme.of(context).secondaryBackground,
-                        fontSize: 24.0,
+                        fontSize: 14.0,
                         letterSpacing: 0.0,
-                        fontWeight: FontWeight.w300,
+                        fontWeight: FontWeight.normal,
                         useGoogleFonts: false,
                       ),
                 ),
@@ -145,7 +145,7 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                             Navigator.pop(context);
                           },
                           text: FFLocalizations.of(context).getText(
-                            'l8ak8h1l' /* No */,
+                            '7wytdvrx' /* No */,
                           ),
                           options: FFButtonOptions(
                             width: 150.0,
@@ -158,12 +158,13 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Helvetica',
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   fontSize: 18.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
+                                  useGoogleFonts: false,
                                 ),
                             elevation: 2.0,
                             borderSide: const BorderSide(
@@ -185,7 +186,7 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                             Navigator.pop(context);
                           },
                           text: FFLocalizations.of(context).getText(
-                            'zdojvoyq' /* Yes */,
+                            '12pv03a3' /* Yes */,
                           ),
                           options: FFButtonOptions(
                             width: 150.0,
@@ -198,11 +199,12 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Helvetica',
                                   color: Colors.white,
                                   fontSize: 18.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
+                                  useGoogleFonts: false,
                                 ),
                             elevation: 2.0,
                             borderSide: const BorderSide(

@@ -14,7 +14,7 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   String? _emailTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'jh9unk20' /* Field is required */,
+        'feqb67te' /* Field is required */,
       );
     }
 
@@ -32,7 +32,7 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   String? _passwordTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'w3kbpedn' /* Field is required */,
+        'x2befdvy' /* Field is required */,
       );
     }
 

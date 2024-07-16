@@ -66,16 +66,16 @@ class _DeleteMemoriesWidgetState extends State<DeleteMemoriesWidget> {
                             const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            'd3jua6u7' /* Do you want to remove this mem... */,
+                            '5bayhefh' /* Do you want to remove this mem... */,
                           ),
                           style:
                               FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'JasmineUPC',
+                                    fontFamily: 'Helvetica',
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    fontSize: 40.0,
+                                    fontSize: 24.0,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w300,
+                                    fontWeight: FontWeight.normal,
                                     useGoogleFonts: false,
                                   ),
                         ),
@@ -89,11 +89,11 @@ class _DeleteMemoriesWidgetState extends State<DeleteMemoriesWidget> {
                 child: Text(
                   widget.memory!.memoryTitle,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'JasmineUPC',
+                        fontFamily: 'Helvetica',
                         color: FlutterFlowTheme.of(context).secondaryBackground,
-                        fontSize: 32.0,
+                        fontSize: 18.0,
                         letterSpacing: 0.0,
-                        fontWeight: FontWeight.w300,
+                        fontWeight: FontWeight.normal,
                         useGoogleFonts: false,
                       ),
                 ),
@@ -113,7 +113,7 @@ class _DeleteMemoriesWidgetState extends State<DeleteMemoriesWidget> {
                             Navigator.pop(context);
                           },
                           text: FFLocalizations.of(context).getText(
-                            '0my93jvm' /* No */,
+                            'pszy2g5t' /* No */,
                           ),
                           options: FFButtonOptions(
                             width: 150.0,
@@ -126,12 +126,13 @@ class _DeleteMemoriesWidgetState extends State<DeleteMemoriesWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Helvetica',
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   fontSize: 18.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
+                                  useGoogleFonts: false,
                                 ),
                             elevation: 2.0,
                             borderSide: const BorderSide(
@@ -153,7 +154,7 @@ class _DeleteMemoriesWidgetState extends State<DeleteMemoriesWidget> {
                             Navigator.pop(context);
                           },
                           text: FFLocalizations.of(context).getText(
-                            '27upjych' /* Yes */,
+                            '6fbro7s3' /* Yes */,
                           ),
                           options: FFButtonOptions(
                             width: 150.0,
@@ -166,11 +167,12 @@ class _DeleteMemoriesWidgetState extends State<DeleteMemoriesWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Helvetica',
                                   color: Colors.white,
                                   fontSize: 18.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
+                                  useGoogleFonts: false,
                                 ),
                             elevation: 2.0,
                             borderSide: const BorderSide(

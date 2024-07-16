@@ -107,80 +107,81 @@ Locale createLocale(String language) => language.contains('_')
 final kTranslationsMap = <Map<String, Map<String, String>>>[
   // EntryScreen
   {
-    '8bauxdju': {
+    'uk6jj2ez': {
       'en': 'Signup',
-      'de': 'Melden Sie sich an',
+      'de': 'Registrieren',
     },
-    'x4rfwak8': {
+    'w32fjupc': {
       'en': 'Login',
-      'de': 'Anmeldung',
+      'de': 'Login',
     },
-    '9tyh2n55': {
+    'cw27vr56': {
       'en': 'NFC Scan',
-      'de': 'NFC-Scan',
+      'de': '',
     },
-    'mxsmdcar': {
+    'd2mg2fv3': {
       'en': 'Home',
-      'de': 'Heim',
+      'de': '',
     },
   },
   // SignupPage
   {
-    'g29afgtn': {
+    'ylitu1gq': {
       'en': 'Signup',
-      'de': 'Melden Sie sich an',
+      'de': 'Registrieren',
     },
-    'r8vanqci': {
+    '68r368mw': {
       'en': 'Create account and link\nwith Jewelry',
-      'de': 'Konto erstellen und verknüpfen\nmit Schmuck',
+      'de': 'Account erstellen und\nmit Jewelryverbinden',
     },
-    'mzmzndvg': {
+    'g478xbar': {
       'en': 'First Name',
       'de': 'Vorname',
     },
-    'okn0atwy': {
+    '5137an5s': {
       'en': 'Last Name',
-      'de': 'Familienname, Nachname',
+      'de': 'Nachname',
     },
-    'd7l42iea': {
+    'hpbyq7ly': {
       'en': 'Enter Email',
-      'de': 'Email eingeben',
+      'de': 'Email-Adresse',
     },
-    'mdxrsfez': {
+    'jsiql9h2': {
       'en': 'Enter Password',
-      'de': 'Passwort eingeben',
+      'de': 'Passwort festlegen',
     },
-    'l4chstq1': {
+    'xr7uzhii': {
       'en': 'Accept ',
-      'de': 'Akzeptieren',
+      'de': 'Ich bin mit den',
     },
-    '7jgms7a2': {
+    'dnymi8uf': {
       'en': 'Terms & Conditions ',
-      'de': 'Terms & amp; Bedingungen',
+      'de': 'Allgemeinen Geschäftsbedingungen',
     },
-    's24pf2te': {
+    '4fa93zaz': {
       'en': 'and ',
-      'de': 'Und',
+      'de': 'Und der',
     },
-    'jgbv43s2': {
+    '5rhpo6v0': {
       'en': 'Data Protection ',
-      'de': 'Datenschutz',
+      'de': 'Datenschutzerklärung',
     },
-    't6hcum7a': {
+    'eyul05br': {
       'en': '(Mandatory Field)',
-      'de': '(Pflichtfeld)',
+      'de': '(einverstanden)',
     },
-    'jygty3b5': {
+    'kjwio9iy': {
       'en': 'Accept terms & conditions and data\nprotection (Mandatory Filed)',
-      'de': 'AGB und Datenschutz akzeptieren (Pflichtfeld)',
+      'de':
+          'Ich bin mit den Allgemeinen Geschäftsbedingungen Und der Datenschutzerklärung (einverstanden)',
     },
-    'q9cpenar': {
+    'gv40r3er': {
       'en': 'Newsletter (Optional)',
       'de': 'Newsletter (optional)',
     },
-    'nzu73ybr': {
+    '0dixnnph': {
       'en': 'Signup',
-      'de': 'Melden Sie sich an',
+      'de': 'Registrieren',
     },
     'hn7facjc': {
       'en': 'Field is required',
@@ -198,372 +199,372 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Please choose an option from the dropdown',
       'de': 'Bitte wählen Sie eine Option aus der Dropdown-Liste',
     },
-    'wjx2t0tb': {
+    '3futqyst': {
       'en': 'Field is required',
       'de': 'Das Feld ist erforderlich',
     },
-    'vveq3zom': {
+    'u0o8gm80': {
       'en': 'Please choose an option from the dropdown',
       'de': 'Bitte wählen Sie eine Option aus der Dropdown-Liste',
     },
-    'bqapgnbs': {
+    '99krpiap': {
       'en': 'Field is required',
       'de': 'Das Feld ist erforderlich',
     },
-    '7unbl7kc': {
+    'dgnbbwcm': {
       'en': 'Please choose an option from the dropdown',
       'de': 'Bitte wählen Sie eine Option aus der Dropdown-Liste',
     },
-    '5uhrnz4a': {
+    'vaf6y5am': {
       'en': 'Home',
       'de': 'Heim',
     },
   },
   // LoginPage
   {
-    'yv85sux6': {
+    'unc10t38': {
       'en': 'Login',
-      'de': 'Anmeldung',
+      'de': 'Login',
     },
-    'plhe2fq4': {
+    'yd4eo0sb': {
       'en': 'Email',
       'de': 'Email',
     },
-    'zv114nrz': {
+    'ik6zt5el': {
       'en': 'Password',
       'de': 'Passwort',
     },
-    '87x4eu1b': {
+    'ld0i6ng9': {
       'en': 'Newsletter (Optional)',
-      'de': 'Newsletter (optional)',
+      'de': 'Newsletter (Optional)',
     },
-    '1rp3sxed': {
+    '8wlncbon': {
       'en': 'Login',
-      'de': 'Anmeldung',
+      'de': 'Login',
     },
-    'jh9unk20': {
+    'feqb67te': {
       'en': 'Field is required',
       'de': 'Das Feld ist erforderlich',
     },
-    'c0195scg': {
+    '2zpbyxmv': {
       'en': 'Please choose an option from the dropdown',
       'de': 'Bitte wählen Sie eine Option aus der Dropdown-Liste',
     },
-    'w3kbpedn': {
+    'x2befdvy': {
       'en': 'Field is required',
       'de': 'Das Feld ist erforderlich',
     },
-    '9m5a6hgk': {
+    'he0dkuup': {
       'en': 'Please choose an option from the dropdown',
       'de': 'Bitte wählen Sie eine Option aus der Dropdown-Liste',
     },
-    '2apy5h91': {
+    'xpxck8da': {
       'en': 'Home',
-      'de': 'Heim',
+      'de': '',
     },
   },
   // CreateMemories
   {
     'z9czxuh3': {
       'en': 'Add a Title',
-      'de': 'Füge einen Titel hinzu',
+      'de': 'Titel hinzufügen',
     },
-    '8lkntg0d': {
+    'ocayeenx': {
       'en': 'Upload Cover Page',
-      'de': 'Deckblatt hochladen',
+      'de': 'Upload Cover Page',
     },
-    'tdmtpwlw': {
+    'ywfvksyu': {
       'en': 'Next',
-      'de': 'Nächste',
+      'de': 'Next',
     },
-    '104lv5k3': {
+    'gen3x22y': {
       'en': 'Field is required',
-      'de': 'Das Feld ist erforderlich',
+      'de': 'Field is required',
     },
-    '6vddfctb': {
+    '0bdxh6k1': {
       'en': 'Please choose an option from the dropdown',
-      'de': 'Bitte wählen Sie eine Option aus der Dropdown-Liste',
+      'de': 'Please choose an option from the dropdown',
     },
-    'kh7kjpgx': {
+    '67fiycm4': {
       'en': 'Select Date',
-      'de': 'Datum auswählen',
+      'de': 'Select Date',
     },
-    'jzf6h30d': {
+    'adnw6ctu': {
       'en': 'Save',
-      'de': 'Speichern',
+      'de': 'Save',
     },
-    'po5axe7a': {
+    '78xy7mn5': {
       'en': 'Create\nMemories',
-      'de': 'Erinnerungen schaffen',
+      'de': 'Memory erstellen',
     },
-    '486vl2i8': {
+    'oqiavfu6': {
       'en': 'Home',
-      'de': 'Heim',
+      'de': '',
     },
   },
   // MemoriesTimeline
   {
-    'mlh4k9n0': {
+    '4qj8i09j': {
       'en': 'Shared by',
-      'de': 'Geteilt von',
+      'de': 'Shared by',
     },
-    'wlbmob1d': {
+    'rr7kpabr': {
       'en': 'Admin',
-      'de': 'Administrator',
+      'de': '',
     },
-    'y4seugcy': {
+    'fsf6plm1': {
       'en': 'Home',
-      'de': 'Heim',
+      'de': '',
     },
   },
   // createMoment
   {
-    'pvdu758k': {
+    'f3dazzzd': {
       'en': 'Create Moment',
       'de': 'Moment erstellen',
     },
-    'q46mca09': {
+    '5alyusf7': {
       'en': 'Upload Image',
-      'de': 'Bild hochladen',
+      'de': '',
     },
-    'ixcjg3mi': {
+    '9lrq4761': {
       'en': 'Upload Cover Page',
-      'de': 'Deckblatt hochladen',
+      'de': 'Upload Cover Page',
     },
-    '1tv4mfiy': {
+    'a8f5zeo9': {
       'en': 'Next',
-      'de': 'Nächste',
+      'de': 'Next',
     },
-    '2x9k2v4y': {
+    'hqsbxj6p': {
       'en': 'Add Title',
       'de': 'Titel hinzufügen',
     },
-    'z6kerzdy': {
+    '8dphrngn': {
       'en': 'Note',
-      'de': 'Notiz',
+      'de': '',
     },
-    'krxvyxfu': {
+    '028dio4c': {
       'en': 'Photo',
-      'de': 'Foto',
+      'de': 'Photo',
     },
-    '8iy8tb7f': {
+    'pcv316fz': {
       'en': 'Audio',
-      'de': 'Audio',
+      'de': '',
     },
-    '6xafy8od': {
+    'n6siqkz1': {
       'en': 'Save',
-      'de': 'Speichern',
+      'de': 'Save',
     },
-    'sccjx7wi': {
+    'fbqnfowo': {
       'en': 'Field is required',
-      'de': 'Das Feld ist erforderlich',
+      'de': 'Field is required',
     },
-    'yhffkuys': {
+    'utualx8t': {
       'en': 'Please choose an option from the dropdown',
-      'de': 'Bitte wählen Sie eine Option aus der Dropdown-Liste',
+      'de': 'Please choose an option from the dropdown',
     },
-    'ioh9xjsy': {
+    'suu8i9fs': {
       'en': 'Field is required',
-      'de': 'Das Feld ist erforderlich',
+      'de': 'Field is required',
     },
-    'gmsfr20x': {
+    'va4vqn3u': {
       'en': 'Please choose an option from the dropdown',
-      'de': 'Bitte wählen Sie eine Option aus der Dropdown-Liste',
+      'de': 'Please choose an option from the dropdown',
     },
-    '5n1nm35a': {
+    'ex83b97a': {
       'en': 'Home',
-      'de': 'Heim',
+      'de': '',
     },
   },
   // momentTimeline
   {
-    '07lvnb36': {
+    'dbrr87f2': {
       'en': '/',
-      'de': '/',
+      'de': '',
     },
-    'nbrbd9lm': {
+    'er82dmm5': {
       'en': 'Home',
-      'de': 'Heim',
+      'de': '',
     },
   },
   // momentDetail
   {
-    'uexcw5bt': {
+    'yh5vfjg9': {
       'en': 'Home',
-      'de': 'Heim',
+      'de': '',
     },
   },
   // profileDetail
   {
-    '4b0rqxol': {
+    'n8v9f64u': {
       'en': 'Profile',
       'de': 'Profil',
     },
-    '5tllo5ij': {
+    'fnqnsi0a': {
       'en': 'Account',
       'de': 'Account',
     },
-    'i03wi7q2': {
+    'fvy1beav': {
       'en': 'Email ID',
-      'de': 'E-Mail-ID',
+      'de': 'Email ID',
     },
-    'ooblk8o7': {
+    '0cehfw1e': {
       'en': 'Password',
       'de': 'Passwort',
     },
-    'he3snuh7': {
+    'w1odirgf': {
       'en': '********',
       'de': '********',
     },
-    'gxczi6tw': {
+    'ys9vt5jj': {
       'en': 'Change',
       'de': 'Ändern',
     },
-    'kdhbogbp': {
+    '36r9wnme': {
       'en': 'Shared Album',
       'de': 'Geteiltes Album',
     },
-    'vy8ziskk': {
+    'h0rqwljz': {
       'en': 'Email ID',
-      'de': 'E-Mail-ID',
+      'de': 'Email ID',
     },
-    '6v99qqye': {
+    '8gqg9k68': {
       'en': 'Remove',
-      'de': 'Entfernen',
+      'de': 'Remove',
     },
-    'k3fxxds1': {
+    '83ms76z2': {
       'en': 'Share with an existing user',
-      'de': 'Mit einem vorhandenen Benutzer teilen',
+      'de': 'Mit anderem User teilen',
     },
-    '84zkepek': {
+    '0ku1eg0e': {
       'en': 'Jewellery',
-      'de': 'Schmuck',
+      'de': 'Jewellery',
     },
-    'wrhahwv0': {
+    'tfey64cp': {
       'en': 'Change language',
       'de': 'Sprache ändern',
     },
-    '52or7oq4': {
+    'c0ks10l9': {
       'en': 'English',
       'de': 'Englisch',
     },
-    'kqfv8huh': {
+    '54vtm9lz': {
       'en': 'German',
-      'de': 'Ändern',
+      'de': 'Deutsch',
     },
-    'gqv9sa85': {
+    'f0mydqig': {
       'en': 'Change background',
-      'de': 'Hintergrund ändern',
+      'de': 'Change background',
     },
-    'ueqglvg7': {
+    'n82pdtuj': {
       'en': 'Change',
       'de': 'Ändern',
     },
-    'n8qmq6kn': {
+    '4ogb93fp': {
       'en': 'Logout',
       'de': 'Ausloggen',
     },
-    'htuashun': {
+    'ordopf1f': {
       'en': 'Home',
       'de': 'Heim',
     },
   },
   // nfcScanTag
   {
-    '573e8toi': {
+    'vsy7p8pj': {
       'en': 'Ready to scan',
       'de': 'Bereit zum Scannen',
     },
-    'tqi77a8b': {
+    '7b9md3sy': {
       'en': 'Approach an NFC tag',
-      'de': 'Nähern Sie sich einem NFC-Tag',
+      'de': 'Schmuck an das Smartphone halten',
     },
-    'm7sxf65m': {
+    'mzzpfp4l': {
       'en': 'Cancel',
-      'de': 'Stornieren',
+      'de': 'abbrechen',
     },
   },
   // writeNfcTag
   {
-    'clgfwm63': {
+    'tvkw1m40': {
       'en': 'Ready to scan',
       'de': 'Bereit zum Scannen',
     },
-    'ojv73js6': {
+    'ow2e8xeh': {
       'en': 'Approach an NFC tag',
-      'de': 'Nähern Sie sich einem NFC-Tag',
+      'de': '',
     },
-    't38133jg': {
+    'mg5431fe': {
       'en': 'Cancel',
-      'de': 'Stornieren',
+      'de': 'abbrechen',
     },
   },
   // removeShared
   {
-    'kxspqn1p': {
+    'aqp2m3jq': {
       'en': 'Do you want to Remove?',
-      'de': 'Möchten Sie entfernen?',
+      'de': 'Do you want to Remove?',
     },
-    'l8ak8h1l': {
+    '7wytdvrx': {
       'en': 'No',
-      'de': 'NEIN',
+      'de': 'No',
     },
-    'zdojvoyq': {
+    '12pv03a3': {
       'en': 'Yes',
-      'de': 'Ja',
+      'de': '',
     },
   },
   // addShared
   {
-    '5qaemse6': {
+    'zftor8xk': {
       'en': 'Share Moment',
-      'de': 'Moment teilen',
+      'de': 'Share Moment',
     },
-    'o4lbzebi': {
+    'qoeg2o09': {
       'en': 'Enter Email',
-      'de': 'Email eingeben',
+      'de': 'Enter Email',
     },
-    '8xnosua5': {
+    '1xmio5dg': {
       'en': 'Share',
-      'de': 'Aktie',
+      'de': 'Share',
     },
-    '1ew1upa7': {
+    '8be8x666': {
       'en': 'Field is required',
-      'de': 'Das Feld ist erforderlich',
+      'de': 'Field is required',
     },
-    'fpom40qm': {
+    'batzkmda': {
       'en': 'Please choose an option from the dropdown',
-      'de': 'Bitte wählen Sie eine Option aus der Dropdown-Liste',
+      'de': 'Please choose an option from the dropdown',
     },
   },
   // deleteMemories
   {
-    'd3jua6u7': {
+    '5bayhefh': {
       'en': 'Do you want to remove this memory?',
-      'de': 'Möchten Sie diesen Speicher entfernen?',
+      'de': 'Do you want to remove this memory?',
     },
-    '0my93jvm': {
+    'pszy2g5t': {
       'en': 'No',
-      'de': 'NEIN',
+      'de': 'No',
     },
-    '27upjych': {
+    '6fbro7s3': {
       'en': 'Yes',
-      'de': 'Ja',
+      'de': 'Yes',
     },
   },
   // deleteMoment
   {
-    'y40vfda4': {
+    '4csbh6wk': {
       'en': 'Do you want to remove this moment?',
-      'de': 'Möchten Sie diesen Moment entfernen?',
+      'de': 'Do you want to remove this moment?',
     },
-    'dshwdki0': {
+    'uo1wjarg': {
       'en': 'No',
-      'de': 'NEIN',
+      'de': 'No',
     },
-    'z0syegbd': {
+    '6swf9u4l': {
       'en': 'Yes',
-      'de': 'Ja',
+      'de': '',
     },
   },
   // Miscellaneous
@@ -571,18 +572,16 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'i360jk6w': {
       'en':
           'In order to take a picture or video, this app requires permission to access the camera.',
-      'de':
-          'Um ein Bild oder Video aufzunehmen, benötigt diese App die Berechtigung für den Zugriff auf die Kamera.',
+      'de': '',
     },
     'l0nkifdh': {
       'en':
           'In order to upload data, this app requires permission to access the photo library.',
-      'de':
-          'Zum Hochladen von Daten benötigt diese App eine Berechtigung zum Zugriff auf die Fotobibliothek.',
+      'de': '',
     },
     'a3temrxl': {
       'en': 'This app requires permissions to record audio.',
-      'de': 'Diese App erfordert Berechtigungen zum Aufzeichnen von Audio.',
+      'de': '',
     },
     'zmw2s4jz': {
       'en': '',
@@ -590,11 +589,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'w65jn2kp': {
       'en': '',
-      'de': 'E-Mail zum Zurücksetzen des Passworts gesendet!',
+      'de': '',
     },
     '6a8qmc9v': {
       'en': '',
-      'de': 'Email erforderlich!',
+      'de': '',
     },
     'da6s0zyf': {
       'en': '',
@@ -622,12 +621,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'ipw8md7c': {
       'en': '',
-      'de': 'E-Mail wird bereits von einem anderen Konto verwendet',
+      'de': '',
     },
     '9h16jelt': {
       'en': '',
-      'de':
-          'Die angegebenen Authentifizierungsdaten sind falsch, fehlerhaft oder abgelaufen',
+      'de': '',
     },
     '4ti735qg': {
       'en': '',
@@ -651,19 +649,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '1upvf0i7': {
       'en': '',
-      'de': 'Quelle Wählen',
+      'de': 'Quelle wählen',
     },
     '0quq8f1g': {
       'en': '',
-      'de': 'Galerie',
+      'de': 'Galarie',
     },
     'tv7tmm0k': {
       'en': '',
-      'de': 'Galerie',
+      'de': '',
     },
     'x31ct6km': {
       'en': '',
-      'de': 'Galerie',
+      'de': '',
     },
     'w0wctoy5': {
       'en': '',

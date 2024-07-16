@@ -127,15 +127,16 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                               alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  '4b0rqxol' /* Profile */,
+                                  'n8v9f64u' /* Profile */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: 'Helvetica',
                                       color: Colors.white,
                                       fontSize: 18.0,
                                       letterSpacing: 0.0,
+                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),
@@ -190,12 +191,12 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                           valueOrDefault(currentUserDocument?.firstName, ''),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'JasmineUPC',
+                                    fontFamily: 'Helvetica',
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    fontSize: 40.0,
+                                    fontSize: 24.0,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w300,
+                                    fontWeight: FontWeight.normal,
                                     useGoogleFonts: false,
                                   ),
                         ),
@@ -212,16 +213,17 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                 33.0, 30.0, 0.0, 10.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                '5tllo5ij' /* Account */,
+                                'fnqnsi0a' /* Account */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Helvetica',
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w500,
+                                    fontWeight: FontWeight.normal,
+                                    useGoogleFonts: false,
                                   ),
                             ),
                           ),
@@ -249,14 +251,14 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                             0.0, 23.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'i03wi7q2' /* Email ID */,
+                                            'fvy1beav' /* Email ID */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'JasmineUPC',
+                                                fontFamily: 'Helvetica',
                                                 color: const Color(0xFF848484),
-                                                fontSize: 24.0,
+                                                fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts: false,
                                               ),
@@ -271,13 +273,13 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'JasmineUPC',
+                                              fontFamily: 'Helvetica',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
-                                              fontSize: 24.0,
+                                              fontSize: 18.0,
                                               letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w300,
+                                              fontWeight: FontWeight.normal,
                                               useGoogleFonts: false,
                                             ),
                                       ),
@@ -305,18 +307,19 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'ooblk8o7' /* Password */,
+                                                    '0cehfw1e' /* Password */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
-                                                            'JasmineUPC',
+                                                        fontFamily: 'Helvetica',
                                                         color:
                                                             const Color(0xFF848484),
-                                                        fontSize: 24.0,
+                                                        fontSize: 14.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
                                                         useGoogleFonts: false,
                                                       ),
                                                 ),
@@ -328,21 +331,20 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'he3snuh7' /* ******** */,
+                                                    'w1odirgf' /* ******** */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
-                                                            'JasmineUPC',
+                                                        fontFamily: 'Helvetica',
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .secondaryBackground,
-                                                        fontSize: 32.0,
+                                                        fontSize: 18.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
-                                                            FontWeight.w300,
+                                                            FontWeight.normal,
                                                         useGoogleFonts: false,
                                                       ),
                                                 ),
@@ -378,7 +380,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                 text:
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                  'gxczi6tw' /* Change */,
+                                                  'ys9vt5jj' /* Change */,
                                                 ),
                                                 options: FFButtonOptions(
                                                   height: 40.0,
@@ -394,11 +396,12 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                           .of(context)
                                                       .titleSmall
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Helvetica',
                                                         color: Colors.white,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
+                                                        useGoogleFonts: false,
                                                       ),
                                                   borderSide: const BorderSide(
                                                     color: Colors.transparent,
@@ -439,16 +442,17 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                       33.0, 30.0, 0.0, 10.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'kdhbogbp' /* Shared Album */,
+                                      '36r9wnme' /* Shared Album */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
+                                          fontFamily: 'Helvetica',
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
+                                          fontWeight: FontWeight.normal,
+                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),
@@ -485,17 +489,17 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'vy8ziskk' /* Email ID */,
+                                                      'h0rqwljz' /* Email ID */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              'JasmineUPC',
+                                                              'Helvetica',
                                                           color:
                                                               const Color(0xFF848484),
-                                                          fontSize: 24.0,
+                                                          fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: false,
                                                         ),
@@ -513,12 +517,11 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
-                                                            'JasmineUPC',
+                                                        fontFamily: 'Helvetica',
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .secondaryBackground,
-                                                        fontSize: 24.0,
+                                                        fontSize: 18.0,
                                                         letterSpacing: 0.0,
                                                         useGoogleFonts: false,
                                                       ),
@@ -574,7 +577,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                               },
                                               text: FFLocalizations.of(context)
                                                   .getText(
-                                                '6v99qqye' /* Remove */,
+                                                '8gqg9k68' /* Remove */,
                                               ),
                                               options: FFButtonOptions(
                                                 height: 40.0,
@@ -590,11 +593,13 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily:
+                                                              'Helvetica',
                                                           color: Colors.white,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
+                                                          useGoogleFonts: false,
                                                         ),
                                                 borderSide: const BorderSide(
                                                   color: Colors.transparent,
@@ -642,12 +647,12 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                   0.0, 23.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              'k3fxxds1' /* Share with an existing user */,
+                                              '83ms76z2' /* Share with an existing user */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'JasmineUPC',
+                                                  fontFamily: 'Helvetica',
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
@@ -734,16 +739,17 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                 33.0, 30.0, 0.0, 10.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                '84zkepek' /* Jewellery */,
+                                '0ku1eg0e' /* Jewellery */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Helvetica',
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w500,
+                                    fontWeight: FontWeight.normal,
+                                    useGoogleFonts: false,
                                   ),
                             ),
                           ),
@@ -769,10 +775,10 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'JasmineUPC',
+                                            fontFamily: 'Helvetica',
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
-                                            fontSize: 24.0,
+                                            fontSize: 14.0,
                                             letterSpacing: 0.0,
                                             useGoogleFonts: false,
                                           ),
@@ -796,15 +802,16 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                 33.0, 30.0, 0.0, 10.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                'wrhahwv0' /* Change language */,
+                                'tfey64cp' /* Change language */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Helvetica',
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                     letterSpacing: 0.0,
+                                    useGoogleFonts: false,
                                   ),
                             ),
                           ),
@@ -835,7 +842,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                           },
                                           text: FFLocalizations.of(context)
                                               .getText(
-                                            '52or7oq4' /* English */,
+                                            'c0ks10l9' /* English */,
                                           ),
                                           options: FFButtonOptions(
                                             height: 40.0,
@@ -850,11 +857,12 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .titleSmall
                                                     .override(
-                                                      fontFamily: 'Inter',
+                                                      fontFamily: 'Helvetica',
                                                       color: Colors.white,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.normal,
+                                                      useGoogleFonts: false,
                                                     ),
                                             borderSide: const BorderSide(
                                               color: Colors.transparent,
@@ -876,7 +884,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                           },
                                           text: FFLocalizations.of(context)
                                               .getText(
-                                            'kqfv8huh' /* German */,
+                                            '54vtm9lz' /* German */,
                                           ),
                                           options: FFButtonOptions(
                                             height: 40.0,
@@ -891,11 +899,12 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .titleSmall
                                                     .override(
-                                                      fontFamily: 'Inter',
+                                                      fontFamily: 'Helvetica',
                                                       color: Colors.white,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.normal,
+                                                      useGoogleFonts: false,
                                                     ),
                                             borderSide: const BorderSide(
                                               color: Colors.transparent,
@@ -924,7 +933,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                               33.0, 30.0, 0.0, 10.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'gqv9sa85' /* Change background */,
+                              'f0mydqig' /* Change background */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -1072,7 +1081,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                       setState(() {});
                                     },
                                     text: FFLocalizations.of(context).getText(
-                                      'ueqglvg7' /* Change */,
+                                      'n82pdtuj' /* Change */,
                                     ),
                                     options: FFButtonOptions(
                                       height: 40.0,
@@ -1085,10 +1094,11 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-                                            fontFamily: 'Inter',
+                                            fontFamily: 'Helvetica',
                                             color: Colors.white,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
+                                            useGoogleFonts: false,
                                           ),
                                       borderSide: const BorderSide(
                                         color: Colors.transparent,
@@ -1124,7 +1134,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                   'EntryScreen', context.mounted);
                             },
                             text: FFLocalizations.of(context).getText(
-                              'n8qmq6kn' /* Logout */,
+                              '4ogb93fp' /* Logout */,
                             ),
                             icon: const Icon(
                               Icons.power_settings_new_outlined,
@@ -1143,11 +1153,12 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Helvetica',
                                     color: const Color(0xFF060606),
                                     fontSize: 20.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
+                                    useGoogleFonts: false,
                                   ),
                               elevation: 3.0,
                               borderSide: const BorderSide(

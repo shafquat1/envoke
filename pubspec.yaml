@@ -163,41 +163,12 @@ flutter:
     - assets/rive_animations/
     - assets/pdfs/
   fonts:
-    - family: 'Istanbul type'
+    - family: 'Helvetica'
       fonts:
-        - asset: assets/fonts/Istanbul_Type_100_Thin.otf
-          weight: 100
-        - asset: assets/fonts/Istanbul_Type_100_Thin_Italic.otf
-          weight: 100
-          style: italic
-        - asset: assets/fonts/Istanbul_Type_300_Light.otf
+        - asset: assets/fonts/helvetica-light-587ebe5a59211.ttf
           weight: 300
-        - asset: assets/fonts/Istanbul_Type_300_Light_Italic.otf
-          weight: 300
-          style: italic
-        - asset: assets/fonts/Istanbul_Type_500_Regular.otf
-        - asset: assets/fonts/Istanbul_Type_500_Regular_Italic.otf
-          style: italic
-        - asset: assets/fonts/Istanbul_Type_700_Medium.otf
-          weight: 500
-        - asset: assets/fonts/Istanbul_Type_700_Medium_Italic.otf
-          weight: 500
-          style: italic
-        - asset: assets/fonts/Istanbul_Type_900_Bold.otf
-          weight: 700
-        - asset: assets/fonts/Istanbul_Type_900_Bold_Italic.otf
-          weight: 700
-          style: italic
-    - family: 'JasmineUPC'
-      fonts:
-        - asset: assets/fonts/upcjb.ttf
-          weight: 300
-        - asset: assets/fonts/upcjbi.ttf
-        - asset: assets/fonts/UPCJI.TTF
-          weight: 500
-        - asset: assets/fonts/UPCJL.TTF
-          weight: 600
-        - asset: assets/fonts/JasmineUPCBold.ttf
+        - asset: assets/fonts/Helvetica.ttf
+        - asset: assets/fonts/Helvetica-Bold.ttf
           weight: 700
 
   

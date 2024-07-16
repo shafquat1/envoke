@@ -70,17 +70,17 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                               0.0, 40.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              '5qaemse6' /* Share Moment */,
+                              'zftor8xk' /* Share Moment */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'JasmineUPC',
+                                  fontFamily: 'Helvetica',
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  fontSize: 40.0,
+                                  fontSize: 24.0,
                                   letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w300,
+                                  fontWeight: FontWeight.normal,
                                   useGoogleFonts: false,
                                 ),
                           ),
@@ -125,7 +125,7 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                             obscureText: false,
                             decoration: InputDecoration(
                               labelText: FFLocalizations.of(context).getText(
-                                'o4lbzebi' /* Enter Email */,
+                                'qoeg2o09' /* Enter Email */,
                               ),
                               labelStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
@@ -137,7 +137,7 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                               hintStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Istanbul type',
+                                    fontFamily: 'Helvetica',
                                     letterSpacing: 0.0,
                                     useGoogleFonts: false,
                                   ),
@@ -151,10 +151,11 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .titleMedium
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Helvetica',
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
+                                  useGoogleFonts: false,
                                 ),
                             keyboardType: TextInputType.emailAddress,
                             validator: _model.textControllerValidator
@@ -325,7 +326,7 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                 if (shouldSetState) setState(() {});
                               },
                               text: FFLocalizations.of(context).getText(
-                                '8xnosua5' /* Share */,
+                                '1xmio5dg' /* Share */,
                               ),
                               options: FFButtonOptions(
                                 width: double.infinity,
@@ -338,11 +339,12 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: 'Helvetica',
                                       color: Colors.white,
                                       fontSize: 18.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
+                                      useGoogleFonts: false,
                                     ),
                                 elevation: 3.0,
                                 borderSide: const BorderSide(

@@ -126,7 +126,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Istanbul type',
+                                                fontFamily: 'Helvetica',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBackground,
@@ -169,13 +169,15 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                                             .headlineLarge
                                                             .override(
                                                               fontFamily:
-                                                                  'Inter',
+                                                                  'Helvetica',
                                                               fontSize: 32.0,
                                                               letterSpacing:
                                                                   0.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w600,
+                                                              useGoogleFonts:
+                                                                  false,
                                                             ),
                                                     pickerBackgroundColor:
                                                         FlutterFlowTheme.of(
@@ -240,8 +242,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
-                                                            'Istanbul type',
+                                                        fontFamily: 'Helvetica',
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .primaryBackground,
@@ -322,12 +323,12 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Istanbul type',
+                                      fontFamily: 'Helvetica',
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
                                       fontSize: 36.0,
                                       letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w300,
+                                      fontWeight: FontWeight.normal,
                                       useGoogleFonts: false,
                                     ),
                               ),
@@ -385,12 +386,13 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .titleLarge
                                                     .override(
-                                                      fontFamily: 'Inter',
+                                                      fontFamily: 'Helvetica',
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .secondaryBackground,
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
+                                                      useGoogleFonts: false,
                                                     ),
                                             playbackDurationTextStyle:
                                                 FlutterFlowTheme.of(context)

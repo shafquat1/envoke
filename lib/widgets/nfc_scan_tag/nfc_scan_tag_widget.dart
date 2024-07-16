@@ -149,13 +149,14 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
                 alignment: const AlignmentDirectional(0.0, -1.0),
                 child: Text(
                   FFLocalizations.of(context).getText(
-                    '573e8toi' /* Ready to scan */,
+                    'vsy7p8pj' /* Ready to scan */,
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Inter',
+                        fontFamily: 'Helvetica',
                         color: FlutterFlowTheme.of(context).secondaryText,
                         fontSize: 20.0,
                         letterSpacing: 0.0,
+                        useGoogleFonts: false,
                       ),
                 ),
               ),
@@ -183,12 +184,13 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
-                      'tqi77a8b' /* Approach an NFC tag */,
+                      '7b9md3sy' /* Approach an NFC tag */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Inter',
+                          fontFamily: 'Helvetica',
                           fontSize: 15.0,
                           letterSpacing: 0.0,
+                          useGoogleFonts: false,
                         ),
                   ),
                 ),
@@ -200,7 +202,7 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
                     context.safePop();
                   },
                   text: FFLocalizations.of(context).getText(
-                    'm7sxf65m' /* Cancel */,
+                    'mzzpfp4l' /* Cancel */,
                   ),
                   options: FFButtonOptions(
                     width: MediaQuery.sizeOf(context).width * 0.8,
@@ -211,10 +213,11 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
                         const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: const Color(0xFFDCDFE2),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Inter',
+                          fontFamily: 'Helvetica',
                           color: Colors.black,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
+                          useGoogleFonts: false,
                         ),
                     elevation: 3.0,
                     borderSide: const BorderSide(

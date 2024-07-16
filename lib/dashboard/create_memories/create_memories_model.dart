@@ -29,7 +29,7 @@ class CreateMemoriesModel extends FlutterFlowModel<CreateMemoriesWidget> {
   String? _textController1Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        '104lv5k3' /* Field is required */,
+        'gen3x22y' /* Field is required */,
       );
     }
 
