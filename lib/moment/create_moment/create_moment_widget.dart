@@ -6,15 +6,17 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
-import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/permissions_util.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:octo_image/octo_image.dart';
 import 'package:record/record.dart';
 import 'create_moment_model.dart';
 export 'create_moment_model.dart';
@@ -101,7 +103,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                       alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
-                          'f3dazzzd' /* Create Moment */,
+                          '81as7ypk' /* Create Moment */,
                         ),
                         style: FlutterFlowTheme.of(context)
                             .headlineMedium
@@ -180,7 +182,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                 hintText:
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                  '5alyusf7' /* Upload Image */,
+                                                  '3shdzh77' /* Upload Image */,
                                                 ),
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
@@ -270,7 +272,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                '9lrq4761' /* Upload Cover Page */,
+                                                '0rsp50m4' /* Upload Cover Page */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -301,6 +303,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                 final selectedMedia =
                                                     await selectMediaWithSourceBottomSheet(
                                                   context: context,
+                                                  imageQuality: 50,
                                                   allowPhoto: true,
                                                   includeBlurHash: true,
                                                 );
@@ -314,6 +317,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                   var selectedUploadedFiles =
                                                       <FFUploadedFile>[];
 
+                                                  var downloadUrls = <String>[];
                                                   try {
                                                     selectedUploadedFiles =
                                                         selectedMedia
@@ -336,17 +340,36 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                       .blurHash,
                                                                 ))
                                                             .toList();
+
+                                                    downloadUrls = (await Future
+                                                            .wait(
+                                                      selectedMedia.map(
+                                                        (m) async =>
+                                                            await uploadData(
+                                                                m.storagePath,
+                                                                m.bytes),
+                                                      ),
+                                                    ))
+                                                        .where((u) => u != null)
+                                                        .map((u) => u!)
+                                                        .toList();
                                                   } finally {
                                                     _model.isDataUploading1 =
                                                         false;
                                                   }
                                                   if (selectedUploadedFiles
-                                                          .length ==
-                                                      selectedMedia.length) {
+                                                              .length ==
+                                                          selectedMedia
+                                                              .length &&
+                                                      downloadUrls.length ==
+                                                          selectedMedia
+                                                              .length) {
                                                     setState(() {
                                                       _model.uploadedLocalFile1 =
                                                           selectedUploadedFiles
                                                               .first;
+                                                      _model.uploadedFileUrl1 =
+                                                          downloadUrls.first;
                                                     });
                                                   } else {
                                                     setState(() {});
@@ -359,12 +382,9 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                             .bytes
                                                             ?.isNotEmpty ??
                                                         false)) {
-                                                  _model.compressedImg =
-                                                      await actions.compress(
-                                                    _model.uploadedLocalFile1,
-                                                  );
                                                   _model.showImg = true;
                                                   setState(() {});
+                                                  return;
                                                 } else {
                                                   ScaffoldMessenger.of(context)
                                                       .showSnackBar(
@@ -385,9 +405,8 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                               .secondary,
                                                     ),
                                                   );
+                                                  return;
                                                 }
-
-                                                setState(() {});
                                               },
                                               child: Container(
                                                 width: 100.0,
@@ -422,24 +441,29 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                           size: 50.0,
                                                         ),
                                                       ),
-                                                    Expanded(
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                        child: Image.memory(
-                                                          _model.uploadedLocalFile1
-                                                                  .bytes ??
-                                                              Uint8List
-                                                                  .fromList([]),
-                                                          width:
-                                                              double.infinity,
-                                                          fit: BoxFit.contain,
-                                                          alignment: const Alignment(
-                                                              0.0, 0.0),
+                                                    if (_model.uploadedFileUrl1 !=
+                                                            '')
+                                                      Expanded(
+                                                        child: ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                          child: Image.memory(
+                                                            _model.uploadedLocalFile1
+                                                                    .bytes ??
+                                                                Uint8List
+                                                                    .fromList(
+                                                                        []),
+                                                            width:
+                                                                double.infinity,
+                                                            fit: BoxFit.contain,
+                                                            alignment:
+                                                                const Alignment(
+                                                                    0.0, 0.0),
+                                                          ),
                                                         ),
                                                       ),
-                                                    ),
                                                   ],
                                                 ),
                                               ),
@@ -451,10 +475,8 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                     0.0, 50.0, 0.0, 0.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
-                                                if (_model.compressedImg ==
-                                                        null ||
-                                                    (_model.compressedImg?.bytes
-                                                            ?.isEmpty ??
+                                                if ((_model.uploadedLocalFile1
+                                                            .bytes?.isEmpty ??
                                                         true)) {
                                                   ScaffoldMessenger.of(context)
                                                       .showSnackBar(
@@ -477,67 +499,6 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                   );
                                                   return;
                                                 } else {
-                                                  {
-                                                    setState(() => _model
-                                                            .isDataUploading2 =
-                                                        true);
-                                                    var selectedUploadedFiles =
-                                                        <FFUploadedFile>[];
-                                                    var selectedMedia =
-                                                        <SelectedFile>[];
-                                                    var downloadUrls =
-                                                        <String>[];
-                                                    try {
-                                                      selectedUploadedFiles = _model
-                                                              .compressedImg!
-                                                              .bytes!
-                                                              .isNotEmpty
-                                                          ? [
-                                                              _model
-                                                                  .compressedImg!
-                                                            ]
-                                                          : <FFUploadedFile>[];
-                                                      selectedMedia =
-                                                          selectedFilesFromUploadedFiles(
-                                                        selectedUploadedFiles,
-                                                      );
-                                                      downloadUrls =
-                                                          (await Future.wait(
-                                                        selectedMedia.map(
-                                                          (m) async =>
-                                                              await uploadData(
-                                                                  m.storagePath,
-                                                                  m.bytes),
-                                                        ),
-                                                      ))
-                                                              .where((u) =>
-                                                                  u != null)
-                                                              .map((u) => u!)
-                                                              .toList();
-                                                    } finally {
-                                                      _model.isDataUploading2 =
-                                                          false;
-                                                    }
-                                                    if (selectedUploadedFiles
-                                                                .length ==
-                                                            selectedMedia
-                                                                .length &&
-                                                        downloadUrls.length ==
-                                                            selectedMedia
-                                                                .length) {
-                                                      setState(() {
-                                                        _model.uploadedLocalFile2 =
-                                                            selectedUploadedFiles
-                                                                .first;
-                                                        _model.uploadedFileUrl2 =
-                                                            downloadUrls.first;
-                                                      });
-                                                    } else {
-                                                      setState(() {});
-                                                      return;
-                                                    }
-                                                  }
-
                                                   await _model
                                                       .pageViewController
                                                       ?.nextPage(
@@ -550,7 +511,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                               },
                                               text: FFLocalizations.of(context)
                                                   .getText(
-                                                'a8f5zeo9' /* Next */,
+                                                'u524vqbc' /* Next */,
                                               ),
                                               options: FFButtonOptions(
                                                 width:
@@ -662,7 +623,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          'hqsbxj6p' /* Add Title */,
+                                                          '2x9k2v4y' /* Add Title */,
                                                         ),
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
@@ -745,7 +706,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          '8dphrngn' /* Note */,
+                                                          'z6kerzdy' /* Note */,
                                                         ),
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
@@ -901,7 +862,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                       FFLocalizations.of(
                                                                               context)
                                                                           .getText(
-                                                                        '028dio4c' /* Photo */,
+                                                                        'xinayci3' /* Photo */,
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
@@ -938,8 +899,16 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                             borderRadius:
                                                                                 BorderRadius.circular(28.0),
                                                                             child:
-                                                                                Image.memory(
-                                                                              _model.compressedImg?.bytes ?? Uint8List.fromList([]),
+                                                                                OctoImage(
+                                                                              placeholderBuilder: (_) => SizedBox.expand(
+                                                                                child: Image(
+                                                                                  image: BlurHashImage(_model.uploadedLocalFile1.blurHash!),
+                                                                                  fit: BoxFit.cover,
+                                                                                ),
+                                                                              ),
+                                                                              image: CachedNetworkImageProvider(
+                                                                                _model.uploadedFileUrl1,
+                                                                              ),
                                                                               width: double.infinity,
                                                                               height: 200.0,
                                                                               fit: BoxFit.cover,
@@ -963,12 +932,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                                   setState(() {
                                                                                     _model.isDataUploading1 = false;
                                                                                     _model.uploadedLocalFile1 = FFUploadedFile(bytes: Uint8List.fromList([]));
-                                                                                  });
-
-                                                                                  setState(() {
-                                                                                    _model.isDataUploading4 = false;
-                                                                                    _model.uploadedLocalFile4 = FFUploadedFile(bytes: Uint8List.fromList([]));
-                                                                                    _model.uploadedFileUrl4 = '';
+                                                                                    _model.uploadedFileUrl1 = '';
                                                                                   });
 
                                                                                   _model.showImg = false;
@@ -1000,7 +964,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                       FFLocalizations.of(
                                                                               context)
                                                                           .getText(
-                                                                        'pcv316fz' /* Audio */,
+                                                                        '8iy8tb7f' /* Audio */,
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
@@ -1119,9 +1083,9 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                                     _model.showAudio = false;
                                                                                     setState(() {});
                                                                                     setState(() {
-                                                                                      _model.isDataUploading3 = false;
-                                                                                      _model.uploadedLocalFile3 = FFUploadedFile(bytes: Uint8List.fromList([]));
-                                                                                      _model.uploadedFileUrl3 = '';
+                                                                                      _model.isDataUploading2 = false;
+                                                                                      _model.uploadedLocalFile2 = FFUploadedFile(bytes: Uint8List.fromList([]));
+                                                                                      _model.uploadedFileUrl2 = '';
                                                                                     });
 
                                                                                     _model.audioFile = null;
@@ -1262,7 +1226,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                         () {});
                                                                     {
                                                                       setState(() =>
-                                                                          _model.isDataUploading3 =
+                                                                          _model.isDataUploading2 =
                                                                               true);
                                                                       var selectedUploadedFiles =
                                                                           <FFUploadedFile>[];
@@ -1295,7 +1259,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                                 u!)
                                                                             .toList();
                                                                       } finally {
-                                                                        _model.isDataUploading3 =
+                                                                        _model.isDataUploading2 =
                                                                             false;
                                                                       }
                                                                       if (selectedUploadedFiles.length ==
@@ -1305,9 +1269,9 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                               selectedFiles.length) {
                                                                         setState(
                                                                             () {
-                                                                          _model.uploadedLocalFile3 =
+                                                                          _model.uploadedLocalFile2 =
                                                                               selectedUploadedFiles.first;
-                                                                          _model.uploadedFileUrl3 =
+                                                                          _model.uploadedFileUrl2 =
                                                                               downloadUrls.first;
                                                                         });
                                                                       } else {
@@ -1319,7 +1283,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
 
                                                                     _model.audioFile =
                                                                         _model
-                                                                            .uploadedFileUrl3;
+                                                                            .uploadedFileUrl2;
                                                                     setState(
                                                                         () {});
                                                                     if (shouldSetState) {
@@ -1457,71 +1421,6 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                     .validate()) {
                                                               return;
                                                             }
-                                                            {
-                                                              setState(() =>
-                                                                  _model.isDataUploading4 =
-                                                                      true);
-                                                              var selectedUploadedFiles =
-                                                                  <FFUploadedFile>[];
-                                                              var selectedMedia =
-                                                                  <SelectedFile>[];
-                                                              var downloadUrls =
-                                                                  <String>[];
-                                                              try {
-                                                                selectedUploadedFiles = _model
-                                                                        .compressedImg!
-                                                                        .bytes!
-                                                                        .isNotEmpty
-                                                                    ? [
-                                                                        _model
-                                                                            .compressedImg!
-                                                                      ]
-                                                                    : <FFUploadedFile>[];
-                                                                selectedMedia =
-                                                                    selectedFilesFromUploadedFiles(
-                                                                  selectedUploadedFiles,
-                                                                );
-                                                                downloadUrls = (await Future
-                                                                        .wait(
-                                                                  selectedMedia
-                                                                      .map(
-                                                                    (m) async =>
-                                                                        await uploadData(
-                                                                            m.storagePath,
-                                                                            m.bytes),
-                                                                  ),
-                                                                ))
-                                                                    .where((u) =>
-                                                                        u !=
-                                                                        null)
-                                                                    .map((u) =>
-                                                                        u!)
-                                                                    .toList();
-                                                              } finally {
-                                                                _model.isDataUploading4 =
-                                                                    false;
-                                                              }
-                                                              if (selectedUploadedFiles
-                                                                          .length ==
-                                                                      selectedMedia
-                                                                          .length &&
-                                                                  downloadUrls
-                                                                          .length ==
-                                                                      selectedMedia
-                                                                          .length) {
-                                                                setState(() {
-                                                                  _model.uploadedLocalFile4 =
-                                                                      selectedUploadedFiles
-                                                                          .first;
-                                                                  _model.uploadedFileUrl4 =
-                                                                      downloadUrls
-                                                                          .first;
-                                                                });
-                                                              } else {
-                                                                setState(() {});
-                                                                return;
-                                                              }
-                                                            }
 
                                                             await MomentsRecord
                                                                     .createDoc(widget
@@ -1536,12 +1435,12 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                   .textController3
                                                                   .text,
                                                               imgUrl: _model
-                                                                  .uploadedFileUrl4,
+                                                                  .uploadedFileUrl1,
                                                               audioUrl: _model
                                                                   .audioFile,
                                                               imgBlurHash: _model
-                                                                  .compressedImg
-                                                                  ?.blurHash,
+                                                                  .uploadedLocalFile1
+                                                                  .blurHash,
                                                               createdAt:
                                                                   getCurrentTimestamp,
                                                             ));
@@ -1568,7 +1467,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                           text: FFLocalizations
                                                                   .of(context)
                                                               .getText(
-                                                            'n6siqkz1' /* Save */,
+                                                            'w85r8uyl' /* Save */,
                                                           ),
                                                           options:
                                                               FFButtonOptions(

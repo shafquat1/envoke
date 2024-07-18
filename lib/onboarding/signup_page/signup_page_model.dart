@@ -57,7 +57,7 @@ class SignupPageModel extends FlutterFlowModel<SignupPageWidget> {
   String? _passwordTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'jnd4hegr' /* Field is required */,
+        'ioh9xjsy' /* Field is required */,
       );
     }
 

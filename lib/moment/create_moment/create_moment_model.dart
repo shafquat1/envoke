@@ -35,13 +35,7 @@ class CreateMomentModel extends FlutterFlowModel<CreateMomentWidget> {
   bool isDataUploading1 = false;
   FFUploadedFile uploadedLocalFile1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-
-  // Stores action output result for [Custom Action - compress] action in Container widget.
-  FFUploadedFile? compressedImg;
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl2 = '';
+  String uploadedFileUrl1 = '';
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode2;
@@ -74,16 +68,12 @@ class CreateMomentModel extends FlutterFlowModel<CreateMomentWidget> {
   String? myRecording;
   FFUploadedFile recordedFileBytes =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  bool isDataUploading3 = false;
-  FFUploadedFile uploadedLocalFile3 =
+  bool isDataUploading2 = false;
+  FFUploadedFile uploadedLocalFile2 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl3 = '';
+  String uploadedFileUrl2 = '';
 
   AudioRecorder? audioRecorder;
-  bool isDataUploading4 = false;
-  FFUploadedFile uploadedLocalFile4 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl4 = '';
 
   @override
   void initState(BuildContext context) {

@@ -207,13 +207,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Please choose an option from the dropdown',
       'de': 'Please choose an option from the dropdown',
     },
-    '99krpiap': {
+    'ioh9xjsy': {
       'en': 'Field is required',
-      'de': 'Field is required',
+      'de': '',
     },
-    'dgnbbwcm': {
+    'gmsfr20x': {
       'en': 'Please choose an option from the dropdown',
-      'de': 'Please choose an option from the dropdown',
+      'de': '',
     },
     'd2mg2fv3': {
       'en': 'Home',
@@ -319,41 +319,41 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // createMoment
   {
-    'f3dazzzd': {
+    '81as7ypk': {
       'en': 'Create Moment',
-      'de': 'Moment erstellen',
+      'de': '',
     },
-    '5alyusf7': {
+    '3shdzh77': {
       'en': 'Upload Image',
-      'de': 'Upload Image',
+      'de': '',
     },
-    '9lrq4761': {
+    '0rsp50m4': {
       'en': 'Upload Cover Page',
-      'de': 'Upload Cover Page',
+      'de': '',
     },
-    'a8f5zeo9': {
+    'u524vqbc': {
       'en': 'Next',
-      'de': 'Next',
+      'de': '',
     },
-    'hqsbxj6p': {
+    '2x9k2v4y': {
       'en': 'Add Title',
-      'de': 'Titel hinzufügen',
+      'de': '',
     },
-    '8dphrngn': {
+    'z6kerzdy': {
       'en': 'Note',
-      'de': 'Notiz',
+      'de': '',
     },
-    '028dio4c': {
+    'xinayci3': {
       'en': 'Photo',
-      'de': 'Photo',
+      'de': '',
     },
-    'pcv316fz': {
+    '8iy8tb7f': {
       'en': 'Audio',
-      'de': 'Audio',
+      'de': '',
     },
-    'n6siqkz1': {
+    'w85r8uyl': {
       'en': 'Save',
-      'de': 'Speichern',
+      'de': '',
     },
     'gen3x22y': {
       'en': 'Field is required',
