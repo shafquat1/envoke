@@ -834,7 +834,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                           context)
                                                                       .secondaryBackground,
                                                                   fontSize:
-                                                                      32.0,
+                                                                      24.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
