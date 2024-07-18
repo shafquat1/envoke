@@ -1112,78 +1112,69 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                 0.0, 20.0),
                                                     child: FFButtonWidget(
                                                       onPressed: () async {
-                                                        _model.count =
-                                                            await queryMemoriesRecordCount(
-                                                          queryBuilder:
-                                                              (memoriesRecord) =>
-                                                                  memoriesRecord
-                                                                      .where(
-                                                                        'user_id',
-                                                                        isEqualTo:
-                                                                            currentUserUid,
-                                                                      )
-                                                                      .where(
-                                                                        'created_at',
-                                                                        isEqualTo:
-                                                                            dateTimeFormat(
-                                                                          'MMMM',
-                                                                          _model.date ?? getCurrentTimestamp,
-                                                                          locale:
-                                                                              FFLocalizations.of(context).languageCode,
-                                                                        ),
-                                                                      ),
-                                                        );
-                                                        if (_model.count! > 0) {
-                                                          await MemoriesRecord
-                                                              .collection
-                                                              .doc()
-                                                              .set(
-                                                                  createMemoriesRecordData(
-                                                                createdTime:
-                                                                    _model
-                                                                            .date ?? getCurrentTimestamp,
-                                                                imgUrl: _model
-                                                                    .uploadedFileUrl,
-                                                                userId:
-                                                                    currentUserUid,
-                                                                memoryTitle: _model
-                                                                    .textController1
-                                                                    .text,
-                                                                imgBlurHash: _model
-                                                                    .uploadedLocalFile
-                                                                    .blurHash,
-                                                              ));
-                                                        } else {
-                                                          var memoriesRecordReference2 =
-                                                              MemoriesRecord
+                                                        var shouldSetState =
+                                                            false;
+                                                        if (_model.textController1
+                                                                    .text !=
+                                                                '') {
+                                                          if (_model.uploadedFileUrl ==
+                                                                  '') {
+                                                            ScaffoldMessenger
+                                                                    .of(context)
+                                                                .showSnackBar(
+                                                              SnackBar(
+                                                                content: Text(
+                                                                  'Please upload an Image.',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                  ),
+                                                                ),
+                                                                duration: const Duration(
+                                                                    milliseconds:
+                                                                        4000),
+                                                                backgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondary,
+                                                              ),
+                                                            );
+                                                            if (shouldSetState) {
+                                                              setState(() {});
+                                                            }
+                                                            return;
+                                                          } else {
+                                                            _model.count =
+                                                                await queryMemoriesRecordCount(
+                                                              queryBuilder:
+                                                                  (memoriesRecord) =>
+                                                                      memoriesRecord
+                                                                          .where(
+                                                                            'user_id',
+                                                                            isEqualTo:
+                                                                                currentUserUid,
+                                                                          )
+                                                                          .where(
+                                                                            'created_at',
+                                                                            isEqualTo:
+                                                                                dateTimeFormat(
+                                                                              'MMMM',
+                                                                              _model.date ?? getCurrentTimestamp,
+                                                                              locale: FFLocalizations.of(context).languageCode,
+                                                                            ),
+                                                                          ),
+                                                            );
+                                                            shouldSetState =
+                                                                true;
+                                                            if (_model.count! >
+                                                                0) {
+                                                              await MemoriesRecord
                                                                   .collection
-                                                                  .doc();
-                                                          await memoriesRecordReference2
-                                                              .set(
-                                                                  createMemoriesRecordData(
-                                                            createdTime: _model.date ?? getCurrentTimestamp,
-                                                            imgUrl: _model
-                                                                .uploadedFileUrl,
-                                                            userId:
-                                                                currentUserUid,
-                                                            memoryTitle: _model
-                                                                .textController1
-                                                                .text,
-                                                            imgBlurHash: _model
-                                                                .uploadedLocalFile
-                                                                .blurHash,
-                                                            createdAt:
-                                                                dateTimeFormat(
-                                                              'MMMM',
-                                                              _model.date ?? getCurrentTimestamp,
-                                                              locale: FFLocalizations
-                                                                      .of(context)
-                                                                  .languageCode,
-                                                            ),
-                                                          ));
-                                                          _model.result = MemoriesRecord
-                                                              .getDocumentFromData(
-                                                                  createMemoriesRecordData(
+                                                                  .doc()
+                                                                  .set(
+                                                                      createMemoriesRecordData(
                                                                     createdTime: _model
                                                                             .date ?? getCurrentTimestamp,
                                                                     imgUrl: _model
@@ -1197,23 +1188,103 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                     imgBlurHash: _model
                                                                         .uploadedLocalFile
                                                                         .blurHash,
-                                                                    createdAt:
-                                                                        dateTimeFormat(
-                                                                      'MMMM',
-                                                                      _model
-                                                                              .date ?? getCurrentTimestamp,
-                                                                      locale: FFLocalizations.of(
-                                                                              context)
-                                                                          .languageCode,
-                                                                    ),
-                                                                  ),
-                                                                  memoriesRecordReference2);
+                                                                  ));
+                                                            } else {
+                                                              var memoriesRecordReference2 =
+                                                                  MemoriesRecord
+                                                                      .collection
+                                                                      .doc();
+                                                              await memoriesRecordReference2
+                                                                  .set(
+                                                                      createMemoriesRecordData(
+                                                                createdTime:
+                                                                    _model
+                                                                            .date ?? getCurrentTimestamp,
+                                                                imgUrl: _model
+                                                                    .uploadedFileUrl,
+                                                                userId:
+                                                                    currentUserUid,
+                                                                memoryTitle: _model
+                                                                    .textController1
+                                                                    .text,
+                                                                imgBlurHash: _model
+                                                                    .uploadedLocalFile
+                                                                    .blurHash,
+                                                                createdAt:
+                                                                    dateTimeFormat(
+                                                                  'MMMM',
+                                                                  _model
+                                                                          .date ?? getCurrentTimestamp,
+                                                                  locale: FFLocalizations.of(
+                                                                          context)
+                                                                      .languageCode,
+                                                                ),
+                                                              ));
+                                                              _model.result =
+                                                                  MemoriesRecord
+                                                                      .getDocumentFromData(
+                                                                          createMemoriesRecordData(
+                                                                            createdTime: _model.date ?? getCurrentTimestamp,
+                                                                            imgUrl:
+                                                                                _model.uploadedFileUrl,
+                                                                            userId:
+                                                                                currentUserUid,
+                                                                            memoryTitle:
+                                                                                _model.textController1.text,
+                                                                            imgBlurHash:
+                                                                                _model.uploadedLocalFile.blurHash,
+                                                                            createdAt:
+                                                                                dateTimeFormat(
+                                                                              'MMMM',
+                                                                              _model.date ?? getCurrentTimestamp,
+                                                                              locale: FFLocalizations.of(context).languageCode,
+                                                                            ),
+                                                                          ),
+                                                                          memoriesRecordReference2);
+                                                              shouldSetState =
+                                                                  true;
+                                                            }
+
+                                                            context.goNamed(
+                                                                'MemoriesTimeline');
+
+                                                            if (shouldSetState) {
+                                                              setState(() {});
+                                                            }
+                                                            return;
+                                                          }
+                                                        } else {
+                                                          ScaffoldMessenger.of(
+                                                                  context)
+                                                              .showSnackBar(
+                                                            SnackBar(
+                                                              content: Text(
+                                                                'Please enter a title to proceed.',
+                                                                style:
+                                                                    TextStyle(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
+                                                              ),
+                                                              duration: const Duration(
+                                                                  milliseconds:
+                                                                      4000),
+                                                              backgroundColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                            ),
+                                                          );
+                                                          if (shouldSetState) {
+                                                            setState(() {});
+                                                          }
+                                                          return;
                                                         }
 
-                                                        context.goNamed(
-                                                            'MemoriesTimeline');
-
-                                                        setState(() {});
+                                                        if (shouldSetState) {
+                                                          setState(() {});
+                                                        }
                                                       },
                                                       text: FFLocalizations.of(
                                                               context)
