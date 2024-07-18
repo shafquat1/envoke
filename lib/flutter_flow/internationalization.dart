@@ -269,33 +269,33 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Add a Title',
       'de': 'Titel hinzufügen',
     },
-    'ocayeenx': {
+    'p5x6rhn6': {
       'en': 'Upload Cover Page',
-      'de': 'Upload Cover Page',
+      'de': '',
     },
-    'ywfvksyu': {
+    '4h30ggiu': {
       'en': 'Next',
-      'de': 'Next',
+      'de': '',
     },
-    'gen3x22y': {
+    'sccjx7wi': {
       'en': 'Field is required',
-      'de': 'Field is required',
+      'de': '',
     },
-    '0bdxh6k1': {
+    'yhffkuys': {
       'en': 'Please choose an option from the dropdown',
-      'de': 'Please choose an option from the dropdown',
+      'de': '',
     },
-    '67fiycm4': {
+    'kh7kjpgx': {
       'en': 'Select Date',
-      'de': 'Select Date',
+      'de': '',
     },
-    'adnw6ctu': {
+    'jzf6h30d': {
       'en': 'Save',
-      'de': 'Save',
+      'de': '',
     },
-    '78xy7mn5': {
+    'sgmchl0i': {
       'en': 'Create\nMemories',
-      'de': 'Memory erstellen',
+      'de': '',
     },
     'xpxck8da': {
       'en': 'Home',
@@ -353,21 +353,21 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'n6siqkz1': {
       'en': 'Save',
-      'de': 'Save',
+      'de': 'Speichern',
+    },
+    'gen3x22y': {
+      'en': 'Field is required',
+      'de': 'Field is required',
+    },
+    '0bdxh6k1': {
+      'en': 'Please choose an option from the dropdown',
+      'de': 'Please choose an option from the dropdown',
     },
     'fbqnfowo': {
       'en': 'Field is required',
       'de': 'Field is required',
     },
     'utualx8t': {
-      'en': 'Please choose an option from the dropdown',
-      'de': 'Please choose an option from the dropdown',
-    },
-    'suu8i9fs': {
-      'en': 'Field is required',
-      'de': 'Field is required',
-    },
-    'va4vqn3u': {
       'en': 'Please choose an option from the dropdown',
       'de': 'Please choose an option from the dropdown',
     },
@@ -528,11 +528,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Share',
       'de': 'Share',
     },
-    '8be8x666': {
+    'suu8i9fs': {
       'en': 'Field is required',
       'de': 'Field is required',
     },
-    'batzkmda': {
+    'va4vqn3u': {
       'en': 'Please choose an option from the dropdown',
       'de': 'Please choose an option from the dropdown',
     },

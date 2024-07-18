@@ -340,7 +340,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'ocayeenx' /* Upload Cover Page */,
+                                                          'p5x6rhn6' /* Upload Cover Page */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -577,15 +577,43 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                             );
                                                             return;
                                                           } else {
-                                                            await _model
-                                                                .pageViewController
-                                                                ?.nextPage(
-                                                              duration: const Duration(
-                                                                  milliseconds:
-                                                                      300),
-                                                              curve:
-                                                                  Curves.ease,
-                                                            );
+                                                            if (_model.textController1
+                                                                        .text !=
+                                                                    '') {
+                                                              await _model
+                                                                  .pageViewController
+                                                                  ?.nextPage(
+                                                                duration: const Duration(
+                                                                    milliseconds:
+                                                                        300),
+                                                                curve:
+                                                                    Curves.ease,
+                                                              );
+                                                            } else {
+                                                              ScaffoldMessenger
+                                                                      .of(context)
+                                                                  .showSnackBar(
+                                                                SnackBar(
+                                                                  content: Text(
+                                                                    'Please enter a title to proceed.',
+                                                                    style:
+                                                                        TextStyle(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
+                                                                  ),
+                                                                  duration: const Duration(
+                                                                      milliseconds:
+                                                                          4000),
+                                                                  backgroundColor:
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondary,
+                                                                ),
+                                                              );
+                                                            }
+
                                                             return;
                                                           }
                                                         },
@@ -593,7 +621,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          'ywfvksyu' /* Next */,
+                                                          '4h30ggiu' /* Next */,
                                                         ),
                                                         options:
                                                             FFButtonOptions(
@@ -793,7 +821,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          '67fiycm4' /* Select Date */,
+                                                          'kh7kjpgx' /* Select Date */,
                                                         ),
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
@@ -1190,7 +1218,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                       text: FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'adnw6ctu' /* Save */,
+                                                        'jzf6h30d' /* Save */,
                                                       ),
                                                       options: FFButtonOptions(
                                                         width:
@@ -1402,7 +1430,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                           0.0, 10.0, 0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          '78xy7mn5' /* Create
+                                          'sgmchl0i' /* Create
 Memories */
                                           ,
                                         ),
