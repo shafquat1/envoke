@@ -972,7 +972,11 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                             const AlignmentDirectional(0.0, 0.0),
                                         child: Builder(
                                           builder: (context) {
-                                            if (_model.uploadedFileUrl != '') {
+                                            if (valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.bgImage,
+                                                        '') !=
+                                                    '') {
                                               return Padding(
                                                 padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -982,7 +986,10 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                       BorderRadius.circular(
                                                           8.0),
                                                   child: Image.network(
-                                                    _model.uploadedFileUrl,
+                                                    valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.bgImage,
+                                                        ''),
                                                     width: 60.0,
                                                     height: 60.0,
                                                     fit: BoxFit.cover,
@@ -1076,8 +1083,12 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                         }
                                       }
 
-                                      FFAppState().bgImg =
-                                          _model.uploadedFileUrl;
+                                      await currentUserReference!
+                                          .update(createUsersRecordData(
+                                        bgImage: _model.uploadedFileUrl,
+                                      ));
+                                      FFAppState().bgImg = valueOrDefault(
+                                          currentUserDocument?.bgImage, '');
                                       setState(() {});
                                     },
                                     text: FFLocalizations.of(context).getText(
@@ -1123,7 +1134,6 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                               75.0, 120.0, 75.0, 40.0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              FFAppState().bgImg = '';
                               FFAppState().nfcTag = '';
                               FFAppState().userGuid = '';
                               GoRouter.of(context).prepareAuthEvent();

@@ -423,6 +423,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   return;
                                                 }
 
+                                                FFAppState().bgImg =
+                                                    valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.bgImage,
+                                                        '');
+                                                setState(() {});
                                                 _model.count =
                                                     await queryMemoriesRecordCount(
                                                   queryBuilder:
@@ -440,16 +446,22 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                         (sharedUserRecord) =>
                                                             sharedUserRecord
                                                                 .where(
-                                                      'isShared',
-                                                      isEqualTo: true,
-                                                    ),
+                                                                    Filter.or(
+                                                      Filter(
+                                                        'isShared',
+                                                        isEqualTo: true,
+                                                      ),
+                                                      Filter(
+                                                        'sharedEmail',
+                                                        isEqualTo: '',
+                                                      ),
+                                                    )),
                                                     singleRecord: true,
                                                   ).then((s) => s.firstOrNull);
                                                   shouldSetState = true;
-                                                  if (_model.output?.isShared ==
-                                                      false) {
+                                                  if (_model.output!.isShared) {
                                                     context.goNamedAuth(
-                                                        'CreateMemories',
+                                                        'MemoriesTimeline',
                                                         context.mounted);
 
                                                     if (shouldSetState) {
@@ -458,7 +470,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                     return;
                                                   } else {
                                                     context.goNamedAuth(
-                                                        'MemoriesTimeline',
+                                                        'CreateMemories',
                                                         context.mounted);
 
                                                     if (shouldSetState) {

@@ -142,9 +142,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Last Name',
       'de': 'Nachname',
     },
-    'hpbyq7ly': {
+    'd7l42iea': {
       'en': 'Enter Email',
-      'de': 'Email-Adresse',
+      'de': '',
     },
     'jsiql9h2': {
       'en': 'Enter Password',
@@ -378,7 +378,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // momentTimeline
   {
-    'dbrr87f2': {
+    'u4z1w7ku': {
       'en': '/',
       'de': '',
     },
@@ -501,32 +501,32 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // removeShared
   {
-    'aqp2m3jq': {
+    'fle3face': {
       'en': 'Do you want to Remove?',
-      'de': 'Do you want to Remove?',
+      'de': '',
     },
-    '7wytdvrx': {
+    '4l07vyjn': {
       'en': 'No',
-      'de': 'No',
+      'de': '',
     },
-    '12pv03a3': {
+    'f37lfpi1': {
       'en': 'Yes',
       'de': '',
     },
   },
   // addShared
   {
-    'zftor8xk': {
+    'hqoptu34': {
       'en': 'Share Moment',
-      'de': 'Share Moment',
+      'de': '',
     },
-    'qoeg2o09': {
+    'hpbyq7ly': {
       'en': 'Enter Email',
-      'de': 'Enter Email',
+      'de': 'Email-Adresse',
     },
-    '1xmio5dg': {
+    'zxfqwwd7': {
       'en': 'Share',
-      'de': 'Share',
+      'de': '',
     },
     'fbqnfowo': {
       'en': 'Field is required',
@@ -543,13 +543,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Do you want to remove this memory?',
       'de': 'Do you want to remove this memory?',
     },
-    'pszy2g5t': {
+    '7wytdvrx': {
       'en': 'No',
       'de': 'No',
     },
-    '6fbro7s3': {
+    '12pv03a3': {
       'en': 'Yes',
-      'de': 'Yes',
+      'de': '',
     },
   },
   // deleteMoment
@@ -558,13 +558,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Do you want to remove this moment?',
       'de': 'Do you want to remove this moment?',
     },
-    'uo1wjarg': {
+    'pszy2g5t': {
       'en': 'No',
       'de': 'No',
     },
-    '6swf9u4l': {
+    '6fbro7s3': {
       'en': 'Yes',
-      'de': '',
+      'de': 'Yes',
     },
   },
   // Miscellaneous

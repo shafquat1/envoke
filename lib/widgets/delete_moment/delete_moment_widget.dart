@@ -113,7 +113,7 @@ class _DeleteMomentWidgetState extends State<DeleteMomentWidget> {
                             Navigator.pop(context);
                           },
                           text: FFLocalizations.of(context).getText(
-                            'uo1wjarg' /* No */,
+                            'pszy2g5t' /* No */,
                           ),
                           options: FFButtonOptions(
                             width: 150.0,
@@ -154,7 +154,7 @@ class _DeleteMomentWidgetState extends State<DeleteMomentWidget> {
                             Navigator.pop(context);
                           },
                           text: FFLocalizations.of(context).getText(
-                            '6swf9u4l' /* Yes */,
+                            '6fbro7s3' /* Yes */,
                           ),
                           options: FFButtonOptions(
                             width: 150.0,

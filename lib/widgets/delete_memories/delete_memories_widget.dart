@@ -113,7 +113,7 @@ class _DeleteMemoriesWidgetState extends State<DeleteMemoriesWidget> {
                             Navigator.pop(context);
                           },
                           text: FFLocalizations.of(context).getText(
-                            'pszy2g5t' /* No */,
+                            '7wytdvrx' /* No */,
                           ),
                           options: FFButtonOptions(
                             width: 150.0,
@@ -154,7 +154,7 @@ class _DeleteMemoriesWidgetState extends State<DeleteMemoriesWidget> {
                             Navigator.pop(context);
                           },
                           text: FFLocalizations.of(context).getText(
-                            '6fbro7s3' /* Yes */,
+                            '12pv03a3' /* Yes */,
                           ),
                           options: FFButtonOptions(
                             width: 150.0,
