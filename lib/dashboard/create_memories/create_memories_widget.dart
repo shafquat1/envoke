@@ -98,7 +98,16 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
-                                              if (widget.enableBack)
+                                              if (() {
+                                                if (_model.addNew == true) {
+                                                  return true;
+                                                } else if (widget.enableBack ==
+                                                    true) {
+                                                  return true;
+                                                } else {
+                                                  return false;
+                                                }
+                                              }())
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -113,7 +122,13 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                     highlightColor:
                                                         Colors.transparent,
                                                     onTap: () async {
-                                                      context.safePop();
+                                                      if (widget.enableBack ==
+                                                          false) {
+                                                        _model.addNew = false;
+                                                        setState(() {});
+                                                      } else {
+                                                        context.safePop();
+                                                      }
                                                     },
                                                     child: ClipRRect(
                                                       borderRadius:
@@ -702,7 +717,16 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
-                                            if (widget.enableBack)
+                                            if (() {
+                                              if (_model.addNew == true) {
+                                                return true;
+                                              } else if (widget.enableBack ==
+                                                  true) {
+                                                return true;
+                                              } else {
+                                                return false;
+                                              }
+                                            }())
                                               Padding(
                                                 padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -717,7 +741,13 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
-                                                    context.safePop();
+                                                    if (widget.enableBack ==
+                                                        false) {
+                                                      _model.addNew = false;
+                                                      setState(() {});
+                                                    } else {
+                                                      context.safePop();
+                                                    }
                                                   },
                                                   child: ClipRRect(
                                                     borderRadius:
@@ -1411,7 +1441,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      context.safePop();
+                                      context.pop();
                                     },
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),

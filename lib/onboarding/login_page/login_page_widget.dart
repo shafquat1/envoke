@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'login_page_model.dart';
@@ -128,7 +129,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   0.0, 0.0, 0.0, 10.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              'unc10t38' /* Login */,
+                                              '8tm6qur5' /* Login */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -154,7 +155,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             hintText:
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                              'yd4eo0sb' /* Email */,
+                                              'w2rjnafl' /* Email */,
                                             ),
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
@@ -240,7 +241,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             hintText:
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                              'ik6zt5el' /* Password */,
+                                              '3wpagmhf' /* Password */,
                                             ),
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
@@ -374,7 +375,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'ld0i6ng9' /* Newsletter (Optional) */,
+                                                '101ejo5b' /* Newsletter (Optional) */,
                                               ),
                                               style: FlutterFlowTheme.of(
                                                       context)
@@ -398,6 +399,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                     0.0, 10.0, 0.0, 0.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
+                                                var shouldSetState = false;
                                                 if (_model.formKey
                                                             .currentState ==
                                                         null ||
@@ -430,21 +432,58 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                     isEqualTo: currentUserUid,
                                                   ),
                                                 );
+                                                shouldSetState = true;
                                                 if (_model.count! <= 0) {
-                                                  context.goNamedAuth(
-                                                      'CreateMemories',
-                                                      context.mounted);
+                                                  _model.output =
+                                                      await querySharedUserRecordOnce(
+                                                    queryBuilder:
+                                                        (sharedUserRecord) =>
+                                                            sharedUserRecord
+                                                                .where(
+                                                      'isShared',
+                                                      isEqualTo: true,
+                                                    ),
+                                                    singleRecord: true,
+                                                  ).then((s) => s.firstOrNull);
+                                                  shouldSetState = true;
+                                                  if (_model.output?.isShared ==
+                                                      false) {
+                                                    context.goNamedAuth(
+                                                        'CreateMemories',
+                                                        context.mounted);
+
+                                                    if (shouldSetState) {
+                                                      setState(() {});
+                                                    }
+                                                    return;
+                                                  } else {
+                                                    context.goNamedAuth(
+                                                        'MemoriesTimeline',
+                                                        context.mounted);
+
+                                                    if (shouldSetState) {
+                                                      setState(() {});
+                                                    }
+                                                    return;
+                                                  }
                                                 } else {
                                                   context.goNamedAuth(
                                                       'MemoriesTimeline',
                                                       context.mounted);
+
+                                                  if (shouldSetState) {
+                                                    setState(() {});
+                                                  }
+                                                  return;
                                                 }
 
-                                                setState(() {});
+                                                if (shouldSetState) {
+                                                  setState(() {});
+                                                }
                                               },
                                               text: FFLocalizations.of(context)
                                                   .getText(
-                                                '8wlncbon' /* Login */,
+                                                'amai4hjx' /* Login */,
                                               ),
                                               options: FFButtonOptions(
                                                 width:

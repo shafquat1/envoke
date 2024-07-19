@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'login_page_widget.dart' show LoginPageWidget;
 import 'package:flutter/material.dart';
@@ -32,7 +33,7 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   String? _passwordTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'x2befdvy' /* Field is required */,
+        'ioh9xjsy' /* Field is required */,
       );
     }
 
@@ -43,6 +44,8 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   bool? checkboxValue;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   int? count;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  SharedUserRecord? output;
 
   @override
   void initState(BuildContext context) {

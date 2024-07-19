@@ -132,7 +132,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '68r368mw': {
       'en': 'Create account and link\nwith Jewelry',
-      'de': 'Account erstellen und\nmit Jewelryverbinden',
+      'de': 'Account erstellen und\nmit Jewelry verbinden',
     },
     'g478xbar': {
       'en': 'First Name',
@@ -152,19 +152,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'xr7uzhii': {
       'en': 'Accept ',
-      'de': 'Ich bin mit den',
+      'de': 'Ich bin mit den ',
     },
     'dnymi8uf': {
       'en': 'Terms & Conditions ',
-      'de': 'Allgemeinen Geschäftsbedingungen',
+      'de': 'Allgemeinen Geschäftsbedingungen ',
     },
     '4fa93zaz': {
       'en': 'and ',
-      'de': 'Und der',
+      'de': 'Und der ',
     },
     '5rhpo6v0': {
       'en': 'Data Protection ',
-      'de': 'Datenschutzerklärung',
+      'de': 'Datenschutzerklärung ',
     },
     'eyul05br': {
       'en': '(Mandatory Field)',
@@ -207,13 +207,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Please choose an option from the dropdown',
       'de': 'Please choose an option from the dropdown',
     },
-    'ioh9xjsy': {
+    '99krpiap': {
       'en': 'Field is required',
-      'de': '',
+      'de': 'Field is required',
     },
-    'gmsfr20x': {
+    'dgnbbwcm': {
       'en': 'Please choose an option from the dropdown',
-      'de': '',
+      'de': 'Please choose an option from the dropdown',
     },
     'd2mg2fv3': {
       'en': 'Home',
@@ -222,25 +222,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // LoginPage
   {
-    'unc10t38': {
+    '8tm6qur5': {
       'en': 'Login',
-      'de': 'Login',
+      'de': '',
     },
-    'yd4eo0sb': {
+    'w2rjnafl': {
       'en': 'Email',
-      'de': 'Email',
+      'de': '',
     },
-    'ik6zt5el': {
+    '3wpagmhf': {
       'en': 'Password',
-      'de': 'Passwort',
+      'de': '',
     },
-    'ld0i6ng9': {
+    '101ejo5b': {
       'en': 'Newsletter (Optional)',
-      'de': 'Newsletter (Optional)',
+      'de': '',
     },
-    '8wlncbon': {
+    'amai4hjx': {
       'en': 'Login',
-      'de': 'Login',
+      'de': '',
     },
     'feqb67te': {
       'en': 'Field is required',
@@ -250,13 +250,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Please choose an option from the dropdown',
       'de': 'Please choose an option from the dropdown',
     },
-    'x2befdvy': {
+    'ioh9xjsy': {
       'en': 'Field is required',
-      'de': 'Field is required',
+      'de': '',
     },
-    'he0dkuup': {
+    'gmsfr20x': {
       'en': 'Please choose an option from the dropdown',
-      'de': 'Please choose an option from the dropdown',
+      'de': '',
     },
     'vaf6y5am': {
       'en': 'Home',
@@ -304,11 +304,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // MemoriesTimeline
   {
-    '4qj8i09j': {
+    'leydr36t': {
       'en': 'Shared by',
-      'de': 'Shared by',
+      'de': '',
     },
-    'rr7kpabr': {
+    'wlbmob1d': {
       'en': 'Admin',
       'de': '',
     },
@@ -355,19 +355,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Save',
       'de': '',
     },
+    'x2befdvy': {
+      'en': 'Field is required',
+      'de': 'Field is required',
+    },
+    'he0dkuup': {
+      'en': 'Please choose an option from the dropdown',
+      'de': 'Please choose an option from the dropdown',
+    },
     'gen3x22y': {
       'en': 'Field is required',
       'de': 'Field is required',
     },
     '0bdxh6k1': {
-      'en': 'Please choose an option from the dropdown',
-      'de': 'Please choose an option from the dropdown',
-    },
-    'fbqnfowo': {
-      'en': 'Field is required',
-      'de': 'Field is required',
-    },
-    'utualx8t': {
       'en': 'Please choose an option from the dropdown',
       'de': 'Please choose an option from the dropdown',
     },
@@ -528,11 +528,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Share',
       'de': 'Share',
     },
-    'suu8i9fs': {
+    'fbqnfowo': {
       'en': 'Field is required',
       'de': 'Field is required',
     },
-    'va4vqn3u': {
+    'utualx8t': {
       'en': 'Please choose an option from the dropdown',
       'de': 'Please choose an option from the dropdown',
     },

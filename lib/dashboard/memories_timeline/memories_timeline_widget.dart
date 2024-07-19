@@ -456,7 +456,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                   children: [
                                                                                     Text(
                                                                                       FFLocalizations.of(context).getText(
-                                                                                        '4qj8i09j' /* Shared by */,
+                                                                                        'leydr36t' /* Shared by */,
                                                                                       ),
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Helvetica',
@@ -1045,7 +1045,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                 context.pushNamed('profileDetail');
                               },
                               text: FFLocalizations.of(context).getText(
-                                'rr7kpabr' /* Admin */,
+                                'wlbmob1d' /* Admin */,
                               ),
                               options: FFButtonOptions(
                                 height: 40.0,
