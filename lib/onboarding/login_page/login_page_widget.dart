@@ -447,8 +447,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                             sharedUserRecord
                                                                 .where(
                                                       'sharedEmail',
-                                                      isEqualTo:
-                                                          currentUserEmail,
+                                                      isEqualTo: _model
+                                                          .emailTextController
+                                                          .text,
                                                     ),
                                                     singleRecord: true,
                                                   ).then((s) => s.firstOrNull);
