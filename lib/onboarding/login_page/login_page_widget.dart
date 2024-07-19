@@ -446,16 +446,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                         (sharedUserRecord) =>
                                                             sharedUserRecord
                                                                 .where(
-                                                                    Filter.or(
-                                                      Filter(
-                                                        'isShared',
-                                                        isEqualTo: true,
-                                                      ),
-                                                      Filter(
-                                                        'sharedEmail',
-                                                        isEqualTo: '',
-                                                      ),
-                                                    )),
+                                                      'sharedEmail',
+                                                      isEqualTo:
+                                                          currentUserEmail,
+                                                    ),
                                                     singleRecord: true,
                                                   ).then((s) => s.firstOrNull);
                                                   shouldSetState = true;
