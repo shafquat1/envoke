@@ -142,9 +142,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Last Name',
       'de': 'Nachname',
     },
-    'd7l42iea': {
+    'hpbyq7ly': {
       'en': 'Enter Email',
-      'de': '',
+      'de': 'Email-Adresse',
     },
     'jsiql9h2': {
       'en': 'Enter Password',
@@ -501,32 +501,32 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // removeShared
   {
-    'fle3face': {
+    'aqp2m3jq': {
       'en': 'Do you want to Remove?',
-      'de': '',
+      'de': 'Do you want to Remove?',
     },
-    '4l07vyjn': {
+    '7wytdvrx': {
       'en': 'No',
-      'de': '',
+      'de': 'No',
     },
-    'f37lfpi1': {
+    '12pv03a3': {
       'en': 'Yes',
       'de': '',
     },
   },
   // addShared
   {
-    'hqoptu34': {
+    'zftor8xk': {
       'en': 'Share Moment',
-      'de': '',
+      'de': 'Share Moment',
     },
-    'hpbyq7ly': {
+    'qoeg2o09': {
       'en': 'Enter Email',
-      'de': 'Email-Adresse',
+      'de': 'Enter Email',
     },
-    'zxfqwwd7': {
+    '1xmio5dg': {
       'en': 'Share',
-      'de': '',
+      'de': 'Share',
     },
     'fbqnfowo': {
       'en': 'Field is required',
@@ -543,13 +543,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Do you want to remove this memory?',
       'de': 'Do you want to remove this memory?',
     },
-    '7wytdvrx': {
+    'pszy2g5t': {
       'en': 'No',
       'de': 'No',
     },
-    '12pv03a3': {
+    '6fbro7s3': {
       'en': 'Yes',
-      'de': '',
+      'de': 'Yes',
     },
   },
   // deleteMoment
@@ -558,13 +558,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Do you want to remove this moment?',
       'de': 'Do you want to remove this moment?',
     },
-    'pszy2g5t': {
+    'uo1wjarg': {
       'en': 'No',
       'de': 'No',
     },
-    '6fbro7s3': {
+    '6swf9u4l': {
       'en': 'Yes',
-      'de': 'Yes',
+      'de': '',
     },
   },
   // Miscellaneous

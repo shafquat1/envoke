@@ -46,7 +46,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
     return StreamBuilder<List<SharedUserRecord>>(
       stream: querySharedUserRecord(
         queryBuilder: (sharedUserRecord) => sharedUserRecord.where(
-          'sharedEmail',
+          'ownEmail',
           isEqualTo: currentUserEmail != '' ? currentUserEmail : null,
         ),
         singleRecord: true,

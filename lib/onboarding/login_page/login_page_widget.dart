@@ -446,15 +446,18 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                         (sharedUserRecord) =>
                                                             sharedUserRecord
                                                                 .where(
-                                                      'sharedEmail',
-                                                      isEqualTo: _model
-                                                          .emailTextController
-                                                          .text,
-                                                    ),
+                                                                  'isShared',
+                                                                  isEqualTo:
+                                                                      true,
+                                                                )
+                                                                .where(
+                                                                  'ownEmail',
+                                                                  isEqualTo: '',
+                                                                ),
                                                     singleRecord: true,
                                                   ).then((s) => s.firstOrNull);
                                                   shouldSetState = true;
-                                                  if (_model.output != null) {
+                                                  if (_model.output!.isShared) {
                                                     context.goNamedAuth(
                                                         'MemoriesTimeline',
                                                         context.mounted);

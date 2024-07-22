@@ -66,7 +66,7 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                             const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            'fle3face' /* Do you want to Remove? */,
+                            'aqp2m3jq' /* Do you want to Remove? */,
                           ),
                           style:
                               FlutterFlowTheme.of(context).labelMedium.override(
@@ -145,7 +145,7 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                             Navigator.pop(context);
                           },
                           text: FFLocalizations.of(context).getText(
-                            '4l07vyjn' /* No */,
+                            '7wytdvrx' /* No */,
                           ),
                           options: FFButtonOptions(
                             width: 150.0,
@@ -186,7 +186,7 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                             Navigator.pop(context);
                           },
                           text: FFLocalizations.of(context).getText(
-                            'f37lfpi1' /* Yes */,
+                            '12pv03a3' /* Yes */,
                           ),
                           options: FFButtonOptions(
                             width: 150.0,

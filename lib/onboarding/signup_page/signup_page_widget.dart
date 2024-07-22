@@ -328,7 +328,7 @@ with J... */
                                     decoration: InputDecoration(
                                       hintText:
                                           FFLocalizations.of(context).getText(
-                                        'd7l42iea' /* Enter Email */,
+                                        'hpbyq7ly' /* Enter Email */,
                                       ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelMedium

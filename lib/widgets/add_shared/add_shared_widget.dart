@@ -70,7 +70,7 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                               0.0, 40.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'hqoptu34' /* Share Moment */,
+                              'zftor8xk' /* Share Moment */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .labelMedium
@@ -125,7 +125,7 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                             obscureText: false,
                             decoration: InputDecoration(
                               labelText: FFLocalizations.of(context).getText(
-                                'hpbyq7ly' /* Enter Email */,
+                                'qoeg2o09' /* Enter Email */,
                               ),
                               labelStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
@@ -265,14 +265,14 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                             .doc()
                                             .set(createSharedUserRecordData(
                                               isShared: true,
-                                              sharedEmail: _model.output?.email,
-                                              sharedUid: _model.output?.uid,
+                                              sharedEmail: currentUserEmail,
+                                              sharedUid: currentUserUid,
                                               sharedUserName: valueOrDefault(
                                                   currentUserDocument
                                                       ?.firstName,
                                                   ''),
-                                              ownUserId: currentUserUid,
-                                              ownEmail: currentUserEmail,
+                                              ownUserId: _model.output?.uid,
+                                              ownEmail: _model.output?.email,
                                             ));
                                         Navigator.pop(context);
                                         if (shouldSetState) setState(() {});
@@ -326,7 +326,7 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                 if (shouldSetState) setState(() {});
                               },
                               text: FFLocalizations.of(context).getText(
-                                'zxfqwwd7' /* Share */,
+                                '1xmio5dg' /* Share */,
                               ),
                               options: FFButtonOptions(
                                 width: double.infinity,
