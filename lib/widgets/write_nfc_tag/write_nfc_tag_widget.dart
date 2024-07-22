@@ -4,7 +4,10 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 import 'write_nfc_tag_model.dart';
 export 'write_nfc_tag_model.dart';
 
@@ -37,7 +40,7 @@ class _WriteNfcTagWidgetState extends State<WriteNfcTagWidget> {
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await actions.writeNfcTag(
-        widget.userID!,
+        widget!.userID!,
         () async {
           Navigator.pop(context);
         },
@@ -55,13 +58,13 @@ class _WriteNfcTagWidgetState extends State<WriteNfcTagWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(14.0),
+      padding: EdgeInsets.all(14.0),
       child: Container(
         width: double.infinity,
         height: 300.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
-          borderRadius: const BorderRadius.only(
+          borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(28.0),
             bottomRight: Radius.circular(28.0),
             topLeft: Radius.circular(28.0),
@@ -69,15 +72,15 @@ class _WriteNfcTagWidgetState extends State<WriteNfcTagWidget> {
           ),
         ),
         child: Align(
-          alignment: const AlignmentDirectional(0.0, 0.0),
+          alignment: AlignmentDirectional(0.0, 0.0),
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Align(
-                  alignment: const AlignmentDirectional(0.0, -1.0),
+                  alignment: AlignmentDirectional(0.0, -1.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
                       'tvkw1m40' /* Ready to scan */,
@@ -92,7 +95,7 @@ class _WriteNfcTagWidgetState extends State<WriteNfcTagWidget> {
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Container(
                     width: double.infinity,
                     height: 150.0,
@@ -110,10 +113,10 @@ class _WriteNfcTagWidgetState extends State<WriteNfcTagWidget> {
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
                         'ow2e8xeh' /* Approach an NFC tag */,
@@ -128,7 +131,7 @@ class _WriteNfcTagWidgetState extends State<WriteNfcTagWidget> {
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(-0.07, 0.83),
+                  alignment: AlignmentDirectional(-0.07, 0.83),
                   child: FFButtonWidget(
                     onPressed: () async {
                       context.safePop();
@@ -140,10 +143,10 @@ class _WriteNfcTagWidgetState extends State<WriteNfcTagWidget> {
                       width: MediaQuery.sizeOf(context).width * 0.8,
                       height: 55.0,
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                       iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: const Color(0xFFDCDFE2),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: Color(0xFFDCDFE2),
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Helvetica',
@@ -153,7 +156,7 @@ class _WriteNfcTagWidgetState extends State<WriteNfcTagWidget> {
                                 useGoogleFonts: false,
                               ),
                       elevation: 3.0,
-                      borderSide: const BorderSide(
+                      borderSide: BorderSide(
                         color: Colors.transparent,
                         width: 1.0,
                       ),

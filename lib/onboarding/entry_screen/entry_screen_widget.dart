@@ -5,7 +5,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/widgets/nfc_scan_tag/nfc_scan_tag_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'entry_screen_model.dart';
 export 'entry_screen_model.dart';
 
@@ -54,7 +57,7 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(
+                Container(
                   width: MediaQuery.sizeOf(context).width * 1.0,
                   height: MediaQuery.sizeOf(context).height * 1.0,
                   child: Stack(
@@ -72,7 +75,7 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(-0.04, -0.05),
+                        alignment: AlignmentDirectional(-0.04, -0.05),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: SvgPicture.asset(
@@ -83,16 +86,16 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                       ),
                       if (loggedIn)
                         Align(
-                          alignment: const AlignmentDirectional(1.0, -1.0),
+                          alignment: AlignmentDirectional(1.0, -1.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 20.0, 20.0, 0.0),
                             child: FlutterFlowIconButton(
-                              borderColor: const Color(0xFF212121),
+                              borderColor: Color(0xFF212121),
                               borderRadius: 16.0,
                               borderWidth: 1.0,
                               buttonSize: 40.0,
-                              fillColor: const Color(0xFF212121),
+                              fillColor: Color(0xFF212121),
                               icon: Icon(
                                 Icons.settings_sharp,
                                 color: FlutterFlowTheme.of(context)
@@ -113,9 +116,9 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                             desktop: false,
                           ))
                         Align(
-                          alignment: const AlignmentDirectional(0.15, 0.48),
+                          alignment: AlignmentDirectional(0.15, 0.48),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 10.0, 0.0, 10.0),
                             child: FFButtonWidget(
                               onPressed: () async {
@@ -127,11 +130,11 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                               options: FFButtonOptions(
                                 width: MediaQuery.sizeOf(context).width * 0.85,
                                 height: 55.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: const Color(0xFF212121),
+                                color: Color(0xFF212121),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
@@ -143,7 +146,7 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                                       useGoogleFonts: false,
                                     ),
                                 elevation: 3.0,
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
@@ -159,9 +162,9 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                         desktop: false,
                       ))
                         Align(
-                          alignment: const AlignmentDirectional(0.23, 0.68),
+                          alignment: AlignmentDirectional(0.23, 0.68),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 10.0, 0.0, 10.0),
                             child: FFButtonWidget(
                               onPressed: () async {
@@ -173,11 +176,11 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                               options: FFButtonOptions(
                                 width: MediaQuery.sizeOf(context).width * 0.85,
                                 height: 55.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: const Color(0xFF212121),
+                                color: Color(0xFF212121),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
@@ -189,7 +192,7 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                                       useGoogleFonts: false,
                                     ),
                                 elevation: 3.0,
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
@@ -199,7 +202,7 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                           ),
                         ),
                       Align(
-                        alignment: const AlignmentDirectional(0.12, 0.92),
+                        alignment: AlignmentDirectional(0.12, 0.92),
                         child: FFButtonWidget(
                           onPressed: () async {
                             await showModalBottomSheet(
@@ -217,7 +220,7 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                                           : FocusScope.of(context).unfocus(),
                                   child: Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
-                                    child: const NfcScanTagWidget(),
+                                    child: NfcScanTagWidget(),
                                   ),
                                 );
                               },
@@ -229,11 +232,11 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                           options: FFButtonOptions(
                             width: MediaQuery.sizeOf(context).width * 0.85,
                             height: 55.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: const Color(0xFF212121),
+                            color: Color(0xFF212121),
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
@@ -245,7 +248,7 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
                                   useGoogleFonts: false,
                                 ),
                             elevation: 3.0,
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),
