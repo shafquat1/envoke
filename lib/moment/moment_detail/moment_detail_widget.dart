@@ -1,21 +1,14 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_audio_player.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
-import 'package:provider/provider.dart';
 import 'moment_detail_model.dart';
 export 'moment_detail_model.dart';
 
@@ -45,7 +38,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.createdAt = widget!.moments?.createdAt;
+      _model.createdAt = widget.moments?.createdAt;
       setState(() {});
     });
   }
@@ -75,7 +68,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Stack(
-                    alignment: AlignmentDirectional(0.0, -1.0),
+                    alignment: const AlignmentDirectional(0.0, -1.0),
                     children: [
                       Opacity(
                         opacity: 0.8,
@@ -85,13 +78,13 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                             placeholderBuilder: (_) => SizedBox.expand(
                               child: Image(
                                 image:
-                                    BlurHashImage(widget!.moments!.imgBlurHash),
+                                    BlurHashImage(widget.moments!.imgBlurHash),
                                 fit: BoxFit.cover,
                               ),
                             ),
                             image: CachedNetworkImageProvider(
                               valueOrDefault<String>(
-                                widget!.moments?.imgUrl,
+                                widget.moments?.imgUrl,
                                 'https://firebasestorage.googleapis.com/v0/b/envoke-7dtyz3.appspot.com/o/Frame%201.png?alt=media&token=8c4b7f71-652d-4cf1-b4f2-1b4e0a946659',
                               ),
                             ),
@@ -102,9 +95,9 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(10.0, 0.0),
+                        alignment: const AlignmentDirectional(10.0, 0.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 20.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -112,19 +105,19 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 20.0, 0.0, 0.0),
                                   child: Container(
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
                                         Text(
-                                          widget!.moments!.title
+                                          widget.moments!.title
                                               .maybeHandleOverflow(
                                             maxChars: 15,
                                             replacement: '…',
@@ -144,14 +137,14 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
-                                              final _datePickedDate =
+                                              final datePickedDate =
                                                   await showDatePicker(
                                                 context: context,
                                                 initialDate:
@@ -211,12 +204,12 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                                 },
                                               );
 
-                                              if (_datePickedDate != null) {
+                                              if (datePickedDate != null) {
                                                 safeSetState(() {
                                                   _model.datePicked = DateTime(
-                                                    _datePickedDate.year,
-                                                    _datePickedDate.month,
-                                                    _datePickedDate.day,
+                                                    datePickedDate.year,
+                                                    datePickedDate.month,
+                                                    datePickedDate.day,
                                                   );
                                                 });
                                               }
@@ -224,16 +217,16 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                                   _model.datePicked;
                                               setState(() {});
 
-                                              await widget!.moments!.reference
+                                              await widget.moments!.reference
                                                   .update(
                                                       createMomentsRecordData(
                                                 createdAt: _model.datePicked,
                                               ));
                                             },
                                             child: Container(
-                                              decoration: BoxDecoration(),
+                                              decoration: const BoxDecoration(),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 5.0, 0.0, 0.0),
                                                 child: Text(
@@ -272,9 +265,9 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(-1.0, -1.0),
+                        alignment: const AlignmentDirectional(-1.0, -1.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               15.0, 40.0, 0.0, 0.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -286,12 +279,12 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                 'momentTimeline',
                                 queryParameters: {
                                   'memories': serializeParam(
-                                    widget!.memories,
+                                    widget.memories,
                                     ParamType.Document,
                                   ),
                                 }.withoutNulls,
                                 extra: <String, dynamic>{
-                                  'memories': widget!.memories,
+                                  'memories': widget.memories,
                                 },
                               );
                             },
@@ -302,7 +295,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                 width: 35.0,
                                 height: 15.0,
                                 fit: BoxFit.cover,
-                                alignment: Alignment(-1.0, -1.0),
+                                alignment: const Alignment(-1.0, -1.0),
                               ),
                             ),
                           ),
@@ -311,10 +304,10 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                     ],
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
                       child: SingleChildScrollView(
                         primary: false,
                         child: Column(
@@ -323,10 +316,10 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   20.0, 10.0, 0.0, 10.0),
                               child: Text(
-                                widget!.moments!.title,
+                                widget.moments!.title,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -341,10 +334,10 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   20.0, 10.0, 0.0, 10.0),
                               child: Text(
-                                widget!.moments!.notes,
+                                widget.moments!.notes,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -358,10 +351,10 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                             ),
                             Stack(
                               children: [
-                                if (widget!.moments?.audioUrl != null &&
-                                    widget!.moments?.audioUrl != '')
+                                if (widget.moments?.audioUrl != null &&
+                                    widget.moments?.audioUrl != '')
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         20.0, 20.0, 20.0, 0.0),
                                     child: Container(
                                       height: 100.0,
@@ -376,14 +369,14 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 5.0, 10.0, 5.0),
                                           child: FlutterFlowAudioPlayer(
                                             audio: Audio.network(
-                                              widget!.moments!.audioUrl,
+                                              widget.moments!.audioUrl,
                                               metas: Metas(
                                                 id: '2vqf7_-8bf81198',
                                                 title: 'Audio Memo',
@@ -431,9 +424,9 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                       ),
                                     ),
                                   ),
-                                Align(
+                                const Align(
                                   alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     width: 200.0,
                                     height: 150.0,
                                     child: custom_widgets

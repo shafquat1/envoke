@@ -5,11 +5,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/widgets/write_nfc_tag/write_nfc_tag_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -63,7 +60,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Color(0xFF060606),
+        backgroundColor: const Color(0xFF060606),
         body: SafeArea(
           top: true,
           child: Form(
@@ -85,7 +82,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                   child: Container(
                     width: double.infinity,
                     height: double.infinity,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.black,
                     ),
                   ),
@@ -96,9 +93,9 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, -1.0),
+                        alignment: const AlignmentDirectional(0.0, -1.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 50.0, 0.0, 50.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
@@ -110,17 +107,17 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0.0, 1.0),
+                        alignment: const AlignmentDirectional(0.0, 1.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               15.0, 50.0, 15.0, 15.0),
                           child: Container(
                             decoration: BoxDecoration(
-                              color: Color(0xFF1C1C1C),
+                              color: const Color(0xFF1C1C1C),
                               borderRadius: BorderRadius.circular(35.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.all(22.0),
+                              padding: const EdgeInsets.all(22.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.end,
@@ -143,7 +140,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                         ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 20.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -155,7 +152,7 @@ with J... */
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Helvetica',
-                                            color: Color(0xFF828282),
+                                            color: const Color(0xFF828282),
                                             fontSize: 20.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
@@ -177,14 +174,14 @@ with J... */
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Helvetica',
-                                            color: Color(0xFF5A5A5A),
+                                            color: const Color(0xFF5A5A5A),
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                             useGoogleFonts: false,
                                           ),
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFF2F2F2F),
                                           width: 2.0,
                                         ),
@@ -192,7 +189,7 @@ with J... */
                                             BorderRadius.circular(10.0),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFF2F2F2F),
                                           width: 2.0,
                                         ),
@@ -218,8 +215,8 @@ with J... */
                                             BorderRadius.circular(10.0),
                                       ),
                                       filled: true,
-                                      fillColor: Color(0xFF2F2F2F),
-                                      prefixIcon: Icon(
+                                      fillColor: const Color(0xFF2F2F2F),
+                                      prefixIcon: const Icon(
                                         Icons.person_outline_sharp,
                                         color: Color(0xFF5A5A5A),
                                       ),
@@ -257,14 +254,14 @@ with J... */
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Helvetica',
-                                            color: Color(0xFF5A5A5A),
+                                            color: const Color(0xFF5A5A5A),
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                             useGoogleFonts: false,
                                           ),
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFF2F2F2F),
                                           width: 2.0,
                                         ),
@@ -272,7 +269,7 @@ with J... */
                                             BorderRadius.circular(10.0),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFF2F2F2F),
                                           width: 2.0,
                                         ),
@@ -298,8 +295,8 @@ with J... */
                                             BorderRadius.circular(10.0),
                                       ),
                                       filled: true,
-                                      fillColor: Color(0xFF2F2F2F),
-                                      prefixIcon: Icon(
+                                      fillColor: const Color(0xFF2F2F2F),
+                                      prefixIcon: const Icon(
                                         Icons.person_outline_sharp,
                                         color: Color(0xFF5A5A5A),
                                       ),
@@ -337,14 +334,14 @@ with J... */
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Helvetica',
-                                            color: Color(0xFF5A5A5A),
+                                            color: const Color(0xFF5A5A5A),
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                             useGoogleFonts: false,
                                           ),
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFF2F2F2F),
                                           width: 2.0,
                                         ),
@@ -352,7 +349,7 @@ with J... */
                                             BorderRadius.circular(10.0),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFF2F2F2F),
                                           width: 2.0,
                                         ),
@@ -378,8 +375,8 @@ with J... */
                                             BorderRadius.circular(10.0),
                                       ),
                                       filled: true,
-                                      fillColor: Color(0xFF2F2F2F),
-                                      prefixIcon: Icon(
+                                      fillColor: const Color(0xFF2F2F2F),
+                                      prefixIcon: const Icon(
                                         Icons.person_outline_sharp,
                                         color: Color(0xFF5A5A5A),
                                       ),
@@ -414,14 +411,14 @@ with J... */
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Helvetica',
-                                            color: Color(0xFF5A5A5A),
+                                            color: const Color(0xFF5A5A5A),
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                             useGoogleFonts: false,
                                           ),
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFF2F2F2F),
                                           width: 2.0,
                                         ),
@@ -429,7 +426,7 @@ with J... */
                                             BorderRadius.circular(10.0),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFF2F2F2F),
                                           width: 2.0,
                                         ),
@@ -455,8 +452,8 @@ with J... */
                                             BorderRadius.circular(10.0),
                                       ),
                                       filled: true,
-                                      fillColor: Color(0xFF2F2F2F),
-                                      prefixIcon: Icon(
+                                      fillColor: const Color(0xFF2F2F2F),
+                                      prefixIcon: const Icon(
                                         Icons.lock_outlined,
                                         color: Color(0xFF5A5A5A),
                                       ),
@@ -471,7 +468,7 @@ with J... */
                                           _model.passwordVisibility
                                               ? Icons.visibility_outlined
                                               : Icons.visibility_off_outlined,
-                                          color: Color(0xFF5A5A5A),
+                                          color: const Color(0xFF5A5A5A),
                                           size: 22,
                                         ),
                                       ),
@@ -493,7 +490,7 @@ with J... */
                                         .asValidator(context),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 5.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -514,7 +511,7 @@ with J... */
                                               ),
                                             ),
                                             unselectedWidgetColor:
-                                                Color(0xFF828282),
+                                                const Color(0xFF828282),
                                           ),
                                           child: Checkbox(
                                             value: _model.checkboxValue1 ??=
@@ -523,11 +520,11 @@ with J... */
                                               setState(() => _model
                                                   .checkboxValue1 = newValue!);
                                             },
-                                            side: BorderSide(
+                                            side: const BorderSide(
                                               width: 2,
                                               color: Color(0xFF828282),
                                             ),
-                                            activeColor: Color(0xFF828282),
+                                            activeColor: const Color(0xFF828282),
                                             checkColor:
                                                 FlutterFlowTheme.of(context)
                                                     .info,
@@ -551,7 +548,7 @@ with J... */
                                                       .override(
                                                         fontFamily: 'Inter',
                                                         color:
-                                                            Color(0xFF828282),
+                                                            const Color(0xFF828282),
                                                         fontSize: 13.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -616,7 +613,7 @@ with J... */
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Helvetica',
-                                                    color: Color(0xFF828282),
+                                                    color: const Color(0xFF828282),
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                     useGoogleFonts: false,
@@ -646,7 +643,7 @@ with J... */
                                             ),
                                           ),
                                           unselectedWidgetColor:
-                                              Color(0xFF828282),
+                                              const Color(0xFF828282),
                                         ),
                                         child: Checkbox(
                                           value: _model.checkboxValue2 ??=
@@ -655,11 +652,11 @@ with J... */
                                             setState(() => _model
                                                 .checkboxValue2 = newValue!);
                                           },
-                                          side: BorderSide(
+                                          side: const BorderSide(
                                             width: 2,
                                             color: Color(0xFF828282),
                                           ),
-                                          activeColor: Color(0xFF828282),
+                                          activeColor: const Color(0xFF828282),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
                                         ),
@@ -672,7 +669,7 @@ with J... */
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Helvetica',
-                                              color: Color(0xFF828282),
+                                              color: const Color(0xFF828282),
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                               useGoogleFonts: false,
@@ -681,9 +678,9 @@ with J... */
                                     ],
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.12, 0.92),
+                                    alignment: const AlignmentDirectional(0.12, 0.92),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 10.0, 0.0, 0.0),
                                       child: FFButtonWidget(
                                         onPressed: !_model.checkboxValue1!
@@ -800,7 +797,7 @@ with J... */
                                                                 .primaryText,
                                                           ),
                                                         ),
-                                                        duration: Duration(
+                                                        duration: const Duration(
                                                             milliseconds: 4000),
                                                         backgroundColor:
                                                             FlutterFlowTheme.of(
@@ -822,10 +819,10 @@ with J... */
                                                   0.85,
                                           height: 55.0,
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   24.0, 0.0, 24.0, 0.0),
                                           iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: Colors.black,
                                           textStyle:
@@ -839,7 +836,7 @@ with J... */
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                           elevation: 3.0,
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Colors.transparent,
                                             width: 1.0,
                                           ),
@@ -849,7 +846,7 @@ with J... */
                                       ),
                                     ),
                                   ),
-                                ].divide(SizedBox(height: 10.0)),
+                                ].divide(const SizedBox(height: 10.0)),
                               ),
                             ),
                           ),

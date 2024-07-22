@@ -3,9 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'delete_moment_model.dart';
 export 'delete_moment_model.dart';
 
@@ -47,11 +44,11 @@ class _DeleteMomentWidgetState extends State<DeleteMomentWidget> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xFF242424),
+        color: const Color(0xFF242424),
         borderRadius: BorderRadius.circular(32.0),
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 20.0, 0.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 20.0, 0.0),
         child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.max,
@@ -63,10 +60,10 @@ class _DeleteMomentWidgetState extends State<DeleteMomentWidget> {
                 children: [
                   Expanded(
                     child: Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             '4csbh6wk' /* Do you want to remove this mom... */,
@@ -88,9 +85,9 @@ class _DeleteMomentWidgetState extends State<DeleteMomentWidget> {
                 ],
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: Text(
-                  widget!.moment!.title,
+                  widget.moment!.title,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Helvetica',
                         color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -102,7 +99,7 @@ class _DeleteMomentWidgetState extends State<DeleteMomentWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 10.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 10.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -110,7 +107,7 @@ class _DeleteMomentWidgetState extends State<DeleteMomentWidget> {
                     Flexible(
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             Navigator.pop(context);
@@ -121,11 +118,11 @@ class _DeleteMomentWidgetState extends State<DeleteMomentWidget> {
                           options: FFButtonOptions(
                             width: 150.0,
                             height: 50.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: Color(0xFF2F2F2F),
+                            color: const Color(0xFF2F2F2F),
                             textStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -138,7 +135,7 @@ class _DeleteMomentWidgetState extends State<DeleteMomentWidget> {
                                   useGoogleFonts: false,
                                 ),
                             elevation: 2.0,
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),
@@ -150,10 +147,10 @@ class _DeleteMomentWidgetState extends State<DeleteMomentWidget> {
                     Flexible(
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            await widget!.moment!.reference.delete();
+                            await widget.moment!.reference.delete();
                             Navigator.pop(context);
                           },
                           text: FFLocalizations.of(context).getText(
@@ -162,9 +159,9 @@ class _DeleteMomentWidgetState extends State<DeleteMomentWidget> {
                           options: FFButtonOptions(
                             width: 150.0,
                             height: 50.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: Colors.black,
                             textStyle: FlutterFlowTheme.of(context)
@@ -178,7 +175,7 @@ class _DeleteMomentWidgetState extends State<DeleteMomentWidget> {
                                   useGoogleFonts: false,
                                 ),
                             elevation: 2.0,
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),

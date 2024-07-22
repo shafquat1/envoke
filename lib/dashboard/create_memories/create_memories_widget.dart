@@ -8,15 +8,9 @@ import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:collection/collection.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'create_memories_model.dart';
 export 'create_memories_model.dart';
 
@@ -24,7 +18,7 @@ class CreateMemoriesWidget extends StatefulWidget {
   const CreateMemoriesWidget({
     super.key,
     bool? enableBack,
-  }) : this.enableBack = enableBack ?? false;
+  }) : enableBack = enableBack ?? false;
 
   final bool enableBack;
 
@@ -72,13 +66,13 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
             child: Builder(
               builder: (context) {
                 if (_model.addNew) {
-                  return Container(
+                  return SizedBox(
                     width: double.infinity,
                     height: double.infinity,
                     child: Stack(
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 40.0),
                           child: PageView(
                             controller: _model.pageViewController ??=
@@ -89,7 +83,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                 key: _model.formKey,
                                 autovalidateMode: AutovalidateMode.disabled,
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 10.0, 0.0),
                                   child: SingleChildScrollView(
                                     child: Column(
@@ -99,7 +93,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 20.0, 0.0, 20.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -107,7 +101,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                               if (() {
                                                 if (_model.addNew == true) {
                                                   return true;
-                                                } else if (widget!.enableBack ==
+                                                } else if (widget.enableBack ==
                                                     true) {
                                                   return true;
                                                 } else {
@@ -115,7 +109,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                 }
                                               }())
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           10.0, 0.0, 0.0, 0.0),
                                                   child: InkWell(
@@ -128,7 +122,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                     highlightColor:
                                                         Colors.transparent,
                                                     onTap: () async {
-                                                      if (widget!.enableBack ==
+                                                      if (widget.enableBack ==
                                                           false) {
                                                         _model.addNew = false;
                                                         setState(() {});
@@ -154,7 +148,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 0.0, 0.0, 0.0),
                                           child: AuthUserStreamWidget(
                                             builder: (context) => Text(
@@ -178,7 +172,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             functions.getGreetingUsingTime(),
@@ -198,10 +192,10 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 80.0, 0.0, 0.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
@@ -209,12 +203,12 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                   0.9,
                                               height: 400.0,
                                               decoration: BoxDecoration(
-                                                color: Color(0xFF1C1C1C),
+                                                color: const Color(0xFF1C1C1C),
                                                 borderRadius:
                                                     BorderRadius.circular(24.0),
                                               ),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 30.0, 0.0, 0.0),
                                                 child: Column(
@@ -225,7 +219,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   0.0,
@@ -283,7 +277,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                           focusedBorder:
                                                               UnderlineInputBorder(
                                                             borderSide:
-                                                                BorderSide(
+                                                                const BorderSide(
                                                               color: Color(
                                                                   0xFF393939),
                                                               width: 1.0,
@@ -351,7 +345,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   40.0,
@@ -385,7 +379,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   10.0,
@@ -490,7 +484,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                           height: 100.0,
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFF242424),
                                                             borderRadius:
                                                                 BorderRadius
@@ -505,16 +499,14 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                 MainAxisAlignment
                                                                     .center,
                                                             children: [
-                                                              if (_model.uploadedLocalFile ==
-                                                                      null ||
-                                                                  (_model
+                                                              if ((_model
                                                                           .uploadedLocalFile
                                                                           .bytes
                                                                           ?.isEmpty ??
                                                                       true))
                                                                 Align(
                                                                   alignment:
-                                                                      AlignmentDirectional(
+                                                                      const AlignmentDirectional(
                                                                           0.0,
                                                                           0.0),
                                                                   child: FaIcon(
@@ -527,8 +519,6 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                   ),
                                                                 ),
                                                               if (_model.uploadedFileUrl !=
-                                                                      null &&
-                                                                  _model.uploadedFileUrl !=
                                                                       '')
                                                                 Expanded(
                                                                   child:
@@ -547,7 +537,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                       fit: BoxFit
                                                                           .contain,
                                                                       alignment:
-                                                                          Alignment(
+                                                                          const Alignment(
                                                                               0.0,
                                                                               0.0),
                                                                     ),
@@ -560,7 +550,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   50.0,
@@ -577,8 +567,6 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                             return;
                                                           }
                                                           if (_model.uploadedFileUrl ==
-                                                                  null ||
-                                                              _model.uploadedFileUrl ==
                                                                   '') {
                                                             ScaffoldMessenger
                                                                     .of(context)
@@ -593,7 +581,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                         .primaryText,
                                                                   ),
                                                                 ),
-                                                                duration: Duration(
+                                                                duration: const Duration(
                                                                     milliseconds:
                                                                         4000),
                                                                 backgroundColor:
@@ -606,14 +594,11 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                           } else {
                                                             if (_model.textController1
                                                                         .text !=
-                                                                    null &&
-                                                                _model.textController1
-                                                                        .text !=
                                                                     '') {
                                                               await _model
                                                                   .pageViewController
                                                                   ?.nextPage(
-                                                                duration: Duration(
+                                                                duration: const Duration(
                                                                     milliseconds:
                                                                         300),
                                                                 curve:
@@ -633,7 +618,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                           .primaryText,
                                                                     ),
                                                                   ),
-                                                                  duration: Duration(
+                                                                  duration: const Duration(
                                                                       milliseconds:
                                                                           4000),
                                                                   backgroundColor:
@@ -662,14 +647,14 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                   0.4,
                                                           height: 50.0,
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       24.0,
                                                                       0.0,
                                                                       24.0,
                                                                       0.0),
                                                           iconPadding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -694,7 +679,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                         false,
                                                                   ),
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Colors
                                                                 .transparent,
                                                             width: 1.0,
@@ -718,7 +703,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     10.0, 0.0, 10.0, 0.0),
                                 child: SingleChildScrollView(
                                   child: Column(
@@ -727,7 +712,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 20.0, 0.0, 20.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -735,7 +720,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                             if (() {
                                               if (_model.addNew == true) {
                                                 return true;
-                                              } else if (widget!.enableBack ==
+                                              } else if (widget.enableBack ==
                                                   true) {
                                                 return true;
                                               } else {
@@ -743,7 +728,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                               }
                                             }())
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         10.0, 0.0, 0.0, 0.0),
                                                 child: InkWell(
@@ -756,7 +741,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
-                                                    if (widget!.enableBack ==
+                                                    if (widget.enableBack ==
                                                         false) {
                                                       _model.addNew = false;
                                                       setState(() {});
@@ -781,7 +766,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             20.0, 0.0, 0.0, 0.0),
                                         child: AuthUserStreamWidget(
                                           builder: (context) => Text(
@@ -802,7 +787,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             20.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           functions.getGreetingUsingTime(),
@@ -822,10 +807,10 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 80.0, 0.0, 0.0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
@@ -833,12 +818,12 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                 0.9,
                                             height: 400.0,
                                             decoration: BoxDecoration(
-                                              color: Color(0xFF1C1C1C),
+                                              color: const Color(0xFF1C1C1C),
                                               borderRadius:
                                                   BorderRadius.circular(24.0),
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 30.0, 0.0, 0.0),
                                               child: Column(
@@ -849,7 +834,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(10.0, 0.0,
                                                                 10.0, 0.0),
                                                     child: TextFormField(
@@ -905,7 +890,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                         focusedBorder:
                                                             UnderlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0xFF393939),
                                                             width: 1.0,
@@ -968,7 +953,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 10.0,
                                                                 10.0,
@@ -984,7 +969,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                       highlightColor:
                                                           Colors.transparent,
                                                       onTap: () async {
-                                                        final _datePickedDate =
+                                                        final datePickedDate =
                                                             await showDatePicker(
                                                           context: context,
                                                           initialDate:
@@ -1047,16 +1032,16 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                           },
                                                         );
 
-                                                        if (_datePickedDate !=
+                                                        if (datePickedDate !=
                                                             null) {
                                                           safeSetState(() {
                                                             _model.datePicked =
                                                                 DateTime(
-                                                              _datePickedDate
+                                                              datePickedDate
                                                                   .year,
-                                                              _datePickedDate
+                                                              datePickedDate
                                                                   .month,
-                                                              _datePickedDate
+                                                              datePickedDate
                                                                   .day,
                                                             );
                                                           });
@@ -1070,7 +1055,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
-                                                              Color(0xFF242424),
+                                                              const Color(0xFF242424),
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
@@ -1085,7 +1070,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           10.0,
                                                                           0.0,
@@ -1130,7 +1115,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -1152,22 +1137,17 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 20.0),
                                                     child: FFButtonWidget(
                                                       onPressed: () async {
-                                                        var _shouldSetState =
+                                                        var shouldSetState =
                                                             false;
                                                         if (_model.textController1
                                                                     .text !=
-                                                                null &&
-                                                            _model.textController1
-                                                                    .text !=
                                                                 '') {
                                                           if (_model.uploadedFileUrl ==
-                                                                  null ||
-                                                              _model.uploadedFileUrl ==
                                                                   '') {
                                                             ScaffoldMessenger
                                                                     .of(context)
@@ -1182,7 +1162,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                         .primaryText,
                                                                   ),
                                                                 ),
-                                                                duration: Duration(
+                                                                duration: const Duration(
                                                                     milliseconds:
                                                                         4000),
                                                                 backgroundColor:
@@ -1191,8 +1171,9 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                         .secondary,
                                                               ),
                                                             );
-                                                            if (_shouldSetState)
+                                                            if (shouldSetState) {
                                                               setState(() {});
+                                                            }
                                                             return;
                                                           } else {
                                                             _model.count =
@@ -1210,12 +1191,12 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                             isEqualTo:
                                                                                 dateTimeFormat(
                                                                               'MMMM',
-                                                                              _model.date != null ? _model.date : getCurrentTimestamp,
+                                                                              _model.date ?? getCurrentTimestamp,
                                                                               locale: FFLocalizations.of(context).languageCode,
                                                                             ),
                                                                           ),
                                                             );
-                                                            _shouldSetState =
+                                                            shouldSetState =
                                                                 true;
                                                             if (_model.count! >
                                                                 0) {
@@ -1224,11 +1205,8 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                   .doc()
                                                                   .set(
                                                                       createMemoriesRecordData(
-                                                                    createdTime: _model.date !=
-                                                                            null
-                                                                        ? _model
-                                                                            .date
-                                                                        : getCurrentTimestamp,
+                                                                    createdTime: _model
+                                                                            .date ?? getCurrentTimestamp,
                                                                     imgUrl: _model
                                                                         .uploadedFileUrl,
                                                                     userId:
@@ -1250,11 +1228,8 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                   .set(
                                                                       createMemoriesRecordData(
                                                                 createdTime:
-                                                                    _model.date !=
-                                                                            null
-                                                                        ? _model
-                                                                            .date
-                                                                        : getCurrentTimestamp,
+                                                                    _model
+                                                                            .date ?? getCurrentTimestamp,
                                                                 imgUrl: _model
                                                                     .uploadedFileUrl,
                                                                 userId:
@@ -1268,11 +1243,8 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                 createdAt:
                                                                     dateTimeFormat(
                                                                   'MMMM',
-                                                                  _model.date !=
-                                                                          null
-                                                                      ? _model
-                                                                          .date
-                                                                      : getCurrentTimestamp,
+                                                                  _model
+                                                                          .date ?? getCurrentTimestamp,
                                                                   locale: FFLocalizations.of(
                                                                           context)
                                                                       .languageCode,
@@ -1282,9 +1254,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                   MemoriesRecord
                                                                       .getDocumentFromData(
                                                                           createMemoriesRecordData(
-                                                                            createdTime: _model.date != null
-                                                                                ? _model.date
-                                                                                : getCurrentTimestamp,
+                                                                            createdTime: _model.date ?? getCurrentTimestamp,
                                                                             imgUrl:
                                                                                 _model.uploadedFileUrl,
                                                                             userId:
@@ -1296,20 +1266,21 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                             createdAt:
                                                                                 dateTimeFormat(
                                                                               'MMMM',
-                                                                              _model.date != null ? _model.date : getCurrentTimestamp,
+                                                                              _model.date ?? getCurrentTimestamp,
                                                                               locale: FFLocalizations.of(context).languageCode,
                                                                             ),
                                                                           ),
                                                                           memoriesRecordReference2);
-                                                              _shouldSetState =
+                                                              shouldSetState =
                                                                   true;
                                                             }
 
                                                             context.goNamed(
                                                                 'MemoriesTimeline');
 
-                                                            if (_shouldSetState)
+                                                            if (shouldSetState) {
                                                               setState(() {});
+                                                            }
                                                             return;
                                                           }
                                                         } else {
@@ -1326,7 +1297,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                       .primaryText,
                                                                 ),
                                                               ),
-                                                              duration: Duration(
+                                                              duration: const Duration(
                                                                   milliseconds:
                                                                       4000),
                                                               backgroundColor:
@@ -1335,13 +1306,15 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                       .secondary,
                                                             ),
                                                           );
-                                                          if (_shouldSetState)
+                                                          if (shouldSetState) {
                                                             setState(() {});
+                                                          }
                                                           return;
                                                         }
 
-                                                        if (_shouldSetState)
+                                                        if (shouldSetState) {
                                                           setState(() {});
+                                                        }
                                                       },
                                                       text: FFLocalizations.of(
                                                               context)
@@ -1356,14 +1329,14 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                 0.4,
                                                         height: 50.0,
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     24.0,
                                                                     0.0,
                                                                     24.0,
                                                                     0.0),
                                                         iconPadding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -1385,7 +1358,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color: Colors
                                                               .transparent,
                                                           width: 1.0,
@@ -1410,9 +1383,9 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.0, 1.0),
+                          alignment: const AlignmentDirectional(0.0, 1.0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 0.0, 16.0),
                             child: smooth_page_indicator.SmoothPageIndicator(
                               controller: _model.pageViewController ??=
@@ -1422,7 +1395,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                               onDotClicked: (i) async {
                                 await _model.pageViewController!.animateToPage(
                                   i,
-                                  duration: Duration(milliseconds: 500),
+                                  duration: const Duration(milliseconds: 500),
                                   curve: Curves.ease,
                                 );
                                 setState(() {});
@@ -1447,20 +1420,20 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                 } else {
                   return Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 20.0, 0.0, 20.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              if (widget!.enableBack)
+                              if (widget.enableBack)
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 0.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -1485,7 +1458,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 0.0, 0.0),
                           child: AuthUserStreamWidget(
                             builder: (context) => Text(
@@ -1505,7 +1478,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 0.0, 0.0),
                           child: Text(
                             functions.getGreetingUsingTime(),
@@ -1523,15 +1496,15 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 80.0, 0.0, 0.0),
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 0.9,
                               height: 389.0,
                               decoration: BoxDecoration(
-                                color: Color(0xFF1C1C1C),
+                                color: const Color(0xFF1C1C1C),
                                 borderRadius: BorderRadius.circular(24.0),
                               ),
                               child: InkWell(
@@ -1554,7 +1527,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                       size: 60.0,
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 10.0, 0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
