@@ -454,7 +454,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                     singleRecord: true,
                                                   ).then((s) => s.firstOrNull);
                                                   shouldSetState = true;
-                                                  if (_model.output!.isShared) {
+                                                  if (_model.output != null) {
                                                     context.goNamedAuth(
                                                         'MemoriesTimeline',
                                                         context.mounted);
