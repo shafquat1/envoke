@@ -452,8 +452,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                 )
                                                                 .where(
                                                                   'ownEmail',
-                                                                  isEqualTo:
-                                                                      currentUserEmail,
+                                                                  isEqualTo: _model
+                                                                      .emailTextController
+                                                                      .text,
                                                                 ),
                                                     singleRecord: true,
                                                   ).then((s) => s.firstOrNull);
