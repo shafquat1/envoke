@@ -3,7 +3,6 @@ import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_audio_player.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
@@ -11,7 +10,6 @@ import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/permissions_util.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
-import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -50,8 +48,6 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
 
     _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -166,7 +162,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
@@ -917,40 +913,41 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                               ),
                                                                               child: Stack(
                                                                                 children: [
-                                                                                  Align(
-                                                                                    alignment: const AlignmentDirectional(0.0, 0.0),
-                                                                                    child: Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 5.0),
-                                                                                      child: FlutterFlowAudioPlayer(
-                                                                                        audio: Audio.network(
-                                                                                          _model.audioFile!,
-                                                                                          metas: Metas(
-                                                                                            id: '2vqf7_-3358f0de',
-                                                                                            title: 'Audio Memo',
+                                                                                  if (_model.audioFile != null && _model.audioFile != '')
+                                                                                    Align(
+                                                                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 5.0),
+                                                                                        child: FlutterFlowAudioPlayer(
+                                                                                          audio: Audio.network(
+                                                                                            _model.audioFile!,
+                                                                                            metas: Metas(
+                                                                                              id: '2vqf7_-3358f0de',
+                                                                                              title: 'Audio Memo',
+                                                                                            ),
                                                                                           ),
+                                                                                          titleTextStyle: FlutterFlowTheme.of(context).titleLarge.override(
+                                                                                                fontFamily: 'Helvetica',
+                                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                fontSize: 14.0,
+                                                                                                letterSpacing: 0.0,
+                                                                                                useGoogleFonts: false,
+                                                                                              ),
+                                                                                          playbackDurationTextStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                                fontFamily: 'Inter',
+                                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                letterSpacing: 0.0,
+                                                                                                fontWeight: FontWeight.w500,
+                                                                                              ),
+                                                                                          fillColor: Colors.black,
+                                                                                          playbackButtonColor: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                          activeTrackColor: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                          inactiveTrackColor: FlutterFlowTheme.of(context).secondaryText,
+                                                                                          elevation: 1.0,
+                                                                                          playInBackground: PlayInBackground.disabledRestoreOnForeground,
                                                                                         ),
-                                                                                        titleTextStyle: FlutterFlowTheme.of(context).titleLarge.override(
-                                                                                              fontFamily: 'Helvetica',
-                                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                              fontSize: 14.0,
-                                                                                              letterSpacing: 0.0,
-                                                                                              useGoogleFonts: false,
-                                                                                            ),
-                                                                                        playbackDurationTextStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                              fontFamily: 'Inter',
-                                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                              letterSpacing: 0.0,
-                                                                                              fontWeight: FontWeight.w500,
-                                                                                            ),
-                                                                                        fillColor: Colors.black,
-                                                                                        playbackButtonColor: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                        activeTrackColor: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                        inactiveTrackColor: FlutterFlowTheme.of(context).secondaryText,
-                                                                                        elevation: 1.0,
-                                                                                        playInBackground: PlayInBackground.disabledRestoreOnForeground,
                                                                                       ),
                                                                                     ),
-                                                                                  ),
                                                                                   const Align(
                                                                                     alignment: AlignmentDirectional(0.0, 0.0),
                                                                                     child: SizedBox(
@@ -1094,6 +1091,8 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                 if (_model
                                                                         .isRecording ==
                                                                     true) {
+                                                                  _model.showTimer =
+                                                                      false;
                                                                   await stopAudioRecording(
                                                                     audioRecorder:
                                                                         _model
@@ -1114,6 +1113,10 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                       true;
                                                                   _model.isRecording =
                                                                       false;
+                                                                  _model.showAudio =
+                                                                      true;
+                                                                  setState(
+                                                                      () {});
                                                                   _model.showAudio =
                                                                       true;
                                                                   setState(
@@ -1184,6 +1187,16 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                           .uploadedFileUrl2;
                                                                   setState(
                                                                       () {});
+                                                                  await _model
+                                                                      .pageViewController
+                                                                      ?.animateToPage(
+                                                                    1,
+                                                                    duration: const Duration(
+                                                                        milliseconds:
+                                                                            500),
+                                                                    curve: Curves
+                                                                        .ease,
+                                                                  );
                                                                   if (shouldSetState) {
                                                                     setState(
                                                                         () {});
@@ -1204,35 +1217,6 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                               },
                                                             ),
                                                           ),
-                                                          if (responsiveVisibility(
-                                                            context: context,
-                                                            phone: false,
-                                                            tablet: false,
-                                                            tabletLandscape:
-                                                                false,
-                                                            desktop: false,
-                                                          ))
-                                                            Padding(
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          5.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              child: SizedBox(
-                                                                width: 40.0,
-                                                                height: 40.0,
-                                                                child: custom_widgets
-                                                                    .CustomTimer(
-                                                                  width: 40.0,
-                                                                  height: 40.0,
-                                                                  isRecording:
-                                                                      _model
-                                                                          .showTimer,
-                                                                ),
-                                                              ),
-                                                            ),
                                                           Padding(
                                                             padding:
                                                                 const EdgeInsetsDirectional
@@ -1241,58 +1225,16 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                         5.0,
                                                                         0.0,
                                                                         0.0),
-                                                            child:
-                                                                FlutterFlowTimer(
-                                                              initialTime: _model
-                                                                  .timerInitialTimeMs,
-                                                              getDisplayTime: (value) =>
-                                                                  StopWatchTimer
-                                                                      .getDisplayTime(
-                                                                value,
-                                                                hours: false,
-                                                                milliSecond:
-                                                                    false,
+                                                            child: SizedBox(
+                                                              width: 40.0,
+                                                              height: 40.0,
+                                                              child: custom_widgets
+                                                                  .CustomTimer(
+                                                                width: 40.0,
+                                                                height: 40.0,
+                                                                isRecording: _model
+                                                                    .showTimer,
                                                               ),
-                                                              controller: _model
-                                                                  .timerController,
-                                                              updateStateInterval:
-                                                                  const Duration(
-                                                                      milliseconds:
-                                                                          1000),
-                                                              onChanged: (value,
-                                                                  displayTime,
-                                                                  shouldUpdate) {
-                                                                _model.timerMilliseconds =
-                                                                    value;
-                                                                _model.timerValue =
-                                                                    displayTime;
-                                                                if (shouldUpdate) {
-                                                                  setState(
-                                                                      () {});
-                                                                }
-                                                              },
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .start,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .headlineSmall
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Helvetica',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondaryBackground,
-                                                                    fontSize:
-                                                                        18.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                    useGoogleFonts:
-                                                                        false,
-                                                                  ),
                                                             ),
                                                           ),
                                                         ],
