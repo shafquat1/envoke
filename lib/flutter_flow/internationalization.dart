@@ -285,9 +285,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Please choose an option from the dropdown',
       'de': '',
     },
-    'kh7kjpgx': {
+    '39vvgzdw': {
       'en': 'Select Date',
-      'de': '',
+      'de': 'Fügen ein Datum hinzu',
     },
     'jzf6h30d': {
       'en': 'Save',
@@ -323,9 +323,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Create Moment',
       'de': '',
     },
-    '3shdzh77': {
+    'wrhahwv0': {
       'en': 'Upload Image',
-      'de': '',
+      'de': 'Upload Image',
     },
     '0rsp50m4': {
       'en': 'Upload Cover Page',

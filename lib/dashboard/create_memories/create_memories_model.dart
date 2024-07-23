@@ -23,10 +23,10 @@ class CreateMemoriesModel extends FlutterFlowModel<CreateMemoriesWidget> {
       ? pageViewController!.page!.round()
       : 0;
   // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
-  String? _textController1Validator(BuildContext context, String? val) {
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController;
+  String? Function(BuildContext, String?)? textControllerValidator;
+  String? _textControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         'sccjx7wi' /* Field is required */,
@@ -41,10 +41,6 @@ class CreateMemoriesModel extends FlutterFlowModel<CreateMemoriesWidget> {
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl = '';
 
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
   DateTime? datePicked;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   int? count;
@@ -53,16 +49,13 @@ class CreateMemoriesModel extends FlutterFlowModel<CreateMemoriesWidget> {
 
   @override
   void initState(BuildContext context) {
-    textController1Validator = _textController1Validator;
+    textControllerValidator = _textControllerValidator;
   }
 
   @override
   void dispose() {
     unfocusNode.dispose();
-    textFieldFocusNode1?.dispose();
-    textController1?.dispose();
-
-    textFieldFocusNode2?.dispose();
-    textController2?.dispose();
+    textFieldFocusNode?.dispose();
+    textController?.dispose();
   }
 }
