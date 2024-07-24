@@ -199,22 +199,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Please choose an option from the dropdown',
       'de': 'Please choose an option from the dropdown',
     },
-    '3futqyst': {
-      'en': 'Field is required',
-      'de': 'Field is required',
-    },
-    'u0o8gm80': {
-      'en': 'Please choose an option from the dropdown',
-      'de': 'Please choose an option from the dropdown',
-    },
-    '99krpiap': {
-      'en': 'Field is required',
-      'de': 'Field is required',
-    },
-    'dgnbbwcm': {
-      'en': 'Please choose an option from the dropdown',
-      'de': 'Please choose an option from the dropdown',
-    },
     'd2mg2fv3': {
       'en': 'Home',
       'de': '',

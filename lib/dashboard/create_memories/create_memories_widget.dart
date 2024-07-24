@@ -799,7 +799,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                 Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          -1.0, 0.0),
+                                                          0.0, 0.0),
                                                   child: Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional

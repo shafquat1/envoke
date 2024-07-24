@@ -8,7 +8,9 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:octo_image/octo_image.dart';
 import 'package:provider/provider.dart';
 import 'memories_timeline_model.dart';
@@ -30,6 +32,20 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MemoriesTimelineModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.output = await queryMemoriesRecordOnce(
+        queryBuilder: (memoriesRecord) => memoriesRecord
+            .where(
+              'user_id',
+              isEqualTo: currentUserUid,
+            )
+            .orderBy('created_time', descending: true),
+      );
+      _model.listMemories = _model.output!.toList().cast<MemoriesRecord>();
+      setState(() {});
+    });
   }
 
   @override
@@ -191,6 +207,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 10.0, 0.0),
                               child: SingleChildScrollView(
+                                primary: false,
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -607,44 +624,42 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                               builder: (context, snapshot) {
                                                 // Customize what your widget looks like when it's loading.
                                                 if (!snapshot.hasData) {
-                                                  return const Center(
+                                                  return Center(
                                                     child: SizedBox(
-                                                      width: 50,
-                                                      height: 50,
-                                                      child:
-                                                          CircularProgressIndicator(
-                                                        valueColor:
-                                                            AlwaysStoppedAnimation<
-                                                                Color>(
-                                                          Colors.transparent,
-                                                        ),
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      child: SpinKitCircle(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        size: 50.0,
                                                       ),
                                                     ),
                                                   );
                                                 }
                                                 List<MemoriesRecord>
-                                                    columnMemoriesRecordList =
+                                                    listViewMemoriesRecordList =
                                                     snapshot.data!;
 
-                                                return Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: List.generate(
-                                                      columnMemoriesRecordList
+                                                return ListView.builder(
+                                                  padding: EdgeInsets.zero,
+                                                  shrinkWrap: true,
+                                                  scrollDirection:
+                                                      Axis.vertical,
+                                                  itemCount:
+                                                      listViewMemoriesRecordList
                                                           .length,
-                                                      (columnIndex) {
-                                                    final columnMemoriesRecord =
-                                                        columnMemoriesRecordList[
-                                                            columnIndex];
+                                                  itemBuilder:
+                                                      (context, listViewIndex) {
+                                                    final listViewMemoriesRecord =
+                                                        listViewMemoriesRecordList[
+                                                            listViewIndex];
                                                     return FutureBuilder<int>(
                                                       future:
                                                           queryMomentsRecordCount(
                                                         parent:
-                                                            columnMemoriesRecord
+                                                            listViewMemoriesRecord
                                                                 .reference,
                                                       ),
                                                       builder:
@@ -703,14 +718,14 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                             {
                                                                           'memories':
                                                                               serializeParam(
-                                                                            columnMemoriesRecord,
+                                                                            listViewMemoriesRecord,
                                                                             ParamType.Document,
                                                                           ),
                                                                         }.withoutNulls,
                                                                         extra: <String,
                                                                             dynamic>{
                                                                           'memories':
-                                                                              columnMemoriesRecord,
+                                                                              listViewMemoriesRecord,
                                                                         },
                                                                       );
 
@@ -723,14 +738,14 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                             {
                                                                           'memories':
                                                                               serializeParam(
-                                                                            columnMemoriesRecord,
+                                                                            listViewMemoriesRecord,
                                                                             ParamType.Document,
                                                                           ),
                                                                         }.withoutNulls,
                                                                         extra: <String,
                                                                             dynamic>{
                                                                           'memories':
-                                                                              columnMemoriesRecord,
+                                                                              listViewMemoriesRecord,
                                                                         },
                                                                       );
 
@@ -760,7 +775,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                 : FocusScope.of(context).unfocus(),
                                                                             child:
                                                                                 DeleteMemoriesWidget(
-                                                                              memory: columnMemoriesRecord,
+                                                                              memory: listViewMemoriesRecord,
                                                                             ),
                                                                           ),
                                                                         );
@@ -788,13 +803,13 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                             placeholderBuilder: (_) =>
                                                                                 SizedBox.expand(
                                                                               child: Image(
-                                                                                image: BlurHashImage(columnMemoriesRecord.imgBlurHash),
+                                                                                image: BlurHashImage(listViewMemoriesRecord.imgBlurHash),
                                                                                 fit: BoxFit.cover,
                                                                               ),
                                                                             ),
                                                                             image:
                                                                                 CachedNetworkImageProvider(
-                                                                              columnMemoriesRecord.imgUrl,
+                                                                              listViewMemoriesRecord.imgUrl,
                                                                             ),
                                                                             width:
                                                                                 350.0,
@@ -804,66 +819,71 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                 BoxFit.cover,
                                                                           ),
                                                                         ),
-                                                                        Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                              20.0,
+                                                                        Align(
+                                                                          alignment: const AlignmentDirectional(
                                                                               0.0,
-                                                                              20.0,
-                                                                              0.0),
+                                                                              1.0),
                                                                           child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.start,
-                                                                            children: [
-                                                                              Expanded(
-                                                                                child: Align(
-                                                                                  alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                  child: Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 10.0),
-                                                                                    child: Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      mainAxisAlignment: MainAxisAlignment.end,
-                                                                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                      children: [
-                                                                                        Align(
-                                                                                          alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                          child: Text(
-                                                                                            dateTimeFormat(
-                                                                                              'd MMMM y',
-                                                                                              columnMemoriesRecord.createdTime!,
-                                                                                              locale: FFLocalizations.of(context).languageCode,
+                                                                              Padding(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                                20.0,
+                                                                                0.0,
+                                                                                20.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              mainAxisAlignment: MainAxisAlignment.start,
+                                                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                                                              children: [
+                                                                                Expanded(
+                                                                                  child: Align(
+                                                                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                    child: Padding(
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 10.0),
+                                                                                      child: Column(
+                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                        mainAxisAlignment: MainAxisAlignment.end,
+                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                        children: [
+                                                                                          Align(
+                                                                                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                            child: Text(
+                                                                                              dateTimeFormat(
+                                                                                                'd MMMM y',
+                                                                                                listViewMemoriesRecord.createdTime!,
+                                                                                                locale: FFLocalizations.of(context).languageCode,
+                                                                                              ),
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: 'Helvetica',
+                                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                    letterSpacing: 0.0,
+                                                                                                    fontWeight: FontWeight.normal,
+                                                                                                    useGoogleFonts: false,
+                                                                                                  ),
                                                                                             ),
-                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Helvetica',
-                                                                                                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                  letterSpacing: 0.0,
-                                                                                                  fontWeight: FontWeight.normal,
-                                                                                                  useGoogleFonts: false,
-                                                                                                ),
                                                                                           ),
-                                                                                        ),
-                                                                                        Align(
-                                                                                          alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                          child: Text(
-                                                                                            columnMemoriesRecord.memoryTitle,
-                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Helvetica',
-                                                                                                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                  fontSize: 28.0,
-                                                                                                  letterSpacing: 0.0,
-                                                                                                  fontWeight: FontWeight.normal,
-                                                                                                  useGoogleFonts: false,
-                                                                                                ),
+                                                                                          Align(
+                                                                                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                            child: Text(
+                                                                                              listViewMemoriesRecord.memoryTitle,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: 'Helvetica',
+                                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                    fontSize: 28.0,
+                                                                                                    letterSpacing: 0.0,
+                                                                                                    fontWeight: FontWeight.normal,
+                                                                                                    useGoogleFonts: false,
+                                                                                                  ),
+                                                                                            ),
                                                                                           ),
-                                                                                        ),
-                                                                                      ].divide(const SizedBox(height: 5.0)),
+                                                                                        ].divide(const SizedBox(height: 5.0)),
+                                                                                      ),
                                                                                     ),
                                                                                   ),
                                                                                 ),
-                                                                              ),
-                                                                            ],
+                                                                              ],
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ],
@@ -898,9 +918,12 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                     ),
                                                                   ],
                                                                 ),
-                                                                if (columnMemoriesRecord
-                                                                            .createdAt !=
-                                                                        '')
+                                                                if (functions.setDateVisibility(
+                                                                        listViewIndex,
+                                                                        _model
+                                                                            .listMemories
+                                                                            .toList()) ??
+                                                                    true)
                                                                   InkWell(
                                                                     splashColor:
                                                                         Colors
@@ -954,7 +977,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                             );
                                                                           });
 
-                                                                      await columnMemoriesRecord
+                                                                      await listViewMemoriesRecord
                                                                           .reference
                                                                           .update(
                                                                               createMemoriesRecordData(
@@ -992,7 +1015,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                             Text(
                                                                           dateTimeFormat(
                                                                             'MMMM',
-                                                                            columnMemoriesRecord.createdTime!,
+                                                                            listViewMemoriesRecord.createdTime!,
                                                                             locale:
                                                                                 FFLocalizations.of(context).languageCode,
                                                                           ),
@@ -1016,7 +1039,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                         );
                                                       },
                                                     );
-                                                  }),
+                                                  },
                                                 );
                                               },
                                             ),

@@ -22,3 +22,21 @@ String getGreetingUsingTime() {
   }
   return 'Guten Abend';
 }
+
+bool? setDateVisibility(
+  int memoryIndex,
+  List<MemoriesRecord> memoryList,
+) {
+  if (memoryIndex == memoryList.length - 1) {
+    return true;
+  } else {
+    MemoriesRecord frontMemory = memoryList[memoryIndex];
+    MemoriesRecord nextMemory = memoryList[memoryIndex + 1];
+    DateTime date1 = frontMemory.createdTime!;
+    DateTime date2 = nextMemory.createdTime!;
+    if (date1.month == date2.month) {
+      return false;
+    } else
+      true;
+  }
+}
