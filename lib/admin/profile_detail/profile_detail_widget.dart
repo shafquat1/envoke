@@ -72,11 +72,11 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
         }
         List<SharedUserRecord> profileDetailSharedUserRecordList =
             snapshot.data!;
-
         final profileDetailSharedUserRecord =
             profileDetailSharedUserRecordList.isNotEmpty
                 ? profileDetailSharedUserRecordList.first
                 : null;
+
         return GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
               ? FocusScope.of(context).requestFocus(_model.unfocusNode)

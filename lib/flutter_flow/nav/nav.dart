@@ -160,6 +160,23 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'profileDetail',
           path: '/profileDetail',
           builder: (context, params) => const ProfileDetailWidget(),
+        ),
+        FFRoute(
+          name: 'EditMemories',
+          path: '/editMemories',
+          asyncParams: {
+            'memory': getDoc(['memories'], MemoriesRecord.fromSnapshot),
+          },
+          builder: (context, params) => EditMemoriesWidget(
+            enableBack: params.getParam(
+              'enableBack',
+              ParamType.bool,
+            ),
+            memory: params.getParam(
+              'memory',
+              ParamType.Document,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

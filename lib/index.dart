@@ -15,3 +15,5 @@ export '/moment/moment_detail/moment_detail_widget.dart'
     show MomentDetailWidget;
 export '/admin/profile_detail/profile_detail_widget.dart'
     show ProfileDetailWidget;
+export '/dashboard/edit_memories/edit_memories_widget.dart'
+    show EditMemoriesWidget;

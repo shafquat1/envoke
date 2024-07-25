@@ -3,14 +3,11 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/widgets/delete_memories/delete_memories_widget.dart';
+import '/widgets/pop_up_menu/pop_up_menu_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:octo_image/octo_image.dart';
 import 'package:provider/provider.dart';
 import 'memories_timeline_model.dart';
@@ -32,20 +29,6 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MemoriesTimelineModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.output = await queryMemoriesRecordOnce(
-        queryBuilder: (memoriesRecord) => memoriesRecord
-            .where(
-              'user_id',
-              isEqualTo: currentUserUid,
-            )
-            .orderBy('created_time', descending: true),
-      );
-      _model.listMemories = _model.output!.toList().cast<MemoriesRecord>();
-      setState(() {});
-    });
   }
 
   @override
@@ -87,11 +70,11 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
         }
         List<SharedUserRecord> memoriesTimelineSharedUserRecordList =
             snapshot.data!;
-
         final memoriesTimelineSharedUserRecord =
             memoriesTimelineSharedUserRecordList.isNotEmpty
                 ? memoriesTimelineSharedUserRecordList.first
                 : null;
+
         return GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
               ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -624,16 +607,17 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                               builder: (context, snapshot) {
                                                 // Customize what your widget looks like when it's loading.
                                                 if (!snapshot.hasData) {
-                                                  return Center(
+                                                  return const Center(
                                                     child: SizedBox(
-                                                      width: 50.0,
-                                                      height: 50.0,
-                                                      child: SpinKitCircle(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        size: 50.0,
+                                                      width: 50,
+                                                      height: 50,
+                                                      child:
+                                                          CircularProgressIndicator(
+                                                        valueColor:
+                                                            AlwaysStoppedAnimation<
+                                                                Color>(
+                                                          Colors.transparent,
+                                                        ),
                                                       ),
                                                     ),
                                                   );
@@ -689,208 +673,257 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                           mainAxisSize:
                                                               MainAxisSize.max,
                                                           children: [
-                                                            Align(
-                                                              alignment:
-                                                                  const AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              child: Builder(
-                                                                builder:
-                                                                    (context) =>
-                                                                        InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    if (columnCount <=
-                                                                        0) {
-                                                                      context
-                                                                          .pushNamed(
-                                                                        'createMoment',
-                                                                        queryParameters:
-                                                                            {
-                                                                          'memories':
-                                                                              serializeParam(
-                                                                            listViewMemoriesRecord,
-                                                                            ParamType.Document,
-                                                                          ),
-                                                                        }.withoutNulls,
-                                                                        extra: <String,
-                                                                            dynamic>{
-                                                                          'memories':
-                                                                              listViewMemoriesRecord,
-                                                                        },
-                                                                      );
-
-                                                                      return;
-                                                                    } else {
-                                                                      context
-                                                                          .pushNamed(
-                                                                        'momentTimeline',
-                                                                        queryParameters:
-                                                                            {
-                                                                          'memories':
-                                                                              serializeParam(
-                                                                            listViewMemoriesRecord,
-                                                                            ParamType.Document,
-                                                                          ),
-                                                                        }.withoutNulls,
-                                                                        extra: <String,
-                                                                            dynamic>{
-                                                                          'memories':
-                                                                              listViewMemoriesRecord,
-                                                                        },
-                                                                      );
-
-                                                                      return;
-                                                                    }
-                                                                  },
-                                                                  onLongPress:
-                                                                      () async {
-                                                                    await showDialog(
-                                                                      context:
-                                                                          context,
-                                                                      builder:
-                                                                          (dialogContext) {
-                                                                        return Dialog(
-                                                                          elevation:
-                                                                              0,
-                                                                          insetPadding:
-                                                                              EdgeInsets.zero,
-                                                                          backgroundColor:
-                                                                              Colors.transparent,
-                                                                          alignment:
-                                                                              const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                          child:
-                                                                              GestureDetector(
-                                                                            onTap: () => _model.unfocusNode.canRequestFocus
-                                                                                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                                : FocusScope.of(context).unfocus(),
-                                                                            child:
-                                                                                DeleteMemoriesWidget(
-                                                                              memory: listViewMemoriesRecord,
-                                                                            ),
-                                                                          ),
-                                                                        );
-                                                                      },
-                                                                    ).then((value) =>
-                                                                        setState(
-                                                                            () {}));
-                                                                  },
+                                                            Stack(
+                                                              children: [
+                                                                Align(
+                                                                  alignment:
+                                                                      const AlignmentDirectional(
+                                                                          0.0,
+                                                                          0.0),
                                                                   child:
-                                                                      SizedBox(
-                                                                    width: double
-                                                                        .infinity,
+                                                                      InkWell(
+                                                                    splashColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    focusColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    hoverColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    highlightColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    onTap:
+                                                                        () async {
+                                                                      if (columnCount <=
+                                                                          0) {
+                                                                        context
+                                                                            .pushNamed(
+                                                                          'createMoment',
+                                                                          queryParameters:
+                                                                              {
+                                                                            'memories':
+                                                                                serializeParam(
+                                                                              listViewMemoriesRecord,
+                                                                              ParamType.Document,
+                                                                            ),
+                                                                          }.withoutNulls,
+                                                                          extra: <String,
+                                                                              dynamic>{
+                                                                            'memories':
+                                                                                listViewMemoriesRecord,
+                                                                          },
+                                                                        );
+
+                                                                        return;
+                                                                      } else {
+                                                                        context
+                                                                            .pushNamed(
+                                                                          'momentTimeline',
+                                                                          queryParameters:
+                                                                              {
+                                                                            'memories':
+                                                                                serializeParam(
+                                                                              listViewMemoriesRecord,
+                                                                              ParamType.Document,
+                                                                            ),
+                                                                          }.withoutNulls,
+                                                                          extra: <String,
+                                                                              dynamic>{
+                                                                            'memories':
+                                                                                listViewMemoriesRecord,
+                                                                          },
+                                                                        );
+
+                                                                        return;
+                                                                      }
+                                                                    },
                                                                     child:
-                                                                        Stack(
-                                                                      alignment:
-                                                                          const AlignmentDirectional(
-                                                                              0.0,
-                                                                              1.0),
-                                                                      children: [
-                                                                        ClipRRect(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(24.0),
-                                                                          child:
-                                                                              OctoImage(
-                                                                            placeholderBuilder: (_) =>
-                                                                                SizedBox.expand(
-                                                                              child: Image(
-                                                                                image: BlurHashImage(listViewMemoriesRecord.imgBlurHash),
-                                                                                fit: BoxFit.cover,
-                                                                              ),
-                                                                            ),
-                                                                            image:
-                                                                                CachedNetworkImageProvider(
-                                                                              listViewMemoriesRecord.imgUrl,
-                                                                            ),
-                                                                            width:
-                                                                                350.0,
-                                                                            height:
-                                                                                350.0,
-                                                                            fit:
-                                                                                BoxFit.cover,
-                                                                          ),
-                                                                        ),
-                                                                        Align(
-                                                                          alignment: const AlignmentDirectional(
-                                                                              0.0,
-                                                                              1.0),
-                                                                          child:
-                                                                              Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                                20.0,
-                                                                                0.0,
-                                                                                20.0,
-                                                                                0.0),
+                                                                        SizedBox(
+                                                                      width: double
+                                                                          .infinity,
+                                                                      child:
+                                                                          Stack(
+                                                                        alignment: const AlignmentDirectional(
+                                                                            0.0,
+                                                                            1.0),
+                                                                        children: [
+                                                                          ClipRRect(
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(24.0),
                                                                             child:
-                                                                                Row(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              mainAxisAlignment: MainAxisAlignment.start,
-                                                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                                                              children: [
-                                                                                Expanded(
-                                                                                  child: Align(
-                                                                                    alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                    child: Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 10.0),
-                                                                                      child: Column(
-                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                        mainAxisAlignment: MainAxisAlignment.end,
-                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                        children: [
-                                                                                          Align(
-                                                                                            alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                            child: Text(
-                                                                                              dateTimeFormat(
-                                                                                                'd MMMM y',
-                                                                                                listViewMemoriesRecord.createdTime!,
-                                                                                                locale: FFLocalizations.of(context).languageCode,
+                                                                                OctoImage(
+                                                                              placeholderBuilder: (_) => SizedBox.expand(
+                                                                                child: Image(
+                                                                                  image: BlurHashImage(listViewMemoriesRecord.imgBlurHash),
+                                                                                  fit: BoxFit.cover,
+                                                                                ),
+                                                                              ),
+                                                                              image: NetworkImage(
+                                                                                listViewMemoriesRecord.imgUrl,
+                                                                              ),
+                                                                              width: 350.0,
+                                                                              height: 350.0,
+                                                                              fit: BoxFit.cover,
+                                                                            ),
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                const AlignmentDirectional(0.0, 1.0),
+                                                                            child:
+                                                                                Container(
+                                                                              height: 80.0,
+                                                                              decoration: const BoxDecoration(
+                                                                                gradient: LinearGradient(
+                                                                                  colors: [
+                                                                                    Colors.transparent,
+                                                                                    Color(0x91000000)
+                                                                                  ],
+                                                                                  stops: [
+                                                                                    0.0,
+                                                                                    1.0
+                                                                                  ],
+                                                                                  begin: AlignmentDirectional(0.0, -1.0),
+                                                                                  end: AlignmentDirectional(0, 1.0),
+                                                                                ),
+                                                                              ),
+                                                                              child: Padding(
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                                                                                child: Row(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  mainAxisAlignment: MainAxisAlignment.start,
+                                                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                  children: [
+                                                                                    Expanded(
+                                                                                      child: Align(
+                                                                                        alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                        child: Padding(
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 10.0),
+                                                                                          child: Column(
+                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                            mainAxisAlignment: MainAxisAlignment.end,
+                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                            children: [
+                                                                                              Align(
+                                                                                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                                child: Text(
+                                                                                                  '${columnCount.toString()} items',
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                        fontFamily: 'Helvetica',
+                                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                        letterSpacing: 0.0,
+                                                                                                        fontWeight: FontWeight.normal,
+                                                                                                        useGoogleFonts: false,
+                                                                                                      ),
+                                                                                                ),
                                                                                               ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Helvetica',
-                                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: false,
-                                                                                                  ),
-                                                                                            ),
+                                                                                              Align(
+                                                                                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                                child: Text(
+                                                                                                  listViewMemoriesRecord.memoryTitle,
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                        fontFamily: 'Helvetica',
+                                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                        fontSize: 28.0,
+                                                                                                        letterSpacing: 0.0,
+                                                                                                        fontWeight: FontWeight.normal,
+                                                                                                        useGoogleFonts: false,
+                                                                                                      ),
+                                                                                                ),
+                                                                                              ),
+                                                                                            ].divide(const SizedBox(height: 5.0)),
                                                                                           ),
-                                                                                          Align(
-                                                                                            alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                            child: Text(
-                                                                                              listViewMemoriesRecord.memoryTitle,
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Helvetica',
-                                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                    fontSize: 28.0,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    fontWeight: FontWeight.normal,
-                                                                                                    useGoogleFonts: false,
-                                                                                                  ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ].divide(const SizedBox(height: 5.0)),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
-                                                                                  ),
+                                                                                  ],
                                                                                 ),
-                                                                              ],
+                                                                              ),
                                                                             ),
                                                                           ),
-                                                                        ),
-                                                                      ],
+                                                                        ],
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ),
+                                                                Opacity(
+                                                                  opacity: 0.8,
+                                                                  child: Align(
+                                                                    alignment:
+                                                                        const AlignmentDirectional(
+                                                                            1.0,
+                                                                            1.0),
+                                                                    child:
+                                                                        Builder(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              Padding(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            12.0,
+                                                                            15.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            InkWell(
+                                                                          splashColor:
+                                                                              Colors.transparent,
+                                                                          focusColor:
+                                                                              Colors.transparent,
+                                                                          hoverColor:
+                                                                              Colors.transparent,
+                                                                          highlightColor:
+                                                                              Colors.transparent,
+                                                                          onTap:
+                                                                              () async {
+                                                                            await showDialog(
+                                                                              context: context,
+                                                                              builder: (dialogContext) {
+                                                                                return Dialog(
+                                                                                  elevation: 0,
+                                                                                  insetPadding: EdgeInsets.zero,
+                                                                                  backgroundColor: Colors.transparent,
+                                                                                  alignment: const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                  child: GestureDetector(
+                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                    child: PopUpMenuWidget(
+                                                                                      memory: listViewMemoriesRecord,
+                                                                                    ),
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            ).then((value) =>
+                                                                                setState(() {}));
+                                                                          },
+                                                                          child:
+                                                                              Container(
+                                                                            width:
+                                                                                35.0,
+                                                                            height:
+                                                                                35.0,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: const Color(0xFF171717),
+                                                                              borderRadius: BorderRadius.circular(20.0),
+                                                                              shape: BoxShape.rectangle,
+                                                                              border: Border.all(
+                                                                                color: const Color(0x59FFFFFF),
+                                                                                width: 1.0,
+                                                                              ),
+                                                                            ),
+                                                                            child:
+                                                                                Icon(
+                                                                              Icons.more_vert,
+                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                              size: 24.0,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
                                                             ),
                                                             Stack(
                                                               alignment:
@@ -918,121 +951,62 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                     ),
                                                                   ],
                                                                 ),
-                                                                if (functions.setDateVisibility(
-                                                                        listViewIndex,
-                                                                        _model
-                                                                            .listMemories
-                                                                            .toList()) ??
-                                                                    true)
-                                                                  InkWell(
-                                                                    splashColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    focusColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    hoverColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    highlightColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    onTap:
-                                                                        () async {
-                                                                      await showModalBottomSheet<
-                                                                              bool>(
-                                                                          context:
-                                                                              context,
-                                                                          builder:
-                                                                              (context) {
-                                                                            final datePickedCupertinoTheme =
-                                                                                CupertinoTheme.of(context);
-                                                                            return Container(
-                                                                              height: MediaQuery.of(context).size.height / 3,
-                                                                              width: MediaQuery.of(context).size.width,
-                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                              child: CupertinoTheme(
-                                                                                data: datePickedCupertinoTheme.copyWith(
-                                                                                  textTheme: datePickedCupertinoTheme.textTheme.copyWith(
-                                                                                    dateTimePickerTextStyle: FlutterFlowTheme.of(context).headlineMedium.override(
-                                                                                          fontFamily: 'Helvetica',
-                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                          letterSpacing: 0.0,
-                                                                                          useGoogleFonts: false,
-                                                                                        ),
-                                                                                  ),
-                                                                                ),
-                                                                                child: CupertinoDatePicker(
-                                                                                  mode: CupertinoDatePickerMode.date,
-                                                                                  minimumDate: DateTime(1900),
-                                                                                  initialDateTime: getCurrentTimestamp,
-                                                                                  maximumDate: getCurrentTimestamp,
-                                                                                  backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                  use24hFormat: false,
-                                                                                  onDateTimeChanged: (newDateTime) => safeSetState(() {
-                                                                                    _model.datePicked = newDateTime;
-                                                                                  }),
-                                                                                ),
-                                                                              ),
-                                                                            );
-                                                                          });
-
-                                                                      await listViewMemoriesRecord
-                                                                          .reference
-                                                                          .update(
-                                                                              createMemoriesRecordData(
-                                                                        createdTime:
-                                                                            _model.datePicked,
-                                                                      ));
-                                                                    },
-                                                                    child:
-                                                                        Container(
-                                                                      width: MediaQuery.sizeOf(context)
-                                                                              .width *
-                                                                          0.6,
-                                                                      height:
-                                                                          40.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: Colors
-                                                                            .black,
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(16.0),
-                                                                        border:
-                                                                            Border.all(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryBackground,
-                                                                          width:
-                                                                              1.0,
-                                                                        ),
-                                                                      ),
-                                                                      child:
-                                                                          Align(
-                                                                        alignment: const AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Text(
-                                                                          dateTimeFormat(
-                                                                            'MMMM',
-                                                                            listViewMemoriesRecord.createdTime!,
-                                                                            locale:
-                                                                                FFLocalizations.of(context).languageCode,
-                                                                          ),
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Helvetica',
-                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                fontSize: 20.0,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.normal,
-                                                                                useGoogleFonts: false,
-                                                                              ),
-                                                                        ),
-                                                                      ),
+                                                                Container(
+                                                                  width: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .width *
+                                                                      0.6,
+                                                                  height: 40.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: Colors
+                                                                        .black,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            24.0),
+                                                                    border:
+                                                                        Border
+                                                                            .all(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryBackground,
+                                                                      width:
+                                                                          1.0,
                                                                     ),
                                                                   ),
+                                                                  child: Align(
+                                                                    alignment:
+                                                                        const AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child: Text(
+                                                                      dateTimeFormat(
+                                                                        'd MMMM y',
+                                                                        listViewMemoriesRecord
+                                                                            .createdTime!,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Helvetica',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondaryBackground,
+                                                                            fontSize:
+                                                                                20.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                ),
                                                               ],
                                                             ),
                                                           ],

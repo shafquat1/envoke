@@ -171,6 +171,10 @@ flutter:
         - asset: assets/fonts/Helvetica-Bold.ttf
           weight: 700
 
+    - family: Icon
+      fonts:
+        - asset: assets/fonts/Icon.ttf
+
   
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
