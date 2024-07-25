@@ -240,6 +240,11 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
 
                                                 var downloadUrls = <String>[];
                                                 try {
+                                                  showUploadMessage(
+                                                    context,
+                                                    'Uploading file...',
+                                                    showLoading: true,
+                                                  );
                                                   selectedUploadedFiles =
                                                       selectedMedia
                                                           .map((m) =>
@@ -274,6 +279,8 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                           .map((u) => u!)
                                                           .toList();
                                                 } finally {
+                                                  ScaffoldMessenger.of(context)
+                                                      .hideCurrentSnackBar();
                                                   _model.isDataUploading1 =
                                                       false;
                                                 }
@@ -289,8 +296,12 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                     _model.uploadedFileUrl1 =
                                                         downloadUrls.first;
                                                   });
+                                                  showUploadMessage(
+                                                      context, 'Success!');
                                                 } else {
                                                   setState(() {});
+                                                  showUploadMessage(context,
+                                                      'Failed to upload data');
                                                   return;
                                                 }
                                               }

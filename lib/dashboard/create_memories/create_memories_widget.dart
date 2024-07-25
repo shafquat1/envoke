@@ -391,6 +391,11 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                           var downloadUrls =
                                                               <String>[];
                                                           try {
+                                                            showUploadMessage(
+                                                              context,
+                                                              'Uploading file...',
+                                                              showLoading: true,
+                                                            );
                                                             selectedUploadedFiles =
                                                                 selectedMedia
                                                                     .map((m) =>
@@ -429,6 +434,9 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                         u!)
                                                                     .toList();
                                                           } finally {
+                                                            ScaffoldMessenger
+                                                                    .of(context)
+                                                                .hideCurrentSnackBar();
                                                             _model.isDataUploading =
                                                                 false;
                                                           }
@@ -448,8 +456,14 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                   downloadUrls
                                                                       .first;
                                                             });
+                                                            showUploadMessage(
+                                                                context,
+                                                                'Success!');
                                                           } else {
                                                             setState(() {});
+                                                            showUploadMessage(
+                                                                context,
+                                                                'Failed to upload data');
                                                             return;
                                                           }
                                                         }
