@@ -638,28 +638,32 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
-                                      Align(
-                                        alignment:
-                                            const AlignmentDirectional(-1.0, 0.0),
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 23.0, 0.0, 0.0),
-                                          child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              'wc09zzns' /* Share with an existing user */,
+                                      Expanded(
+                                        child: Align(
+                                          alignment:
+                                              const AlignmentDirectional(-1.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 23.0, 0.0, 0.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'wc09zzns' /* Share with an existing user */,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Helvetica',
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        fontSize: 18.0,
+                                                        letterSpacing: 0.0,
+                                                        useGoogleFonts: false,
+                                                      ),
                                             ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Helvetica',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  fontSize: 18.0,
-                                                  letterSpacing: 0.0,
-                                                  useGoogleFonts: false,
-                                                ),
                                           ),
                                         ),
                                       ),
@@ -1083,13 +1087,15 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                         }
                                       }
 
-                                      await currentUserReference!
-                                          .update(createUsersRecordData(
-                                        bgImage: _model.uploadedFileUrl,
-                                      ));
-                                      FFAppState().bgImg = valueOrDefault(
-                                          currentUserDocument?.bgImage, '');
-                                      setState(() {});
+                                      if (_model.uploadedFileUrl != '') {
+                                        await currentUserReference!
+                                            .update(createUsersRecordData(
+                                          bgImage: _model.uploadedFileUrl,
+                                        ));
+                                        FFAppState().bgImg = valueOrDefault(
+                                            currentUserDocument?.bgImage, '');
+                                        setState(() {});
+                                      }
                                     },
                                     text: FFLocalizations.of(context).getText(
                                       'idi1um6l' /* Change */,

@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/widgets/pop_up_menu/pop_up_menu_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
@@ -190,7 +191,6 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 10.0, 0.0),
                               child: SingleChildScrollView(
-                                primary: false,
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -628,6 +628,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
 
                                                 return ListView.builder(
                                                   padding: EdgeInsets.zero,
+                                                  primary: false,
                                                   shrinkWrap: true,
                                                   scrollDirection:
                                                       Axis.vertical,
@@ -853,7 +854,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                     alignment:
                                                                         const AlignmentDirectional(
                                                                             1.0,
-                                                                            1.0),
+                                                                            0.0),
                                                                     child:
                                                                         Builder(
                                                                       builder:
@@ -861,8 +862,8 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                               Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
-                                                                            12.0,
                                                                             15.0,
+                                                                            25.0,
                                                                             0.0),
                                                                         child:
                                                                             InkWell(
@@ -876,14 +877,15 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                               Colors.transparent,
                                                                           onTap:
                                                                               () async {
-                                                                            await showDialog(
+                                                                            await showAlignedDialog(
                                                                               context: context,
+                                                                              isGlobal: false,
+                                                                              avoidOverflow: true,
+                                                                              targetAnchor: const AlignmentDirectional(-1.0, 0.0).resolve(Directionality.of(context)),
+                                                                              followerAnchor: const AlignmentDirectional(-1.0, 0.0).resolve(Directionality.of(context)),
                                                                               builder: (dialogContext) {
-                                                                                return Dialog(
-                                                                                  elevation: 0,
-                                                                                  insetPadding: EdgeInsets.zero,
-                                                                                  backgroundColor: Colors.transparent,
-                                                                                  alignment: const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                return Material(
+                                                                                  color: Colors.transparent,
                                                                                   child: GestureDetector(
                                                                                     onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                                     child: PopUpMenuWidget(

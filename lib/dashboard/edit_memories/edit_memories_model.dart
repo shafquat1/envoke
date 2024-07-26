@@ -9,6 +9,8 @@ class EditMemoriesModel extends FlutterFlowModel<EditMemoriesWidget> {
 
   DateTime? date;
 
+  String? imgFile;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

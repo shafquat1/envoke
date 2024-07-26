@@ -263,6 +263,10 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                               size: 28.0,
                                             ),
                                             onPressed: () async {
+                                              if (Navigator.of(context)
+                                                  .canPop()) {
+                                                context.pop();
+                                              }
                                               context.pushNamed(
                                                 'createMoment',
                                                 queryParameters: {
@@ -547,91 +551,92 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                 ),
                                                               ),
                                                             ),
-                                                            Padding(
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          20.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              child: RichText(
-                                                                textScaler: MediaQuery.of(
-                                                                        context)
-                                                                    .textScaler,
-                                                                text: TextSpan(
-                                                                  children: [
-                                                                    TextSpan(
-                                                                      text: (momentListIndex +
-                                                                              1)
-                                                                          .toString(),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Helvetica',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryBackground,
-                                                                            fontSize:
-                                                                                38.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w300,
-                                                                            useGoogleFonts:
-                                                                                false,
-                                                                          ),
-                                                                    ),
-                                                                    TextSpan(
-                                                                      text: FFLocalizations.of(
-                                                                              context)
-                                                                          .getText(
-                                                                        'u4z1w7ku' /* / */,
-                                                                      ),
-                                                                      style:
-                                                                          const TextStyle(
-                                                                        fontFamily:
-                                                                            'Helvetica',
-                                                                        fontWeight:
-                                                                            FontWeight.w300,
-                                                                        fontSize:
-                                                                            38.0,
-                                                                      ),
-                                                                    ),
-                                                                    TextSpan(
-                                                                      text: momentTimelineMomentsRecordList
-                                                                          .length
-                                                                          .toString(),
-                                                                      style:
-                                                                          TextStyle(
-                                                                        fontFamily:
-                                                                            'Helvetica',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primaryBackground,
-                                                                        fontWeight:
-                                                                            FontWeight.w300,
-                                                                        fontSize:
-                                                                            16.0,
-                                                                      ),
-                                                                    )
-                                                                  ],
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Helvetica',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondaryBackground,
-                                                                        letterSpacing:
+                                                            if (responsiveVisibility(
+                                                              context: context,
+                                                              phone: false,
+                                                              tablet: false,
+                                                              tabletLandscape:
+                                                                  false,
+                                                              desktop: false,
+                                                            ))
+                                                              Padding(
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
                                                                             0.0,
-                                                                        useGoogleFonts:
-                                                                            false,
+                                                                            20.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: RichText(
+                                                                  textScaler: MediaQuery.of(
+                                                                          context)
+                                                                      .textScaler,
+                                                                  text:
+                                                                      TextSpan(
+                                                                    children: [
+                                                                      TextSpan(
+                                                                        text: (momentListIndex +
+                                                                                1)
+                                                                            .toString(),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Helvetica',
+                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                              fontSize: 38.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.w300,
+                                                                              useGoogleFonts: false,
+                                                                            ),
                                                                       ),
+                                                                      TextSpan(
+                                                                        text: FFLocalizations.of(context)
+                                                                            .getText(
+                                                                          'u4z1w7ku' /* / */,
+                                                                        ),
+                                                                        style:
+                                                                            const TextStyle(
+                                                                          fontFamily:
+                                                                              'Helvetica',
+                                                                          fontWeight:
+                                                                              FontWeight.w300,
+                                                                          fontSize:
+                                                                              38.0,
+                                                                        ),
+                                                                      ),
+                                                                      TextSpan(
+                                                                        text: momentTimelineMomentsRecordList
+                                                                            .length
+                                                                            .toString(),
+                                                                        style:
+                                                                            TextStyle(
+                                                                          fontFamily:
+                                                                              'Helvetica',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primaryBackground,
+                                                                          fontWeight:
+                                                                              FontWeight.w300,
+                                                                          fontSize:
+                                                                              16.0,
+                                                                        ),
+                                                                      )
+                                                                    ],
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Helvetica',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryBackground,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          useGoogleFonts:
+                                                                              false,
+                                                                        ),
+                                                                  ),
                                                                 ),
                                                               ),
-                                                            ),
                                                           ],
                                                         ),
                                                       ),
