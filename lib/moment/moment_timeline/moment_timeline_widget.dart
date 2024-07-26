@@ -17,9 +17,11 @@ class MomentTimelineWidget extends StatefulWidget {
   const MomentTimelineWidget({
     super.key,
     this.memories,
-  });
+    bool? enableBack,
+  }) : enableBack = enableBack ?? false;
 
   final MemoriesRecord? memories;
+  final bool enableBack;
 
   @override
   State<MomentTimelineWidget> createState() => _MomentTimelineWidgetState();

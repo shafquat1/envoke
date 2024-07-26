@@ -135,6 +135,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'memories',
               ParamType.Document,
             ),
+            enableBack: params.getParam(
+              'enableBack',
+              ParamType.bool,
+            ),
           ),
         ),
         FFRoute(

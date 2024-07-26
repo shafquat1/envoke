@@ -1334,6 +1334,11 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                             widget.memories,
                                                             ParamType.Document,
                                                           ),
+                                                          'enableBack':
+                                                              serializeParam(
+                                                            true,
+                                                            ParamType.bool,
+                                                          ),
                                                         }.withoutNulls,
                                                         extra: <String,
                                                             dynamic>{
