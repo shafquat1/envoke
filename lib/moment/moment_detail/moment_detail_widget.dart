@@ -53,9 +53,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.black,
@@ -224,7 +222,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                                   .fromSTEB(0.0, 5.0, 0.0, 0.0),
                                               child: Text(
                                                 dateTimeFormat(
-                                                  'd MMMM y',
+                                                  "d MMMM y",
                                                   _model.createdAt,
                                                   locale: FFLocalizations.of(
                                                           context)
@@ -369,7 +367,6 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                           audio: Audio.network(
                                             widget.moments!.audioUrl,
                                             metas: Metas(
-                                              id: '2vqf7_-8bf81198',
                                               title: 'Audio Memo',
                                             ),
                                           ),

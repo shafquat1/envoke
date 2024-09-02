@@ -77,9 +77,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                 : null;
 
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -415,7 +413,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                         alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                                         child: Text(
                                                                                           dateTimeFormat(
-                                                                                            'd MMMM y',
+                                                                                            "d MMMM y",
                                                                                             columnMemoriesRecord.createdTime!,
                                                                                             locale: FFLocalizations.of(context).languageCode,
                                                                                           ),
@@ -546,7 +544,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                             0.0),
                                                                     child: Text(
                                                                       dateTimeFormat(
-                                                                        'MMMM',
+                                                                        "MMMM",
                                                                         columnMemoriesRecord
                                                                             .createdTime!,
                                                                         locale:
@@ -887,15 +885,14 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                 return Material(
                                                                                   color: Colors.transparent,
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                    onTap: () => FocusScope.of(dialogContext).unfocus(),
                                                                                     child: PopUpMenuWidget(
                                                                                       memory: listViewMemoriesRecord,
                                                                                     ),
                                                                                   ),
                                                                                 );
                                                                               },
-                                                                            ).then((value) =>
-                                                                                setState(() {}));
+                                                                            );
                                                                           },
                                                                           child:
                                                                               Container(
@@ -983,7 +980,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                             0.0),
                                                                     child: Text(
                                                                       dateTimeFormat(
-                                                                        'd MMMM y',
+                                                                        "d MMMM y",
                                                                         listViewMemoriesRecord
                                                                             .createdTime!,
                                                                         locale:

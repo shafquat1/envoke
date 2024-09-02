@@ -56,7 +56,6 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     textFieldFocusNode1?.dispose();
     emailTextController?.dispose();
 

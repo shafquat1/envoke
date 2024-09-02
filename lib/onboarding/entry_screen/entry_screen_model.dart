@@ -11,7 +11,5 @@ class EntryScreenModel extends FlutterFlowModel<EntryScreenWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

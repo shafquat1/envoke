@@ -16,7 +16,5 @@ class MomentDetailModel extends FlutterFlowModel<MomentDetailWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

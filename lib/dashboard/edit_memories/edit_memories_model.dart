@@ -51,7 +51,6 @@ class EditMemoriesModel extends FlutterFlowModel<EditMemoriesWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }

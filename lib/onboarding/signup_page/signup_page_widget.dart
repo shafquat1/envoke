@@ -3,7 +3,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/widgets/write_nfc_tag/write_nfc_tag_widget.dart';
+import '/widgets/nfc_scan_tag/nfc_scan_tag_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -55,9 +55,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: const Color(0xFF060606),
@@ -753,14 +751,8 @@ with J... */
                                                     context: context,
                                                     builder: (context) {
                                                       return GestureDetector(
-                                                        onTap: () => _model
-                                                                .unfocusNode
-                                                                .canRequestFocus
-                                                            ? FocusScope.of(
-                                                                    context)
-                                                                .requestFocus(_model
-                                                                    .unfocusNode)
-                                                            : FocusScope.of(
+                                                        onTap: () =>
+                                                            FocusScope.of(
                                                                     context)
                                                                 .unfocus(),
                                                         child: Padding(
@@ -768,9 +760,8 @@ with J... */
                                                               .viewInsetsOf(
                                                                   context),
                                                           child:
-                                                              WriteNfcTagWidget(
-                                                            userID:
-                                                                currentUserUid,
+                                                              const NfcScanTagWidget(
+                                                            isScanning: false,
                                                           ),
                                                         ),
                                                       );

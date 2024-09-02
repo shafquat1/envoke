@@ -11,7 +11,5 @@ class MemoriesTimelineModel extends FlutterFlowModel<MemoriesTimelineWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

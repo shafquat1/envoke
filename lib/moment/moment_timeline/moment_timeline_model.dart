@@ -15,7 +15,5 @@ class MomentTimelineModel extends FlutterFlowModel<MomentTimelineWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

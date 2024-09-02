@@ -2,7 +2,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/widgets/delete_moment/delete_moment_widget.dart';
+import '/widgets/delete_dialogue/delete_dialogue_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -74,9 +74,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
         List<MomentsRecord> momentTimelineMomentsRecordList = snapshot.data!;
 
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: Colors.black,
@@ -209,7 +207,7 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                           0.0, 5.0, 115.0, 0.0),
                                                   child: Text(
                                                     dateTimeFormat(
-                                                      'MMMM y',
+                                                      "MMMM y",
                                                       widget.memories!
                                                           .createdTime!,
                                                       locale:
@@ -350,24 +348,24 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                                                                 Directionality.of(
                                                                     context)),
                                                     child: GestureDetector(
-                                                      onTap: () => _model
-                                                              .unfocusNode
-                                                              .canRequestFocus
-                                                          ? FocusScope.of(
-                                                                  context)
-                                                              .requestFocus(_model
-                                                                  .unfocusNode)
-                                                          : FocusScope.of(
-                                                                  context)
+                                                      onTap: () =>
+                                                          FocusScope.of(
+                                                                  dialogContext)
                                                               .unfocus(),
-                                                      child: DeleteMomentWidget(
+                                                      child:
+                                                          DeleteDialogueWidget(
                                                         moment: momentListItem,
+                                                        combineText:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'yrivibpf' /* Moment */,
+                                                        ),
                                                       ),
                                                     ),
                                                   );
                                                 },
-                                              ).then(
-                                                  (value) => setState(() {}));
+                                              );
                                             },
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,

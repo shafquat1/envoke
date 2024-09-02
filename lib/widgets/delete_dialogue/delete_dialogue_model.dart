@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'write_nfc_tag_widget.dart' show WriteNfcTagWidget;
+import 'delete_dialogue_widget.dart' show DeleteDialogueWidget;
 import 'package:flutter/material.dart';
 
-class WriteNfcTagModel extends FlutterFlowModel<WriteNfcTagWidget> {
+class DeleteDialogueModel extends FlutterFlowModel<DeleteDialogueWidget> {
   @override
   void initState(BuildContext context) {}
 

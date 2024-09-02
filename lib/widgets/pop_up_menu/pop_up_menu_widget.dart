@@ -1,7 +1,7 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/widgets/delete_memories/delete_memories_widget.dart';
+import '/widgets/delete_dialogue/delete_dialogue_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'pop_up_menu_model.dart';
@@ -150,12 +150,16 @@ class _PopUpMenuWidgetState extends State<PopUpMenuWidget> {
                                 backgroundColor: Colors.transparent,
                                 alignment: const AlignmentDirectional(0.0, 0.0)
                                     .resolve(Directionality.of(context)),
-                                child: DeleteMemoriesWidget(
-                                  memory: widget.memory!,
+                                child: DeleteDialogueWidget(
+                                  memory: widget.memory,
+                                  combineText:
+                                      FFLocalizations.of(context).getText(
+                                    'aytokox6' /* Memory */,
+                                  ),
                                 ),
                               );
                             },
-                          ).then((value) => setState(() {}));
+                          );
 
                           Navigator.pop(context);
                         },

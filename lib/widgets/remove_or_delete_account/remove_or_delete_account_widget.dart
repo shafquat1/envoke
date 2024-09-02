@@ -1,25 +1,32 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'delete_memories_model.dart';
-export 'delete_memories_model.dart';
+import 'remove_or_delete_account_model.dart';
+export 'remove_or_delete_account_model.dart';
 
-class DeleteMemoriesWidget extends StatefulWidget {
-  const DeleteMemoriesWidget({
+class RemoveOrDeleteAccountWidget extends StatefulWidget {
+  const RemoveOrDeleteAccountWidget({
     super.key,
-    required this.memory,
-  });
+    this.shared,
+    this.combineText,
+    bool? deleteAccount,
+  }) : deleteAccount = deleteAccount ?? false;
 
-  final MemoriesRecord? memory;
+  final SharedUserRecord? shared;
+  final String? combineText;
+  final bool deleteAccount;
 
   @override
-  State<DeleteMemoriesWidget> createState() => _DeleteMemoriesWidgetState();
+  State<RemoveOrDeleteAccountWidget> createState() =>
+      _RemoveOrDeleteAccountWidgetState();
 }
 
-class _DeleteMemoriesWidgetState extends State<DeleteMemoriesWidget> {
-  late DeleteMemoriesModel _model;
+class _RemoveOrDeleteAccountWidgetState
+    extends State<RemoveOrDeleteAccountWidget> {
+  late RemoveOrDeleteAccountModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -30,7 +37,7 @@ class _DeleteMemoriesWidgetState extends State<DeleteMemoriesWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => DeleteMemoriesModel());
+    _model = createModel(context, () => RemoveOrDeleteAccountModel());
   }
 
   @override
@@ -58,16 +65,14 @@ class _DeleteMemoriesWidgetState extends State<DeleteMemoriesWidget> {
               Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Expanded(
+                  Flexible(
                     child: Align(
                       alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                         child: Text(
-                          FFLocalizations.of(context).getText(
-                            '5bayhefh' /* Do you want to remove this mem... */,
-                          ),
+                          'Do you want to ${widget.combineText}?',
                           style:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Helvetica',
@@ -85,24 +90,64 @@ class _DeleteMemoriesWidgetState extends State<DeleteMemoriesWidget> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                child: Text(
-                  widget.memory!.memoryTitle,
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Helvetica',
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                        fontSize: 18.0,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.normal,
-                        useGoogleFonts: false,
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                      child: Container(
+                        width: 100.0,
+                        height: 100.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(14.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(50.0),
+                            child: Image.network(
+                              'https://picsum.photos/seed/634/600',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
                       ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                child: AuthUserStreamWidget(
+                  builder: (context) => Text(
+                    valueOrDefault<String>(
+                      !widget.deleteAccount
+                          ? widget.shared?.sharedUserName
+                          : currentUserDisplayName,
+                      'test',
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Helvetica',
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          fontSize: 14.0,
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.normal,
+                          useGoogleFonts: false,
+                        ),
+                  ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 10.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Flexible(
                       child: Padding(
@@ -113,7 +158,7 @@ class _DeleteMemoriesWidgetState extends State<DeleteMemoriesWidget> {
                             Navigator.pop(context);
                           },
                           text: FFLocalizations.of(context).getText(
-                            'pszy2g5t' /* No */,
+                            '7wytdvrx' /* No */,
                           ),
                           options: FFButtonOptions(
                             width: 150.0,
@@ -150,11 +195,21 @@ class _DeleteMemoriesWidgetState extends State<DeleteMemoriesWidget> {
                             const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            await widget.memory!.reference.delete();
-                            Navigator.pop(context);
+                            if (widget.deleteAccount) {
+                              await authManager.deleteUser(context);
+                              Navigator.pop(context);
+
+                              context.goNamed('EntryScreen');
+
+                              return;
+                            } else {
+                              await widget.shared!.reference.delete();
+                              Navigator.pop(context);
+                              return;
+                            }
                           },
                           text: FFLocalizations.of(context).getText(
-                            '6fbro7s3' /* Yes */,
+                            '12pv03a3' /* Yes */,
                           ),
                           options: FFButtonOptions(
                             width: 150.0,

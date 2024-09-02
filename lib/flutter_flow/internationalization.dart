@@ -198,6 +198,22 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Please choose an option from the dropdown',
       'de': 'Bitte wählen Sie eine Option aus der Dropdown-Liste',
     },
+    '3futqyst': {
+      'en': 'Field is required',
+      'de': 'Das Feld ist erforderlich',
+    },
+    'u0o8gm80': {
+      'en': 'Please choose an option from the dropdown',
+      'de': 'Bitte wählen Sie eine Option aus der Dropdown-Liste',
+    },
+    '99krpiap': {
+      'en': 'Field is required',
+      'de': 'Das Feld ist erforderlich',
+    },
+    'dgnbbwcm': {
+      'en': 'Please choose an option from the dropdown',
+      'de': 'Bitte wählen Sie eine Option aus der Dropdown-Liste',
+    },
     'd2mg2fv3': {
       'en': 'Home',
       'de': 'Heim',
@@ -365,6 +381,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '/',
       'de': '/',
     },
+    'yrivibpf': {
+      'en': 'Moment',
+      'de': 'Moment',
+    },
     'ex83b97a': {
       'en': 'Home',
       'de': 'Heim',
@@ -443,6 +463,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Change',
       'de': 'Ändern',
     },
+    '1ku15o53': {
+      'en': 'Change background',
+      'de': '',
+    },
+    '4h3l4ucc': {
+      'en': 'Delete Account',
+      'de': '',
+    },
+    'ubi7codk': {
+      'en': 'Delete Account',
+      'de': '',
+    },
     'c3rj4p4r': {
       'en': 'Logout',
       'de': 'Ausloggen',
@@ -510,27 +542,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': 'Stornieren',
     },
   },
-  // writeNfcTag
+  // removeOrDeleteAccount
   {
-    'tvkw1m40': {
-      'en': 'Ready to scan',
-      'de': 'Bereit zum Scannen',
-    },
-    'ow2e8xeh': {
-      'en': 'Approach an NFC tag',
-      'de': 'Nähern Sie sich einem NFC-Tag',
-    },
-    'mg5431fe': {
-      'en': 'Cancel',
-      'de': 'Stornieren',
-    },
-  },
-  // removeShared
-  {
-    'aqp2m3jq': {
-      'en': 'Do you want to Remove?',
-      'de': 'Möchten Sie entfernen?',
-    },
     '7wytdvrx': {
       'en': 'No',
       'de': 'NEIN',
@@ -563,27 +576,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': 'Bitte wählen Sie eine Option aus der Dropdown-Liste',
     },
   },
-  // deleteMemories
+  // deleteDialogue
   {
-    '5bayhefh': {
-      'en': 'Do you want to remove this memory?',
-      'de': 'Möchten Sie diesen Speicher entfernen?',
-    },
-    'pszy2g5t': {
-      'en': 'No',
-      'de': 'NEIN',
-    },
-    '6fbro7s3': {
-      'en': 'Yes',
-      'de': 'Ja',
-    },
-  },
-  // deleteMoment
-  {
-    '4csbh6wk': {
-      'en': 'Do you want to remove this moment?',
-      'de': 'Möchten Sie diesen Moment entfernen?',
-    },
     'uo1wjarg': {
       'en': 'No',
       'de': 'NEIN',
@@ -602,6 +596,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'ooci75tu': {
       'en': 'Delete',
       'de': 'Löschen',
+    },
+    'aytokox6': {
+      'en': 'Memory',
+      'de': 'Memory',
     },
   },
   // Miscellaneous

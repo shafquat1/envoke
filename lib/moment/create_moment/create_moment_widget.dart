@@ -58,9 +58,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: const Color(0xFF171717),
@@ -895,7 +893,6 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                                       audio: Audio.network(
                                                                                         _model.audioFile!,
                                                                                         metas: Metas(
-                                                                                          id: '2vqf7_-3358f0de',
                                                                                           title: 'Audio Memo',
                                                                                         ),
                                                                                       ),
@@ -1325,27 +1322,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                         createdAt:
                                                             getCurrentTimestamp,
                                                       ));
-
-                                                      context.goNamed(
-                                                        'momentTimeline',
-                                                        queryParameters: {
-                                                          'memories':
-                                                              serializeParam(
-                                                            widget.memories,
-                                                            ParamType.Document,
-                                                          ),
-                                                          'enableBack':
-                                                              serializeParam(
-                                                            true,
-                                                            ParamType.bool,
-                                                          ),
-                                                        }.withoutNulls,
-                                                        extra: <String,
-                                                            dynamic>{
-                                                          'memories':
-                                                              widget.memories,
-                                                        },
-                                                      );
+                                                      Navigator.pop(context);
                                                     },
                                                     text: FFLocalizations.of(
                                                             context)

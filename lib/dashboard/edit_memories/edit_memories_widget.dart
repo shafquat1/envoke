@@ -61,9 +61,7 @@ class _EditMemoriesWidgetState extends State<EditMemoriesWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.black,
@@ -885,14 +883,14 @@ class _EditMemoriesWidgetState extends State<EditMemoriesWidget> {
                                                         child: Text(
                                                           _model.date != null
                                                               ? dateTimeFormat(
-                                                                  'd MMMM y',
+                                                                  "d MMMM y",
                                                                   _model.date,
                                                                   locale: FFLocalizations.of(
                                                                           context)
                                                                       .languageCode,
                                                                 )
                                                               : dateTimeFormat(
-                                                                  'd MMMM y',
+                                                                  "d MMMM y",
                                                                   widget
                                                                       .memory!
                                                                       .createdTime!,
@@ -985,7 +983,15 @@ class _EditMemoriesWidgetState extends State<EditMemoriesWidget> {
                                                         memoryTitle: _model
                                                             .textController
                                                             .text,
-                                                        imgUrl: _model.imgFile,
+                                                        imgUrl: (_model
+                                                                        .uploadedLocalFile
+                                                                        .bytes
+                                                                        ?.isNotEmpty ??
+                                                                    false)
+                                                            ? _model
+                                                                .uploadedFileUrl
+                                                            : widget
+                                                                .memory?.imgUrl,
                                                         createdTime:
                                                             _model.date,
                                                         imgBlurHash: _model

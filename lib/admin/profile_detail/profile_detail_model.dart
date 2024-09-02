@@ -15,7 +15,5 @@ class ProfileDetailModel extends FlutterFlowModel<ProfileDetailWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

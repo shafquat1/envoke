@@ -7,7 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/widgets/add_shared/add_shared_widget.dart';
-import '/widgets/remove_shared/remove_shared_widget.dart';
+import '/widgets/remove_or_delete_account/remove_or_delete_account_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -78,9 +78,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                 : null;
 
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: Colors.black,
@@ -554,26 +552,19 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                                   Directionality.of(
                                                                       context)),
                                                       child: GestureDetector(
-                                                        onTap: () => _model
-                                                                .unfocusNode
-                                                                .canRequestFocus
-                                                            ? FocusScope.of(
-                                                                    context)
-                                                                .requestFocus(_model
-                                                                    .unfocusNode)
-                                                            : FocusScope.of(
-                                                                    context)
+                                                        onTap: () =>
+                                                            FocusScope.of(
+                                                                    dialogContext)
                                                                 .unfocus(),
                                                         child:
-                                                            RemoveSharedWidget(
+                                                            RemoveOrDeleteAccountWidget(
                                                           shared:
                                                               profileDetailSharedUserRecord,
                                                         ),
                                                       ),
                                                     );
                                                   },
-                                                ).then(
-                                                    (value) => setState(() {}));
+                                                );
                                               },
                                               text: FFLocalizations.of(context)
                                                   .getText(
@@ -703,22 +694,15 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                                 Directionality.of(
                                                                     context)),
                                                     child: GestureDetector(
-                                                      onTap: () => _model
-                                                              .unfocusNode
-                                                              .canRequestFocus
-                                                          ? FocusScope.of(
-                                                                  context)
-                                                              .requestFocus(_model
-                                                                  .unfocusNode)
-                                                          : FocusScope.of(
-                                                                  context)
+                                                      onTap: () =>
+                                                          FocusScope.of(
+                                                                  dialogContext)
                                                               .unfocus(),
                                                       child: const AddSharedWidget(),
                                                     ),
                                                   );
                                                 },
-                                              ).then(
-                                                  (value) => setState(() {}));
+                                              );
                                             },
                                           ),
                                         ),
@@ -1123,6 +1107,129 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                       ),
                                       borderRadius:
                                           BorderRadius.circular(100.0),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              33.0, 30.0, 0.0, 10.0),
+                          child: Text(
+                            FFLocalizations.of(context).getText(
+                              '1ku15o53' /* Change background */,
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          child: Container(
+                            width: double.infinity,
+                            height: 50.0,
+                            decoration: BoxDecoration(
+                              color: const Color(0xFF171717),
+                              borderRadius: BorderRadius.circular(32.0),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: Icon(
+                                    Icons.person,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    size: 24.0,
+                                  ),
+                                ),
+                                Builder(
+                                  builder: (context) => Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 17.0, 0.0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (dialogContext) {
+                                            return Dialog(
+                                              elevation: 0,
+                                              insetPadding: EdgeInsets.zero,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              alignment:
+                                                  const AlignmentDirectional(0.0, 0.0)
+                                                      .resolve(
+                                                          Directionality.of(
+                                                              context)),
+                                              child: GestureDetector(
+                                                onTap: () =>
+                                                    FocusScope.of(dialogContext)
+                                                        .unfocus(),
+                                                child:
+                                                    RemoveOrDeleteAccountWidget(
+                                                  combineText:
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                    'ubi7codk' /* Delete Account */,
+                                                  ),
+                                                  deleteAccount: true,
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                        );
+                                      },
+                                      text: FFLocalizations.of(context).getText(
+                                        '4h3l4ucc' /* Delete Account */,
+                                      ),
+                                      icon: const Icon(
+                                        Icons.delete,
+                                        color: Color(0xFFFF0909),
+                                        size: 16.0,
+                                      ),
+                                      options: FFButtonOptions(
+                                        height: 40.0,
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            24.0, 0.0, 24.0, 0.0),
+                                        iconPadding:
+                                            const EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: const Color(0xFF242424),
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Helvetica',
+                                              color: Colors.white,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.normal,
+                                              useGoogleFonts: false,
+                                            ),
+                                        borderSide: const BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(100.0),
+                                      ),
                                     ),
                                   ),
                                 ),

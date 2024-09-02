@@ -54,7 +54,6 @@ class CreateMemoriesModel extends FlutterFlowModel<CreateMemoriesWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }

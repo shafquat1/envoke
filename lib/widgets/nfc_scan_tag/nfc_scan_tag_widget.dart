@@ -13,7 +13,12 @@ import 'nfc_scan_tag_model.dart';
 export 'nfc_scan_tag_model.dart';
 
 class NfcScanTagWidget extends StatefulWidget {
-  const NfcScanTagWidget({super.key});
+  const NfcScanTagWidget({
+    super.key,
+    bool? isScanning,
+  }) : isScanning = isScanning ?? true;
+
+  final bool isScanning;
 
   @override
   State<NfcScanTagWidget> createState() => _NfcScanTagWidgetState();
@@ -35,100 +40,110 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await actions.nfcScan();
-      if (FFAppState().nfcUserId == FFAppState().userGuid) {
-        if (loggedIn) {
-          _model.count = await queryMemoriesRecordCount(
-            queryBuilder: (memoriesRecord) => memoriesRecord.where(
-              'user_id',
-              isEqualTo: currentUserUid,
-            ),
-          );
-          if (_model.count! <= 0) {
-            _model.output2 = await querySharedUserRecordOnce(
-              queryBuilder: (sharedUserRecord) => sharedUserRecord
-                  .where(
-                    'isShared',
-                    isEqualTo: true,
-                  )
-                  .where(
-                    'ownEmail',
-                    isEqualTo: currentUserEmail,
-                  ),
-              singleRecord: true,
-            ).then((s) => s.firstOrNull);
-            if (_model.output2 != null) {
+      if (widget.isScanning) {
+        await actions.nfcScan();
+        if (FFAppState().nfcUserId == FFAppState().userGuid) {
+          if (loggedIn) {
+            _model.count = await queryMemoriesRecordCount(
+              queryBuilder: (memoriesRecord) => memoriesRecord.where(
+                'user_id',
+                isEqualTo: currentUserUid,
+              ),
+            );
+            if (_model.count! <= 0) {
+              _model.output2 = await querySharedUserRecordOnce(
+                queryBuilder: (sharedUserRecord) => sharedUserRecord
+                    .where(
+                      'isShared',
+                      isEqualTo: true,
+                    )
+                    .where(
+                      'ownEmail',
+                      isEqualTo: currentUserEmail,
+                    ),
+                singleRecord: true,
+              ).then((s) => s.firstOrNull);
+              if (_model.output2 != null) {
+                context.goNamed('MemoriesTimeline');
+
+                return;
+              } else {
+                context.goNamed('CreateMemories');
+              }
+            } else {
               context.goNamed('MemoriesTimeline');
 
               return;
-            } else {
-              context.goNamed('CreateMemories');
             }
           } else {
-            context.goNamed('MemoriesTimeline');
-
-            return;
-          }
-        } else {
-          _model.output = await queryNfcDataRecordOnce(
-            queryBuilder: (nfcDataRecord) => nfcDataRecord.where(
-              'nfcId',
-              isEqualTo: FFAppState().nfcTag,
-            ),
-            singleRecord: true,
-          ).then((s) => s.firstOrNull);
-          if (_model.output?.nfcId != null && _model.output?.nfcId != '') {
-            if (FFAppState().nfcTag != '') {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    'The jewelry is already registered. Please login.',
-                    style: TextStyle(
-                      color: FlutterFlowTheme.of(context).primaryText,
+            _model.output = await queryNfcDataRecordOnce(
+              queryBuilder: (nfcDataRecord) => nfcDataRecord.where(
+                'nfcId',
+                isEqualTo: FFAppState().nfcTag,
+              ),
+              singleRecord: true,
+            ).then((s) => s.firstOrNull);
+            if (_model.output?.nfcId != null && _model.output?.nfcId != '') {
+              if (FFAppState().nfcTag != '') {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      'The jewelry is already registered. Please login.',
+                      style: TextStyle(
+                        color: FlutterFlowTheme.of(context).primaryText,
+                      ),
                     ),
+                    duration: const Duration(milliseconds: 4000),
+                    backgroundColor: FlutterFlowTheme.of(context).secondary,
                   ),
-                  duration: const Duration(milliseconds: 4000),
-                  backgroundColor: FlutterFlowTheme.of(context).secondary,
+                );
+
+                context.goNamed('LoginPage');
+              } else {
+                return;
+              }
+
+              return;
+            } else {
+              if (FFAppState().nfcTag != '') {
+                context.goNamed('SignupPage');
+              } else {
+                return;
+              }
+
+              return;
+            }
+          }
+
+          return;
+        } else {
+          context.pop();
+          await showModalBottomSheet(
+            isScrollControlled: true,
+            backgroundColor: Colors.transparent,
+            isDismissible: false,
+            enableDrag: false,
+            context: context,
+            builder: (context) {
+              return Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: SizedBox(
+                  height: MediaQuery.sizeOf(context).height * 0.5,
+                  child: const NfcScanTagWidget(),
                 ),
               );
+            },
+          ).then((value) => safeSetState(() {}));
 
-              context.goNamed('LoginPage');
-            } else {
-              return;
-            }
-
-            return;
-          } else {
-            if (FFAppState().nfcTag != '') {
-              context.goNamed('SignupPage');
-            } else {
-              return;
-            }
-
-            return;
-          }
+          return;
         }
-
-        return;
       } else {
-        context.pop();
-        await showModalBottomSheet(
-          isScrollControlled: true,
-          backgroundColor: Colors.transparent,
-          isDismissible: false,
-          enableDrag: false,
-          context: context,
-          builder: (context) {
-            return Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: SizedBox(
-                height: MediaQuery.sizeOf(context).height * 0.5,
-                child: const NfcScanTagWidget(),
-              ),
-            );
+        await actions.writeNfcTag(
+          currentUserUid,
+          () async {
+            Navigator.pop(context);
           },
-        ).then((value) => safeSetState(() {}));
-
+        );
         return;
       }
     });

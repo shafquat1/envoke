@@ -48,9 +48,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.black,
@@ -893,14 +891,14 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                         child: Text(
                                                           _model.date != null
                                                               ? dateTimeFormat(
-                                                                  'd MMMM y',
+                                                                  "d MMMM y",
                                                                   _model.date,
                                                                   locale: FFLocalizations.of(
                                                                           context)
                                                                       .languageCode,
                                                                 )
                                                               : dateTimeFormat(
-                                                                  'd MMMM y',
+                                                                  "d MMMM y",
                                                                   getCurrentTimestamp,
                                                                   locale: FFLocalizations.of(
                                                                           context)
@@ -1000,7 +998,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                       'created_at',
                                                                       isEqualTo:
                                                                           dateTimeFormat(
-                                                                        'MMMM',
+                                                                        "MMMM",
                                                                         _model.date ?? getCurrentTimestamp,
                                                                         locale:
                                                                             FFLocalizations.of(context).languageCode,
@@ -1047,7 +1045,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                               .blurHash,
                                                           createdAt:
                                                               dateTimeFormat(
-                                                            'MMMM',
+                                                            "MMMM",
                                                             _model.date ?? getCurrentTimestamp,
                                                             locale: FFLocalizations
                                                                     .of(context)
@@ -1072,7 +1070,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                                       .blurHash,
                                                                   createdAt:
                                                                       dateTimeFormat(
-                                                                    'MMMM',
+                                                                    "MMMM",
                                                                     _model
                                                                             .date ?? getCurrentTimestamp,
                                                                     locale: FFLocalizations.of(

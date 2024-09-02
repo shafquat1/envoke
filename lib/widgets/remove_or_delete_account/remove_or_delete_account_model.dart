@@ -1,8 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'remove_shared_widget.dart' show RemoveSharedWidget;
+import 'remove_or_delete_account_widget.dart' show RemoveOrDeleteAccountWidget;
 import 'package:flutter/material.dart';
 
-class RemoveSharedModel extends FlutterFlowModel<RemoveSharedWidget> {
+class RemoveOrDeleteAccountModel
+    extends FlutterFlowModel<RemoveOrDeleteAccountWidget> {
   @override
   void initState(BuildContext context) {}
 

@@ -3,23 +3,27 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'remove_shared_model.dart';
-export 'remove_shared_model.dart';
+import 'delete_dialogue_model.dart';
+export 'delete_dialogue_model.dart';
 
-class RemoveSharedWidget extends StatefulWidget {
-  const RemoveSharedWidget({
+class DeleteDialogueWidget extends StatefulWidget {
+  const DeleteDialogueWidget({
     super.key,
-    required this.shared,
+    this.moment,
+    this.combineText,
+    this.memory,
   });
 
-  final SharedUserRecord? shared;
+  final MomentsRecord? moment;
+  final String? combineText;
+  final MemoriesRecord? memory;
 
   @override
-  State<RemoveSharedWidget> createState() => _RemoveSharedWidgetState();
+  State<DeleteDialogueWidget> createState() => _DeleteDialogueWidgetState();
 }
 
-class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
-  late RemoveSharedModel _model;
+class _DeleteDialogueWidgetState extends State<DeleteDialogueWidget> {
+  late DeleteDialogueModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -30,7 +34,7 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => RemoveSharedModel());
+    _model = createModel(context, () => DeleteDialogueModel());
   }
 
   @override
@@ -58,16 +62,14 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
               Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Flexible(
+                  Expanded(
                     child: Align(
                       alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                         child: Text(
-                          FFLocalizations.of(context).getText(
-                            'aqp2m3jq' /* Do you want to Remove? */,
-                          ),
+                          'Do you want to remove this ${widget.combineText}?',
                           style:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Helvetica',
@@ -85,45 +87,18 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
-                      child: Container(
-                        width: 100.0,
-                        height: 100.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          shape: BoxShape.circle,
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(14.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(50.0),
-                            child: Image.network(
-                              'https://picsum.photos/seed/634/600',
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: Text(
-                  widget.shared!.sharedUserName,
+                  valueOrDefault<String>(
+                    widget.moment != null
+                        ? widget.moment?.title
+                        : widget.memory?.memoryTitle,
+                    'title',
+                  ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Helvetica',
                         color: FlutterFlowTheme.of(context).secondaryBackground,
-                        fontSize: 14.0,
+                        fontSize: 18.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                         useGoogleFonts: false,
@@ -134,7 +109,7 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 10.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Flexible(
                       child: Padding(
@@ -145,7 +120,7 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                             Navigator.pop(context);
                           },
                           text: FFLocalizations.of(context).getText(
-                            '7wytdvrx' /* No */,
+                            'uo1wjarg' /* No */,
                           ),
                           options: FFButtonOptions(
                             width: 150.0,
@@ -182,11 +157,16 @@ class _RemoveSharedWidgetState extends State<RemoveSharedWidget> {
                             const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            await widget.shared!.reference.delete();
+                            if (widget.moment != null) {
+                              await widget.moment!.reference.delete();
+                            } else {
+                              await widget.memory!.reference.delete();
+                            }
+
                             Navigator.pop(context);
                           },
                           text: FFLocalizations.of(context).getText(
-                            '12pv03a3' /* Yes */,
+                            '6swf9u4l' /* Yes */,
                           ),
                           options: FFButtonOptions(
                             width: 150.0,
