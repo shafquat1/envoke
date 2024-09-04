@@ -33,11 +33,11 @@ class CreateMomentModel extends FlutterFlowModel<CreateMomentWidget> {
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl1 = '';
 
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
-  String? _textController1Validator(BuildContext context, String? val) {
+  // State field(s) for title widget.
+  FocusNode? titleFocusNode;
+  TextEditingController? titleTextController;
+  String? Function(BuildContext, String?)? titleTextControllerValidator;
+  String? _titleTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         'x2befdvy' /* Field is required */,
@@ -48,19 +48,9 @@ class CreateMomentModel extends FlutterFlowModel<CreateMomentWidget> {
   }
 
   // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
+  FocusNode? textFieldFocusNode;
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
-  String? _textController2Validator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        'gen3x22y' /* Field is required */,
-      );
-    }
-
-    return null;
-  }
-
   String? myRecording;
   FFUploadedFile recordedFileBytes =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -73,16 +63,15 @@ class CreateMomentModel extends FlutterFlowModel<CreateMomentWidget> {
 
   @override
   void initState(BuildContext context) {
-    textController1Validator = _textController1Validator;
-    textController2Validator = _textController2Validator;
+    titleTextControllerValidator = _titleTextControllerValidator;
   }
 
   @override
   void dispose() {
-    textFieldFocusNode1?.dispose();
-    textController1?.dispose();
+    titleFocusNode?.dispose();
+    titleTextController?.dispose();
 
-    textFieldFocusNode2?.dispose();
+    textFieldFocusNode?.dispose();
     textController2?.dispose();
   }
 }

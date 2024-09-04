@@ -1076,9 +1076,6 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                             .update(createUsersRecordData(
                                           bgImage: _model.uploadedFileUrl,
                                         ));
-                                        FFAppState().bgImg = valueOrDefault(
-                                            currentUserDocument?.bgImage, '');
-                                        setState(() {});
                                       }
                                     },
                                     text: FFLocalizations.of(context).getText(

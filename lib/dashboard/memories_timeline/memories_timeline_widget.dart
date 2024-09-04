@@ -10,7 +10,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:octo_image/octo_image.dart';
-import 'package:provider/provider.dart';
 import 'memories_timeline_model.dart';
 export 'memories_timeline_model.dart';
 
@@ -41,8 +40,6 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return StreamBuilder<List<SharedUserRecord>>(
       stream: querySharedUserRecord(
         queryBuilder: (sharedUserRecord) => sharedUserRecord.where(
@@ -89,7 +86,8 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                   children: [
                     Builder(
                       builder: (context) {
-                        if (FFAppState().bgImg == '') {
+                        if (valueOrDefault(currentUserDocument?.bgImage, '') ==
+                                '') {
                           return Opacity(
                             opacity: 0.2,
                             child: ClipRRect(
@@ -105,15 +103,18 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                         } else {
                           return Opacity(
                             opacity: 0.2,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: CachedNetworkImage(
-                                fadeInDuration: const Duration(milliseconds: 500),
-                                fadeOutDuration: const Duration(milliseconds: 500),
-                                imageUrl: FFAppState().bgImg,
-                                width: double.infinity,
-                                height: double.infinity,
-                                fit: BoxFit.cover,
+                            child: AuthUserStreamWidget(
+                              builder: (context) => ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: CachedNetworkImage(
+                                  fadeInDuration: const Duration(milliseconds: 500),
+                                  fadeOutDuration: const Duration(milliseconds: 500),
+                                  imageUrl: valueOrDefault(
+                                      currentUserDocument?.bgImage, ''),
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                           );

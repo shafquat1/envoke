@@ -85,6 +85,8 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                         0.0, 20.0, 0.0, 20.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         if (() {
                                           if (_model.addNew == true) {
@@ -127,6 +129,30 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                               ),
                                             ),
                                           ),
+                                        Flexible(
+                                          child: Align(
+                                            alignment:
+                                                const AlignmentDirectional(0.0, 0.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'p7pg9x9v' /* Create Memories */,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Helvetica',
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        fontSize: 20.0,
+                                                        letterSpacing: 0.0,
+                                                        useGoogleFonts: false,
+                                                      ),
+                                            ),
+                                          ),
+                                        ),
                                       ],
                                     ),
                                   ),

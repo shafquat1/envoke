@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -9,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:octo_image/octo_image.dart';
-import 'package:provider/provider.dart';
 import 'moment_timeline_model.dart';
 export 'moment_timeline_model.dart';
 
@@ -47,8 +47,6 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return StreamBuilder<List<MomentsRecord>>(
       stream: queryMomentsRecord(
         parent: widget.memories?.reference,
@@ -89,7 +87,9 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                       children: [
                         Builder(
                           builder: (context) {
-                            if (FFAppState().bgImg == '') {
+                            if (valueOrDefault(
+                                        currentUserDocument?.bgImage, '') ==
+                                    '') {
                               return Opacity(
                                 opacity: 0.2,
                                 child: ClipRRect(
@@ -107,18 +107,23 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
                             } else {
                               return Opacity(
                                 opacity: 0.2,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(0.0),
-                                  child: CachedNetworkImage(
-                                    fadeInDuration: const Duration(milliseconds: 500),
-                                    fadeOutDuration:
-                                        const Duration(milliseconds: 500),
-                                    imageUrl: FFAppState().bgImg,
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height:
-                                        MediaQuery.sizeOf(context).height * 0.6,
-                                    fit: BoxFit.cover,
+                                child: AuthUserStreamWidget(
+                                  builder: (context) => ClipRRect(
+                                    borderRadius: BorderRadius.circular(0.0),
+                                    child: CachedNetworkImage(
+                                      fadeInDuration:
+                                          const Duration(milliseconds: 500),
+                                      fadeOutDuration:
+                                          const Duration(milliseconds: 500),
+                                      imageUrl: valueOrDefault(
+                                          currentUserDocument?.bgImage, ''),
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.6,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
                               );

@@ -421,12 +421,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   return;
                                                 }
 
-                                                FFAppState().bgImg =
-                                                    valueOrDefault(
-                                                        currentUserDocument
-                                                            ?.bgImage,
-                                                        '');
-                                                setState(() {});
                                                 _model.count =
                                                     await queryMemoriesRecordCount(
                                                   queryBuilder:

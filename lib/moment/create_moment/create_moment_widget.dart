@@ -41,11 +41,11 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
     super.initState();
     _model = createModel(context, () => CreateMomentModel());
 
-    _model.textController1 ??= TextEditingController();
-    _model.textFieldFocusNode1 ??= FocusNode();
+    _model.titleTextController ??= TextEditingController();
+    _model.titleFocusNode ??= FocusNode();
 
     _model.textController2 ??= TextEditingController();
-    _model.textFieldFocusNode2 ??= FocusNode();
+    _model.textFieldFocusNode ??= FocusNode();
   }
 
   @override
@@ -478,9 +478,9 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                       12.0, 0.0, 12.0, 0.0),
                                               child: TextFormField(
                                                 controller:
-                                                    _model.textController1,
+                                                    _model.titleTextController,
                                                 focusNode:
-                                                    _model.textFieldFocusNode1,
+                                                    _model.titleFocusNode,
                                                 autofocus: false,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
@@ -542,7 +542,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
                                                 validator: _model
-                                                    .textController1Validator
+                                                    .titleTextControllerValidator
                                                     .asValidator(context),
                                               ),
                                             ),
@@ -562,7 +562,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                 controller:
                                                     _model.textController2,
                                                 focusNode:
-                                                    _model.textFieldFocusNode2,
+                                                    _model.textFieldFocusNode,
                                                 autofocus: false,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
@@ -1299,30 +1299,34 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                               .validate()) {
                                                         return;
                                                       }
-
-                                                      await MomentsRecord
-                                                              .createDoc(widget
-                                                                  .memories!
-                                                                  .reference)
-                                                          .set(
-                                                              createMomentsRecordData(
-                                                        title: _model
-                                                            .textController1
-                                                            .text,
-                                                        notes: _model
-                                                            .textController2
-                                                            .text,
-                                                        imgUrl: _model
-                                                            .uploadedFileUrl1,
-                                                        audioUrl:
-                                                            _model.audioFile,
-                                                        imgBlurHash: _model
-                                                            .uploadedLocalFile1
-                                                            .blurHash,
-                                                        createdAt:
-                                                            getCurrentTimestamp,
-                                                      ));
-                                                      Navigator.pop(context);
+                                                      if (_model.audioFile !=
+                                                              null &&
+                                                          _model.audioFile !=
+                                                              '') {
+                                                        await MomentsRecord
+                                                                .createDoc(widget
+                                                                    .memories!
+                                                                    .reference)
+                                                            .set(
+                                                                createMomentsRecordData(
+                                                          title: _model
+                                                              .titleTextController
+                                                              .text,
+                                                          notes: _model
+                                                              .textController2
+                                                              .text,
+                                                          imgUrl: _model
+                                                              .uploadedFileUrl1,
+                                                          audioUrl:
+                                                              _model.audioFile,
+                                                          imgBlurHash: _model
+                                                              .uploadedLocalFile1
+                                                              .blurHash,
+                                                          createdAt:
+                                                              getCurrentTimestamp,
+                                                        ));
+                                                        Navigator.pop(context);
+                                                      }
                                                     },
                                                     text: FFLocalizations.of(
                                                             context)

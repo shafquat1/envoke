@@ -264,6 +264,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // CreateMemories
   {
+    'p7pg9x9v': {
+      'en': 'Create Memories',
+      'de': 'Erstelle deine Memory',
+    },
     'z9czxuh3': {
       'en': 'Add a Title',
       'de': 'Füge einen Titel hinzu',

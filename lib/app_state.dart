@@ -56,12 +56,6 @@ class FFAppState extends ChangeNotifier {
     _userGuid = value;
     prefs.setString('ff_userGuid', value);
   }
-
-  String _bgImg = '';
-  String get bgImg => _bgImg;
-  set bgImg(String value) {
-    _bgImg = value;
-  }
 }
 
 void _safeInit(Function() initializeField) {
