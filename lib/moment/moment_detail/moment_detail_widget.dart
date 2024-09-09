@@ -39,7 +39,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.createdAt = widget.moments?.createdAt;
-      setState(() {});
+      safeSetState(() {});
     });
   }
 
@@ -208,7 +208,7 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
                                             }
                                             _model.createdAt =
                                                 _model.datePicked;
-                                            setState(() {});
+                                            safeSetState(() {});
 
                                             await widget.moments!.reference
                                                 .update(createMomentsRecordData(

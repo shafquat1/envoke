@@ -219,7 +219,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                   validateFileFormat(
                                                       m.storagePath,
                                                       context))) {
-                                            setState(() =>
+                                            safeSetState(() =>
                                                 _model.isDataUploading1 = true);
                                             var selectedUploadedFiles =
                                                 <FFUploadedFile>[];
@@ -269,7 +269,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                     selectedMedia.length &&
                                                 downloadUrls.length ==
                                                     selectedMedia.length) {
-                                              setState(() {
+                                              safeSetState(() {
                                                 _model.uploadedLocalFile1 =
                                                     selectedUploadedFiles.first;
                                                 _model.uploadedFileUrl1 =
@@ -278,7 +278,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                               showUploadMessage(
                                                   context, 'Success!');
                                             } else {
-                                              setState(() {});
+                                              safeSetState(() {});
                                               showUploadMessage(context,
                                                   'Failed to upload data');
                                               return;
@@ -289,7 +289,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                       ?.isNotEmpty ??
                                                   false)) {
                                             _model.showImg = true;
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           } else {
                                             ScaffoldMessenger.of(context)
@@ -779,7 +779,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                               Colors.transparent,
                                                                           onTap:
                                                                               () async {
-                                                                            setState(() {
+                                                                            safeSetState(() {
                                                                               _model.isDataUploading1 = false;
                                                                               _model.uploadedLocalFile1 = FFUploadedFile(bytes: Uint8List.fromList([]));
                                                                               _model.uploadedFileUrl1 = '';
@@ -787,7 +787,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
 
                                                                             _model.showImg =
                                                                                 false;
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           },
                                                                           child:
                                                                               Icon(
@@ -960,15 +960,15 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                             onTap:
                                                                                 () async {
                                                                               _model.showAudio = false;
-                                                                              setState(() {});
-                                                                              setState(() {
+                                                                              safeSetState(() {});
+                                                                              safeSetState(() {
                                                                                 _model.isDataUploading2 = false;
                                                                                 _model.uploadedLocalFile2 = FFUploadedFile(bytes: Uint8List.fromList([]));
                                                                                 _model.uploadedFileUrl2 = '';
                                                                               });
 
                                                                               _model.audioFile = null;
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             },
                                                                             child:
                                                                                 Icon(
@@ -1091,12 +1091,14 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                   false;
                                                               _model.showAudio =
                                                                   true;
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                               _model.showAudio =
                                                                   true;
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                               {
-                                                                setState(() =>
+                                                                safeSetState(() =>
                                                                     _model.isDataUploading2 =
                                                                         true);
                                                                 var selectedUploadedFiles =
@@ -1146,7 +1148,8 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                             .length ==
                                                                         selectedFiles
                                                                             .length) {
-                                                                  setState(() {
+                                                                  safeSetState(
+                                                                      () {
                                                                     _model.uploadedLocalFile2 =
                                                                         selectedUploadedFiles
                                                                             .first;
@@ -1155,7 +1158,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                             .first;
                                                                   });
                                                                 } else {
-                                                                  setState(
+                                                                  safeSetState(
                                                                       () {});
                                                                   return;
                                                                 }
@@ -1164,7 +1167,8 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                               _model.audioFile =
                                                                   _model
                                                                       .uploadedFileUrl2;
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                               await _model
                                                                   .pageViewController
                                                                   ?.animateToPage(
@@ -1176,18 +1180,21 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                     Curves.ease,
                                                               );
                                                               if (shouldSetState) {
-                                                                setState(() {});
+                                                                safeSetState(
+                                                                    () {});
                                                               }
                                                               return;
                                                             } else {
                                                               if (shouldSetState) {
-                                                                setState(() {});
+                                                                safeSetState(
+                                                                    () {});
                                                               }
                                                               return;
                                                             }
 
                                                             if (shouldSetState) {
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                             }
                                                           },
                                                         ),
@@ -1260,10 +1267,12 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                   microphonePermission)) {
                                                                 _model.isRecording =
                                                                     true;
-                                                                setState(() {});
+                                                                safeSetState(
+                                                                    () {});
                                                                 _model.showTimer =
                                                                     true;
-                                                                setState(() {});
+                                                                safeSetState(
+                                                                    () {});
                                                               } else {
                                                                 await requestPermission(
                                                                     microphonePermission);

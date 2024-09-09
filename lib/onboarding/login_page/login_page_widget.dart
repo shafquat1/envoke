@@ -297,7 +297,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               color: Color(0xFF5A5A5A),
                                             ),
                                             suffixIcon: InkWell(
-                                              onTap: () => setState(
+                                              onTap: () => safeSetState(
                                                 () => _model
                                                         .passwordVisibility =
                                                     !_model.passwordVisibility,
@@ -356,7 +356,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                 value: _model.checkboxValue ??=
                                                     false,
                                                 onChanged: (newValue) async {
-                                                  setState(() =>
+                                                  safeSetState(() =>
                                                       _model.checkboxValue =
                                                           newValue!);
                                                 },
@@ -457,7 +457,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                         context.mounted);
 
                                                     if (shouldSetState) {
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     }
                                                     return;
                                                   } else {
@@ -466,7 +466,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                         context.mounted);
 
                                                     if (shouldSetState) {
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     }
                                                     return;
                                                   }
@@ -476,13 +476,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                       context.mounted);
 
                                                   if (shouldSetState) {
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   }
                                                   return;
                                                 }
 
                                                 if (shouldSetState) {
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 }
                                               },
                                               text: FFLocalizations.of(context)

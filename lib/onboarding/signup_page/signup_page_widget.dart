@@ -456,7 +456,7 @@ with J... */
                                         color: Color(0xFF5A5A5A),
                                       ),
                                       suffixIcon: InkWell(
-                                        onTap: () => setState(
+                                        onTap: () => safeSetState(
                                           () => _model.passwordVisibility =
                                               !_model.passwordVisibility,
                                         ),
@@ -515,7 +515,7 @@ with J... */
                                             value: _model.checkboxValue1 ??=
                                                 false,
                                             onChanged: (newValue) async {
-                                              setState(() => _model
+                                              safeSetState(() => _model
                                                   .checkboxValue1 = newValue!);
                                             },
                                             side: const BorderSide(
@@ -647,7 +647,7 @@ with J... */
                                           value: _model.checkboxValue2 ??=
                                               false,
                                           onChanged: (newValue) async {
-                                            setState(() => _model
+                                            safeSetState(() => _model
                                                 .checkboxValue2 = newValue!);
                                           },
                                           side: const BorderSide(

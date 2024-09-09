@@ -1023,7 +1023,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                           selectedMedia.every((m) =>
                                               validateFileFormat(
                                                   m.storagePath, context))) {
-                                        setState(() =>
+                                        safeSetState(() =>
                                             _model.isDataUploading = true);
                                         var selectedUploadedFiles =
                                             <FFUploadedFile>[];
@@ -1059,14 +1059,14 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                                                 selectedMedia.length &&
                                             downloadUrls.length ==
                                                 selectedMedia.length) {
-                                          setState(() {
+                                          safeSetState(() {
                                             _model.uploadedLocalFile =
                                                 selectedUploadedFiles.first;
                                             _model.uploadedFileUrl =
                                                 downloadUrls.first;
                                           });
                                         } else {
-                                          setState(() {});
+                                          safeSetState(() {});
                                           return;
                                         }
                                       }

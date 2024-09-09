@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class MomentTimelineModel extends FlutterFlowModel<MomentTimelineWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for Carousel widget.
   CarouselController? carouselController;
   int carouselCurrentIndex = 0;

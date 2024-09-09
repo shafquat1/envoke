@@ -203,7 +203,7 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                     ),
                                   );
                                   Navigator.pop(context);
-                                  if (shouldSetState) setState(() {});
+                                  if (shouldSetState) safeSetState(() {});
                                   return;
                                 } else {
                                   _model.output = await queryUsersRecordOnce(
@@ -248,7 +248,7 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                         ),
                                       );
                                       Navigator.pop(context);
-                                      if (shouldSetState) setState(() {});
+                                      if (shouldSetState) safeSetState(() {});
                                       return;
                                     } else {
                                       _model.output3 =
@@ -275,7 +275,9 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                               ownEmail: _model.output?.email,
                                             ));
                                         Navigator.pop(context);
-                                        if (shouldSetState) setState(() {});
+                                        if (shouldSetState) {
+                                          safeSetState(() {});
+                                        }
                                         return;
                                       } else {
                                         ScaffoldMessenger.of(context)
@@ -297,7 +299,9 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                           ),
                                         );
                                         Navigator.pop(context);
-                                        if (shouldSetState) setState(() {});
+                                        if (shouldSetState) {
+                                          safeSetState(() {});
+                                        }
                                         return;
                                       }
                                     }
@@ -318,12 +322,12 @@ class _AddSharedWidgetState extends State<AddSharedWidget> {
                                       ),
                                     );
                                     Navigator.pop(context);
-                                    if (shouldSetState) setState(() {});
+                                    if (shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                 }
 
-                                if (shouldSetState) setState(() {});
+                                if (shouldSetState) safeSetState(() {});
                               },
                               text: FFLocalizations.of(context).getText(
                                 '1xmio5dg' /* Share */,

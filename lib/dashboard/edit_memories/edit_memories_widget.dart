@@ -42,7 +42,7 @@ class _EditMemoriesWidgetState extends State<EditMemoriesWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (widget.memory?.imgUrl != null && widget.memory?.imgUrl != '') {
         _model.imgFile = widget.memory?.imgUrl;
-        setState(() {});
+        safeSetState(() {});
       }
     });
 
@@ -124,7 +124,7 @@ class _EditMemoriesWidgetState extends State<EditMemoriesWidget> {
                                                 if (widget.enableBack ==
                                                     false) {
                                                   _model.addNew = false;
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 } else {
                                                   context.safePop();
                                                 }
@@ -349,7 +349,7 @@ class _EditMemoriesWidgetState extends State<EditMemoriesWidget> {
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -412,7 +412,7 @@ class _EditMemoriesWidgetState extends State<EditMemoriesWidget> {
                                                           downloadUrls.length ==
                                                               selectedMedia
                                                                   .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile =
                                                               selectedUploadedFiles
                                                                   .first;
@@ -424,7 +424,7 @@ class _EditMemoriesWidgetState extends State<EditMemoriesWidget> {
                                                             context,
                                                             'Success!');
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         showUploadMessage(
                                                             context,
                                                             'Failed to upload data');
@@ -663,7 +663,7 @@ class _EditMemoriesWidgetState extends State<EditMemoriesWidget> {
                                             onTap: () async {
                                               if (widget.enableBack == false) {
                                                 _model.addNew = false;
-                                                setState(() {});
+                                                safeSetState(() {});
                                               } else {
                                                 context.safePop();
                                               }
@@ -855,7 +855,7 @@ class _EditMemoriesWidgetState extends State<EditMemoriesWidget> {
                                                   }
                                                   _model.date =
                                                       _model.datePicked;
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 },
                                                 child: Container(
                                                   height: 60.0,

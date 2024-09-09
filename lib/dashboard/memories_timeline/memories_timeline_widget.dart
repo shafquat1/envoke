@@ -808,7 +808,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                               Align(
                                                                                                 alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                                                 child: Text(
-                                                                                                  '${columnCount.toString()} items',
+                                                                                                  '${columnCount.toString()}Moments',
                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                         fontFamily: 'Helvetica',
                                                                                                         color: FlutterFlowTheme.of(context).secondaryBackground,

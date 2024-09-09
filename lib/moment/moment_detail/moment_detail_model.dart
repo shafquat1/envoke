@@ -9,7 +9,6 @@ class MomentDetailModel extends FlutterFlowModel<MomentDetailWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   DateTime? datePicked;
 
   @override

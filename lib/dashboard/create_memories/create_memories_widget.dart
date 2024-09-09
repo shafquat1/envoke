@@ -112,7 +112,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                 if (widget.enableBack ==
                                                     false) {
                                                   _model.addNew = false;
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 } else {
                                                   context.safePop();
                                                 }
@@ -374,7 +374,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -437,7 +437,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                           downloadUrls.length ==
                                                               selectedMedia
                                                                   .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile =
                                                               selectedUploadedFiles
                                                                   .first;
@@ -449,7 +449,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                             context,
                                                             'Success!');
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         showUploadMessage(
                                                             context,
                                                             'Failed to upload data');
@@ -689,7 +689,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                             onTap: () async {
                                               if (widget.enableBack == false) {
                                                 _model.addNew = false;
-                                                setState(() {});
+                                                safeSetState(() {});
                                               } else {
                                                 context.safePop();
                                               }
@@ -889,7 +889,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                   }
                                                   _model.date =
                                                       _model.datePicked;
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 },
                                                 child: Container(
                                                   height: 60.0,
@@ -1006,7 +1006,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                         ),
                                                       );
                                                       if (shouldSetState) {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                       }
                                                       return;
                                                     } else {
@@ -1112,7 +1112,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                           'MemoriesTimeline');
 
                                                       if (shouldSetState) {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                       }
                                                       return;
                                                     }
@@ -1138,13 +1138,13 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                       ),
                                                     );
                                                     if (shouldSetState) {
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     }
                                                     return;
                                                   }
 
                                                   if (shouldSetState) {
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   }
                                                 },
                                                 text:
@@ -1298,7 +1298,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 _model.addNew = true;
-                                setState(() {});
+                                safeSetState(() {});
                               },
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
