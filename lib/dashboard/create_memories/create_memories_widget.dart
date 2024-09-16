@@ -1215,6 +1215,8 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                             0.0, 20.0, 0.0, 20.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             if (widget.enableBack)
                               Padding(
@@ -1239,6 +1241,27 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                   ),
                                 ),
                               ),
+                            Flexible(
+                              child: Align(
+                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'feey2huy' /* Create Memories */,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Helvetica',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        fontSize: 20.0,
+                                        letterSpacing: 0.0,
+                                        useGoogleFonts: false,
+                                      ),
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),

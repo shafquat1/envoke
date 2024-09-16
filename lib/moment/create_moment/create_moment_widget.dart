@@ -1308,34 +1308,56 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                               .validate()) {
                                                         return;
                                                       }
-                                                      if (_model.audioFile !=
-                                                              null &&
-                                                          _model.audioFile !=
-                                                              '') {
-                                                        await MomentsRecord
-                                                                .createDoc(widget
-                                                                    .memories!
-                                                                    .reference)
-                                                            .set(
-                                                                createMomentsRecordData(
-                                                          title: _model
-                                                              .titleTextController
-                                                              .text,
-                                                          notes: _model
-                                                              .textController2
-                                                              .text,
-                                                          imgUrl: _model
-                                                              .uploadedFileUrl1,
-                                                          audioUrl:
-                                                              _model.audioFile,
-                                                          imgBlurHash: _model
-                                                              .uploadedLocalFile1
-                                                              .blurHash,
-                                                          createdAt:
-                                                              getCurrentTimestamp,
-                                                        ));
-                                                        Navigator.pop(context);
+                                                      if (_model
+                                                              .uploadedFileUrl2
+                                                              .isEmpty) {
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                          SnackBar(
+                                                            content: Text(
+                                                              'Please wait until the audio uploads',
+                                                              style: TextStyle(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                              ),
+                                                            ),
+                                                            duration: const Duration(
+                                                                milliseconds:
+                                                                    4000),
+                                                            backgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondary,
+                                                          ),
+                                                        );
+                                                        return;
                                                       }
+
+                                                      await MomentsRecord
+                                                              .createDoc(widget
+                                                                  .memories!
+                                                                  .reference)
+                                                          .set(
+                                                              createMomentsRecordData(
+                                                        title: _model
+                                                            .titleTextController
+                                                            .text,
+                                                        notes: _model
+                                                            .textController2
+                                                            .text,
+                                                        imgUrl: _model
+                                                            .uploadedFileUrl1,
+                                                        audioUrl:
+                                                            _model.audioFile,
+                                                        imgBlurHash: _model
+                                                            .uploadedLocalFile1
+                                                            .blurHash,
+                                                        createdAt:
+                                                            getCurrentTimestamp,
+                                                      ));
+                                                      Navigator.pop(context);
                                                     },
                                                     text: FFLocalizations.of(
                                                             context)

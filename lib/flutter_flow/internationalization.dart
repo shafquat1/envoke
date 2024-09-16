@@ -296,6 +296,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Save',
       'de': 'Speichern',
     },
+    'feey2huy': {
+      'en': 'Create Memories',
+      'de': 'Erstelle deine Memory',
+    },
     'sgmchl0i': {
       'en': 'Create\nMemories',
       'de': 'Erinnerungen schaffen',
@@ -324,7 +328,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '81as7ypk': {
       'en': 'Create Moment',
-      'de': 'Moment erstellen',
+      'de': 'Erstelle deinen Moment',
     },
     'wrhahwv0': {
       'en': 'Upload Image',
