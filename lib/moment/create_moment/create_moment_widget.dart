@@ -1087,16 +1087,6 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
 
                                                               shouldSetState =
                                                                   true;
-                                                              _model.isRecording =
-                                                                  false;
-                                                              _model.showAudio =
-                                                                  true;
-                                                              safeSetState(
-                                                                  () {});
-                                                              _model.showAudio =
-                                                                  true;
-                                                              safeSetState(
-                                                                  () {});
                                                               {
                                                                 safeSetState(() =>
                                                                     _model.isDataUploading2 =
@@ -1164,6 +1154,10 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                 }
                                                               }
 
+                                                              _model.isRecording =
+                                                                  false;
+                                                              _model.showAudio =
+                                                                  true;
                                                               _model.audioFile =
                                                                   _model
                                                                       .uploadedFileUrl2;
@@ -1299,66 +1293,71 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                       .fromSTEB(
                                                           0.0, 10.0, 0.0, 40.0),
                                                   child: FFButtonWidget(
-                                                    onPressed: () async {
-                                                      if (_model.formKey
-                                                                  .currentState ==
-                                                              null ||
-                                                          !_model.formKey
-                                                              .currentState!
-                                                              .validate()) {
-                                                        return;
-                                                      }
-                                                      if (_model
-                                                              .uploadedFileUrl2
-                                                              .isEmpty) {
-                                                        ScaffoldMessenger.of(
-                                                                context)
-                                                            .showSnackBar(
-                                                          SnackBar(
-                                                            content: Text(
-                                                              'Please wait until the audio uploads',
-                                                              style: TextStyle(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
-                                                              ),
-                                                            ),
-                                                            duration: const Duration(
-                                                                milliseconds:
-                                                                    4000),
-                                                            backgroundColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondary,
-                                                          ),
-                                                        );
-                                                        return;
-                                                      }
-
-                                                      await MomentsRecord
-                                                              .createDoc(widget
-                                                                  .memories!
-                                                                  .reference)
-                                                          .set(
-                                                              createMomentsRecordData(
-                                                        title: _model
-                                                            .titleTextController
-                                                            .text,
-                                                        notes: _model
-                                                            .textController2
-                                                            .text,
-                                                        imgUrl: _model
-                                                            .uploadedFileUrl1,
-                                                        audioUrl:
-                                                            _model.audioFile,
-                                                        imgBlurHash: _model
-                                                            .uploadedLocalFile1
-                                                            .blurHash,
-                                                        createdAt:
-                                                            getCurrentTimestamp,
-                                                      ));
-                                                      Navigator.pop(context);
-                                                    },
+                                                    onPressed:
+                                                        (_model.isRecording ==
+                                                                true)
+                                                            ? null
+                                                            : () async {
+                                                                if (_model.formKey
+                                                                            .currentState ==
+                                                                        null ||
+                                                                    !_model
+                                                                        .formKey
+                                                                        .currentState!
+                                                                        .validate()) {
+                                                                  return;
+                                                                }
+                                                                if (_model.audioFile !=
+                                                                        null &&
+                                                                    _model.audioFile !=
+                                                                        '') {
+                                                                  await MomentsRecord.createDoc(widget
+                                                                          .memories!
+                                                                          .reference)
+                                                                      .set(
+                                                                          createMomentsRecordData(
+                                                                    title: _model
+                                                                        .titleTextController
+                                                                        .text,
+                                                                    notes: _model
+                                                                        .textController2
+                                                                        .text,
+                                                                    imgUrl: _model
+                                                                        .uploadedFileUrl1,
+                                                                    audioUrl: _model
+                                                                        .audioFile,
+                                                                    imgBlurHash: _model
+                                                                        .uploadedLocalFile1
+                                                                        .blurHash,
+                                                                    createdAt:
+                                                                        getCurrentTimestamp,
+                                                                  ));
+                                                                  Navigator.pop(
+                                                                      context);
+                                                                } else {
+                                                                  await MomentsRecord.createDoc(widget
+                                                                          .memories!
+                                                                          .reference)
+                                                                      .set(
+                                                                          createMomentsRecordData(
+                                                                    title: _model
+                                                                        .titleTextController
+                                                                        .text,
+                                                                    notes: _model
+                                                                        .textController2
+                                                                        .text,
+                                                                    imgUrl: _model
+                                                                        .uploadedFileUrl1,
+                                                                    imgBlurHash: _model
+                                                                        .uploadedLocalFile1
+                                                                        .blurHash,
+                                                                    createdAt:
+                                                                        getCurrentTimestamp,
+                                                                  ));
+                                                                  Navigator.pop(
+                                                                      context);
+                                                                }
+                                                              },
                                                     text: FFLocalizations.of(
                                                             context)
                                                         .getText(
@@ -1411,6 +1410,10 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               28.0),
+                                                      disabledColor:
+                                                          const Color(0xFF242424),
+                                                      disabledTextColor:
+                                                          const Color(0xFF444444),
                                                     ),
                                                   ),
                                                 ),

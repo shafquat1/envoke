@@ -760,7 +760,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                   fit: BoxFit.cover,
                                                                                 ),
                                                                               ),
-                                                                              image: NetworkImage(
+                                                                              image: CachedNetworkImageProvider(
                                                                                 listViewMemoriesRecord.imgUrl,
                                                                               ),
                                                                               width: 350.0,
