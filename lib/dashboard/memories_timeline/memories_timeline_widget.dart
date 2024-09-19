@@ -618,28 +618,24 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                   );
                                                 }
                                                 List<MemoriesRecord>
-                                                    listViewMemoriesRecordList =
+                                                    columnMemoriesRecordList =
                                                     snapshot.data!;
 
-                                                return ListView.builder(
-                                                  padding: EdgeInsets.zero,
-                                                  primary: false,
-                                                  shrinkWrap: true,
-                                                  scrollDirection:
-                                                      Axis.vertical,
-                                                  itemCount:
-                                                      listViewMemoriesRecordList
+                                                return Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: List.generate(
+                                                      columnMemoriesRecordList
                                                           .length,
-                                                  itemBuilder:
-                                                      (context, listViewIndex) {
-                                                    final listViewMemoriesRecord =
-                                                        listViewMemoriesRecordList[
-                                                            listViewIndex];
+                                                      (columnIndex) {
+                                                    final columnMemoriesRecord =
+                                                        columnMemoriesRecordList[
+                                                            columnIndex];
                                                     return FutureBuilder<int>(
                                                       future:
                                                           queryMomentsRecordCount(
                                                         parent:
-                                                            listViewMemoriesRecord
+                                                            columnMemoriesRecord
                                                                 .reference,
                                                       ),
                                                       builder:
@@ -701,14 +697,14 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                               {
                                                                             'memories':
                                                                                 serializeParam(
-                                                                              listViewMemoriesRecord,
+                                                                              columnMemoriesRecord,
                                                                               ParamType.Document,
                                                                             ),
                                                                           }.withoutNulls,
                                                                           extra: <String,
                                                                               dynamic>{
                                                                             'memories':
-                                                                                listViewMemoriesRecord,
+                                                                                columnMemoriesRecord,
                                                                           },
                                                                         );
 
@@ -721,14 +717,14 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                               {
                                                                             'memories':
                                                                                 serializeParam(
-                                                                              listViewMemoriesRecord,
+                                                                              columnMemoriesRecord,
                                                                               ParamType.Document,
                                                                             ),
                                                                           }.withoutNulls,
                                                                           extra: <String,
                                                                               dynamic>{
                                                                             'memories':
-                                                                                listViewMemoriesRecord,
+                                                                                columnMemoriesRecord,
                                                                           },
                                                                         );
 
@@ -752,12 +748,12 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                 OctoImage(
                                                                               placeholderBuilder: (_) => SizedBox.expand(
                                                                                 child: Image(
-                                                                                  image: BlurHashImage(listViewMemoriesRecord.imgBlurHash),
+                                                                                  image: BlurHashImage(columnMemoriesRecord.imgBlurHash),
                                                                                   fit: BoxFit.cover,
                                                                                 ),
                                                                               ),
                                                                               image: CachedNetworkImageProvider(
-                                                                                listViewMemoriesRecord.imgUrl,
+                                                                                columnMemoriesRecord.imgUrl,
                                                                               ),
                                                                               width: 350.0,
                                                                               height: 350.0,
@@ -817,7 +813,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                               Align(
                                                                                                 alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                                                 child: Text(
-                                                                                                  listViewMemoriesRecord.memoryTitle,
+                                                                                                  columnMemoriesRecord.memoryTitle,
                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                         fontFamily: 'Helvetica',
                                                                                                         color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -884,7 +880,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                   child: GestureDetector(
                                                                                     onTap: () => FocusScope.of(dialogContext).unfocus(),
                                                                                     child: PopUpMenuWidget(
-                                                                                      memory: listViewMemoriesRecord,
+                                                                                      memory: columnMemoriesRecord,
                                                                                     ),
                                                                                   ),
                                                                                 );
@@ -978,7 +974,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                     child: Text(
                                                                       dateTimeFormat(
                                                                         "d MMMM y",
-                                                                        listViewMemoriesRecord
+                                                                        columnMemoriesRecord
                                                                             .createdTime!,
                                                                         locale:
                                                                             FFLocalizations.of(context).languageCode,
@@ -1009,7 +1005,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                         );
                                                       },
                                                     );
-                                                  },
+                                                  }),
                                                 );
                                               },
                                             ),
