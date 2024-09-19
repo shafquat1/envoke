@@ -3,10 +3,6 @@ import 'memories_timeline_widget.dart' show MemoriesTimelineWidget;
 import 'package:flutter/material.dart';
 
 class MemoriesTimelineModel extends FlutterFlowModel<MemoriesTimelineWidget> {
-  ///  Local state fields for this page.
-
-  int? momentCount;
-
   @override
   void initState(BuildContext context) {}
 
