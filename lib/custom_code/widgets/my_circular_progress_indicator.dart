@@ -39,7 +39,7 @@ class _MyCircularProgressIndicatorState
   }
 
   void _showLoader() {
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(Duration(seconds: 2), () {
       setState(() {
         _isLoading = false;
       });

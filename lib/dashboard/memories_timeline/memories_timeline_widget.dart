@@ -413,11 +413,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                       Align(
                                                                                         alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                                         child: Text(
-                                                                                          dateTimeFormat(
-                                                                                            "d MMMM y",
-                                                                                            columnMemoriesRecord.createdTime!,
-                                                                                            locale: FFLocalizations.of(context).languageCode,
-                                                                                          ),
+                                                                                          '${columnCount.toString()} moments',
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 fontFamily: 'Helvetica',
                                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -545,7 +541,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                             0.0),
                                                                     child: Text(
                                                                       dateTimeFormat(
-                                                                        "MMMM",
+                                                                        "d MMMM y",
                                                                         columnMemoriesRecord
                                                                             .createdTime!,
                                                                         locale:
