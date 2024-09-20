@@ -8,6 +8,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:octo_image/octo_image.dart';
 import 'memories_timeline_model.dart';
@@ -29,6 +30,11 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MemoriesTimelineModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await queryMomentsRecordCount();
+    });
   }
 
   @override
