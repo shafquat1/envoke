@@ -9,6 +9,7 @@ import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:octo_image/octo_image.dart';
 import 'memories_timeline_model.dart';
 export 'memories_timeline_model.dart';
@@ -631,49 +632,51 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                     final columnMemoriesRecord =
                                                         columnMemoriesRecordList[
                                                             columnIndex];
-                                                    return FutureBuilder<int>(
-                                                      future:
-                                                          queryMomentsRecordCount(
-                                                        parent:
-                                                            columnMemoriesRecord
-                                                                .reference,
-                                                      ),
-                                                      builder:
-                                                          (context, snapshot) {
-                                                        // Customize what your widget looks like when it's loading.
-                                                        if (!snapshot.hasData) {
-                                                          return const Center(
-                                                            child: SizedBox(
-                                                              width: 50,
-                                                              height: 50,
-                                                              child:
-                                                                  CircularProgressIndicator(
-                                                                valueColor:
-                                                                    AlwaysStoppedAnimation<
-                                                                        Color>(
-                                                                  Colors
-                                                                      .transparent,
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          );
-                                                        }
-                                                        int columnCount =
-                                                            snapshot.data!;
-
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
+                                                    return Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Stack(
                                                           children: [
-                                                            Stack(
-                                                              children: [
-                                                                Align(
-                                                                  alignment:
-                                                                      const AlignmentDirectional(
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child:
-                                                                      InkWell(
+                                                            Align(
+                                                              alignment:
+                                                                  const AlignmentDirectional(
+                                                                      0.0, 0.0),
+                                                              child:
+                                                                  FutureBuilder<
+                                                                      int>(
+                                                                future:
+                                                                    queryMomentsRecordCount(
+                                                                  parent: columnMemoriesRecord
+                                                                      .reference,
+                                                                ),
+                                                                builder: (context,
+                                                                    snapshot) {
+                                                                  // Customize what your widget looks like when it's loading.
+                                                                  if (!snapshot
+                                                                      .hasData) {
+                                                                    return Center(
+                                                                      child:
+                                                                          SizedBox(
+                                                                        width:
+                                                                            50.0,
+                                                                        height:
+                                                                            50.0,
+                                                                        child:
+                                                                            SpinKitCircle(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                          size:
+                                                                              50.0,
+                                                                        ),
+                                                                      ),
+                                                                    );
+                                                                  }
+                                                                  int stackCount =
+                                                                      snapshot
+                                                                          .data!;
+
+                                                                  return InkWell(
                                                                     splashColor:
                                                                         Colors
                                                                             .transparent,
@@ -688,7 +691,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                             .transparent,
                                                                     onTap:
                                                                         () async {
-                                                                      if (columnCount <=
+                                                                      if (stackCount <=
                                                                           0) {
                                                                         context
                                                                             .pushNamed(
@@ -800,7 +803,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                               Align(
                                                                                                 alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                                                 child: Text(
-                                                                                                  '${columnCount.toString()} moments',
+                                                                                                  '${stackCount.toString()} moments',
                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                         fontFamily: 'Helvetica',
                                                                                                         color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -837,173 +840,193 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                         ],
                                                                       ),
                                                                     ),
-                                                                  ),
-                                                                ),
-                                                                Opacity(
-                                                                  opacity: 0.8,
-                                                                  child: Align(
-                                                                    alignment:
-                                                                        const AlignmentDirectional(
-                                                                            1.0,
-                                                                            0.0),
-                                                                    child:
-                                                                        Builder(
-                                                                      builder:
-                                                                          (context) =>
-                                                                              Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                  );
+                                                                },
+                                                              ),
+                                                            ),
+                                                            Opacity(
+                                                              opacity: 0.8,
+                                                              child: Align(
+                                                                alignment:
+                                                                    const AlignmentDirectional(
+                                                                        1.0,
+                                                                        0.0),
+                                                                child: Builder(
+                                                                  builder:
+                                                                      (context) =>
+                                                                          Padding(
+                                                                    padding: const EdgeInsetsDirectional
+                                                                        .fromSTEB(
                                                                             0.0,
                                                                             15.0,
                                                                             25.0,
                                                                             0.0),
-                                                                        child:
-                                                                            InkWell(
-                                                                          splashColor:
-                                                                              Colors.transparent,
-                                                                          focusColor:
-                                                                              Colors.transparent,
-                                                                          hoverColor:
-                                                                              Colors.transparent,
-                                                                          highlightColor:
-                                                                              Colors.transparent,
-                                                                          onTap:
-                                                                              () async {
-                                                                            await showAlignedDialog(
-                                                                              context: context,
-                                                                              isGlobal: false,
-                                                                              avoidOverflow: true,
-                                                                              targetAnchor: const AlignmentDirectional(-1.0, 0.0).resolve(Directionality.of(context)),
-                                                                              followerAnchor: const AlignmentDirectional(-1.0, 0.0).resolve(Directionality.of(context)),
-                                                                              builder: (dialogContext) {
-                                                                                return Material(
-                                                                                  color: Colors.transparent,
-                                                                                  child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(dialogContext).unfocus(),
-                                                                                    child: PopUpMenuWidget(
-                                                                                      memory: columnMemoriesRecord,
-                                                                                    ),
-                                                                                  ),
-                                                                                );
-                                                                              },
+                                                                    child:
+                                                                        InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        await showAlignedDialog(
+                                                                          context:
+                                                                              context,
+                                                                          isGlobal:
+                                                                              false,
+                                                                          avoidOverflow:
+                                                                              true,
+                                                                          targetAnchor:
+                                                                              const AlignmentDirectional(-1.0, 0.0).resolve(Directionality.of(context)),
+                                                                          followerAnchor:
+                                                                              const AlignmentDirectional(-1.0, 0.0).resolve(Directionality.of(context)),
+                                                                          builder:
+                                                                              (dialogContext) {
+                                                                            return Material(
+                                                                              color: Colors.transparent,
+                                                                              child: GestureDetector(
+                                                                                onTap: () => FocusScope.of(dialogContext).unfocus(),
+                                                                                child: PopUpMenuWidget(
+                                                                                  memory: columnMemoriesRecord,
+                                                                                ),
+                                                                              ),
                                                                             );
                                                                           },
-                                                                          child:
-                                                                              Container(
+                                                                        );
+                                                                      },
+                                                                      child:
+                                                                          Container(
+                                                                        width:
+                                                                            35.0,
+                                                                        height:
+                                                                            35.0,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              const Color(0xFF171717),
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(20.0),
+                                                                          shape:
+                                                                              BoxShape.rectangle,
+                                                                          border:
+                                                                              Border.all(
+                                                                            color:
+                                                                                const Color(0x59FFFFFF),
                                                                             width:
-                                                                                35.0,
-                                                                            height:
-                                                                                35.0,
-                                                                            decoration:
-                                                                                BoxDecoration(
-                                                                              color: const Color(0xFF171717),
-                                                                              borderRadius: BorderRadius.circular(20.0),
-                                                                              shape: BoxShape.rectangle,
-                                                                              border: Border.all(
-                                                                                color: const Color(0x59FFFFFF),
-                                                                                width: 1.0,
-                                                                              ),
-                                                                            ),
-                                                                            child:
-                                                                                Icon(
-                                                                              Icons.more_vert,
-                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                              size: 24.0,
-                                                                            ),
+                                                                                1.0,
                                                                           ),
+                                                                        ),
+                                                                        child:
+                                                                            Icon(
+                                                                          Icons
+                                                                              .more_vert,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryBackground,
+                                                                          size:
+                                                                              24.0,
                                                                         ),
                                                                       ),
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ],
-                                                            ),
-                                                            Stack(
-                                                              alignment:
-                                                                  const AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              children: [
-                                                                Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .center,
-                                                                  children: [
-                                                                    SizedBox(
-                                                                      height:
-                                                                          100.0,
-                                                                      child:
-                                                                          VerticalDivider(
-                                                                        thickness:
-                                                                            1.0,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .accent4,
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                Container(
-                                                                  width: MediaQuery.sizeOf(
-                                                                              context)
-                                                                          .width *
-                                                                      0.6,
-                                                                  height: 40.0,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            24.0),
-                                                                    border:
-                                                                        Border
-                                                                            .all(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondaryBackground,
-                                                                      width:
-                                                                          1.0,
-                                                                    ),
-                                                                  ),
-                                                                  child: Align(
-                                                                    alignment:
-                                                                        const AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      dateTimeFormat(
-                                                                        "d MMMM y",
-                                                                        columnMemoriesRecord
-                                                                            .createdTime!,
-                                                                        locale:
-                                                                            FFLocalizations.of(context).languageCode,
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Helvetica',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondaryBackground,
-                                                                            fontSize:
-                                                                                20.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.normal,
-                                                                            useGoogleFonts:
-                                                                                false,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
+                                                              ),
                                                             ),
                                                           ],
-                                                        );
-                                                      },
+                                                        ),
+                                                        Stack(
+                                                          alignment:
+                                                              const AlignmentDirectional(
+                                                                  0.0, 0.0),
+                                                          children: [
+                                                            Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                SizedBox(
+                                                                  height: 100.0,
+                                                                  child:
+                                                                      VerticalDivider(
+                                                                    thickness:
+                                                                        1.0,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .accent4,
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                            Container(
+                                                              width: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .width *
+                                                                  0.6,
+                                                              height: 40.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Colors
+                                                                    .black,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            24.0),
+                                                                border:
+                                                                    Border.all(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                                  width: 1.0,
+                                                                ),
+                                                              ),
+                                                              child: Align(
+                                                                alignment:
+                                                                    const AlignmentDirectional(
+                                                                        0.0,
+                                                                        0.0),
+                                                                child: Text(
+                                                                  dateTimeFormat(
+                                                                    "d MMMM y",
+                                                                    columnMemoriesRecord
+                                                                        .createdTime!,
+                                                                    locale: FFLocalizations.of(
+                                                                            context)
+                                                                        .languageCode,
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Helvetica',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryBackground,
+                                                                        fontSize:
+                                                                            20.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        useGoogleFonts:
+                                                                            false,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
                                                     );
                                                   }),
                                                 );
