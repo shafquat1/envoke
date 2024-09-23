@@ -36,6 +36,8 @@ class _MomentTimelineWidgetState extends State<MomentTimelineWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MomentTimelineModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

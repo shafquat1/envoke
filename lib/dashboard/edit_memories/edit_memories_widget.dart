@@ -49,6 +49,8 @@ class _EditMemoriesWidgetState extends State<EditMemoriesWidget> {
     _model.textController ??=
         TextEditingController(text: widget.memory?.memoryTitle);
     _model.textFieldFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

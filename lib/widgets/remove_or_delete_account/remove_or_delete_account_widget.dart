@@ -38,6 +38,8 @@ class _RemoveOrDeleteAccountWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => RemoveOrDeleteAccountModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

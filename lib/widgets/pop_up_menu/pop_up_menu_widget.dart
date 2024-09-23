@@ -32,6 +32,8 @@ class _PopUpMenuWidgetState extends State<PopUpMenuWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PopUpMenuModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

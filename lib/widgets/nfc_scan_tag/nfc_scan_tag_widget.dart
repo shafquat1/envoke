@@ -147,6 +147,8 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
         return;
       }
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

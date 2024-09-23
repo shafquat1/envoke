@@ -9,6 +9,7 @@ import '/flutter_flow/upload_data.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/permissions_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
@@ -46,6 +47,8 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
 
     _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -1307,6 +1310,15 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                         .validate()) {
                                                                   return;
                                                                 }
+                                                                _model.output =
+                                                                    await queryMomentsRecordOnce(
+                                                                  parent: widget
+                                                                      .memories
+                                                                      ?.reference,
+                                                                  singleRecord:
+                                                                      true,
+                                                                ).then((s) => s
+                                                                        .firstOrNull);
                                                                 if (_model.audioFile !=
                                                                         null &&
                                                                     _model.audioFile !=
@@ -1331,6 +1343,10 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                         .blurHash,
                                                                     createdAt:
                                                                         getCurrentTimestamp,
+                                                                    count: _model
+                                                                            .output!
+                                                                            .count +
+                                                                        1,
                                                                   ));
                                                                   Navigator.pop(
                                                                       context);
@@ -1353,10 +1369,17 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                         .blurHash,
                                                                     createdAt:
                                                                         getCurrentTimestamp,
+                                                                    count: _model
+                                                                            .output!
+                                                                            .count +
+                                                                        1,
                                                                   ));
                                                                   Navigator.pop(
                                                                       context);
                                                                 }
+
+                                                                safeSetState(
+                                                                    () {});
                                                               },
                                                     text: FFLocalizations.of(
                                                             context)

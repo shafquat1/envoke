@@ -41,6 +41,8 @@ class _MomentDetailWidgetState extends State<MomentDetailWidget> {
       _model.createdAt = widget.moments?.createdAt;
       safeSetState(() {});
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

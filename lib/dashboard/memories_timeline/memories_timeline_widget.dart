@@ -30,6 +30,8 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MemoriesTimelineModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -692,9 +694,10 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                         _model.listViewPagingController2!
                                                                 .itemList![
                                                             listViewIndex];
-                                                    return FutureBuilder<int>(
-                                                      future:
-                                                          queryMomentsRecordCount(
+                                                    return StreamBuilder<
+                                                        List<MomentsRecord>>(
+                                                      stream:
+                                                          queryMomentsRecord(
                                                         parent:
                                                             listViewMemoriesRecord
                                                                 .reference,
@@ -719,14 +722,21 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                             ),
                                                           );
                                                         }
-                                                        int columnCount =
+                                                        List<MomentsRecord>
+                                                            columnMomentsRecordList =
                                                             snapshot.data!;
 
                                                         return Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
-                                                          children: [
-                                                            Stack(
+                                                          children: List.generate(
+                                                              columnMomentsRecordList
+                                                                  .length,
+                                                              (columnIndex) {
+                                                            final columnMomentsRecord =
+                                                                columnMomentsRecordList[
+                                                                    columnIndex];
+                                                            return Stack(
                                                               children: [
                                                                 Align(
                                                                   alignment:
@@ -749,7 +759,8 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                             .transparent,
                                                                     onTap:
                                                                         () async {
-                                                                      if (columnCount <=
+                                                                      if (columnMomentsRecord
+                                                                              .count <=
                                                                           0) {
                                                                         context
                                                                             .pushNamed(
@@ -861,7 +872,10 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                                               Align(
                                                                                                 alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                                                 child: Text(
-                                                                                                  '${columnCount.toString()} moments',
+                                                                                                  '${valueOrDefault<String>(
+                                                                                                    columnMomentsRecord.count.toString(),
+                                                                                                    '0',
+                                                                                                  )} moments',
                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                         fontFamily: 'Helvetica',
                                                                                                         color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -977,92 +991,8 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                   ),
                                                                 ),
                                                               ],
-                                                            ),
-                                                            Stack(
-                                                              alignment:
-                                                                  const AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              children: [
-                                                                Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .center,
-                                                                  children: [
-                                                                    SizedBox(
-                                                                      height:
-                                                                          100.0,
-                                                                      child:
-                                                                          VerticalDivider(
-                                                                        thickness:
-                                                                            1.0,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .accent4,
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                Container(
-                                                                  width: MediaQuery.sizeOf(
-                                                                              context)
-                                                                          .width *
-                                                                      0.6,
-                                                                  height: 40.0,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            24.0),
-                                                                    border:
-                                                                        Border
-                                                                            .all(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondaryBackground,
-                                                                      width:
-                                                                          1.0,
-                                                                    ),
-                                                                  ),
-                                                                  child: Align(
-                                                                    alignment:
-                                                                        const AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      dateTimeFormat(
-                                                                        "d MMMM y",
-                                                                        listViewMemoriesRecord
-                                                                            .createdTime!,
-                                                                        locale:
-                                                                            FFLocalizations.of(context).languageCode,
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Helvetica',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondaryBackground,
-                                                                            fontSize:
-                                                                                20.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.normal,
-                                                                            useGoogleFonts:
-                                                                                false,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ],
+                                                            );
+                                                          }),
                                                         );
                                                       },
                                                     );

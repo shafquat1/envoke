@@ -64,7 +64,7 @@ class MemoriesTimelineModel extends FlutterFlowModel<MemoriesTimelineWidget> {
           nextPageMarker: nextPageMarker,
           streamSubscriptions: listViewStreamSubscriptions1,
           controller: controller,
-          pageSize: 10,
+          pageSize: 5,
           isStream: true,
         ),
       );
@@ -96,7 +96,7 @@ class MemoriesTimelineModel extends FlutterFlowModel<MemoriesTimelineWidget> {
           nextPageMarker: nextPageMarker,
           streamSubscriptions: listViewStreamSubscriptions2,
           controller: controller,
-          pageSize: 10,
+          pageSize: 5,
           isStream: true,
         ),
       );

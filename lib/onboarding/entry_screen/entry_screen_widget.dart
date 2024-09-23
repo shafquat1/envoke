@@ -25,6 +25,8 @@ class _EntryScreenWidgetState extends State<EntryScreenWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => EntryScreenModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
