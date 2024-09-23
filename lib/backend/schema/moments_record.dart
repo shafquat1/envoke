@@ -45,11 +45,6 @@ class MomentsRecord extends FirestoreRecord {
   DateTime? get createdAt => _createdAt;
   bool hasCreatedAt() => _createdAt != null;
 
-  // "count" field.
-  int? _count;
-  int get count => _count ?? 0;
-  bool hasCount() => _count != null;
-
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -59,7 +54,6 @@ class MomentsRecord extends FirestoreRecord {
     _notes = snapshotData['notes'] as String?;
     _imgBlurHash = snapshotData['img_blur_hash'] as String?;
     _createdAt = snapshotData['created_at'] as DateTime?;
-    _count = castToType<int>(snapshotData['count']);
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -108,7 +102,6 @@ Map<String, dynamic> createMomentsRecordData({
   String? notes,
   String? imgBlurHash,
   DateTime? createdAt,
-  int? count,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -118,7 +111,6 @@ Map<String, dynamic> createMomentsRecordData({
       'notes': notes,
       'img_blur_hash': imgBlurHash,
       'created_at': createdAt,
-      'count': count,
     }.withoutNulls,
   );
 
@@ -135,8 +127,7 @@ class MomentsRecordDocumentEquality implements Equality<MomentsRecord> {
         e1?.title == e2?.title &&
         e1?.notes == e2?.notes &&
         e1?.imgBlurHash == e2?.imgBlurHash &&
-        e1?.createdAt == e2?.createdAt &&
-        e1?.count == e2?.count;
+        e1?.createdAt == e2?.createdAt;
   }
 
   @override
@@ -146,8 +137,7 @@ class MomentsRecordDocumentEquality implements Equality<MomentsRecord> {
         e?.title,
         e?.notes,
         e?.imgBlurHash,
-        e?.createdAt,
-        e?.count
+        e?.createdAt
       ]);
 
   @override

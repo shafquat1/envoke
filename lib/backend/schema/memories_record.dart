@@ -45,6 +45,11 @@ class MemoriesRecord extends FirestoreRecord {
   String get createdAt => _createdAt ?? '';
   bool hasCreatedAt() => _createdAt != null;
 
+  // "moment_count" field.
+  int? _momentCount;
+  int get momentCount => _momentCount ?? 0;
+  bool hasMomentCount() => _momentCount != null;
+
   void _initializeFields() {
     _userId = snapshotData['user_id'] as String?;
     _memoryTitle = snapshotData['memory_title'] as String?;
@@ -52,6 +57,7 @@ class MemoriesRecord extends FirestoreRecord {
     _createdTime = snapshotData['created_time'] as DateTime?;
     _imgBlurHash = snapshotData['img_blur_hash'] as String?;
     _createdAt = snapshotData['created_at'] as String?;
+    _momentCount = castToType<int>(snapshotData['moment_count']);
   }
 
   static CollectionReference get collection =>
@@ -95,6 +101,7 @@ Map<String, dynamic> createMemoriesRecordData({
   DateTime? createdTime,
   String? imgBlurHash,
   String? createdAt,
+  int? momentCount,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -104,6 +111,7 @@ Map<String, dynamic> createMemoriesRecordData({
       'created_time': createdTime,
       'img_blur_hash': imgBlurHash,
       'created_at': createdAt,
+      'moment_count': momentCount,
     }.withoutNulls,
   );
 
@@ -120,7 +128,8 @@ class MemoriesRecordDocumentEquality implements Equality<MemoriesRecord> {
         e1?.imgUrl == e2?.imgUrl &&
         e1?.createdTime == e2?.createdTime &&
         e1?.imgBlurHash == e2?.imgBlurHash &&
-        e1?.createdAt == e2?.createdAt;
+        e1?.createdAt == e2?.createdAt &&
+        e1?.momentCount == e2?.momentCount;
   }
 
   @override
@@ -130,7 +139,8 @@ class MemoriesRecordDocumentEquality implements Equality<MemoriesRecord> {
         e?.imgUrl,
         e?.createdTime,
         e?.imgBlurHash,
-        e?.createdAt
+        e?.createdAt,
+        e?.momentCount
       ]);
 
   @override

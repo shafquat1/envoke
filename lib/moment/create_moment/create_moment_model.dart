@@ -1,4 +1,3 @@
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'create_moment_widget.dart' show CreateMomentWidget;
 import 'package:flutter/material.dart';
@@ -60,8 +59,6 @@ class CreateMomentModel extends FlutterFlowModel<CreateMomentWidget> {
   String uploadedFileUrl2 = '';
 
   AudioRecorder? audioRecorder;
-  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
-  MomentsRecord? output;
 
   @override
   void initState(BuildContext context) {
