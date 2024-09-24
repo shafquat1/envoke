@@ -1346,8 +1346,13 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                       },
                                                                     ),
                                                                   });
-
-                                                                  context.goNamed(
+                                                                  if (Navigator.of(
+                                                                          context)
+                                                                      .canPop()) {
+                                                                    context
+                                                                        .pop();
+                                                                  }
+                                                                  context.pushNamed(
                                                                       'MemoriesTimeline');
                                                                 } else {
                                                                   await MomentsRecord.createDoc(widget
@@ -1381,8 +1386,13 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                       },
                                                                     ),
                                                                   });
-
-                                                                  context.goNamed(
+                                                                  if (Navigator.of(
+                                                                          context)
+                                                                      .canPop()) {
+                                                                    context
+                                                                        .pop();
+                                                                  }
+                                                                  context.pushNamed(
                                                                       'MemoriesTimeline');
                                                                 }
                                                               },

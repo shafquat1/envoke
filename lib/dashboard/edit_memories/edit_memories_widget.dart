@@ -1021,8 +1021,11 @@ class _EditMemoriesWidgetState extends State<EditMemoriesWidget> {
                                                                   .secondary,
                                                         ),
                                                       );
-
-                                                      context.goNamed(
+                                                      if (Navigator.of(context)
+                                                          .canPop()) {
+                                                        context.pop();
+                                                      }
+                                                      context.pushNamed(
                                                           'MemoriesTimeline');
 
                                                       return;

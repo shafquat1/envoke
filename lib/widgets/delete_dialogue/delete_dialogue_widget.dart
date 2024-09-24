@@ -165,7 +165,10 @@ class _DeleteDialogueWidgetState extends State<DeleteDialogueWidget> {
                               await widget.memory!.reference.delete();
                             }
 
-                            Navigator.pop(context);
+                            if (Navigator.of(context).canPop()) {
+                              context.pop();
+                            }
+                            context.pushNamed('MemoriesTimeline');
                           },
                           text: FFLocalizations.of(context).getText(
                             '6swf9u4l' /* Yes */,
