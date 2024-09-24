@@ -268,7 +268,6 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                   },
                                                   child: ListView.builder(
                                                     padding: EdgeInsets.zero,
-                                                    primary: false,
                                                     shrinkWrap: true,
                                                     scrollDirection:
                                                         Axis.vertical,
@@ -281,6 +280,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                           listViewMemoriesRecordList[
                                                               listViewIndex];
                                                       return SingleChildScrollView(
+                                                        primary: false,
                                                         child: Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -649,6 +649,7 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                           listViewMemoriesRecordList[
                                                               listViewIndex];
                                                       return SingleChildScrollView(
+                                                        primary: false,
                                                         child: Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
