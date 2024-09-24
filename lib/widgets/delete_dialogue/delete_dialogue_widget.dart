@@ -165,15 +165,15 @@ class _DeleteDialogueWidgetState extends State<DeleteDialogueWidget> {
                               await widget.memory!.reference.update({
                                 ...mapToFirestore(
                                   {
-                                    'moment_count': FieldValue.increment(-(1)),
+                                    'moment_count': FieldValue.increment(-1),
                                   },
                                 ),
                               });
+                              Navigator.pop(context);
                             } else {
                               await widget.memory!.reference.delete();
+                              Navigator.pop(context);
                             }
-
-                            Navigator.pop(context);
                           },
                           text: FFLocalizations.of(context).getText(
                             '6swf9u4l' /* Yes */,
