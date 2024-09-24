@@ -1110,11 +1110,7 @@ class _CreateMemoriesWidgetState extends State<CreateMemoriesWidget> {
                                                         shouldSetState = true;
                                                       }
 
-                                                      if (Navigator.of(context)
-                                                          .canPop()) {
-                                                        context.pop();
-                                                      }
-                                                      context.pushNamed(
+                                                      context.goNamed(
                                                           'MemoriesTimeline');
 
                                                       if (shouldSetState) {
