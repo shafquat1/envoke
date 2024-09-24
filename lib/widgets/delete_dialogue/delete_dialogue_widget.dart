@@ -161,6 +161,14 @@ class _DeleteDialogueWidgetState extends State<DeleteDialogueWidget> {
                           onPressed: () async {
                             if (widget.moment != null) {
                               await widget.moment!.reference.delete();
+
+                              await widget.memory!.reference.update({
+                                ...mapToFirestore(
+                                  {
+                                    'moment_count': FieldValue.increment(-(1)),
+                                  },
+                                ),
+                              });
                             } else {
                               await widget.memory!.reference.delete();
                             }
