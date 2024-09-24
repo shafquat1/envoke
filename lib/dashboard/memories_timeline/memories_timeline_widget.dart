@@ -291,7 +291,6 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                 .itemList![
                                                             listViewIndex];
                                                     return SingleChildScrollView(
-                                                      primary: false,
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -674,7 +673,6 @@ class _MemoriesTimelineWidgetState extends State<MemoriesTimelineWidget> {
                                                                 .itemList![
                                                             listViewIndex];
                                                     return SingleChildScrollView(
-                                                      primary: false,
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
