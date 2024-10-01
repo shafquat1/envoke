@@ -1042,7 +1042,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                         padding:
                                                             const EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    0.0,
+                                                                    20.0,
                                                                     10.0,
                                                                     0.0,
                                                                     0.0),
@@ -1199,7 +1199,7 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                         padding:
                                                             const EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    0.0,
+                                                                    15.0,
                                                                     5.0,
                                                                     0.0,
                                                                     0.0),

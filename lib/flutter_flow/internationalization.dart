@@ -472,12 +472,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': 'Ändern',
     },
     '1ku15o53': {
-      'en': 'Change background',
-      'de': '',
+      'en': 'Delete Account',
+      'de': 'Mein Konto löschen',
     },
     '4h3l4ucc': {
       'en': 'Delete Account',
-      'de': '',
+      'de': 'Konto löschen',
     },
     'ubi7codk': {
       'en': 'Delete Account',

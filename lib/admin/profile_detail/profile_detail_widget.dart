@@ -1124,7 +1124,7 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                               33.0, 30.0, 0.0, 10.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              '1ku15o53' /* Change background */,
+                              '1ku15o53' /* Delete Account */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
