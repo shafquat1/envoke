@@ -1195,26 +1195,28 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                           },
                                                         ),
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    15.0,
-                                                                    5.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: SizedBox(
-                                                          width: 40.0,
-                                                          height: 40.0,
-                                                          child: custom_widgets
-                                                              .CustomTimer(
+                                                      if (_model.showTimer ==
+                                                          true)
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      15.0,
+                                                                      5.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: SizedBox(
                                                             width: 40.0,
                                                             height: 40.0,
-                                                            isRecording: _model
-                                                                .showTimer,
+                                                            child: custom_widgets
+                                                                .CustomTimer(
+                                                              width: 40.0,
+                                                              height: 40.0,
+                                                              isRecording: _model
+                                                                  .showTimer,
+                                                            ),
                                                           ),
                                                         ),
-                                                      ),
                                                     ],
                                                   );
                                                 } else {
@@ -1263,8 +1265,6 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                   microphonePermission)) {
                                                                 _model.isRecording =
                                                                     true;
-                                                                safeSetState(
-                                                                    () {});
                                                                 _model.showTimer =
                                                                     true;
                                                                 safeSetState(
