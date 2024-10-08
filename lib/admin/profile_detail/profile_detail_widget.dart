@@ -1239,56 +1239,80 @@ class _ProfileDetailWidgetState extends State<ProfileDetailWidget> {
                       ],
                     ),
                     Flexible(
-                      child: Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              75.0, 120.0, 75.0, 40.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              FFAppState().nfcTag = '';
-                              FFAppState().userGuid = '';
-                              GoRouter.of(context).prepareAuthEvent();
-                              await authManager.signOut();
-                              GoRouter.of(context).clearRedirectLocation();
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            75.0, 120.0, 75.0, 0.0),
+                        child: SizedBox(
+                          height: 100.0,
+                          child: Stack(
+                            children: [
+                              Align(
+                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    FFAppState().nfcTag = '';
+                                    FFAppState().userGuid = '';
+                                    GoRouter.of(context).prepareAuthEvent();
+                                    await authManager.signOut();
+                                    GoRouter.of(context)
+                                        .clearRedirectLocation();
 
-                              context.goNamedAuth(
-                                  'EntryScreen', context.mounted);
-                            },
-                            text: FFLocalizations.of(context).getText(
-                              'c3rj4p4r' /* Logout */,
-                            ),
-                            icon: const Icon(
-                              Icons.power_settings_new_outlined,
-                              color: Color(0xFF060606),
-                              size: 25.0,
-                            ),
-                            options: FFButtonOptions(
-                              width: double.infinity,
-                              height: 65.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 20.0, 20.0, 20.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Helvetica',
-                                    color: const Color(0xFF060606),
-                                    fontSize: 20.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
-                                    useGoogleFonts: false,
+                                    context.goNamedAuth(
+                                        'EntryScreen', context.mounted);
+                                  },
+                                  text: FFLocalizations.of(context).getText(
+                                    'c3rj4p4r' /* Logout */,
                                   ),
-                              elevation: 3.0,
-                              borderSide: const BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
+                                  icon: const Icon(
+                                    Icons.power_settings_new_outlined,
+                                    color: Color(0xFF060606),
+                                    size: 25.0,
+                                  ),
+                                  options: FFButtonOptions(
+                                    width: double.infinity,
+                                    height: 65.0,
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        20.0, 20.0, 20.0, 20.0),
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Helvetica',
+                                          color: const Color(0xFF060606),
+                                          fontSize: 20.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.normal,
+                                          useGoogleFonts: false,
+                                        ),
+                                    elevation: 3.0,
+                                    borderSide: const BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(100.0),
+                                  ),
+                                ),
                               ),
-                              borderRadius: BorderRadius.circular(100.0),
-                            ),
+                              Align(
+                                alignment: const AlignmentDirectional(0.07, 0.58),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'sdaag4hz' /* 08-OCT-2024 */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Helvetica',
+                                        fontSize: 15.0,
+                                        letterSpacing: 0.0,
+                                        useGoogleFonts: false,
+                                      ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),

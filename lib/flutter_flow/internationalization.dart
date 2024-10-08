@@ -487,6 +487,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Logout',
       'de': 'Ausloggen',
     },
+    'sdaag4hz': {
+      'en': '08-OCT-2024',
+      'de': '',
+    },
     'yh5vfjg9': {
       'en': 'Home',
       'de': 'Heim',
