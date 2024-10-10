@@ -790,6 +790,10 @@ class _CreateMomentWidgetState extends State<CreateMomentWidget> {
                                                                             _model.showImg =
                                                                                 false;
                                                                             safeSetState(() {});
+                                                                            await _model.pageViewController?.previousPage(
+                                                                              duration: const Duration(milliseconds: 300),
+                                                                              curve: Curves.ease,
+                                                                            );
                                                                           },
                                                                           child:
                                                                               Icon(

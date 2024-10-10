@@ -207,7 +207,7 @@ class _NfcScanTagWidgetState extends State<NfcScanTagWidget> {
                     borderRadius: BorderRadius.circular(24.0),
                   ),
                   child: Lottie.asset(
-                    'assets/lottie_animations/NFC_Scan.json',
+                    'assets/jsons/NFC_Scan.json',
                     width: 100.0,
                     height: 100.0,
                     fit: BoxFit.contain,
